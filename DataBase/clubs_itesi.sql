@@ -6,7 +6,7 @@ USE clubs_itesi;
 CREATE TABLE roles (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO roles (nombre)
 VALUES ('Administrador'), ('Presidente'), ('Consulta');
@@ -18,7 +18,7 @@ CREATE TABLE usuarios (
   contraseña VARCHAR(50) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   id_rol INT NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO usuarios (nombre, correo, contraseña, id_rol)
 VALUES ('Oscar', 'oscar@gmail.com', '12345678', 1),
@@ -30,7 +30,7 @@ VALUES ('Oscar', 'oscar@gmail.com', '12345678', 1),
 CREATE TABLE especialidad_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO especialidad_club (nombre)
 VALUES ('Tecnm'), ('Robotica'), ('Astronomia'), ('Girl Up'), ('Astrología');
@@ -38,7 +38,7 @@ VALUES ('Tecnm'), ('Robotica'), ('Astronomia'), ('Girl Up'), ('Astrología');
 CREATE TABLE categoria_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO categoria_club (nombre)
 VALUES ('Ciencia y Tecnología'), ('Desarrollo Humano'), ('Deporte'), ('Arte'), ('Cultura');
@@ -46,16 +46,16 @@ VALUES ('Ciencia y Tecnología'), ('Desarrollo Humano'), ('Deporte'), ('Arte'), 
 CREATE TABLE plantel (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO plantel(nombre)
 VALUES ('Instituto Tecnológico Superior De Irapuato');
+
 
 CREATE TABLE clubes (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
   objetivo TEXT NOT NULL,
-  logo VARCHAR(100) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 --   plan_anual VARCHAR(50),
 --   acta_constitutiva VARCHAR(50),
@@ -63,12 +63,19 @@ CREATE TABLE clubes (
   id_plantel INT NOT NULL,
   id_especialidad INT NOT NULL,
   id_categoria_club INT NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO clubes (name, objetivo, logo, estatus, id_plantel, id_especialidad, id_categoria_club)
-VALUES ('Ajedrez', 'Jugar y ganar para la representación del itesi', 'logo', 'activo', 1, 1, 3),
-       ('Astrología', 'Estudiar y aprender acerca de los astros y demás en el itesi', 'logo', 'activo', 1, 5, 1),
-       ('Robotonicos', 'Realización de robots y maquinas para la automatización en la industraia', 'logo', 'activo', 1, 2, 1);
+INSERT INTO clubes (name, objetivo, estatus, id_plantel, id_especialidad, id_categoria_club)
+VALUES ('Ajedrez', 'Jugar y ganar para la representación del itesi', 'activo', 1, 1, 3),
+       ('Astrología', 'Estudiar y aprender acerca de los astros y demás en el itesi', 'activo', 1, 5, 1),
+       ('Robotonicos', 'Realización de robots y maquinas para la automatización en la industraia', 'activo', 1, 2, 1);
+
+CREATE TABLE logo_clubs (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    ruta VARCHAR(100) NOT NULL,
+    id_club INT NOT NULL
+);
 
 
 CREATE TABLE archivos_plan_anual_club (
@@ -76,30 +83,27 @@ CREATE TABLE archivos_plan_anual_club (
   nombre VARCHAR(50) NOT NULL,
   ruta VARCHAR(50) NOT NULL,
   id_club INT NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE archivos_acta_constitutiva_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
   ruta VARCHAR(50) NOT NULL,
   id_club INT NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Tablas para la administración de miembros
 
 CREATE TABLE especialidad_miebro (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-DROP TABLE especialidad_miebro;
 
 CREATE TABLE rol_miembro_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL
-);
-
-DROP TABLE rol_miembro_club;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO rol_miembro_club (nombre)
 VALUES ('Presidente'), ('Secretario'), ('Tesorero'), ('Vocal'), ('Vocal'), ('Miembro'), ('Asistente'), ('Asesor Interno'), ('Asesor Externo');
@@ -118,7 +122,7 @@ CREATE TABLE miembros_club (
   id_especialidad INT NOT NULL,
   id_rol_member_club INT NOT NULL,
   id_club INT NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 INSERT INTO miembros_club (no_control, nombre, apellido_paterno, apellido_materno,
@@ -148,17 +152,17 @@ CREATE TABLE `actividad`(
   `id_tipo_actividad` INT NOT NULL,
   `id_club` INT NOT NULL,
   `id_idioma` INT NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `habilidades`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `nombre` varchar(50) NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `tipo_actividad`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `nombre` varchar(50) NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `evidencia`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -166,16 +170,16 @@ CREATE TABLE `evidencia`(
   `tipo` varchar(50) NOT NULL,
   `ruta` varchar(200) NOT NULL,
   `id_actividad` int NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `idioma`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `idioma` varchar(20) NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `incidencias`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `motivo` varchar(250) NOT NULL,
   `fecha` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `id_actividad` int NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
