@@ -3,7 +3,7 @@ import { useFetch_RequestGet } from '../../../../hooks/useFetchGet'
 
 export const Lenguage = () => {
 
-    const { data } = useFetch_RequestGet('');
+    const { data } = useFetch_RequestGet('get_all_idioms');
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();

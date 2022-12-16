@@ -102,29 +102,29 @@ switch ($servicesName){
         break;
 //Skills
     case 'get_all_skills':
-        echo secure_json_decode($services_skills->get_all_skills());
+        echo secure_json_encode($services_skills->get_all_skills());
         break;
 
     case 'insert_a_new_skill':
         if(isset($_POST['skill_info'])){
-            echo secure_json_decode($services_skills->insert_a_new_skill($_POST['skill_info']));
+            echo $services_skills->insert_a_new_skill(secure_json_decode($_POST['skill_info']));
         }else{
             echo "Error";
         }
         break;
 //Idiomas
     case 'get_all_idioms':
-        echo secure_json_decode($service_idioms->insert_a_new_idioma());
+        echo secure_json_encode($service_idioms->get_all_idioms());
         break;
     case 'insert_a_new_idiom':
         if(isset($_POST['idiom_info'])){
-            echo secure_json_decode($service_idioms->insert_a_new_idioma($_POST['idiom_info']));
+            echo $service_idioms->insert_a_new_idioma(secure_json_decode($_POST['idiom_info']));
         }else{
             echo "Error";
         }
 //Incidencias
     case 'get_all_incidencias':
-        echo secure_json_decode($services_incidencias->get_all_incidencias());
+        echo secure_json_encode($services_incidencias->get_all_incidencias());
         break;
 
     default:
