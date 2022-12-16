@@ -187,15 +187,23 @@ CREATE TABLE `actividad`(
   `id_idioma` INT NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+
 CREATE TABLE `habilidades`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `nombre` varchar(50) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO habilidades (nombre)
+VALUES ('Lider'), ('Comunicación'), ('Trabajo en Equipo');
+
 CREATE TABLE `tipo_actividad`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `nombre` varchar(50) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO tipo_actividad (nombre)
+VALUES ('Conferencia'), ('Curso'), ('Taller'), ('Panel'), ('Concurso'), ('Convocatoria'), ('Campaña');
 
 CREATE TABLE `evidencia`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -209,6 +217,9 @@ CREATE TABLE `idioma`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `idioma` varchar(20) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO idioma(idioma)
+VALUES ('Español'), ('Ingles'), ('Franses');
 
 CREATE TABLE `incidencias`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
