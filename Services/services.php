@@ -34,6 +34,9 @@ include_once './model/Actividad.php';
 include_once './model/Plantel.php';
 include_once './model/CategoryClub.php';
 include_once './model/ClubSpecialty.php';
+include_once './model/Habilidades.php';
+include_once './model/Idioma.php';
+include_once './model/Incidencias.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -42,7 +45,9 @@ $services_activities = new Actividad();
 $services_campuses = new Plantel();
 $services_category_to_club = new CategoryClub();
 $services_club_speciality = new ClubSpecialty();
-
+$services_skills=new Habilidades();
+$service_idioms=new Idioma();
+$services_incidencias=new Incidencias();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -80,6 +85,7 @@ switch ($servicesName){
             echo secure_json_encode($services_activities->get_activities_by_club($_GET['club_id']));
         }
         break;
+
     case 'get_activities_by_id':
         if ( isset($_GET['activities_id'] ) ) {
             echo secure_json_encode($services_activities->get_activities_by_id($_GET['activities_id']));
@@ -94,6 +100,33 @@ switch ($servicesName){
     case 'get_all_clubs_speciality':
         echo secure_json_encode($services_club_speciality->get_all_clubs_speciality());
         break;
+//Skills
+    case 'get_all_skills':
+        echo secure_json_decode($services_skills->get_all_skills());
+        break;
+
+    case 'insert_a_new_skill':
+        if(isset($_POST['skill_info'])){
+            echo secure_json_decode($services_skills->insert_a_new_skill($_POST['skill_info']));
+        }else{
+            echo "Error";
+        }
+        break;
+//Idiomas
+    case 'get_all_idioms':
+        echo secure_json_decode($service_idioms->insert_a_new_idioma());
+        break;
+    case 'insert_a_new_idiom':
+        if(isset($_POST['idiom_info'])){
+            echo secure_json_decode($service_idioms->insert_a_new_idioma($_POST['idiom_info']));
+        }else{
+            echo "Error";
+        }
+//Incidencias
+    case 'get_all_incidencias':
+        echo secure_json_decode($services_incidencias->get_all_incidencias());
+        break;
+
     default:
         echo 'Error: wrong service.get';
         break;
