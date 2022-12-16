@@ -114,7 +114,7 @@ switch ($servicesName){
         break;
 //Idiomas
     case 'get_all_idioms':
-        echo secure_json_decode($service_idioms->insert_a_new_idioma());
+        echo secure_json_decode($service_idioms->get_all_idioms());
         break;
     case 'insert_a_new_idiom':
         if(isset($_POST['idiom_info'])){
