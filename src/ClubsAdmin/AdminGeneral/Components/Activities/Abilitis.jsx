@@ -3,7 +3,7 @@ import { useFetch_RequestGet } from '../../../../hooks/useFetchGet'
 
 export const Abilitis = () => {
 
-    const { data } = useFetch_RequestGet('');
+    const { data } = useFetch_RequestGet('get_all_skills');
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();
@@ -35,7 +35,7 @@ export const Abilitis = () => {
                             <label htmlFor='name'> Nombre </label>
                             <input type='text' className='form-control' id='name' />
                         </div>
-                        
+
                         <div className='d-flex mt-3 justify-content-end'>
                             <button type='submit' className='btn btn-primary'> Guardar </button>
                         </div>
@@ -74,7 +74,7 @@ export const Abilitis = () => {
                                             <td> { activitie?.nombre } </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Ir a la actividad </button>
+                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Editar </button>
                                             </td>
 
                                         </tr>

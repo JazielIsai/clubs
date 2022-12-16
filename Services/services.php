@@ -152,7 +152,7 @@ switch ($servicesName){
 
     // Especialidad
     case 'get_all_especialidad':
-        echo secure_json_encode($services_specialities->get_all_especialidad());
+        echo secure_json_encode($services_specialities->get_all_especialidades());
         break;
 
     case 'add_new_especialidad':

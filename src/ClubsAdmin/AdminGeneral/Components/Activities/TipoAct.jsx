@@ -73,7 +73,7 @@ export const TipoAct = () => {
                                             <td> { activitie?.nombre } </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Ir a la actividad </button>
+                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Editar </button>
                                             </td>
 
                                         </tr>

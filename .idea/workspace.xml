@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="" />
+    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +53,7 @@
       <updated>1670604232722</updated>
       <workItem from="1670604233944" duration="84000" />
       <workItem from="1671199804091" duration="4579000" />
-      <workItem from="1671208795694" duration="5204000" />
+      <workItem from="1671208795694" duration="6970000" />
     </task>
     <servers />
   </component>

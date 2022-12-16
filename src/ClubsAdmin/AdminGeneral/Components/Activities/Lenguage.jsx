@@ -70,10 +70,10 @@ export const Lenguage = () => {
                                         <tr key={index}>
 
                                             {/* <th scope="row"> {club?.id_club} </th> */}
-                                            <td> { activitie?.nombre } </td>
+                                            <td> { activitie?.idioma } </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Ir a la actividad </button>
+                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Editar </button>
                                             </td>
 
                                         </tr>
