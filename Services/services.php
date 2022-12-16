@@ -39,6 +39,7 @@ include_once './model/Idioma.php';
 include_once './model/Incidencias.php';
 include_once './model/UsuariosMiembros.php';
 include_once './model/Especialidad.php';
+include_once './model/rol_member_club.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -52,6 +53,7 @@ $service_idioms=new Idioma();
 $services_incidencias=new Incidencias();
 $services_users_club = new UsuariosMiembros();
 $services_specialities = new Especialidad();
+$services_rol_member_club = new rol_member_club();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -152,7 +154,7 @@ switch ($servicesName){
 
     // Especialidad
     case 'get_all_especialidad':
-        echo secure_json_encode($services_specialities->get_all_especialidades());
+        echo secure_json_encode($services_specialities->get_all_especialidad());
         break;
 
     case 'add_new_especialidad':
@@ -162,7 +164,20 @@ switch ($servicesName){
             echo "Error";
         }
         break;
+    //rol members club
+    case 'get_all_rol_members_clubs':
+        echo secure_json_encode($services_rol_member_club->get_all_rol_members_clubs());
+        break;
 
+    case 'get_rol_member_club_by_id':
+        if ( isset($_GET['rol_members_clubs_id']) )
+        echo secure_json_encode($services_rol_member_club->get_rol_member_club_by_id($_GET['rol_members_clubs_id']));
+        break;
+
+    case 'add_rol_member_club':
+        if ( isset($_POST['add_nombre_rol_member_club']) )
+        echo ($services_rol_member_club->add_rol_member_club($_POST['add_nombre_rol_member_club']));
+        break;    
 
     default:
         echo 'Error: wrong service.get';
