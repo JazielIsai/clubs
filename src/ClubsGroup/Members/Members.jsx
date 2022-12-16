@@ -20,7 +20,7 @@ export const Members = () => {
             </div>
     
             <div className=''>
-                <h1>Evidencias</h1>
+                <h1>Miembors del Club</h1>
                 <ViewMembers />
             </div>
 

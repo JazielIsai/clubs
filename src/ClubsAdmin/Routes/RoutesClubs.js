@@ -16,6 +16,10 @@ import { AddEvidences } from '../../ClubsGroup/Evidences/AddEvidences';
 import { EditEvidences } from '../../ClubsGroup/Evidences/EditEvidences';
 import { EditClub } from '../../ClubsGroup/Club/EditClub';
 import { UpdateUser } from '../Accounts/UpdateUser';
+import { AdminGeneral } from '../AdminGeneral/AdminGeneral';
+import { Members } from '../../ClubsGroup/Members/Members';
+import { AddMember } from '../../ClubsGroup/Members/AddMember';
+import { EditMember } from '../../ClubsGroup/Members/EditMember';
 
 
 export const RoutesClubs = () => {
@@ -42,14 +46,15 @@ export const RoutesClubs = () => {
               <Route path='evidences/add/:club_id' element={<AddEvidences />} />
               <Route path='evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
 
-              <Route path='members/:club_id' element={<div>Members</div>} />
-              <Route path='members/add/:club_id' element={<div>AddMembers</div>} />
-              <Route path='members/edit/:club_id/:id_member' element={<div>EditMembers</div>} />
+              <Route path='members/:club_id' element={<Members />} />
+              <Route path='members/add/:club_id' element={<AddMember />} />
+              <Route path='members/edit/:club_id/:id_member' element={<EditMember />} />
 
               <Route path="viewUsers" element={<ViewUsers />} />
               <Route path='registerUsers' element={<RegisterUser />} />
               <Route path='updateUser/:user_id' element={<UpdateUser />} />
 
+              <Route path="adminGeneral" element={<AdminGeneral />} />
               
               <Route path="/*" element={<Navigate to="/admin/dashboard" />} />
             </Routes>

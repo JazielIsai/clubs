@@ -23,4 +23,19 @@ class Actividad extends MethodsCrud {
 
         return $this->select_query($query, $params);
     }
+
+    public function get_activities_by_id ($activitie_id) {
+        $query = "
+            SELECT a.id, a.nombre, a.modalidad, a.objetivo_desarrollo_s, a.atributo_egreso, a.calificacion_valor,
+                   a.tipo_evidencia, a.responsable, a.observaciones, a.estatus, a.modelo, a.dominio,
+                   a.id_habilidad_desarrollada, a.id_tipo_actividad, a.id_club, a.id_club
+            FROM actividad a
+            WHERE a.id = ?;
+        ";
+
+        $params = array($activitie_id);
+
+        return $this->select_query($query, $params);
+    }
+
 }

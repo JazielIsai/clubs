@@ -4,7 +4,7 @@ import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 
 export const ViewActivities = () => {
 
-    const {club_id} = useParams();
+    const { club_id } = useParams();
     const navigate = useNavigate();
     
 
@@ -23,12 +23,12 @@ export const ViewActivities = () => {
         }
     }, [activitiesByClub] )
 
-    const handleNavigateToActivitie = () => {
-
+    const handleNavigateToActivitie = (id_activitie) => {
+        navigate(`/admin/activities/edit/${club_id}/${id_activitie}`)
     }
 
     const deleteUser = () => {
-
+        console.log('delete user');
     }
 
     return (

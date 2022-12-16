@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Services/model/RolesUsers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/model/Users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOCS/ModeloER_CLUBS.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/DOCS/ModeloER_CLUBS.mdj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/model/Actividad.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Actividad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Clubes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Clubes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/components/TableUsers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/components/TableUsers.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/ListCardClubs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/ListCardClubs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/baseUrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/baseUrl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/EditActivitie.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/EditActivitie.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +39,9 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/var/www/html/clubs",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -57,7 +55,8 @@
       <option name="presentableId" value="Default" />
       <updated>1670604232722</updated>
       <workItem from="1670604233944" duration="84000" />
-      <workItem from="1671199804091" duration="3980000" />
+      <workItem from="1671199804091" duration="4579000" />
+      <workItem from="1671208795694" duration="2721000" />
     </task>
     <servers />
   </component>

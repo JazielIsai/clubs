@@ -73,6 +73,12 @@ switch ($servicesName){
             echo secure_json_encode($services_activities->get_activities_by_club($_GET['club_id']));
         }
         break;
+    case 'get_activities_by_id':
+        if ( isset($_GET['activities_id'] ) ) {
+            echo secure_json_encode($services_activities->get_activities_by_id($_GET['activities_id']));
+        }
+        break;
+
 
     default:
         echo 'Error: wrong service.';
