@@ -19,7 +19,7 @@ export const useFetch_RequestGet = ( nameServices ) =>{
         })
 
         fetch( urlDB.concat(nameServices) )
-            .then( resp => resp.json() )
+            .then( resp => resp.text() )
             .then( data => {               
                 setStateData({
                     loading: false,

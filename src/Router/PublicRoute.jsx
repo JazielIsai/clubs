@@ -4,7 +4,7 @@ import { AuthContext } from "../Auth"
 
 export const PublicRoutes = ({children}) => {
   
-    const {logged} = useContext(AuthContext)
+    const {logged, rol_user} = useContext(AuthContext)
 
     return ( !logged )
         ? children

@@ -1,18 +1,20 @@
 import React from 'react'
 
-export const CardNumeric = () => {
+export const CardNumeric = ({ numeric = '10', description = 'description', icon, styles = {} }) => {
   return (
-    <div class="col-xl-3 col-sm-6 col-12">
+    <div class="col-xl-3 col-sm-6 col-12" style={styles}>
         <div class="card">
             <div class="card-content">
                 <div class="card-body">
-                    <div class="media d-flex">
-                        <div class="align-self-center">
-                            <i class="icon-graph success font-large-2 float-left"></i>
+                    <div class="row ">
+                        <div class="col-4">
+                            {icon}
                         </div>
-                        <div class="media-body text-right">
-                            <h3>64.89 %</h3>
-                            <span>Bounce Rate</span>
+                        <div class="col-8">
+                            <div className='me-3' style={{textAlign: 'end'}}>
+                                <h3 className=''>{numeric}</h3>
+                                <span className=''>{description}</span>
+                            </div>
                         </div>
                     </div>
                 </div>

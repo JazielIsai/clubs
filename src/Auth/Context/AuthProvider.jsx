@@ -25,9 +25,8 @@ export const AuthProvider = ({children}) => {
             user_id:dataUser.user_id,
             name:dataUser.name,
             lastname:dataUser.lastname,
-            lab:dataUser.lab,
             email: dataUser.email,
-            //main_role:dataUser.main_role
+            rol_user:dataUser.rol_user
         }
 
         localStorage.setItem('user', JSON.stringify(user));
@@ -42,10 +41,10 @@ export const AuthProvider = ({children}) => {
         
         const user = {
             user_id:dataUser.user_id,
-            name: dataUser.name,
-            lastname: dataUser.lastname,
-            lab: dataUser.lab,
-            email: dataUser.email
+            name:dataUser.name,
+            lastname:dataUser.lastname,
+            email: dataUser.email,
+            rol_user:dataUser.rol_user
         }
         
         localStorage.setItem('user', JSON.stringify(user));

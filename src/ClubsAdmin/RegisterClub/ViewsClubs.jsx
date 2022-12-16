@@ -1,10 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { ListCardClubs } from './components/ListCardClubs'
 import { TableClub } from './components/TableClub'
 
 
 export const ViewsClubs = () => {
 
+    const navigate = useNavigate();
+
+    const handleGoRegisterClub = () => {
+        navigate('/admin/registerClub')
+    }
 
 
     return (
@@ -21,6 +27,11 @@ export const ViewsClubs = () => {
             </nav>
             <div className="tab-content container" id="nav-tabContent">
                 <h2 className='text-center mt-3 mb-3' >Ver los clubs</h2>
+                <div className='d-flex justify-content-end' onClick={handleGoRegisterClub} >
+                    <button className="btn btn-primary">
+                        Registrar club
+                    </button>
+                </div>
                 <div className="tab-pane m-2 fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                     <ListCardClubs />
                 </div>

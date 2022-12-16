@@ -1,7 +1,8 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { AuthRoutes } from '../Auth'
-import { RoutesClubs } from '../Clubs/Routes/RoutesClubs'
+import { RoutesClubs } from '../ClubsAdmin/Routes/RoutesClubs'
+import { RoutesClubGroup } from '../ClubsGroup/Routes/RoutesClubGroup'
 import { PrivateRoutes } from './PrivateRoute'
 import { PublicRoutes } from './PublicRoute'
 
@@ -28,6 +29,15 @@ export const Router = () => {
                         element={
                             <PrivateRoutes>
                                 <RoutesClubs />
+                            </PrivateRoutes>
+                        }
+                    />
+
+                    <Route
+                        path='club/*' 
+                        element={
+                            <PrivateRoutes>
+                                <RoutesClubGroup />
                             </PrivateRoutes>
                         }
                     />

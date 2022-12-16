@@ -1,25 +1,25 @@
 import React from 'react'
 
-export const CardInfo = ({data}) => {
-
-    const onPress = () => {
-
-    }
+export const CardInfo = ({ img, nameClub, liderClub, dateCreated, handleNavigateTo }) => {
+    
 
     return (
         <div class="card" id="card" style={{width: '18rem'}}>
-                <img 
-                    src="https://liceumgm.com/wp-content/uploads/2018/07/club-de-ajedrez-liceum-3.jpg" 
-                    class="card-img-top rounded-circle m-auto mt-2" 
-                    id="cardImg" 
-                    alt={`${data?.name_club}`} 
-                />
-                <div class="card-body" id="cardBody">
-                    <h5 class="card-title" id="cardTitle"> ${data?.name_club} </h5>
-                    <p class="card-text" id="cardText"> Lider del club es: ${data?.manager_club} </p>
-                    <p class="card-text" id="cardText"> Miembros del club: ${ data?.student_club } </p>
-                    <a href="control_club.php" class="btn btn-primary" id="btnCard"> Ir al Club </a>
-                </div>
+            <img 
+                src={img} 
+                class="card-img-top rounded-circle m-auto mt-2"
+                style={{width: '250px', height: '250px'}} 
+                id="cardImg" 
+                alt={`${nameClub}`} 
+            />
+            <div class="card-body" id="cardBody">
+                <h5 class="card-title" id="cardTitle"> {nameClub} </h5>
+                <p class="card-text" id="cardText"> Lider del club es: {liderClub} </p>
+                <p class="card-text" id="cardText"> Fecha de creación: { dateCreated } </p>
+                <button class="btn btn-primary" id="btnCard" onClick={()=>handleNavigateTo()}> 
+                    Ir al Club
+                </button>
             </div>
+        </div>
     )
 }

@@ -1,8 +1,10 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CardNumeric } from '../../components/CardNumeric'
+import {HiOutlineUserGroup} from 'react-icons/hi';
 
 import { Chart } from "react-google-charts";
+import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 
 export const data = [
   ["Element", "Density", { role: "style" }],
@@ -14,12 +16,26 @@ export const data = [
 
 
 export const Dashboard = () => {
+
+  const { data : countClubs } = useFetch_RequestGet('get_count_clubes');
+
+  const [ getCountClubs, setCountClubs ] = useState(null);
+
+  useEffect ( () => {
+    try {
+      console.log(countClubs);
+      setCountClubs(JSON.parse(countClubs)[0]);
+    } catch (err ) {
+      console.log(err);
+    }
+  }, [countClubs] )
+
   return (
     <div className='container-fluid'>
     
       <div className='d-flex gap-2 justify-content-center align-middle'>
-        <CardNumeric />
-        <CardNumeric />
+        <CardNumeric numeric={getCountClubs?.count_club} description='Clubs' icon={<HiOutlineUserGroup style={{width: '100%', fontSize: '60px' }} />} />
+        <CardNumeric  />
         <CardNumeric />
       </div>
       
