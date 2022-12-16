@@ -83,7 +83,6 @@ CREATE TABLE logo_clubs (
     id_club INT NOT NULL
 );
 
-
 CREATE TABLE archivos_plan_anual_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
