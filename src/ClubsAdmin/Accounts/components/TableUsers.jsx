@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useFetch_RequestGet } from '../../../hooks/useFetchGet';
 
 export const TableUsers = () => {
 
     const navigate = useNavigate();
 
-    const editUser = () => {
+    const {data: users } = useFetch_RequestGet('get_all_users');
 
+    const [getColumnUsers, setColumUsers] = useState(null);
+    const [getDataUsers, setDataUsers] = useState(null);
+
+    useEffect( () => {
+        try {
+            console.log(JSON.parse(users));
+            setDataUsers(JSON.parse(users));
+            setColumUsers(JSON.parse(users)[0]);
+        }
+        catch (err) {
+            console.log(err);
+        }
+
+    }, [users] )
+
+    const handleNavigateEditUser = (id) => {
+        navigate(`/admin/updateUser/${id}`);
     }
 
     const deleteUser = () => {
@@ -19,32 +37,45 @@ export const TableUsers = () => {
             <div class="table-responsive">
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                         <tr>
+                            {
+                                getColumnUsers !== null &&
+                                getColumnUsers !== undefined && 
+                                    Object.keys(getColumnUsers).map( (keyRow, index) => {
+                                        
+                                        if (keyRow == 'id') { return null; }
+
+                                        return(
+                                            <th key={index} scope="col"> {keyRow} </th>
+                                        )
+                                    })
+                                    
+                            }
+                            <th scope="col"> Ir a </th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                        {
+                            getDataUsers !== null &&
+                            getDataUsers !== undefined && 
+                                getDataUsers.map( (user, index) => (
+                                    <tr key={index}>
+
+                                        {/* <th scope="row"> {club?.id_club} </th> */}
+                                        <td> { user?.nombre } </td>
+                                        <td> {user?.correo} </td>
+                                        <td>  {user?.fecha_creacion} </td>
+                                        <td>  { user?.rol_usuario }   </td>
+
+
+                                        <td>
+                                            <button onClick={()=>handleNavigateEditUser(user?.id)} class="btn btn-primary"> Editar Usuario </button>
+                                        </td>
+
+                                    </tr>
+                                ))
+                        }
                     </tbody>
                 </table>
             </div>

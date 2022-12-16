@@ -25,6 +25,11 @@ VALUES ('Oscar', 'oscar@gmail.com', '12345678', 1),
        ('Mariana', 'mariana@gmail.com', '123456', 2),
        ('Jaziel', 'isai@gmail.com', '123456', 3);
 
+SELECT usuarios.id, usuarios.nombre, usuarios.correo, usuarios.fecha_creacion,
+       roles.nombre as rol_usuario
+FROM usuarios
+INNER JOIN roles ON usuarios.id_rol = roles.id;
+
 -- Tablas para la administración de clubs
 
 CREATE TABLE especialidad_club (
@@ -75,6 +80,15 @@ INSERT INTO clubes (name, objetivo, estatus, id_plantel, id_especialidad, id_cat
 VALUES ('Ajedrez', 'Jugar y ganar para la representación del itesi', 'activo', 1, 1, 3),
        ('Astrología', 'Estudiar y aprender acerca de los astros y demás en el itesi', 'activo', 1, 5, 1),
        ('Robotonicos', 'Realización de robots y maquinas para la automatización en la industraia', 'activo', 1, 2, 1);
+
+SELECT clubes.id, clubes.name, clubes.objetivo, clubes.fecha_creacion, clubes.estatus,
+       plantel.nombre AS plantel, especialidad_club.nombre AS especialidad_club,
+       categoria_club.nombre AS categoria_club
+FROM clubes
+INNER JOIN plantel ON clubes.id_plantel = plantel.id
+INNER JOIN especialidad_club ON clubes.id_especialidad = especialidad_club.id
+INNER JOIN categoria_club ON clubes.id_categoria_club = categoria_club.id
+WHERE clubes.id = 1;
 
 CREATE TABLE logo_clubs (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -186,6 +200,21 @@ CREATE TABLE `actividad`(
   `id_idioma` INT NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO actividad (nombre, modalidad, objetivo_desarrollo_s, atributo_egreso, calificacion_valor,
+                       tipo_evidencia, responsable, observaciones, estatus, modelo, dominio,
+                       id_habilidad_desarrollada, id_tipo_actividad, id_club, id_idioma)
+VALUES ('Exponer sobre porque jugar ajedrez', 'virtual', 'Desarrollar ', 'Ninguno', '10', 'Fotos', 'Javier', 'Ninguna', 'Progreso', 'NINGUNO', 'privado', 3, 1, 1, 1);
+
+
+SELECT a.id, a.nombre, a.modalidad, a.objetivo_desarrollo_s, a.atributo_egreso, a.calificacion_valor,
+       a.tipo_evidencia, a.responsable, a.observaciones, a.estatus, a.modelo, a.dominio,
+       habilidades.nombre AS habilidad, tipo_actividad.nombre AS tipo_actividad, clubes.name AS club, idioma.idioma AS idioma
+FROM actividad a
+INNER JOIN habilidades ON habilidades.id = a.id_habilidad_desarrollada
+INNER JOIN tipo_actividad ON tipo_actividad.id = a.id_tipo_actividad
+INNER JOIN clubes ON clubes.id = a.id_club
+INNER JOIN idioma ON idioma.id = a.id_idioma
+WHERE clubes.id = 1;
 
 
 CREATE TABLE `habilidades`(

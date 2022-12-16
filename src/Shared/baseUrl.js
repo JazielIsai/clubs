@@ -1,2 +1,2 @@
-export const urlDBLogin = 'http://localhost/clubs-itesi/services/';
-export const urlDB = 'http://localhost/clubs-itesi/services/sevices_test.php?service_name=';
+export const urlDBLogin = 'http://localhost/clubs/Services/';
+export const urlDB = 'http://localhost/clubs/Services/services.php?servicesName=';

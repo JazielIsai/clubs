@@ -27,15 +27,32 @@ cors();
 
 include_once './config/DBCnx.php';
 include_once './model/MethodsCrud.php';
+include_once './model/RolesUsers.php';
+include_once './model/Users.php';
 include_once './model/Clubes.php';
-include_once './model/MethodsUsers.php';
+include_once './model/Actividad.php';
 
+$services_users = new Users();
 $services_clubes = new Clubes();
+$services_roles_user = new RolesUsers();
+$services_activities = new Actividad();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
 switch ($servicesName){
-    // Servicios para la tabla usuarios
+    //Services to table roles users
+    case 'get_all_roles':
+        echo secure_json_encode($services_roles_user->get_all_roles());
+        break;
+    //Services to table users
+    case 'get_all_users':
+        echo secure_json_encode($services_users->get_all_users());
+        break;
+    case 'get_user_by_id':
+        if ( isset($_GET['user_id']) )
+        echo secure_json_encode($services_users->get_user_by_id($_GET['user_id']));
+        break;
+    // Services to table clubs
     case 'get_all_clubs':
         echo secure_json_encode($services_clubes->get_all_clubs());
         break;
@@ -45,6 +62,16 @@ switch ($servicesName){
             echo 'Error: missing id.';
         else
             echo secure_json_encode($services_clubes->get_club_by_id($_GET['id']));
+        break;
+    
+        case 'get_count_clubs':
+        echo secure_json_encode($services_clubes->get_count_clubs());
+        break;
+
+    case 'get_activities_by_club':
+        if (isset( $_GET['club_id'] )) {
+            echo secure_json_encode($services_activities->get_activities_by_club($_GET['club_id']));
+        }
         break;
 
     default:

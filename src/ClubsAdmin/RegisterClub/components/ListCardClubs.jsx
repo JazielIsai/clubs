@@ -39,10 +39,10 @@ export const ListCardClubs = ({dataClub}) => {
                     <CardInfo
                         key={index}
                         img={buhosItesi}
-                        nameClub={dataClub?.nombre}
+                        nameClub={dataClub?.name}
                         liderClub={dataClub?.lider}
                         dateCreated={dataClub?.fecha_creacion}
-                        handleNavigateTo={() => navigateToClub(dataClub?.id_club)}
+                        handleNavigateTo={() => navigateToClub(dataClub?.id)}
                     />
                 ))
                     

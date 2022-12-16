@@ -1,13 +1,14 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ViewActivities } from './ViewActivities'
 
 export const Activities = () => {
 
   const navigate = useNavigate();
+  const { club_id } = useParams();
 
   const handleGoAddActivity = () => {
-    navigate('/admin/activities/add')
+    navigate('/admin/activities/add/'+club_id)
   }
 
   return (

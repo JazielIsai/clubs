@@ -37,7 +37,7 @@ export const TableClub = () => {
                         getColumnClubs !== undefined && 
                             Object.keys(getColumnClubs).map( (keyRow, index) => {
                                 
-                                if (keyRow === "id_club") { return null; }
+                                if (keyRow == 'id') { return null; }
 
                                 return(
                                     <th key={index} scope="col"> {keyRow} </th>
@@ -51,30 +51,29 @@ export const TableClub = () => {
                 </thead>
 
                 <tbody>
-                {
-                    getRowClubs !== null &&
-                    getRowClubs !== undefined && 
-                        getRowClubs.map( (club, index) => (
-                            <tr key={index}>
+                    {
+                        getRowClubs !== null &&
+                        getRowClubs !== undefined && 
+                            getRowClubs.map( (club, index) => (
+                                <tr key={index}>
 
-                                {/* <th scope="row"> {club?.id_club} </th> */}
-                                <td> { club?.nombre } </td>
-                                <td> {club?.objetivo} </td>
-                                <td>  {club?.plantel} </td>
-                                <td>  {club?.categoria} </td>
-                                <td>  {club?.especialidad} </td>
-                                <td>  {club?.logo} </td>
-                                <td>  {club?.fecha_creacion} </td>
-                                <td>  {club?.plan_anual} </td>
-                                <td>  {club?.acta_constitutiva} </td>
+                                    {/* <th scope="row"> {club?.id_club} </th> */}
+                                    <td> { club?.name } </td>
+                                    <td> {club?.objetivo} </td>
+                                    <td>  {club?.fecha_creacion} </td>
+                                    <td>  { club?.estatus }   </td>
+                                    <td>  {club?.plantel} </td>
+                                    <td>  {club?.categoria_club} </td>
+                                    <td>  {club?.especialidad_club} </td>
 
-                                <td>
-                                    <button onClick={()=>handleNavigateToClub(club?.id_club)} class="btn btn-primary"> Ir al Club </button>
-                                </td>
 
-                            </tr>
-                        ))
-                }
+                                    <td>
+                                        <button onClick={()=>handleNavigateToClub(club?.id_club)} class="btn btn-primary"> Ir al Club </button>
+                                    </td>
+
+                                </tr>
+                            ))
+                    }
                 </tbody>
 
 

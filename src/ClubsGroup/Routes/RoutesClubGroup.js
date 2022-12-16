@@ -5,6 +5,7 @@ import { Header } from '../../Includes/Header'
 import { Activities } from '../Activities/Activities'
 import { EditActivitie } from '../Activities/EditActivitie'
 import { NewActivite } from '../Activities/NewActivite'
+import { EditClub } from '../Club/EditClub'
 import { DashboardByClub } from '../Dashboard/DashboardByClub'
 import { AddEvidences } from '../Evidences/AddEvidences'
 import { EditEvidences } from '../Evidences/EditEvidences'
@@ -20,6 +21,7 @@ export const RoutesClubGroup = () => {
                 <Routes>
 
                     <Route path='dashboard' element={<DashboardByClub />} />
+                    <Route path='updateClub' element={<EditClub />} />
                     <Route path='activities' element={<Activities />} />
                     <Route path='activities/add' element={<NewActivite />} />
                     <Route path='activities/edit/:id' element={<EditActivitie/>} />

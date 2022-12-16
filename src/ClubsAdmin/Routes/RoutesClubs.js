@@ -14,6 +14,8 @@ import { EditActivitie } from '../../ClubsGroup/Activities/EditActivitie';
 import { Evidences } from '../../ClubsGroup/Evidences/Evidences';
 import { AddEvidences } from '../../ClubsGroup/Evidences/AddEvidences';
 import { EditEvidences } from '../../ClubsGroup/Evidences/EditEvidences';
+import { EditClub } from '../../ClubsGroup/Club/EditClub';
+import { UpdateUser } from '../Accounts/UpdateUser';
 
 
 export const RoutesClubs = () => {
@@ -24,26 +26,29 @@ export const RoutesClubs = () => {
             <Routes>
 
               <Route path="dashboard" element={<Dashboard />} />
+
               <Route path='registerClub' element={<RegisterClub />} />
+              <Route path='updateClub' element={<EditClub />} />
               
               <Route path="viewClubs" element={<ViewsClubs />} />
               <Route path="viewClubs/:id" element={<DashboardByClub />} />
               <Route path="registerClub" element={<RegisterClub />} />
               
-              <Route path="activities" element={<Activities />} />
-              <Route path='activities/add' element={<NewActivite />} />
-              <Route path='activities/edit/:id' element={<EditActivitie/>} />
+              <Route path="activities/:club_id" element={<Activities />} />
+              <Route path='activities/add/:club_id' element={<NewActivite />} />
+              <Route path='activities/edit/:club_id/:id_activitie' element={<EditActivitie/>} />
               
-              <Route path='evidences' element={<Evidences />} />
-              <Route path='evidences/add' element={<AddEvidences />} />
-              <Route path='evidences/edit/:id' element={<EditEvidences />} />
+              <Route path='evidences/:club_id' element={<Evidences />} />
+              <Route path='evidences/add/:club_id' element={<AddEvidences />} />
+              <Route path='evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
 
-              <Route path='members' element={<div>Members</div>} />
-              <Route path='members/add' element={<div>AddMembers</div>} />
-              <Route path='members/edit/:id' element={<div>EditMembers</div>} />
+              <Route path='members/:club_id' element={<div>Members</div>} />
+              <Route path='members/add/:club_id' element={<div>AddMembers</div>} />
+              <Route path='members/edit/:club_id/:id_member' element={<div>EditMembers</div>} />
 
               <Route path="viewUsers" element={<ViewUsers />} />
-              <Route path='registerUsers' element={<RegisterUser />} />          
+              <Route path='registerUsers' element={<RegisterUser />} />
+              <Route path='updateUser/:user_id' element={<UpdateUser />} />
 
               
               <Route path="/*" element={<Navigate to="/admin/dashboard" />} />
