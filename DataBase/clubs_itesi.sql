@@ -101,14 +101,14 @@ CREATE TABLE `actividad`(
   `nombre` varchar(50) NOT NULL,
   `modalidad` varchar(50) NOT NULL,
   `fecha` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `objetivo_desarrollo_s` text NOT NULL,
-  `atributo_egreso` varchar(250) NOT NULL,
+  `objetivo_desarrollo_s` text ,
+  `atributo_egreso` varchar(250) ,
   `calificacion_valor` INT NOT NULL,
   `tipo_evidencia` varchar(50) NOT NULL,
   `responsable` varchar(50) NOT NULL,
   `observaciones` TEXT,
   `estatus` varchar(20) NOT NULL,
-  `modelo` varchar(20) NOT NULL,
+  `modelo` varchar(20) ,
   `dominio` varchar(20) NOT NULL,
   `id_habilidad_desarrollada` INT NOT NULL,
   `id_tipo_actividad` INT NOT NULL,
@@ -143,5 +143,5 @@ CREATE TABLE `incidencias`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `motivo` varchar(250) NOT NULL,
   `fecha` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `id_actividad` int NOT NULL 
+  `id_actividad` int NOT NULL
 );
