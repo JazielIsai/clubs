@@ -38,6 +38,7 @@ include_once './model/Habilidades.php';
 include_once './model/Idioma.php';
 include_once './model/Incidencias.php';
 include_once './model/UsuariosMiembros.php';
+include_once './model/Especialidad.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -50,6 +51,7 @@ $services_skills=new Habilidades();
 $service_idioms=new Idioma();
 $services_incidencias=new Incidencias();
 $services_users_club = new UsuariosMiembros();
+$services_specialities = new Especialidad();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -129,7 +131,7 @@ switch ($servicesName){
         echo secure_json_encode($services_incidencias->get_all_incidencias());
         break;
 
-        //Usuarios Miembros
+//Usuarios Miembros
     case 'get_users_by_club':
         if (!isset($_GET['club_id']))
             echo 'Error: missing id.';
@@ -147,6 +149,21 @@ switch ($servicesName){
             echo ($services_users_club->add_new_user_club(secure_json_decode($_POST['user_info'])));
         }
         break;
+
+    // Especialidad
+    case 'get_all_especialidad':
+        echo secure_json_encode($services_specialities->get_all_especialidad());
+        break;
+
+    case 'add_new_especialidad':
+        if(isset($_POST['especialidad_info'])){
+            echo $services_specialities->add_new_especialidad(secure_json_decode($_POST['especialidad_info']));
+        }else{
+            echo "Error";
+        }
+        break;
+
+
     default:
         echo 'Error: wrong service.get';
         break;
