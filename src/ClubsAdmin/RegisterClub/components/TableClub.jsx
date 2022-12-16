@@ -4,7 +4,7 @@ import { useFetch_RequestGet } from '../../../hooks/useFetchGet'
 
 export const TableClub = () => {
 
-    const { data } = useFetch_RequestGet('get_all_clubes');
+    const { data } = useFetch_RequestGet('get_all_clubs');
 
     const navigate = useNavigate();
 

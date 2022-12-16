@@ -11,7 +11,7 @@ export const ListCardClubs = ({dataClub}) => {
 
     const img = "https://liceumgm.com/wp-content/uploads/2018/07/club-de-ajedrez-liceum-3.jpg";
     
-    const {data} = useFetch_RequestGet('get_all_clubes');
+    const {data} = useFetch_RequestGet('get_all_clubs');
 
     const [ getDataClubs, setDataClubs ] = useState(null);
 

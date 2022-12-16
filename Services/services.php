@@ -27,19 +27,24 @@ cors();
 
 include_once './config/DBCnx.php';
 include_once './model/MethodsCrud.php';
+include_once './model/Clubes.php';
+include_once './model/MethodsUsers.php';
 
-
+$services_clubes = new Clubes();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
 switch ($servicesName){
     // Servicios para la tabla usuarios
-    case '':
-        
+    case 'get_all_clubs':
+        echo secure_json_encode($services_clubes->get_all_clubs());
         break;
     
-    case '':
-    
+    case 'get_club_by_id':
+        if (!isset($_GET['id']))
+            echo 'Error: missing id.';
+        else
+            echo secure_json_encode($services_clubes->get_club_by_id($_GET['id']));
         break;
 
     default:
