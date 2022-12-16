@@ -31,11 +31,18 @@ include_once './model/RolesUsers.php';
 include_once './model/Users.php';
 include_once './model/Clubes.php';
 include_once './model/Actividad.php';
+include_once './model/Plantel.php';
+include_once './model/CategoryClub.php';
+include_once './model/ClubSpecialty.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
 $services_roles_user = new RolesUsers();
 $services_activities = new Actividad();
+$services_campuses = new Plantel();
+$services_category_to_club = new CategoryClub();
+$services_club_speciality = new ClubSpecialty();
+
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -78,10 +85,17 @@ switch ($servicesName){
             echo secure_json_encode($services_activities->get_activities_by_id($_GET['activities_id']));
         }
         break;
-
-
+    case 'get_all_campuses':
+        echo secure_json_encode($services_campuses->get_all_campuses());
+        break;
+    case 'get_all_category_to_club':
+        echo secure_json_encode($services_category_to_club->get_all_category_to_club());
+        break;
+    case 'get_all_clubs_speciality':
+        echo secure_json_encode($services_club_speciality->get_all_clubs_speciality());
+        break;
     default:
-        echo 'Error: wrong service.';
+        echo 'Error: wrong service.get';
         break;
 }
 

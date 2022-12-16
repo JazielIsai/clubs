@@ -28,6 +28,7 @@ export const Header = () => {
             <li><NavLink to="/admin/ViewUsers" className="nav-link px-2 link-dark">Usuarios</NavLink></li>
             <li><NavLink to="#" className="nav-link px-2 link-dark"> Evaluación </NavLink></li>
             <li><NavLink to="/admin/adminGeneral" className="nav-link px-2 link-dark"> Administración </NavLink></li>
+            <li><NavLink to="/admin/reports" className="nav-link px-2 link-dark"> Reportes </NavLink></li>
 
           </ul>
 
