@@ -5,8 +5,11 @@ USE clubs_itesi;
 
 CREATE TABLE roles (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(50) NOT NULL,
+  nombre VARCHAR(50) NOT NULL
 );
+
+INSERT INTO roles (nombre)
+VALUES ('Administrador'), ('Presidente'), ('Consulta');
 
 CREATE TABLE usuarios (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -14,11 +17,39 @@ CREATE TABLE usuarios (
   correo VARCHAR(50) NOT NULL,
   contraseña VARCHAR(50) NOT NULL,
   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  id_rol INT NOT NULL,
+  id_rol INT NOT NULL
 );
 
+INSERT INTO usuarios (nombre, correo, contraseña, id_rol)
+VALUES ('Oscar', 'oscar@gmail.com', '12345678', 1),
+       ('Mariana', 'mariana@gmail.com', '123456', 2),
+       ('Jaziel', 'isai@gmail.com', '123456', 3);
 
 -- Tablas para la administración de clubs
+
+CREATE TABLE especialidad_club (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL
+);
+
+INSERT INTO especialidad_club (nombre)
+VALUES ('Tecnm'), ('Robotica'), ('Astronomia'), ('Girl Up'), ('Astrología');
+
+CREATE TABLE categoria_club (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL
+);
+
+INSERT INTO categoria_club (nombre)
+VALUES ('Ciencia y Tecnología'), ('Desarrollo Humano'), ('Deporte'), ('Arte'), ('Cultura');
+
+CREATE TABLE plantel (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL
+);
+
+INSERT INTO plantel(nombre)
+VALUES ('Instituto Tecnológico Superior De Irapuato');
 
 CREATE TABLE clubes (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -31,39 +62,47 @@ CREATE TABLE clubes (
   estatus VARCHAR(50) NOT NULL,
   id_plantel INT NOT NULL,
   id_especialidad INT NOT NULL,
-  id_categoria_club INT NOT NULL,
+  id_categoria_club INT NOT NULL
 );
+
+INSERT INTO clubes (name, objetivo, logo, estatus, id_plantel, id_especialidad, id_categoria_club)
+VALUES ('Ajedrez', 'Jugar y ganar para la representación del itesi', 'logo', 'activo', 1, 1, 3),
+       ('Astrología', 'Estudiar y aprender acerca de los astros y demás en el itesi', 'logo', 'activo', 1, 5, 1),
+       ('Robotonicos', 'Realización de robots y maquinas para la automatización en la industraia', 'logo', 'activo', 1, 2, 1);
+
 
 CREATE TABLE archivos_plan_anual_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
   ruta VARCHAR(50) NOT NULL,
-  id_club INT NOT NULL,
+  id_club INT NOT NULL
 );
 
 CREATE TABLE archivos_acta_constitutiva_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
   ruta VARCHAR(50) NOT NULL,
-  id_club INT NOT NULL,
-);
-
-CREATE TABLE especialidad_club (
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(50) NOT NULL,
-);
-
-CREATE TABLE categoria_club (
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(50) NOT NULL,
-);
-
-CREATE TABLE plantel (
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(50) NOT NULL,
+  id_club INT NOT NULL
 );
 
 -- Tablas para la administración de miembros
+
+CREATE TABLE especialidad_miebro (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL
+);
+
+DROP TABLE especialidad_miebro;
+
+CREATE TABLE rol_miembro_club (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL
+);
+
+DROP TABLE rol_miembro_club;
+
+INSERT INTO rol_miembro_club (nombre)
+VALUES ('Presidente'), ('Secretario'), ('Tesorero'), ('Vocal'), ('Vocal'), ('Miembro'), ('Asistente'), ('Asesor Interno'), ('Asesor Externo');
 
 CREATE TABLE miembros_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -78,20 +117,15 @@ CREATE TABLE miembros_club (
   semestre VARCHAR(50) NOT NULL,
   id_especialidad INT NOT NULL,
   id_rol_member_club INT NOT NULL,
-  id_club INT NOT NULL,
+  id_club INT NOT NULL
 );
 
-CREATE TABLE especialidad_miebro (
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(50) NOT NULL,
-  descripcion VARCHAR(50) NOT NULL,
-);
 
-CREATE TABLE rol_miembro_club (
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(50) NOT NULL,
-  descripcion VARCHAR(50) NOT NULL,
-);
+INSERT INTO miembros_club (no_control, nombre, apellido_paterno, apellido_materno,
+                           sexo, correo, telefono, rango, semestre, id_especialidad,
+                           id_rol_member_club, id_club)
+VALUES ('LIS190012', 'Hiram Isai', 'Vera', 'Garrido', 'Masculino', 'hiram@gmail.com', '432212345', 'ninguno', '3', 1, 1, 1),
+       ('LIS190012', 'Hiram Isai', 'Vera', 'Garrido', 'Masculino', 'hiram@gmail.com', '432212345', 'ninguno', '3', 1, 1, 1);
 
 
 -- Tablas para la administración de actividades
