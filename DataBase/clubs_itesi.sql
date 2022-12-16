@@ -125,7 +125,7 @@ INSERT INTO miembros_club (no_control, nombre, apellido_paterno, apellido_matern
                            sexo, correo, telefono, rango, semestre, id_especialidad,
                            id_rol_member_club, id_club)
 VALUES ('LIS190012', 'Hiram Isai', 'Vera', 'Garrido', 'Masculino', 'hiram@gmail.com', '432212345', 'ninguno', '3', 1, 1, 1),
-       ('LIS190012', 'Hiram Isai', 'Vera', 'Garrido', 'Masculino', 'hiram@gmail.com', '432212345', 'ninguno', '3', 1, 1, 1);
+       ('LIS190212', 'Zaret Zabdiel', 'Vera', 'Garrido', 'Masculino', 'zaret@gmail.com', '432212345', 'ninguno', '5', 1, 2, 1);
 
 
 -- Tablas para la administración de actividades
