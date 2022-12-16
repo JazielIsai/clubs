@@ -37,6 +37,7 @@ include_once './model/ClubSpecialty.php';
 include_once './model/Habilidades.php';
 include_once './model/Idioma.php';
 include_once './model/Incidencias.php';
+include_once './model/UsuariosMiembros.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -48,6 +49,7 @@ $services_club_speciality = new ClubSpecialty();
 $services_skills=new Habilidades();
 $service_idioms=new Idioma();
 $services_incidencias=new Incidencias();
+$services_users_club = new UsuariosMiembros();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -127,6 +129,24 @@ switch ($servicesName){
         echo secure_json_encode($services_incidencias->get_all_incidencias());
         break;
 
+        //Usuarios Miembros
+    case 'get_users_by_club':
+        if (!isset($_GET['club_id']))
+            echo 'Error: missing id.';
+        else
+        {
+            echo secure_json_encode($services_users_club->get_users_by_club($_GET['club_id']));
+        }
+        break;
+        
+    case 'add_new_user_club':
+        if (!isset($_POST['user_info']))
+            echo 'Error: missing info.';
+        else
+        {
+            echo ($services_users_club->add_new_user_club(secure_json_decode($_POST['user_info'])));
+        }
+        break;
     default:
         echo 'Error: wrong service.get';
         break;
