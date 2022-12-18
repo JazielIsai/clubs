@@ -36,6 +36,38 @@ class UsuariosMiembros extends MethodsCrud {
         return $this->insert_query($query, array($data));
     }
 
+    public function get_all_members () {
+
+        $query = "
+                SELECT * FROM miembros_club;
+                ";
+
+        return $this->select_query($query);
+    }
+
+    public function existing_members(){
+        $query = "
+                SELECT COUNT(no_control) AS TotalMiembros FROM miembros_club; 
+        ";
+        return $this->select_query($query);
+    }
+
+    public function existing_members_by_club($id_club){
+        $query = "
+                SELECT COUNT(no_control) AS Miembros_por_club FROM miembros_club 
+                /*INNER JOIN clubes ON miembros_club.id_club= clubes.id*/ WHERE id_club = ?; 
+        ";
+        $params = array($id_club);
+        return $this->select_query($query, $params);
+    }
+
+    public function get_members_by_speciality($id_speciality){
+        $query = "
+                SELECT * FROM miembros_club WHERE id_especialidad = ?;
+        ";
+        $params = array($id_speciality);
+        return $this->select_query($query, $params);
+    }
 
   
 }

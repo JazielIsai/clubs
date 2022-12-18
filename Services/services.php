@@ -67,8 +67,8 @@ switch ($servicesName){
         echo secure_json_encode($services_users->get_all_users());
         break;
     case 'get_user_by_id':
-        if ( isset($_GET['user_id']) )
-        echo secure_json_encode($services_users->get_user_by_id($_GET['user_id']));
+        if ( isset($_POST['user_id']) )
+        echo secure_json_encode($services_users->get_user_by_id($_POST['user_id']));
         break;
     // Services to table clubs
     case 'get_all_clubs':
@@ -76,10 +76,10 @@ switch ($servicesName){
         break;
     
     case 'get_club_by_id':
-        if (!isset($_GET['id']))
+        if (!isset($_POST['id']))
             echo 'Error: missing id.';
         else
-            echo secure_json_encode($services_clubes->get_club_by_id($_GET['id']));
+            echo secure_json_encode($services_clubes->get_club_by_id($_POST['id']));
         break;
     
         case 'get_count_clubs':
@@ -87,14 +87,14 @@ switch ($servicesName){
         break;
 
     case 'get_activities_by_club':
-        if (isset( $_GET['club_id'] )) {
-            echo secure_json_encode($services_activities->get_activities_by_club($_GET['club_id']));
+        if (isset( $_POST['club_id'] )) {
+            echo secure_json_encode($services_activities->get_activities_by_club($_POST['club_id']));
         }
         break;
 
     case 'get_activities_by_id':
-        if ( isset($_GET['activities_id'] ) ) {
-            echo secure_json_encode($services_activities->get_activities_by_id($_GET['activities_id']));
+        if ( isset($_POST['activities_id'] ) ) {
+            echo secure_json_encode($services_activities->get_activities_by_id($_POST['activities_id']));
         }
         break;
     case 'get_all_campuses':
@@ -150,6 +150,24 @@ switch ($servicesName){
         {
             echo ($services_users_club->add_new_user_club(secure_json_decode($_POST['user_info'])));
         }
+        break;
+    case 'get_all_members':
+        echo secure_json_encode($services_users_club->get_all_members());
+        break;
+    case 'existing_members':
+        echo secure_json_encode($services_users_club->existing_members());
+        break;
+    case 'existing_members_by_club':
+        if (!isset($_POST['club_id']))
+            echo 'Error: missing id.';
+        else
+            echo secure_json_encode($services_users_club->existing_members_by_club($_POST['club_id']));
+        break;
+    case 'get_members_by_speciality':
+        if (!isset($_POST['especialidad_id']))
+            echo 'Error: missing id.';
+        else
+            echo secure_json_encode($services_users_club->get_members_by_speciality($_POST['especialidad_id']));
         break;
 
     // Especialidad
