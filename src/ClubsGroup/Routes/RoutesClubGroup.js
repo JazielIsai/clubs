@@ -7,9 +7,9 @@ import { EditActivitie } from '../Activities/EditActivitie'
 import { NewActivite } from '../Activities/NewActivite'
 import { EditClub } from '../Club/EditClub'
 import { DashboardByClub } from '../Dashboard/DashboardByClub'
-import { AddEvidences } from '../Evidences/AddEvidences'
-import { EditEvidences } from '../Evidences/EditEvidences'
-import { Evidences } from '../Evidences/Evidences'
+import { AddEvidences } from '../Activities/Evidences/AddEvidences'
+import { EditEvidences } from '../Activities/Evidences/EditEvidences'
+import { Evidences } from '../Activities/Evidences/Evidences'
 
 export const RoutesClubGroup = () => {
     

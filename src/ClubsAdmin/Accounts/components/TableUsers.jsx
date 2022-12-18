@@ -27,7 +27,7 @@ export const TableUsers = () => {
         navigate(`/admin/updateUser/${id}`);
     }
 
-    const deleteUser = () => {
+    const handleDelete = (id) => {
 
     }
 
@@ -35,7 +35,7 @@ export const TableUsers = () => {
         <div>
           
             <div class="table-responsive">
-                <table class="table">
+                <table class="table table-hover">
                     <thead>
                          <tr>
                             {
@@ -44,6 +44,8 @@ export const TableUsers = () => {
                                     Object.keys(getColumnUsers).map( (keyRow, index) => {
                                         
                                         if (keyRow == 'id') { return null; }
+                                        
+                                        keyRow = keyRow.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
 
                                         return(
                                             <th key={index} scope="col"> {keyRow} </th>
@@ -52,6 +54,7 @@ export const TableUsers = () => {
                                     
                             }
                             <th scope="col"> Ir a </th>
+                            <th scope="col"> Eliminar </th>
 
                         </tr>
                     </thead>
@@ -71,6 +74,9 @@ export const TableUsers = () => {
 
                                         <td>
                                             <button onClick={()=>handleNavigateEditUser(user?.id)} class="btn btn-primary"> Editar Usuario </button>
+                                        </td>
+                                        <td>
+                                            <button onClick={()=>handleDelete(user?.id)} className="btn btn-danger"> Eliminar </button>
                                         </td>
 
                                     </tr>

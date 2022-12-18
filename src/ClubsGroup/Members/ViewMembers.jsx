@@ -26,9 +26,13 @@ export const ViewMembers = () => {
 
     }
 
+    const handleDelete = (id_activitie) => {
+
+    }
+
     return (
         <div className=''>          
-            <div class="table-responsive">
+            <div class="table-responsive table-hover">
             <table class="table">
                     <thead>
                         <tr>
@@ -73,6 +77,9 @@ export const ViewMembers = () => {
 
                                         <td>
                                             <button onClick={()=>handleNavigateToMember(activitie?.id)} class="btn btn-primary"> Editar </button>
+                                        </td>
+                                        <td>
+                                            <button onClick={()=>handleDelete(activitie?.id)} className="btn btn-danger"> Eliminar </button>
                                         </td>
 
                                     </tr>

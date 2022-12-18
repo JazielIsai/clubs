@@ -28,7 +28,7 @@ export const TableClub = () => {
 
     return (
         <div class="table-responsive">
-            <table class="table">
+            <table class="table table-hover">
 
                 <thead>
                     <tr>
@@ -38,6 +38,8 @@ export const TableClub = () => {
                             Object.keys(getColumnClubs).map( (keyRow, index) => {
                                 
                                 if (keyRow == 'id') { return null; }
+
+                                keyRow = keyRow.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
 
                                 return(
                                     <th key={index} scope="col"> {keyRow} </th>
