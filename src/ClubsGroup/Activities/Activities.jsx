@@ -17,7 +17,7 @@ export const Activities = () => {
             <h1>Activities</h1>
         </div>
         <div className='d-flex justify-content-end'>
-            <button onClick={handleGoAddActivity} className='btn btn-primary'> Agregar una nueva actividad </button>
+            <button onClick={handleGoAddActivity} className='btn btn-outline-primary'> Agregar una nueva actividad </button>
         </div>
         <div className=''>
             <ViewActivities />

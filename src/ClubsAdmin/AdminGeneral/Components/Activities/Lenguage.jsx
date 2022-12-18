@@ -24,6 +24,10 @@ export const Lenguage = () => {
         
     }
 
+    const handleDelete = (id) => {
+
+    }
+
     return (
         <div className='container'>
             <h3> Idioma </h3>
@@ -36,13 +40,15 @@ export const Lenguage = () => {
                             <input type='text' className='form-control' id='name' />
                         </div>
                         <div className='d-flex mt-3 justify-content-end'>
-                            <button type='submit' className='btn btn-primary'> Guardar </button>
+                            <button type='submit' className='btn btn-success'> Guardar </button>
                         </div>
                     </form>
                 </div>
-                <div className='col-12 col-md-6'>
+                <div className='col-12 col-md-6' style={{maxHeight: '65vh'}}>
                     <h5> Ver Tabla </h5>
-                    <table className="table">
+                    <div className='table-responsive' style={{height: '90%'}}>
+
+                    <table className="table table-hover">
                         <thead>
                             <tr>
                                 {
@@ -52,6 +58,8 @@ export const Lenguage = () => {
                                             
                                             if (keyRow == 'id') { return null; }
 
+                                            keyRow = keyRow.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+
                                             return(
                                                 <th key={index} scope="col"> {keyRow} </th>
                                             )
@@ -59,6 +67,7 @@ export const Lenguage = () => {
                                         
                                 }
                                 <th scope="col"> Ir a </th>
+                                <th scope="col"> Eliminar </th>
 
                             </tr>
                         </thead>
@@ -75,12 +84,17 @@ export const Lenguage = () => {
                                             <td>
                                                 <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Editar </button>
                                             </td>
+                                            
+                                            <td>
+                                                <button onClick={()=>handleDelete(activitie?.id)} className="btn btn-danger"> Eliminar </button>
+                                            </td>
 
                                         </tr>
                                     ))
                             }
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

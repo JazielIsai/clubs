@@ -11,9 +11,9 @@ import { DashboardByClub } from '../../ClubsGroup/Dashboard/DashboardByClub';
 import { Activities } from '../../ClubsGroup/Activities/Activities';
 import { NewActivite } from '../../ClubsGroup/Activities/NewActivite';
 import { EditActivitie } from '../../ClubsGroup/Activities/EditActivitie';
-import { Evidences } from '../../ClubsGroup/Evidences/Evidences';
-import { AddEvidences } from '../../ClubsGroup/Evidences/AddEvidences';
-import { EditEvidences } from '../../ClubsGroup/Evidences/EditEvidences';
+import { Evidences } from '../../ClubsGroup/Activities/Evidences/Evidences';
+import { AddEvidences } from '../../ClubsGroup/Activities/Evidences/AddEvidences';
+import { EditEvidences } from '../../ClubsGroup/Activities/Evidences/EditEvidences';
 import { EditClub } from '../../ClubsGroup/Club/EditClub';
 import { UpdateUser } from '../Accounts/UpdateUser';
 import { AdminGeneral } from '../AdminGeneral/AdminGeneral';
@@ -42,9 +42,9 @@ export const RoutesClubs = () => {
               <Route path='activities/add/:club_id' element={<NewActivite />} />
               <Route path='activities/edit/:club_id/:id_activitie' element={<EditActivitie/>} />
               
-              <Route path='evidences/:club_id' element={<Evidences />} />
-              <Route path='evidences/add/:club_id' element={<AddEvidences />} />
-              <Route path='evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
+              <Route path='activities/evidences/:id_activitie' element={<Evidences />} />
+              <Route path='activities/evidences/add/:id_activitie' element={<AddEvidences />} />
+              <Route path='activities/evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
 
               <Route path='members/:club_id' element={<Members />} />
               <Route path='members/add/:club_id' element={<AddMember />} />

@@ -17,7 +17,7 @@ export const data = [
 
 export const Dashboard = () => {
 
-  const { data : countClubs } = useFetch_RequestGet('get_count_clubes');
+  const { data : countClubs } = useFetch_RequestGet('get_count_clubs');
 
   const [ getCountClubs, setCountClubs ] = useState(null);
 

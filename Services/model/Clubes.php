@@ -39,7 +39,7 @@ class Clubes extends MethodsCrud {
     }
 
     public function get_count_clubs () {
-        $query = "SELECT COUNT(*) AS count_club FROM clubs_itesi.clubes;";
+        $query = "SELECT COUNT(*) AS count_club FROM clubes;";
         return $this->select_query($query);
     }
 

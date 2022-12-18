@@ -6,9 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/Clubes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Clubes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/components/TableUsers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/components/TableUsers.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/Especialidad.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/Especialidad.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Dashboard/Dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Activities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Activities.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Evidences/AddEvidences.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Evidences/EditEvidences.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Evidences/Evidences.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Evidences/ViewEvidences.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/ViewMembers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/ViewMembers.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,20 +48,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/var/www/html/clubs",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/var/www/html/clubs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,7 +72,8 @@
       <updated>1670604232722</updated>
       <workItem from="1670604233944" duration="84000" />
       <workItem from="1671199804091" duration="4579000" />
-      <workItem from="1671208795694" duration="6970000" />
+      <workItem from="1671208795694" duration="7833000" />
+      <workItem from="1671322181242" duration="1473000" />
     </task>
     <servers />
   </component>
