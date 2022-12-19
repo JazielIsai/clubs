@@ -45,16 +45,16 @@ class UsuariosMiembros extends MethodsCrud {
         return $this->select_query($query);
     }
 
-    public function existing_members(){
+    public function get_existing_members(){
         $query = "
-                SELECT COUNT(no_control) AS TotalMiembros FROM miembros_club; 
+                SELECT COUNT(*) AS TotalMiembros FROM miembros_club; 
         ";
         return $this->select_query($query);
     }
 
-    public function existing_members_by_club($id_club){
+    public function get_existing_members_by_club($id_club){
         $query = "
-                SELECT COUNT(no_control) AS Miembros_por_club FROM miembros_club 
+                SELECT COUNT(*) AS Miembros_por_club FROM miembros_club 
                 /*INNER JOIN clubes ON miembros_club.id_club= clubes.id*/ WHERE id_club = ?; 
         ";
         $params = array($id_club);

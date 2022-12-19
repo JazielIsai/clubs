@@ -154,20 +154,20 @@ switch ($servicesName){
     case 'get_all_members':
         echo secure_json_encode($services_users_club->get_all_members());
         break;
-    case 'existing_members':
-        echo secure_json_encode($services_users_club->existing_members());
+    case 'get_existing_members':
+        echo secure_json_encode($services_users_club->get_existing_members());
         break;
-    case 'existing_members_by_club':
-        if (!isset($_POST['club_id']))
+    case 'get_existing_members_by_club':
+        if (!isset($_GET['club_id']))
             echo 'Error: missing id.';
         else
-            echo secure_json_encode($services_users_club->existing_members_by_club($_POST['club_id']));
+            echo secure_json_encode($services_users_club->get_existing_members_by_club($_GET['club_id']));
         break;
     case 'get_members_by_speciality':
-        if (!isset($_POST['especialidad_id']))
+        if (!isset($_GET['speciality_id']))
             echo 'Error: missing id.';
         else
-            echo secure_json_encode($services_users_club->get_members_by_speciality($_POST['especialidad_id']));
+            echo secure_json_encode($services_users_club->get_members_by_speciality($_GET['speciality_id']));
         break;
 
     // Especialidad
