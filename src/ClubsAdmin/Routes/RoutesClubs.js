@@ -42,7 +42,7 @@ export const RoutesClubs = () => {
               <Route path='activities/add/:club_id' element={<NewActivite />} />
               <Route path='activities/edit/:club_id/:id_activitie' element={<EditActivitie/>} />
               
-              <Route path='activities/evidences/:id_activitie' element={<Evidences />} />
+              <Route path='activities/evidences/:id_activitie/:nameActivitie' element={<Evidences />} />
               <Route path='activities/evidences/add/:id_activitie' element={<AddEvidences />} />
               <Route path='activities/evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
 

@@ -27,13 +27,8 @@ export const ViewActivities = () => {
         navigate(`/admin/activities/edit/${club_id}/${id_activitie}`)
     }
 
-    const handleNavigateToSendEvidences = (id_activitie) => {
-        navigate(`/admin/activities/send_evidences/${club_id}/${id_activitie}`)
-    }
-
-
-    const deleteUser = () => {
-        console.log('delete user');
+    const handleNavigateToSendEvidences = (idActivitie, nameActivitie) => {
+        navigate(`/admin/activities/evidences/${idActivitie}/${nameActivitie}`)
     }
 
     return (
@@ -107,7 +102,7 @@ export const ViewActivities = () => {
 
 
                                         <td>
-                                            <button onClick={()=>handleNavigateToSendEvidences(activitie?.id)} class="btn btn-info"> Ir a la actividad </button>
+                                            <button onClick={()=>handleNavigateToSendEvidences(activitie?.id, activitie?.nombre)} class="btn btn-info"> Ir a la actividad </button>
                                         </td>
 
                                         <td>
