@@ -40,6 +40,7 @@ include_once './model/Incidencias.php';
 include_once './model/UsuariosMiembros.php';
 include_once './model/Especialidad.php';
 include_once './model/rol_member_club.php';
+include_once './model/Evidences.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -54,6 +55,7 @@ $services_incidencias=new Incidencias();
 $services_users_club = new UsuariosMiembros();
 $services_specialities = new Especialidad();
 $services_rol_member_club = new rol_member_club();
+$services_evidences = new Evidences();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -94,7 +96,7 @@ switch ($servicesName){
 
     case 'get_activities_by_id':
         if ( isset($_GET['activities_id'] ) ) {
-            echo secure_json_encode($services_activities->get_activities_by_id($_GET['activities_id']));
+            echo json_encode($services_activities->get_activities_by_id($_GET['activities_id']));
         }
         break;
     case 'get_count_activities_by_club':
@@ -102,7 +104,12 @@ switch ($servicesName){
             echo secure_json_encode($services_activities->get_count_activities_by_club($_GET['club_id']));
         }
         break;
-
+// Evidences
+    case 'get_evidences_by_activity':
+        if (isset($_GET['id_activity']))
+        echo json_encode($services_evidences->get_evidences_by_activity($_GET['id_activity']));
+        break;
+// Campuses
     case 'get_all_campuses':
         echo secure_json_encode($services_campuses->get_all_campuses());
         break;
