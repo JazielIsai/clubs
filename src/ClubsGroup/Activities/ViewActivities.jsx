@@ -107,11 +107,11 @@ export const ViewActivities = () => {
 
 
                                         <td>
-                                            <button onClick={()=>handleNavigateToEditActivitie(activitie?.id)} class="btn btn-info"> Ir a la actividad </button>
+                                            <button onClick={()=>handleNavigateToSendEvidences(activitie?.id)} class="btn btn-info"> Ir a la actividad </button>
                                         </td>
 
                                         <td>
-                                            <button onClick={()=>handleNavigateToSendEvidences(activitie?.id)} class="btn btn-primary"> Editar </button>
+                                            <button onClick={()=>handleNavigateToEditActivitie(activitie?.id)} class="btn btn-primary"> Editar </button>
                                         </td>
 
                                     </tr>
