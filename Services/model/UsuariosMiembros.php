@@ -69,5 +69,27 @@ class UsuariosMiembros extends MethodsCrud {
         return $this->select_query($query, $params);
     }
 
+    public function update_member ($member_info) {
+        $query = "
+                UPDATE miembros_club SET no_control = ?, nombre = ?, apellido_paterno = ?, 
+                apellido_materno = ?, sexo = ?, correo = ?, telefono = ?, rango = ?, semestre = ?, 
+                id_especialidad = ?, id_rol_member_club = ?, id_club = ?
+                WHERE id = ?";
+
+        $data = array($member_info->no_control, $member_info->nombre, $member_info->apellido_paterno, 
+                $member_info->apellido_materno, $member_info->sexo, $member_info->correo, $member_info->telefono, 
+                $member_info->rango, $member_info->semestre, $member_info->id_especialidad, 
+                $member_info->id_rol_member_club, $member_info->id_club, $member_info->id);
+
+        return $this->update_delete_query($query, array($data));
+    }
+
+    public function delete_member ($id_member){
+        $query = "DELETE FROM miembros_club WHERE id = ?";
+
+        $data = array($id_member);
+
+        return $this->update_delete_query($query, array($data));
+    }
   
 }
