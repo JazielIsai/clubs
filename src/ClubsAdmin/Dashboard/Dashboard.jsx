@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { CardNumeric } from '../../components/CardNumeric'
 import {HiOutlineUserGroup} from 'react-icons/hi';
+import {BsPerson} from 'react-icons/bs';
 
 import { Chart } from "react-google-charts";
 import { useFetch_RequestGet } from '../../hooks/useFetchGet';
@@ -18,24 +19,27 @@ export const data = [
 export const Dashboard = () => {
 
   const { data : countClubs } = useFetch_RequestGet('get_count_clubs');
+  const { data : countMembers } = useFetch_RequestGet('get_existing_members');
 
   const [ getCountClubs, setCountClubs ] = useState(null);
+  const [ getCountMembers, setCountMembers ] = useState(null);
 
   useEffect ( () => {
     try {
-      console.log(countClubs);
+      console.log(countMembers);
       setCountClubs(JSON.parse(countClubs)[0]);
+      setCountMembers(JSON.parse(countMembers)[0]);
     } catch (err ) {
       console.log(err);
     }
-  }, [countClubs] )
+  }, [countClubs, countMembers] )
 
   return (
     <div className='container-fluid'>
     
       <div className='d-flex gap-2 justify-content-center align-middle'>
         <CardNumeric numeric={getCountClubs?.count_club} description='Clubs' icon={<HiOutlineUserGroup style={{width: '100%', fontSize: '60px' }} />} />
-        <CardNumeric  />
+        <CardNumeric numeric={getCountMembers?.TotalMiembros} description='Total Miembros' icon={<BsPerson style={{width: '100%', fontSize: '60px' }} />} />
         <CardNumeric />
       </div>
       

@@ -54,7 +54,7 @@ class UsuariosMiembros extends MethodsCrud {
 
     public function get_existing_members_by_club($id_club){
         $query = "
-                SELECT COUNT(*) AS Miembros_por_club FROM miembros_club 
+                SELECT COUNT(*) AS member_by_club FROM miembros_club 
                 /*INNER JOIN clubes ON miembros_club.id_club= clubes.id*/ WHERE id_club = ?; 
         ";
         $params = array($id_club);

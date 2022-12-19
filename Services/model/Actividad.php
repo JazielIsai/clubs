@@ -38,4 +38,10 @@ class Actividad extends MethodsCrud {
         return $this->select_query($query, $params);
     }
 
+    public function get_count_activities_by_club ($club_id) {
+        $query = "SELECT COUNT(*) count_activities_by_club FROM actividad WHERE id_club = ?";
+        $params = array($club_id);
+        return $this->select_query($query, $params);
+    }
+
 }

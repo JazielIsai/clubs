@@ -76,10 +76,10 @@ switch ($servicesName){
         break;
     
     case 'get_club_by_id':
-        if (!isset($_POST['id']))
+        if (!isset($_GET['club_id']))
             echo 'Error: missing id.';
         else
-            echo secure_json_encode($services_clubes->get_club_by_id($_POST['id']));
+            echo secure_json_encode($services_clubes->get_club_by_id($_GET['club_id']));
         break;
     
     case 'get_count_clubs':
@@ -97,6 +97,12 @@ switch ($servicesName){
             echo secure_json_encode($services_activities->get_activities_by_id($_GET['activities_id']));
         }
         break;
+    case 'get_count_activities_by_club':
+        if (isset($_GET['club_id'])){
+            echo secure_json_encode($services_activities->get_count_activities_by_club($_GET['club_id']));
+        }
+        break;
+
     case 'get_all_campuses':
         echo secure_json_encode($services_campuses->get_all_campuses());
         break;

@@ -38,6 +38,8 @@ export const TableClub = () => {
                             Object.keys(getColumnClubs).map( (keyRow, index) => {
                                 
                                 if (keyRow == 'id') { return null; }
+                                if (keyRow == 'fecha_creacion') { return null; }
+                                if (keyRow == 'plantel') { return null; }
 
                                 keyRow = keyRow.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
 
@@ -62,9 +64,9 @@ export const TableClub = () => {
                                     {/* <th scope="row"> {club?.id_club} </th> */}
                                     <td> { club?.name } </td>
                                     <td> {club?.objetivo} </td>
-                                    <td>  {club?.fecha_creacion} </td>
+                                    {/* <td>  {club?.fecha_creacion} </td> */}
                                     <td>  { club?.estatus }   </td>
-                                    <td>  {club?.plantel} </td>
+                                    {/* <td>  {club?.plantel} </td> */}
                                     <td>  {club?.categoria_club} </td>
                                     <td>  {club?.especialidad_club} </td>
 

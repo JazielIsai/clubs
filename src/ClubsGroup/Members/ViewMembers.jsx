@@ -42,6 +42,19 @@ export const ViewMembers = () => {
                                     Object.keys(getColumnMembers).map( (keyRow, index) => {
                                         
                                         if (keyRow == 'id') { return null; }
+                                        if (keyRow == 'no_control') {
+                                            keyRow = 'No. Control';
+                                        }
+                                        if (keyRow == 'apellido_paterno') { 
+                                            keyRow = 'Apellido Paterno';
+                                        }
+                                        if (keyRow == 'apellido_materno') {
+                                            keyRow = 'Apellido Materno';
+                                        }
+                                        if (keyRow == 'especialidad_miembro') { return null; }
+                                        if (keyRow == 'nombre_club') { return null; }
+
+                                        keyRow = keyRow.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
 
                                         return(
                                             <th key={index} scope="col"> {keyRow} </th>
@@ -70,10 +83,10 @@ export const ViewMembers = () => {
                                         <td>  {activitie?.telefono} </td>
                                         <td>  {activitie?.rango} </td>
                                         <td>  {activitie?.semestre} </td>
-                                        <td>  {activitie?.especialidad_miembro} </td>
+                                        {/* <td>  {activitie?.especialidad_miembro} </td> */}
 
                                         <td>  {activitie?.rol_miembro} </td>
-                                        <td>  {activitie?.nombre_club} </td>
+                                        {/* <td>  {activitie?.nombre_club} </td> */}
 
                                         <td>
                                             <button onClick={()=>handleNavigateToMember(activitie?.id)} class="btn btn-primary"> Editar </button>
