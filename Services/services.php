@@ -82,19 +82,19 @@ switch ($servicesName){
             echo secure_json_encode($services_clubes->get_club_by_id($_POST['id']));
         break;
     
-        case 'get_count_clubs':
+    case 'get_count_clubs':
         echo secure_json_encode($services_clubes->get_count_clubs());
         break;
 
     case 'get_activities_by_club':
-        if (isset( $_POST['club_id'] )) {
-            echo secure_json_encode($services_activities->get_activities_by_club($_POST['club_id']));
+        if (isset( $_GET['club_id'] )) {
+            echo secure_json_encode($services_activities->get_activities_by_club($_GET['club_id']));
         }
         break;
 
     case 'get_activities_by_id':
-        if ( isset($_POST['activities_id'] ) ) {
-            echo secure_json_encode($services_activities->get_activities_by_id($_POST['activities_id']));
+        if ( isset($_GET['activities_id'] ) ) {
+            echo secure_json_encode($services_activities->get_activities_by_id($_GET['activities_id']));
         }
         break;
     case 'get_all_campuses':
