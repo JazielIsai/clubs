@@ -23,7 +23,17 @@ export const AddEvidences = () => {
               <textarea class="form-control" id="floatingReference" ></textarea>
               <label for="floatingReference"> Referencia </label>
             </div>
-            
+
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupFile01">Subir archivos</label>
+              <input type="file" class="form-control" id="inputGroupFile01" />
+            </div>
+
+            <div className='d-flex justify-content-end'>
+              <button className='btn btn-success'>
+                Enviar evidencia
+              </button>
+            </div>
         </form>
     </div>
   )

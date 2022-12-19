@@ -266,3 +266,8 @@ CREATE TABLE `habilidades`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `nombre` VARCHAR(50) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+SELECT * FROM evidencia WHERE id_actividad = 1;
+INSERT INTO evidencia (nombre, tipo, ruta, id_actividad)
+VALUES ('Exponer tema de Ajedrez', 'Fotos', '/var/www/html/clubs/', 1);

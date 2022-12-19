@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useFetch_RequestGet } from '../../../hooks/useFetchGet';
 import { ViewEvidences } from './ViewEvidences';
+import { AddEvidences } from './AddEvidences';
 
 export const Evidences = () => {
 
@@ -13,6 +14,7 @@ export const Evidences = () => {
 
   const [ getDataActivities, setDataActivities ] = useState();
   const [ getDataEvidences, setDataEvidences ] = useState();
+  const [ getColumnEvidences, setColumnEvidences ] = useState();
 
   const handleGoAddEvidence = () => {
     navigate('/admin/evidences/add')
@@ -21,8 +23,11 @@ export const Evidences = () => {
   useEffect( () => {
     try {
 
+      console.log(JSON.parse(evidencesByActivitie)[0]);
       setDataActivities(JSON.parse(activitiesById)[0]);
+      setColumnEvidences(JSON.parse(evidencesByActivitie)[0]);
       setDataEvidences(JSON.parse(evidencesByActivitie));
+
 
     } catch (err) {
       console.log(err);
@@ -32,15 +37,109 @@ export const Evidences = () => {
 
   return (
     <div className='container'>
-        <div className='d-flex justify-content-end'>
-          <button onClick={handleGoAddEvidence} className='btn btn-outline-primary'> Agregar evidencia </button>
-        </div>
-        <div className=''>
-          {nameActivitie}
-        </div>
-        <div className=''>
-            <h1>Evidencias</h1>
-            {/* <ViewEvidences /> */}
+        
+        <div className='d-flex flex-column'>
+          <h3 className='fs-3 mt-3'> 
+            {nameActivitie}
+            {}
+          </h3>
+
+          <table className='table caption-top'>
+            <caption>{nameActivitie}</caption>
+            <thead>
+              <tr>
+                <th scope="col">  </th>
+                <th scope="col">  </th>
+              </tr>
+            </thead>
+            <tbody>
+                {
+                  getDataActivities !== undefined &&
+                  getDataActivities !== null &&
+                    Object.entries(getDataActivities).map( ([keyRow, valueRow], index) => {
+                      if (keyRow == 'id') { return null; }
+                      if (keyRow == 'objetivo_desarrollo_s') { 
+                        keyRow = 'Objetivo de desarrollo sustentable';
+                      }
+                      if (keyRow == 'id_habilidad_desarrollada') {return null;}
+                      if (keyRow == 'id_tipo_actividad') {return null;}
+                      if (keyRow == 'id_club') {return null;}
+
+                      keyRow = keyRow.replace(/_/g, ' ');
+                      keyRow = keyRow.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+
+                      return (
+                        <tr>
+                          <th scope="row" className='w-25'>{keyRow}</th>
+                          <td className='w-75'>{valueRow}</td>
+                        </tr>
+                      )
+
+                    })
+                }
+              
+            </tbody>
+
+          </table>
+
+          <div className='mt-5 mb-3'>
+            <h3 className='fs-3'>Entrega de evidencias</h3>
+          </div>
+          
+          <div className='row'>
+          
+            <div className='col-12 col-md-6'>
+              
+              <AddEvidences />
+
+            </div>
+            <div className='col-12 col-md-6'>
+                <table className='table caption-top'>
+                  <caption> Evidencias entregadas </caption>
+                  <thead>
+                    <tr>
+                      {
+                        getColumnEvidences !== undefined &&
+                        getColumnEvidences !== null &&
+                          Object.keys(getColumnEvidences).map( (keyRow, index) => {
+                            if (keyRow == 'id') { return null; }
+                            if (keyRow == 'id_actividad') { return null; }
+
+                            keyRow = keyRow.replace(/_/g, ' ');
+                            keyRow = keyRow.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+
+                            return (
+                              <th key={index} scope="col"> {keyRow} </th>
+                            )
+                          })
+                      }
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {
+                        getDataEvidences !== undefined &&
+                        getDataEvidences !== null &&
+                          getDataEvidences.map(  (valueRow, index) => {
+     
+                            return (
+                              <tr key={index} >
+                                <td>{valueRow?.nombre}</td>
+                                <td>{valueRow?.tipo}</td>
+                                <td>{valueRow?.ruta}</td>
+                              </tr>
+                            )
+
+                          })
+                      }
+
+                  </tbody>
+                </table>
+
+            </div>
+          
+          </div>
+              {/* <ViewEvidences /> */}
         </div>
     </div>
   )
