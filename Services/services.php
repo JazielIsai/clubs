@@ -43,6 +43,7 @@ include_once './model/rol_member_club.php';
 include_once './model/Evidences.php';
 include_once './model/ActivitiesClub.php';
 include_once './model/TypeActivity.php';
+include_once './model/LogoClub.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -60,6 +61,7 @@ $services_rol_member_club = new rol_member_club();
 $services_evidences = new Evidences();
 $services_ActivitiesClub = new ActivitiesClub();
 $services_type_activity = new TypeActivity();
+$services_LogoClub = new LogoClub();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -201,7 +203,18 @@ switch ($servicesName){
             echo $services_campuses->delete_campuses($_POST['id_campus']);
         }
         break;
+//Logo
+case 'add_logo':
+    if (!isset($_POST['logo_data']))
+        echo 'Error: missing data.';
+    else
+        echo ($services_LogoClub->add_logo(secure_json_decode($_POST['logo_data'])));
+    break;
 
+case 'get_logo_by_club':
+    if (isset($_GET['id_club']))
+    echo json_encode($services_LogoClub->get_logo_by_club($_GET['id_club']));
+    break;
 
 // category by club
     case 'get_all_category_to_club':
