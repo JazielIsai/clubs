@@ -4,30 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="">
+    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="add interface to get evidences">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/config/DBCnx.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/config/DBCnx.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/config/configuration.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Services/config/configuration.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/CategoryClub.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/CategoryClub.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/ClubSpecialty.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/ClubSpecialty.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/model/Clubes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Clubes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/Habilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Habilidades.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/Idioma.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Idioma.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/MethodsCrud.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/MethodsCrud.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/Plantel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Plantel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/UsuariosMiembros.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/UsuariosMiembros.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/rol_member_club.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/rol_member_club.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/components/TableUsers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/components/TableUsers.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/Especialidad.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/Especialidad.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Dashboard/Dashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Activities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Activities.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Evidences/AddEvidences.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Evidences/EditEvidences.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Evidences/Evidences.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Evidences/ViewEvidences.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/ViewMembers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/ViewMembers.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/Evidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/Evidences.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/AddMember.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/AddMember.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/Members.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/Members.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +62,11 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -73,11 +80,77 @@
       <workItem from="1670604233944" duration="84000" />
       <workItem from="1671199804091" duration="4579000" />
       <workItem from="1671208795694" duration="7833000" />
-      <workItem from="1671322181242" duration="1473000" />
+      <workItem from="1671322181242" duration="1887000" />
+      <workItem from="1671419444263" duration="4397000" />
+      <workItem from="1671461436239" duration="7576000" />
+      <workItem from="1671519307096" duration="10779000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: change the services the super global from post to get">
+      <created>1671419906553</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671419906553</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix: change the services the super global from post to get and fix the text">
+      <created>1671420124281</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671420124281</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix some services and connect the services with the interface">
+      <created>1671424211651</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671424211651</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update the interfaces and its logic and design">
+      <created>1671463183820</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671463183820</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add services to evidences">
+      <created>1671463205003</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671463205003</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add interface to get evidences">
+      <created>1671468893117</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671468893117</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: change the services the super global from post to get" />
+    <MESSAGE value="fix: change the services the super global from post to get and fix the text" />
+    <MESSAGE value="fix some services and connect the services with the interface" />
+    <MESSAGE value="Update the interfaces and its logic and design" />
+    <MESSAGE value="add services to evidences" />
+    <MESSAGE value="add interface to get evidences" />
+    <option name="LAST_COMMIT_MESSAGE" value="add interface to get evidences" />
   </component>
 </project>

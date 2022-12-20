@@ -43,6 +43,16 @@ class Clubes extends MethodsCrud {
         return $this->select_query($query);
     }
 
+    public function add_club ($club_info) {
+        $query = "
+            INSERT INTO clubes (name, objetivo, estatus, id_plantel, id_especialidad, id_categoria_club)
+            VALUES (?, ?, ?, ?, ?, ?);
+        ";
+        $params = array($club_info->name, $club_info->objetivo, $club_info->estatus, $club_info->id_plantel, $club_info->id_especialidad, $club_info->id_categoria_club);
+
+        return $this->insert_query($query, array($params));
+    }
+
     public function update_club ($club_info) {
         $query = "
         UPDATE clubes SET name = ?, objetivo = ?, fecha_creacion = ?, estatus = ?, id_plantel = ?, 

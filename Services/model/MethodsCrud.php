@@ -27,6 +27,8 @@ class MethodsCrud extends DBCnx
             }
 
             $prepare_consult = null;
+            $this->Disconnect();
+
             return $data;
 
         } catch (Error $err) {
@@ -45,8 +47,12 @@ class MethodsCrud extends DBCnx
                 $prepare_query->execute($row);
             }
 
-            $id = $this->Connection()->lastInsertId();
+            $id = $this->pdo->lastInsertId();
+            error_log("the last insert id: ".$id);
+
             $prepare_query = null;
+            $this->Disconnect();
+
             return $id;
 
         } catch (Error $err) {
@@ -66,7 +72,10 @@ class MethodsCrud extends DBCnx
             }
 
             $rowCount = $prepare_query->rowCount();
+
             $prepare_query = null;
+            $this->Disconnect();
+
             return $rowCount;
 
         } catch (Error $err) {

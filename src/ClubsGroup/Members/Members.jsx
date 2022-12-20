@@ -1,14 +1,15 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { ViewMembers } from './ViewMembers';
 
 export const Members = () => {
 
+    const {club_id} = useParams();
     const navigate = useNavigate();
 
 
-    const handleGoAddEvidence = () => {
-        navigate('/admin/members/add')
+    const handleGoAddMember = () => {
+        navigate(`/admin/members/add/${club_id}`)
     }
 
 
@@ -16,7 +17,7 @@ export const Members = () => {
         <div className='container'>
     
             <div className='d-flex justify-content-end'>
-                <button onClick={handleGoAddEvidence} className='btn btn-outline-primary'> Agregar miembro </button>
+                <button onClick={handleGoAddMember} className='btn btn-outline-primary'> Agregar miembro </button>
             </div>
     
             <div className=''>

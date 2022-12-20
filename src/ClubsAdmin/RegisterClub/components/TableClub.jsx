@@ -72,7 +72,7 @@ export const TableClub = () => {
 
 
                                     <td>
-                                        <button onClick={()=>handleNavigateToClub(club?.id_club)} class="btn btn-primary"> Ir al Club </button>
+                                        <button onClick={()=>handleNavigateToClub(club?.id)} class="btn btn-primary"> Ir al Club </button>
                                     </td>
 
                                 </tr>

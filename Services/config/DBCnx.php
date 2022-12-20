@@ -8,6 +8,8 @@ class DBCnx {
     private string $charset ='utf8mb4';
     private string $db;
 
+    protected $pdo;
+
     public function __construct($db) {
 
         $file = "configuration.ini";
@@ -25,12 +27,22 @@ class DBCnx {
     protected function Connection () {
        try {
            $cnx = "mysql:host=".$this->host.";dbname=".$this->db;
-           return new PDO($cnx, $this->user, $this->password);
+           $this->pdo = new PDO($cnx, $this->user, $this->password);
+           return $this->pdo;
 
        } catch (PDOException $err) {
            print "Error DB!: " . $err->getMessage() . "<br/>";
            die();
        }
+    }
+
+    protected function Disconnect() {
+        try {
+            $this->pdo = null;
+            return $this->pdo;
+        } catch (PDOException $err){
+            die();
+        }
     }
 
 }

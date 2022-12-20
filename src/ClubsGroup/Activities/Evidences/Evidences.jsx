@@ -34,6 +34,9 @@ export const Evidences = () => {
     }
   }, [activitiesById, evidencesByActivitie] )
 
+  const handleNavigateToEditEvidence = (id_activitie) => {
+    navigate(`/admin/evidences/edit/${id_activitie}`)
+  }
 
   return (
     <div className='container'>
@@ -114,6 +117,9 @@ export const Evidences = () => {
                           })
                       }
 
+                      <th scope="col"> Editar </th>
+                      <th scope="col"> Eliminar </th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -127,6 +133,12 @@ export const Evidences = () => {
                                 <td>{valueRow?.nombre}</td>
                                 <td>{valueRow?.tipo}</td>
                                 <td>{valueRow?.ruta}</td>
+                                <td>
+                                  <button className='btn btn-primary' >Editar</button>
+                                </td>
+                                <td>
+                                  <button className='btn btn-danger'>Eliminar</button>
+                                </td>
                               </tr>
                             )
 

@@ -1,40 +1,66 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AlertError } from '../../helpers/Alerts/AlertError';
 import { AlertSuccess } from '../../helpers/Alerts/AlertSuccess';
 import { requestPost } from '../../helpers/requestPost';
+import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 import { useForm } from '../../hooks/useForm'
 
 
 
 export const RegisterClub = () => {
 
+    const { data: campuses } = useFetch_RequestGet('get_all_campuses');
+    const { data: specialties } = useFetch_RequestGet('get_all_clubs_speciality');
+    const { data: categories } = useFetch_RequestGet('get_all_category_to_club');
+
     const { dataForm, onInputChange, onResetForm } = useForm({});
+
+    const [ getCampuses, setCampuses ] = useState(null);
+    const [ getSpecialties, setSpecialties ] = useState(null);
+    const [ getCategories, setCategories ] = useState(null);
 
 
     useEffect ( () => {
 
+        try {
+            setCampuses(JSON.parse(campuses));
+            setSpecialties(JSON.parse(specialties));
+            setCategories(JSON.parse(categories));
+        } catch (err ) {
+            console.log(err);
+        }
 
-
-    }, [] ) 
+    }, [campuses, categories, specialties] ) 
 
     const handleSendPost = (e) => {
         e.preventDefault();
 
         const body = {
-            "name": "Ajedrez",
-            "objetivo": "Jugar y ganar para la representación del itesi",
-            "fecha_creacion": "2022-12-16 01:40:37",
+            "name": dataForm.name_club,
+            "objetivo": dataForm.objective_club,
+            // "fecha_creacion": dataForm.date_created,
             "estatus": "activo",
-            "id_plantel": 1,
-            "id_especialidad": 1,
-            "id_categoria_club": 3
+            "id_plantel": dataForm.id_campus,
+            "id_especialidad": dataForm.id_specialty,
+            "id_categoria_club": dataForm.id_category
         }
 
-        const formData = new FormData();
-        formData.append('club_info', JSON.stringify(dataForm));
+        Object.entries(body).forEach( ([key, value]) => {
+            if (value == '' || value == null || value == undefined) {
+                AlertError('Error', 'Todos los campos son obligatorios');
+                throw new Error('Todos los campos son obligatorios');
+            }
+        })
 
-        requestPost('clubs', formData)
+        const formData = new FormData();
+        formData.append('club_info', JSON.stringify(body));
+
+        requestPost('add_club', formData)
             .then( response => {
+                if ( !(response.includes('Error: missing info.')) ) {
+                    AlertSuccess('Registro exitoso', `El club: ${dataForm?.name_club}  se ha registrado correctamente`);
+                    onResetForm();
+                }
                 // AlertSuccess('Registro exitoso', 'El registro se ha realizado correctamente')
                 // AlertError('Registro fallido', 'El registro no se pudo realizar')
                 console.log(response);
@@ -68,9 +94,13 @@ export const RegisterClub = () => {
                         <div className='col-12 col-md-6'>
                             
                             <div class="form-floating mb-3">
-                                <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <select onChange={onInputChange} name='id_specialty' class="form-select" id="floatingSelect" aria-label="Floating label select example">
                                     <option selected>Escoje la especialidad</option>
-                                    <option value="1">Irapuato</option>
+                                    {
+                                        getSpecialties && getSpecialties.map( specialty => (
+                                            <option key={specialty.id} value={specialty.id}> {specialty.nombre} </option>
+                                        ))
+                                    }
                                 </select>
                                 <label for="floatingSelect">Especialidad</label>
                             </div>
@@ -78,9 +108,13 @@ export const RegisterClub = () => {
                         </div>
                         <div className='col-12 col-md-6'>
                             <div class="form-floating mb-3">
-                                <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <select onChange={onInputChange} name='id_category' class="form-select" id="floatingSelect" aria-label="Floating label select example">
                                     <option selected>Escoje la categoría</option>
-                                    <option value="1">Irapuato</option>
+                                    {
+                                        getCategories && getCategories.map( category => (
+                                            <option key={category.id} value={category.id}> {category.nombre} </option>
+                                        ))
+                                    }
                                 </select>
                                 <label for="floatingSelect">Categoria del Club</label>
                             </div>
@@ -96,9 +130,13 @@ export const RegisterClub = () => {
                     <div className='row'>
                         <div className='col-12 col-md-6'>
                             <div class="form-floating mb-3">
-                                <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <select onChange={onInputChange} name='id_campus' class="form-select" id="floatingSelect" aria-label="Floating label select example">
                                     <option selected>Escoje el Plantel</option>
-                                    <option value="1">Irapuato</option>
+                                    {
+                                        getCampuses && getCampuses.map( campus => (
+                                            <option key={campus.id} value={campus.id}> {campus.nombre} </option>
+                                        ))
+                                    }
                                 </select>
                                 <label for="floatingSelect">Plantel</label>
                             </div>
@@ -129,7 +167,7 @@ export const RegisterClub = () => {
 
 
                     <div className="mb-3 d-flex justify-content-end ">
-                        <input type="submit" className="btn btn-success" value="Guardar registro" id="" />
+                        <input type="button" onClick={handleSendPost} className="btn btn-success" value="Guardar registro" id="" />
                     </div>
                 </form>
             </div>

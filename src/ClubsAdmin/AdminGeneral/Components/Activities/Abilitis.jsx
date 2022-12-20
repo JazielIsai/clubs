@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { confirmDialog } from '../../../../helpers/Alerts/AlertConfirmDialog';
+import { AlertError } from '../../../../helpers/Alerts/AlertError';
+import { AlertSuccess } from '../../../../helpers/Alerts/AlertSuccess';
+import { requestPost } from '../../../../helpers/requestPost';
 import { useFetch_RequestGet } from '../../../../hooks/useFetchGet'
+import { useForm } from '../../../../hooks/useForm';
 
 export const Abilitis = () => {
 
     const { data } = useFetch_RequestGet('get_all_skills');
+
+    const { dataForm, onInputChange, onResetForm } = useForm({});
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();
@@ -20,11 +27,59 @@ export const Abilitis = () => {
 
     },[data])
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (dataForm.nameAbilities == '' || dataForm.nameAbilities == null || dataForm.nameAbilities == undefined) {
+            AlertError('Error', 'Todos los campos son obligatorios');
+            throw new Error('Todos los campos son obligatorios');
+        }
+
+        const formData = new FormData();
+        formData.append('skill_info', dataForm.nameAbilities);
+
+        requestPost('insert_a_new_skill', formData)
+            .then( response => {
+                console.log(response);
+                if ( !(response.includes('Error: missing info.')) ) {
+                    AlertSuccess('Exito', 'Categoria registrada con exito');
+                    setRow([...getRow, {id: parseInt(response), nombre: dataForm.nameAbilities}]);
+                    onResetForm();
+                } else {
+                    AlertError('Error', 'Ocurrio un error al registrar la categoria');
+                }
+            });
+
+    }
+
     const handleEdit = (id) => {
         
     }
 
     const handleDelete = (id) => {
+
+        confirmDialog('¿Eliminar?','¿Estas seguro de eliminar esta categoria?', 'Eliminar', 'Cancelar')
+            .then( response => {
+                if (response) {
+                    
+                    const formData = new FormData();
+                    formData.append('id_skill', id);
+                    requestPost('delete_skill', formData)
+                        .then( response => {
+                            console.log(response);
+                            if ( !(response.includes('Error: missing info.')) ) {
+                                AlertSuccess('Exito', 'Categoria eliminada con exito');
+                                setRow(getRow.filter( row => row.id != id));
+                            } else {
+                                AlertError('Error', 'Ocurrio un error al eliminar la categoria');
+                            }
+                        } );
+
+                } else {
+                    return;
+                } 
+            } )
+
 
     }
 
@@ -35,13 +90,13 @@ export const Abilitis = () => {
                 <div className='col-12 col-md-6'>
                     <h5> Registrar </h5>
                     <form>
-                        <div className='form-group'>
-                            <label htmlFor='name'> Nombre </label>
-                            <input type='text' className='form-control' id='name' />
+                        <div className='form-floating mb-3'>
+                            <input type='text' onChange={onInputChange} name='nameAbilities' className='form-control' id='floatingname' />
+                            <label htmlFor='floatingname'> Nombre </label>
                         </div>
 
                         <div className='d-flex mt-3 justify-content-end'>
-                            <button type='submit' className='btn btn-success'> Guardar </button>
+                            <button type='button' onClick={handleSubmit} className='btn btn-success'> Guardar </button>
                         </div>
                     </form>
                 </div>

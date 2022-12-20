@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { confirmDialog } from '../../../../helpers/Alerts/AlertConfirmDialog';
+import { AlertError } from '../../../../helpers/Alerts/AlertError';
+import { AlertSuccess } from '../../../../helpers/Alerts/AlertSuccess';
+import { requestPost } from '../../../../helpers/requestPost';
 import { useFetch_RequestGet } from '../../../../hooks/useFetchGet';
+import { useForm } from '../../../../hooks/useForm';
 
 export const RolMember = () => {
 
 
     const { data } = useFetch_RequestGet('get_all_rol_members_clubs');
+
+    const { dataForm, onInputChange, onResetForm } = useForm({});
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();
@@ -21,14 +28,61 @@ export const RolMember = () => {
 
     },[data])
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (dataForm.nameRolMember == '' || dataForm.nameRolMember == null || dataForm.nameRolMember == undefined) {
+            AlertError('Error', 'Todos los campos son obligatorios');
+            throw new Error('Todos los campos son obligatorios');
+        }
+
+        const formData = new FormData();
+        formData.append('name_rol_to_member', dataForm.nameRolMember);
+
+        requestPost('add_rol_member_club', formData)
+            .then( response => {
+                console.log(response);
+                if ( !(response.includes('Error: missing info.')) ) {
+                    AlertSuccess('Exito', 'Categoria registrada con exito');
+                    setRow([...getRow, {id: parseInt(response), nombre: dataForm.nameRolMember}]);
+                    onResetForm();
+                } else {
+                    AlertError('Error', 'Ocurrio un error al registrar la categoria');
+                }
+            });
+
+    }
+
     const handleEdit = (id) => {
         
     }
 
     const handleDelete = (id) => {
 
-    }
+        confirmDialog('¿Eliminar?','¿Estas seguro de eliminar esta categoria?', 'Eliminar', 'Cancelar')
+            .then( response => {
+                if (response) {
+                    
+                    const formData = new FormData();
+                    formData.append('id_rol_member_club', id);
+                    requestPost('delete_rol_member_club', formData)
+                        .then( response => {
+                            console.log(response);
+                            if ( !(response.includes('Error: missing info.')) ) {
+                                AlertSuccess('Exito', 'Categoria eliminada con exito');
+                                setRow(getRow.filter( row => row.id != id));
+                            } else {
+                                AlertError('Error', 'Ocurrio un error al eliminar la categoria');
+                            }
+                        } );
 
+                } else {
+                    return;
+                } 
+            } )
+
+
+    }
 
   return (
     <div className='container'>
@@ -37,14 +91,14 @@ export const RolMember = () => {
             <div className='col-12 col-md-6'>
                 <h5> Registrar </h5>
                 <form>
-                    <div className='form-group'>
-                        <label htmlFor='name'> Nombre </label>
-                        <input type='text' className='form-control' id='name' />
-                    </div>
+                        <div className='form-floating mb-3'>
+                            <input type='text' onChange={onInputChange} name='nameRolMember' className='form-control' id='floatingname' />
+                            <label htmlFor='floatingname'> Nombre </label>
+                        </div>
 
-                    <div className='d-flex mt-3 justify-content-end'>
-                        <button type='submit' className='btn btn-success'> Guardar </button>
-                    </div>
+                        <div className='d-flex mt-3 justify-content-end'>
+                            <button type='button' onClick={handleSubmit} className='btn btn-success'> Guardar </button>
+                        </div>
 
                 </form>
             </div>
