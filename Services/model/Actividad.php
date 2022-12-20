@@ -50,4 +50,29 @@ class Actividad extends MethodsCrud {
         return $this->select_query($query, $params);
     }
 
+    public function update_activity ($activity_info) {
+
+        $query = "UPDATE actividad SET  nombre = ?, modalidad = ?, fecha = ?, objetivo_desarrollo_s = ?,
+        atributo_egreso = ?, calificacion_valor = ?, tipo_evidencia = ?, responsable = ?, observaciones = ?,
+        estatus = ?, modelo = ?, dominio = ?, id_habilidad_desarrollada = ?, id_tipo_actividad = ?,
+        id_club = ?, id_idioma = ?
+        WHERE id = ?";
+
+        $data = array($activity_info->nombre, $activity_info->modalidad, $activity_info->fecha,
+            $activity_info->objetivo_desarrollo_s, $activity_info->atributo_egreso, $activity_info->calificacion_valor,
+            $activity_info->tipo_evidencia, $activity_info->responsable, $activity_info->observaciones,
+            $activity_info->estatus, $activity_info->modelo, $activity_info->dominio,
+            $activity_info->id_habilidad_desarrollada, $activity_info->id_tipo_actividad, $activity_info->id_club,
+            $activity_info->id_idioma, $activity_info->id);
+
+        return $this->update_delete_query($query, array($data));
+    }
+
+    public function delete_activity ($id_activity) {
+        $query = "DELETE FROM actividad WHERE id = ?";
+
+        $data = array($id_activity);
+
+        return $this->update_delete_query($query, array($data));
+    }
 }
