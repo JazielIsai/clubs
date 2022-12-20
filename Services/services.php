@@ -42,6 +42,7 @@ include_once './model/Especialidad.php';
 include_once './model/rol_member_club.php';
 include_once './model/Evidences.php';
 include_once './model/ActivitiesClub.php';
+include_once './model/TypeActivity.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -58,6 +59,7 @@ $services_specialities = new Especialidad();
 $services_rol_member_club = new rol_member_club();
 $services_evidences = new Evidences();
 $services_ActivitiesClub = new ActivitiesClub();
+$services_type_activity = new TypeActivity();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -281,6 +283,10 @@ switch ($servicesName){
         }
         break;
 
+// type activity
+    case 'get_all_type_activity':
+        echo json_encode($services_type_activity->get_all_type_activity());
+        break;
 
 //Idiomas
     case 'get_all_idioms':

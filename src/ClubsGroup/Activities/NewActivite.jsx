@@ -1,7 +1,44 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
+import { requestPost } from '../../helpers/requestPost'
+import { useForm } from '../../hooks/useForm';
 
 export const NewActivite = () => {
 
+  const { club_id } = useParams();
+
+  const { dataForm, onInputChange, onResetForm } = useForm({});
+
+
+  const handleAddActivitie = () => {
+
+    const body = {
+      nombre : dataForm.name,
+      modalidad: dataForm.modality,
+      fecha: dataForm.date,
+      objetivo_desarrollo_s: dataForm.objectiveDevelopment,
+      atributo_egreso: dataForm.egressAttribute,
+      calificacion_valor: dataForm.calificationValue,
+      tipo_evidencia: dataForm.typeEvidence,
+      responsable: dataForm.responsible,
+      observaciones: dataForm.observations,
+      estatus: dataForm.status,
+      modelo: dataForm.model,
+      dominio: dataForm.domain,
+      id_habilidad_desarrollada: dataForm.id_habilidad_desarrollada, 
+      id_tipo_actividad: dataForm.id_tipo_actividad,
+      id_club: club_id,
+      id_idioma: dataForm.id_idioma,
+    }
+
+    const formData = new FormData();
+    formData.append('activity_info', JSON.stringify(body));
+
+    requestPost('add_activity', formData)
+      .then( resp => {
+        console.log(resp);
+      })
+  }
 
   return (
     <div className='container'>
@@ -10,12 +47,12 @@ export const NewActivite = () => {
         <form>
             
             <div className='form-floating mb-3'>
-              <input type="text" class="form-control" id="floatingName" placeholder="" />
+              <input type="text" onChange={onInputChange} name='name' class="form-control" id="floatingName" placeholder="" />
               <label for="floatingName">Nombre</label>
             </div>
             
             <div class="form-floating mb-3">
-              <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              <select class="form-select" onChange={onInputChange} name='id_tipo_actividad' id="floatingSelect" aria-label="Floating label select example">
                 <option selected>Escoje el tipo de la actividad</option>
                 <option value="1">Trabajo en Equipo</option>
               </select>

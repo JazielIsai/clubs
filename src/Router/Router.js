@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { AuthRoutes } from '../Auth'
+import { AuthContext, AuthRoutes } from '../Auth'
 import { RoutesClubs } from '../ClubsAdmin/Routes/RoutesClubs'
 import { RoutesClubGroup } from '../ClubsGroup/Routes/RoutesClubGroup'
 import { PrivateRoutes } from './PrivateRoute'
@@ -8,7 +8,8 @@ import { PublicRoutes } from './PublicRoute'
 
 
 export const Router = () => {
-  
+    
+    const { user } = useContext( AuthContext );
   
     return (
         <div className='d-flex flex-column w-100 mw-100' style={{"minHeight": "calc(100% - 60px)"}}>
@@ -34,7 +35,7 @@ export const Router = () => {
                     />
 
                     <Route
-                        path='club/*' 
+                        path='club/*'
                         element={
                             <PrivateRoutes>
                                 <RoutesClubGroup />
