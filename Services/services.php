@@ -86,6 +86,12 @@ switch ($servicesName){
         }
 
         break;
+    case 'add_user':
+        if (!isset($_POST['user_info']))
+            echo 'Error: missing info.';
+        else
+            echo ($services_users->add_user(secure_json_decode($_POST['user_info'])));
+        break;
 
     case 'update_user':
         if (!isset($_POST['user_info']))
