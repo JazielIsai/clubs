@@ -49,7 +49,23 @@ class Actividad extends MethodsCrud {
         $params = array($club_id);
         return $this->select_query($query, $params);
     }
+    
+    public function add_activity ($activity_info) {
+        $query = "INSERT INTO actividad (nombre, modalidad, fecha, objetivo_desarrollo_s, atributo_egreso,
+        calificacion_valor, tipo_evidencia, responsable, observaciones, estatus, modelo,
+        dominio, id_habilidad_desarrollada, id_tipo_actividad, id_club, id_idioma)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+        $data = array($activity_info->nombre, $activity_info->modalidad, $activity_info->fecha, 
+        $activity_info->objetivo_desarrollo_s, $activity_info->atributo_egreso,
+        $activity_info->calificacion_valor, $activity_info->tipo_evidencia, $activity_info->responsable, 
+        $activity_info->observaciones, $activity_info->estatus, $activity_info->modelo,
+        $activity_info->dominio, $activity_info->id_habilidad_desarrollada, $activity_info->id_tipo_actividad, 
+        $activity_info->id_club, $activity_info->id_idioma);
+
+        return $this->insert_query($query, array($data));
+    }
+    
     public function update_activity ($activity_info) {
 
         $query = "UPDATE actividad SET  nombre = ?, modalidad = ?, fecha = ?, objetivo_desarrollo_s = ?,

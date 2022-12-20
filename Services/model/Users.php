@@ -50,7 +50,17 @@ class Users extends MethodsCrud {
 
         return $this->select_query($query, $params);
     }
+    
+    public function add_user ($user_info) {
+        $query = "INSERT INTO usuarios (nombre, correo, contraseña, fecha_creacion, id_rol)
+                VALUES (?, ?, ?, ?, ?)";
+        
+        $data = array($user_info->nombre, $user_info->correo, $user_info->contraseña, 
+        $user_info->fecha_creacion, $user_info->id_rol);
 
+        return $this->insert_query($query, array($data));
+    }
+    
     public function update_user ($user_info) {
         $query = "UPDATE usuarios SET nombre = ?, correo = ?, contraseña = ?, fecha_creacion = ?, id_rol = ?
         WHERE id = ?";

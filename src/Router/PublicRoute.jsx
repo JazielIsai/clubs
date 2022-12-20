@@ -8,5 +8,5 @@ export const PublicRoutes = ({children}) => {
 
     return ( !logged )
         ? children
-        : <Navigate to="/admin" />
+        : rol_user === 'Administrador' ? <Navigate to="/admin" /> : <Navigate to="/club" />
 }

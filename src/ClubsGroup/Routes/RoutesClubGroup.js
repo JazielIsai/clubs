@@ -10,6 +10,9 @@ import { DashboardByClub } from '../Dashboard/DashboardByClub'
 import { AddEvidences } from '../Activities/Evidences/AddEvidences'
 import { EditEvidences } from '../Activities/Evidences/EditEvidences'
 import { Evidences } from '../Activities/Evidences/Evidences'
+import { Members } from '../Members/Members'
+import { AddMember } from '../Members/AddMember'
+import { EditMember } from '../Members/EditMember'
 
 export const RoutesClubGroup = () => {
     
@@ -21,16 +24,21 @@ export const RoutesClubGroup = () => {
                 <Routes>
 
                     <Route path='dashboard' element={<DashboardByClub />} />
+                    
                     <Route path='updateClub' element={<EditClub />} />
-                    <Route path='activities' element={<Activities />} />
-                    <Route path='activities/add' element={<NewActivite />} />
-                    <Route path='activities/edit/:id' element={<EditActivitie/>} />
-                    <Route path='evidences' element={<Evidences />} />
-                    <Route path='evidences/add' element={<AddEvidences />} />
-                    <Route path='evidences/edit/:id' element={<EditEvidences />} />
-                    <Route path='members' element={<div>Members</div>} />
-                    <Route path='members/add' element={<div>AddMembers</div>} />
-                    <Route path='members/edit' element={<div>EditMembers</div>} />
+                    
+                    <Route path='activities/:club_id' element={<Activities />} />
+                    <Route path='activities/add/:club_id' element={<NewActivite />} />
+                    <Route path='activities/edit/:club_id/:id_activitie' element={<EditActivitie/>} />
+                    
+                    <Route path='activities/evidences/:id_activitie/:nameActivitie' element={<Evidences />} />
+                    <Route path='activities/evidences/add/:id_activitie' element={<AddEvidences />} />
+                    <Route path='activities/evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
+                    
+                    <Route path='members/:club_id' element={<Members />} />
+                    <Route path='members/add/:club_id' element={<AddMember />} />
+                    <Route path='members/edit/:club_id/:id_member' element={<EditMember />} />
+                    
                     <Route path='members/assign' element={<div>AssignMembers</div>} />
                     
                     <Route path='/*' element={<Navigate to={'/club/dashboard'} />} />

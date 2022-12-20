@@ -4,32 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="add interface to get evidences">
+    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="update service to the method de login">
+      <change afterPath="$PROJECT_DIR$/Services/model/TypeActivity.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/config/DBCnx.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/config/DBCnx.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/config/configuration.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Services/config/configuration.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/CategoryClub.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/CategoryClub.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/ClubSpecialty.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/ClubSpecialty.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Clubes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Clubes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Habilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Habilidades.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Idioma.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Idioma.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/MethodsCrud.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/MethodsCrud.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Plantel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Plantel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/UsuariosMiembros.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/UsuariosMiembros.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/rol_member_club.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/rol_member_club.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/Evidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/Evidences.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/AddMember.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/AddMember.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/Members.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/Members.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/NewActivite.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/NewActivite.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Router/PublicRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router/PublicRoute.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Router/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router/Router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +66,7 @@
       <workItem from="1671419444263" duration="4397000" />
       <workItem from="1671461436239" duration="7576000" />
       <workItem from="1671519307096" duration="10779000" />
+      <workItem from="1671552460083" duration="3873000" />
     </task>
     <task id="LOCAL-00001" summary="fix: change the services the super global from post to get">
       <created>1671419906553</created>
@@ -127,7 +110,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671468893117</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add services to checking if the user exist">
+      <created>1671554070165</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671554070165</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update service to the method de login">
+      <created>1671554548444</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671554548444</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +148,8 @@
     <MESSAGE value="Update the interfaces and its logic and design" />
     <MESSAGE value="add services to evidences" />
     <MESSAGE value="add interface to get evidences" />
-    <option name="LAST_COMMIT_MESSAGE" value="add interface to get evidences" />
+    <MESSAGE value="add services to checking if the user exist" />
+    <MESSAGE value="update service to the method de login" />
+    <option name="LAST_COMMIT_MESSAGE" value="update service to the method de login" />
   </component>
 </project>

@@ -19,6 +19,8 @@ export const RegisterClub = () => {
     const [ getSpecialties, setSpecialties ] = useState(null);
     const [ getCategories, setCategories ] = useState(null);
 
+    const [ getClubId, setClubId ] = useState(null);
+
 
     useEffect ( () => {
 
@@ -59,6 +61,7 @@ export const RegisterClub = () => {
             .then( response => {
                 if ( !(response.includes('Error: missing info.')) ) {
                     AlertSuccess('Registro exitoso', `El club: ${dataForm?.name_club}  se ha registrado correctamente`);
+                    setClubId(response);
                     onResetForm();
                 }
                 // AlertSuccess('Registro exitoso', 'El registro se ha realizado correctamente')
@@ -68,6 +71,33 @@ export const RegisterClub = () => {
             .catch( err => {
                 console.log(err);
             })
+
+    }
+
+    const loadFilePlanAnual = (event) => {
+        const file = event.target.files[0];
+
+        const formData = new FormData();
+        formData.append('plan_anual', file);
+
+        requestPost('add_club', formData)
+            .then( response => {
+                console.log(response);
+            } )
+
+    }
+
+    const loadFileActaConstitutiva = (event) => {
+        const file = event.target.files[0];
+
+        const formData = new FormData();
+        formData.append('acta_constitutiva', file);
+
+        requestPost('add_club', formData)
+            .then( response => {
+                console.log(response);
+            }
+        )
 
     }
 
@@ -152,12 +182,30 @@ export const RegisterClub = () => {
 
                     <div className="form-group mb-3">
                         <label htmlFor="annual_plan"> Plan anual: </label>
-                        <input type="file" className="form-control" id="annual_plan" placeholder="Lider..." name="manager_club" />
+                        <input 
+                            type="file" 
+                            className="form-control" 
+                            id="annual_plan" 
+                            placeholder="Lider..." 
+                            // name="manager_club" 
+                            multiple 
+                            name="files[]"
+                            onChange={loadFilePlanAnual}
+                        />
                     </div>
 
                     <div className="form-group mb-3">
                         <label htmlFor="constitutive_act"> Acta constitutiva: </label>
-                        <input type="file" className="form-control" id="constitutive_act" placeholder="Lider..." name="manager_club" />
+                        <input 
+                            type="file" 
+                            className="form-control" 
+                            id="constitutive_act" 
+                            placeholder="Lider..." 
+                            // name="manager_club" 
+                            multiple
+                            name="files[]"
+                            onChange={loadFileActaConstitutiva}
+                        />
                     </div>
 
                     <div className="form-group mb-3">
