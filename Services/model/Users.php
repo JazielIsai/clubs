@@ -29,4 +29,14 @@ class Users extends MethodsCrud {
         return $this->select_query($query, $params);
     }
 
+    public function update_user ($user_info) {
+        $query = "UPDATE usuarios SET nombre = ?, correo = ?, contraseña = ?, fecha_creacion = ?, id_rol = ?
+        WHERE id = ?";
+
+        $data = array($user_info->nombre, $user_info->correo, $user_info->contraseña, $user_info->fecha_creacion,
+        $user_info->id_rol, $user_info->id);
+
+        return $this->update_delete_query($query, array($data));
+    }
+
 }
