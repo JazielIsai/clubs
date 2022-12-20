@@ -24,6 +24,11 @@ class Evidences extends MethodsCrud {
         return $this->update_delete_query($query, array($data));
     }
 
-    
+    public function add_evidence ($new_evidence)
+    {
+        $query = "INSERT INTO evidencia (nombre, tipo, ruta, id_actividad) VALUES (?, ?, ?, ?)";
+        $data = array($new_evidence->nombre, $new_evidence->tipo, $new_evidence->ruta, $new_evidence->id_actividad);
+        return $this->insert_query($query, array($data));
+    }
   
 }
