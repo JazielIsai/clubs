@@ -129,6 +129,12 @@ switch ($servicesName){
         echo secure_json_encode($services_clubes->get_count_clubs());
         break;
     //Services to table Activity
+    case 'add_activity':
+        if (!isset($_POST['activity_info']))
+            echo 'Error: missing info.';
+        else
+            echo ($services_activities->add_activity(secure_json_decode($_POST['activity_info'])));
+        break;
     case 'update_activity':
         if (!isset($_POST['activity_info']))
             echo 'Error: missing info.';
