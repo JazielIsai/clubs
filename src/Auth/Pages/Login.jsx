@@ -1,4 +1,5 @@
-import {useContext, useState} from 'react'
+import {useContext, useState} from 'react';
+import{requestPost} from '../../helpers';
 import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../Context';
 import ITESI_TECNM from '../../Assets/img/ITESI-TECNM.png';
@@ -6,19 +7,34 @@ import LogoITESI from '../../Assets/img/LogoITESI.png';
 
 export const Login = () => {
 
+
   const { login } = useContext(AuthContext);
 
   const {email, password, onInputChange} = useForm({
-    email: "pgjaz14@gmail.com",
-    password: "123456"
+  email:'',
+  password:''
   });
+  
 
   const onSubmit = (e) => {
     e.preventDefault();
+    
+    
+    
+    requestPost('existing_user',{email,password} )
+    .then(resp=>{
+     console.log(resp);
+     
+     const user = JSON.parse(resp);
+     
+     login(user);
+     
+    })
+    
+    
+    // console.log({email, password});
 
-    console.log({email, password});
-
-    login({user_id: 1, name: 'Jaz', lastname: 'Pérez', email, rol_user: 1});
+    // login({user_id: 1, name: 'Jaz', lastname: 'Pérez', email, rol_user: 1});
     
   }
 
