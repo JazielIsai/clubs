@@ -43,6 +43,7 @@ include_once './model/rol_member_club.php';
 include_once './model/Evidences.php';
 include_once './model/ActivitiesClub.php';
 include_once './model/PlanAnual.php';
+include_once './model/ActaConstitutiva.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -60,6 +61,7 @@ $services_rol_member_club = new rol_member_club();
 $services_evidences = new Evidences();
 $services_ActivitiesClub = new ActivitiesClub();
 $services_planAnual = new PlanAnual();
+$services_acta = new ActaConstitutiva();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -463,7 +465,15 @@ switch ($servicesName){
         echo secure_json_encode($services_planAnual->get_all_planAnual());
         break;
 
-
+//Acta Constitutiva
+    case 'get_all_acta':
+        echo secure_json_encode($services_acta->get_all_acta());
+        break;
+    case 'add_new_acta':
+        if (isset($_POST['acta_info'])) {
+            echo json_encode($services_acta->add_new_acta(json_decode($_POST['acta_info'])));
+        }
+        break;
 
     default:
         echo 'Error: wrong service.get';
