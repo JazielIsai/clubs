@@ -74,6 +74,14 @@ switch ($servicesName){
         if ( isset($_POST['user_id']) )
         echo secure_json_encode($services_users->get_user_by_id($_POST['user_id']));
         break;
+    case 'existing_user':
+        if ( isset($_POST['email'], $_POST['password'] ) ){
+            $services_users->existing_user($_POST['email'], $_POST['password']);
+        } else {
+            echo 'Error: missing id.';
+        }
+
+        break;
 
     case 'update_user':
         if (!isset($_POST['user_info']))

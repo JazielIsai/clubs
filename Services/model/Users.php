@@ -17,6 +17,23 @@ class Users extends MethodsCrud {
         return $this->select_query($query);
     }
 
+    public function existing_user ($email, $password) {
+        $query = "
+            SELECT * FROM usuarios WHERE correo = ? AND contraseña = ?;
+        ";
+
+        $params = array($email, $password);
+
+        $data = $this->select_query($query, $params);
+
+        if ( count($data) > 0 ) {
+            return $this->select_query($query, $params);
+        } else {
+            return 'User not existing';
+        }
+
+    }
+
     public function get_user_by_id ($user_id) {
         $query = "
             SELECT usuarios.id, usuarios.nombre, usuarios.correo, usuarios.fecha_creacion, usuarios.contraseña, usuarios.id_rol
