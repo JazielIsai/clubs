@@ -72,6 +72,14 @@ switch ($servicesName){
         if ( isset($_POST['user_id']) )
         echo secure_json_encode($services_users->get_user_by_id($_POST['user_id']));
         break;
+
+    case 'update_user':
+        if (!isset($_POST['user_info']))
+            echo 'Error: missing info.';
+        else
+            echo ($services_users->update_user(secure_json_decode($_POST['user_info'])));
+        break;
+        
     // Services to table clubs
     case 'get_all_clubs':
         echo secure_json_encode($services_clubes->get_all_clubs());
@@ -83,9 +91,37 @@ switch ($servicesName){
         else
             echo secure_json_encode($services_clubes->get_club_by_id($_GET['club_id']));
         break;
+        
+    case 'update_club':
+        if (!isset($_POST['club_info']))
+            echo 'Error: missing info.';
+        else
+            echo ($services_clubes->update_club(secure_json_decode($_POST['club_info'])));
+        break;
+
+    case 'delete club':
+        if (!isset($_GET['id_club']))
+            echo 'Error: missing id.';
+        else
+            echo secure_json_encode($services_clubes->delete_club($_GET['id_club']));
+        break;
     
     case 'get_count_clubs':
         echo secure_json_encode($services_clubes->get_count_clubs());
+        break;
+    //Services to table Activity
+    case 'update_activity':
+        if (!isset($_POST['activity_info']))
+            echo 'Error: missing info.';
+        else
+            echo ($services_activities->update_activity(secure_json_decode($_POST['activity_info'])));
+        break;
+
+    case 'delete_activity':
+        if (!isset($_GET['id_activity']))
+            echo 'Error: missing id.';
+        else
+            echo secure_json_encode($services_activities->delete_activity($_GET['id_activity']));
         break;
 
     case 'get_activities_by_club':
@@ -108,6 +144,13 @@ switch ($servicesName){
     case 'get_evidences_by_activity':
         if (isset($_GET['id_activity']))
         echo json_encode($services_evidences->get_evidences_by_activity($_GET['id_activity']));
+        break;
+    
+    case 'update_evidence':
+        if (!isset($_POST['evidence_info']))
+            echo 'Error: missing info.';
+        else
+            echo ($services_evidences->update_evidence(secure_json_decode($_POST['evidence_info'])));
         break;
 // Campuses
     case 'get_all_campuses':
@@ -164,6 +207,19 @@ switch ($servicesName){
             echo ($services_users_club->add_new_user_club(secure_json_decode($_POST['user_info'])));
         }
         break;
+    case 'update_member':
+        if (!isset($_POST['member_info']))
+            echo 'Error: missing info.';
+        else
+            echo ($services_users_club->update_member(secure_json_decode($_POST['member_info'])));
+        break;
+    case 'delete_member':
+        if (!isset($_GET['id_member']))
+            echo 'Error: missing id.';
+        else
+            echo secure_json_encode($services_users_club->delete_member($_GET['id_member']));
+        break;
+
     case 'get_all_members':
         echo secure_json_encode($services_users_club->get_all_members());
         break;
@@ -208,8 +264,7 @@ switch ($servicesName){
     case 'add_rol_member_club':
         if ( isset($_POST['add_nombre_rol_member_club']) )
         echo ($services_rol_member_club->add_rol_member_club($_POST['add_nombre_rol_member_club']));
-        break;    
-
+        break;  
     default:
         echo 'Error: wrong service.get';
         break;
