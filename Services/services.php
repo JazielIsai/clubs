@@ -42,6 +42,7 @@ include_once './model/Especialidad.php';
 include_once './model/rol_member_club.php';
 include_once './model/Evidences.php';
 include_once './model/ActivitiesClub.php';
+include_once './model/PlanAnual.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -58,6 +59,7 @@ $services_specialities = new Especialidad();
 $services_rol_member_club = new rol_member_club();
 $services_evidences = new Evidences();
 $services_ActivitiesClub = new ActivitiesClub();
+$services_planAnual = new PlanAnual();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -89,6 +91,7 @@ switch ($servicesName){
         else
             echo ($services_users->update_user(secure_json_decode($_POST['user_info'])));
         break;
+    
         
     // Services to table clubs
     case 'get_all_clubs':
@@ -443,6 +446,18 @@ switch ($servicesName){
         if (isset($_GET['skills_developed_by_club']))
         echo secure_json_encode($services_ActivitiesClub->get_skills_developed_by_club($_GET['skills_developed_by_club']));
         break;
+
+ //Plan anual
+    case 'add_new_planAnual':
+        if (isset($_POST['plan_info'])) {
+            echo json_encode($services_planAnual->add_new_planAnual(json_decode($_POST['plan_info'])));
+        }
+        break;
+    case 'get_all_planAnual':
+        echo secure_json_encode($services_planAnual->get_all_planAnual());
+        break;
+
+
 
     default:
         echo 'Error: wrong service.get';
