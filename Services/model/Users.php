@@ -19,7 +19,12 @@ class Users extends MethodsCrud {
 
     public function existing_user ($email, $password) {
         $query = "
-            SELECT * FROM usuarios WHERE correo = ? AND contraseña = ?;
+            SELECT usuarios.id, usuarios.nombre, usuarios.correo, usuarios.contraseña,
+                    usuarios.fecha_creacion, usuarios.id_rol, 
+                    roles.nombre AS rol
+            FROM usuarios 
+            INNER JOIN roles ON usuarios.id_rol = roles.id
+            WHERE correo = ? AND contraseña = ?;
         ";
 
         $params = array($email, $password);
