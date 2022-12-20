@@ -116,10 +116,10 @@ switch ($servicesName){
         break;
 
     case 'delete club':
-        if (!isset($_GET['id_club']))
+        if (!isset($_POST['id_club']))
             echo 'Error: missing id.';
         else
-            echo secure_json_encode($services_clubes->delete_club($_GET['id_club']));
+            echo secure_json_encode($services_clubes->delete_club($_POST['id_club']));
         break;
     
     case 'get_count_clubs':
@@ -134,10 +134,10 @@ switch ($servicesName){
         break;
 
     case 'delete_activity':
-        if (!isset($_GET['id_activity']))
+        if (!isset($_POST['id_activity']))
             echo 'Error: missing id.';
         else
-            echo secure_json_encode($services_activities->delete_activity($_GET['id_activity']));
+            echo secure_json_encode($services_activities->delete_activity($_POST['id_activity']));
         break;
 
     case 'get_activities_by_club':
@@ -335,10 +335,10 @@ switch ($servicesName){
             echo ($services_users_club->update_member(secure_json_decode($_POST['member_info'])));
         break;
     case 'delete_member':
-        if (!isset($_GET['id_member']))
+        if (!isset($_POST['id_member']))
             echo 'Error: missing id.';
         else
-            echo secure_json_encode($services_users_club->delete_member($_GET['id_member']));
+            echo secure_json_encode($services_users_club->delete_member($_POST['id_member']));
         break;
 
     case 'get_all_members':
