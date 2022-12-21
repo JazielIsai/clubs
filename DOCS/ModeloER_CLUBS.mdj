@@ -3548,7 +3548,7 @@
 									"font": "Arial;13;1",
 									"left": 24,
 									"top": 653,
-									"width": 145.0908203125,
+									"width": 167.26806640625,
 									"height": 13,
 									"text": "DesempeñoMiembros"
 								},
@@ -3574,7 +3574,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 676,
-											"width": 135.0908203125,
+											"width": 157.26806640625,
 											"height": 13
 										},
 										{
@@ -3589,22 +3589,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 691,
-											"width": 135.0908203125,
-											"height": 13
-										},
-										{
-											"_type": "ERDColumnView",
-											"_id": "AAAAAAGFNkBCr/Z+ZkQ=",
-											"_parent": {
-												"$ref": "AAAAAAGFNj+Kf/ZjFvk="
-											},
-											"model": {
-												"$ref": "AAAAAAGFNkBCqPZ7oes="
-											},
-											"font": "Arial;13;0",
-											"left": 29,
-											"top": 706,
-											"width": 135.0908203125,
+											"width": 157.26806640625,
 											"height": 13
 										},
 										{
@@ -3618,8 +3603,53 @@
 											},
 											"font": "Arial;13;0",
 											"left": 29,
+											"top": 706,
+											"width": 157.26806640625,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGFNkbiNfaraiI=",
+											"_parent": {
+												"$ref": "AAAAAAGFNj+Kf/ZjFvk="
+											},
+											"model": {
+												"$ref": "AAAAAAGFNkbiJPaoQvg="
+											},
+											"font": "Arial;13;0",
+											"left": 29,
 											"top": 721,
-											"width": 135.0908203125,
+											"width": 157.26806640625,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGFNkcri/ayqUM=",
+											"_parent": {
+												"$ref": "AAAAAAGFNj+Kf/ZjFvk="
+											},
+											"model": {
+												"$ref": "AAAAAAGFNkcrg/avkAQ="
+											},
+											"font": "Arial;13;0",
+											"left": 29,
+											"top": 736,
+											"width": 157.26806640625,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGFNkeCufa5K7g=",
+											"_parent": {
+												"$ref": "AAAAAAGFNj+Kf/ZjFvk="
+											},
+											"model": {
+												"$ref": "AAAAAAGFNkeCr/a2AGg="
+											},
+											"font": "Arial;13;0",
+											"left": 29,
+											"top": 751,
+											"width": 157.26806640625,
 											"height": 13
 										},
 										{
@@ -3633,23 +3663,23 @@
 											},
 											"font": "Arial;13;0",
 											"left": 29,
-											"top": 736,
-											"width": 135.0908203125,
+											"top": 766,
+											"width": 157.26806640625,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 671,
-									"width": 145.0908203125,
-									"height": 83
+									"width": 167.26806640625,
+									"height": 113
 								}
 							],
 							"font": "Arial;13;0",
 							"left": 24,
 							"top": 648,
-							"width": 145.0908203125,
-							"height": 106,
+							"width": 167.26806640625,
+							"height": 151,
 							"nameLabel": {
 								"$ref": "AAAAAAGFNj+Kf/ZiyU0="
 							},
@@ -3709,7 +3739,7 @@
 										"$ref": "AAAAAAGFNkLZKfaW8ys="
 									},
 									"font": "Arial;13;0",
-									"left": 193,
+									"left": 215,
 									"top": 696,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -3727,7 +3757,7 @@
 								"$ref": "AAAAAAGFGLJIDIhrX2s="
 							},
 							"lineStyle": 2,
-							"points": "264:597;264:688;168:688",
+							"points": "264:597;264:688;190:688",
 							"nameLabel": {
 								"$ref": "AAAAAAGFNkLZKfaXZeU="
 							},
@@ -5525,20 +5555,38 @@
 						},
 						{
 							"_type": "ERDColumn",
-							"_id": "AAAAAAGFNkBCqPZ7oes=",
-							"_parent": {
-								"$ref": "AAAAAAGFNj+Kf/ZfhpQ="
-							},
-							"name": "Evaluación",
-							"length": 0
-						},
-						{
-							"_type": "ERDColumn",
 							"_id": "AAAAAAGFNkBX3vaCtKE=",
 							"_parent": {
 								"$ref": "AAAAAAGFNj+Kf/ZfhpQ="
 							},
 							"name": "Observaciones",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGFNkbiJPaoQvg=",
+							"_parent": {
+								"$ref": "AAAAAAGFNj+Kf/ZfhpQ="
+							},
+							"name": "HabilidadDesarrollada",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGFNkcrg/avkAQ=",
+							"_parent": {
+								"$ref": "AAAAAAGFNj+Kf/ZfhpQ="
+							},
+							"name": "CompotenciaConocer",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGFNkeCr/a2AGg=",
+							"_parent": {
+								"$ref": "AAAAAAGFNj+Kf/ZfhpQ="
+							},
+							"name": "CalificaciónValor",
 							"length": 0
 						},
 						{
