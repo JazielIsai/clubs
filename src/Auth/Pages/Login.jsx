@@ -1,5 +1,5 @@
 import {useContext, useState} from 'react';
-import{requestPost} from '../../helpers';
+import{requestGet, requestPost} from '../../helpers';
 import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../Context';
 import ITESI_TECNM from '../../Assets/img/ITESI-TECNM.png';
@@ -20,16 +20,24 @@ export const Login = () => {
     e.preventDefault();
     
     
-    
-    requestPost('existing_user',{email,password} )
-    .then(resp=>{
-     console.log(resp);
-     
-     const user = JSON.parse(resp);
-     
-     login(user);
-     
-    })
+    const formData = new FormData();
+    formData.append('email', `${email}`);
+    formData.append('password', `${password}`);
+
+    requestGet(`existing_user&email=${email}&password=${password}`)
+      .then(resp=>{
+
+        console.log(resp);
+
+        if (resp.includes('Error: missing info.')) {
+          throw new Error('Error: missing info.');
+        }
+        
+        // const user = JSON.parse(resp);
+        
+        login(JSON.parse(resp)[0]);
+        
+      })
     
     
     // console.log({email, password});

@@ -4,9 +4,9 @@ import { AuthContext } from "../Auth"
 
 export const PublicRoutes = ({children}) => {
   
-    const {logged, rol_user} = useContext(AuthContext)
+    const {logged, user} = useContext(AuthContext)
 
     return ( !logged )
         ? children
-        : rol_user === 'Administrador' ? <Navigate to="/admin" /> : <Navigate to="/club" />
+        : user.rol_user === 'Administrador' ? <Navigate to="/admin" /> : <Navigate to="/club" />
 }

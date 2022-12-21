@@ -44,6 +44,7 @@ include_once './model/Evidences.php';
 include_once './model/ActivitiesClub.php';
 include_once './model/PlanAnual.php';
 include_once  './model/ActaConstitutiva.php';
+include_once './model/TypeActivity.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -62,6 +63,7 @@ $services_evidences = new Evidences();
 $services_ActivitiesClub = new ActivitiesClub();
 $services_planAnual = new PlanAnual();
 $services_acta = new ActaConstitutiva();
+$services_type_activity = new TypeActivity();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -78,9 +80,10 @@ switch ($servicesName){
         if ( isset($_POST['user_id']) )
         echo secure_json_encode($services_users->get_user_by_id($_POST['user_id']));
         break;
+
     case 'existing_user':
-        if ( isset($_POST['email'], $_POST['password'] ) ){
-            $services_users->existing_user($_POST['email'], $_POST['password']);
+        if ( isset($_GET['email'], $_GET['password'] ) ){
+            echo json_encode($services_users->existing_user($_GET['email'], $_GET['password']));
         } else {
             echo 'Error: missing id.';
         }
@@ -262,6 +265,11 @@ switch ($servicesName){
         } else {
             echo $services_club_speciality->delete_clubs_speciality($_POST['id_speciality']);
         }
+        break;
+
+// Type Activity
+    case 'get_all_type_activity':
+        echo json_encode($services_type_activity->get_all_type_activity());
         break;
 
 

@@ -184,6 +184,12 @@ SELECT usuarios.id, usuarios.nombre, usuarios.correo, usuarios.fecha_creacion,
 FROM usuarios
          INNER JOIN roles ON usuarios.id_rol = roles.id;
 
+SELECT usuarios.id, usuarios.nombre, usuarios.correo, usuarios.contraseña,
+       usuarios.fecha_creacion, usuarios.id_rol,
+       roles.nombre AS rol
+FROM usuarios
+INNER JOIN roles ON usuarios.id_rol = roles.id
+WHERE usuarios.correo = ? AND usuarios.contraseña = ?;
 
 -- speciality by club
 INSERT INTO especialidad_club (nombre)
@@ -315,3 +321,6 @@ VALUES ('LIS180315', 'Marion Michelle', 'Garcia', 'Barron', 'Femenino', 'michell
 SELECT * FROM evidencia WHERE id_actividad = 1;
 INSERT INTO evidencia (nombre, tipo, ruta, id_actividad)
 VALUES ('Exponer tema de Ajedrez', 'Fotos', '/var/www/html/clubs/', 1);
+
+INSERT INTO tipo_actividad (nombre)
+VALUES ('Conferencia'), ('Curso'), ('Taller'), ('Panel'), ('Concurso'), ('Convocatoria'), ('Campaña');

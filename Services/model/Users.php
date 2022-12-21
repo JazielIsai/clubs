@@ -22,9 +22,9 @@ class Users extends MethodsCrud {
             SELECT usuarios.id, usuarios.nombre, usuarios.correo, usuarios.contraseña,
                     usuarios.fecha_creacion, usuarios.id_rol, 
                     roles.nombre AS rol
-            FROM usuarios 
+            FROM usuarios
             INNER JOIN roles ON usuarios.id_rol = roles.id
-            WHERE correo = ? AND contraseña = ?;
+            WHERE usuarios.correo = ? AND usuarios.contraseña = ?;
         ";
 
         $params = array($email, $password);
@@ -32,7 +32,7 @@ class Users extends MethodsCrud {
         $data = $this->select_query($query, $params);
 
         if ( count($data) > 0 ) {
-            return $this->select_query($query, $params);
+            return $data;
         } else {
             return 'User not existing';
         }

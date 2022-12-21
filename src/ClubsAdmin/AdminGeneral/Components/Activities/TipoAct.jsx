@@ -3,7 +3,7 @@ import { useFetch_RequestGet } from '../../../../hooks/useFetchGet';
 
 export const TipoAct = () => {
 
-    const { data } = useFetch_RequestGet('');
+    const { data } = useFetch_RequestGet('get_all_type_activity');
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();
