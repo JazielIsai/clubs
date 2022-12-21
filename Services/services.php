@@ -188,6 +188,10 @@ switch ($servicesName){
         else
             echo ($services_evidences->update_evidence(secure_json_decode($_POST['evidence_info'])));
         break;
+    case 'add_evidence':
+        if (isset($_POST['insert_evidence']))
+        echo ($services_evidences->add_evidence(secure_json_decode($_POST['insert_evidence'])));    
+        break;
 // Campuses
     case 'get_all_campuses':
         echo secure_json_encode($services_campuses->get_all_campuses());
