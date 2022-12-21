@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="update service to the method de login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Pages/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/NewActivite.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/NewActivite.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router/PublicRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router/PublicRoute.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +61,7 @@
       <workItem from="1671461436239" duration="7576000" />
       <workItem from="1671519307096" duration="10779000" />
       <workItem from="1671552460083" duration="8179000" />
+      <workItem from="1671597269762" duration="340000" />
     </task>
     <task id="LOCAL-00001" summary="fix: change the services the super global from post to get">
       <created>1671419906553</created>
