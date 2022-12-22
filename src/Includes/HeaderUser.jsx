@@ -1,18 +1,33 @@
-import React, { useContext } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Auth';
 import logo_itesi from '../Assets/img/LogoITESI.png'
+import {useFetch_RequestGet} from "../hooks/useFetchGet";
 
-export const Header = () => {
+export const HeaderUser = () => {
 
-  const { name, lastname, logout } = useContext(AuthContext); // Get the context
+  const { user, logout } = useContext(AuthContext); // Get the context
 
   const navigate = useNavigate();
+
+  const { data: getClub } = useFetch_RequestGet(`get_club_by_id&club_id=${user.id_club}`);
+
+  const [ dataClub, setDataClub ] = useState('');
 
   const handleLogout = () => {
     logout();
     navigate('/auth');
   }
+
+  useEffect(() => {
+
+    try {
+     setDataClub(JSON.parse(getClub))
+    } catch (error) {
+      console.log(error);
+    }
+
+  }, [getClub])
 
   return (
     <header className="p-3 mb-3 border-bottom">
@@ -24,19 +39,19 @@ export const Header = () => {
 
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
-            <li><NavLink to="/admin/viewClubs" className="nav-link px-2 link-dark">Clubs</NavLink></li>
-            <li><NavLink to="/admin/ViewUsers" className="nav-link px-2 link-dark">Usuarios</NavLink></li>
-            <li><NavLink to="#" className="nav-link px-2 link-dark"> Evaluación </NavLink></li>
-            <li><NavLink to="/admin/adminGeneral" className="nav-link px-2 link-dark"> Administración </NavLink></li>
-            <li><NavLink to="/admin/reports" className="nav-link px-2 link-dark"> Reportes </NavLink></li>
+            <li><NavLink to="/club/dashboard" className="nav-link px-2 link-primary"> { user.club } </NavLink></li>
+
+            <li><NavLink to={`/club/updateClub/${user.id_club}`} className="nav-link px-2 link-dark">Editar Club</NavLink></li>
 
           </ul>
 
-          <div className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <p className=''> { name } {' '} { lastname } </p>
-          </div>
 
-          <div className="dropdown text-end">
+          <div className="dropdown text-end d-flex flex-row">
+
+            <div className=" mb-lg-0 me-lg-3">
+              <p className=''> { user.name } {' '} { user.lastname } </p>
+            </div>
+
             <NavLink to="#" className="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle"/>
             </NavLink>

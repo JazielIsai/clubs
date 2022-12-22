@@ -1,7 +1,6 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Footer } from '../../Includes/Footer'
-import { Header } from '../../Includes/Header'
 import { Activities } from '../Activities/Activities'
 import { EditActivitie } from '../Activities/EditActivitie'
 import { NewActivite } from '../Activities/NewActivite'
@@ -13,19 +12,20 @@ import { Evidences } from '../Activities/Evidences/Evidences'
 import { Members } from '../Members/Members'
 import { AddMember } from '../Members/AddMember'
 import { EditMember } from '../Members/EditMember'
+import {HeaderUser} from "../../Includes/HeaderUser";
 
 export const RoutesClubGroup = () => {
     
   
     return (
         <div className='d-flex w-100 flex-column' >
-            <Header />
+            <HeaderUser />
             <div style={{minHeight: 'calc(100vh - 120px - 100px)'}} >
                 <Routes>
 
                     <Route path='dashboard' element={<DashboardByClub />} />
                     
-                    <Route path='updateClub' element={<EditClub />} />
+                    <Route path='updateClub/:club_id' element={<EditClub />} />
                     
                     <Route path='activities/:club_id' element={<Activities />} />
                     <Route path='activities/add/:club_id' element={<NewActivite />} />

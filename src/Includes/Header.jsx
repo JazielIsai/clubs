@@ -5,7 +5,7 @@ import logo_itesi from '../Assets/img/LogoITESI.png'
 
 export const Header = () => {
 
-  const { name, lastname, logout } = useContext(AuthContext); // Get the context
+  const { user, logout } = useContext(AuthContext); // Get the context
 
   const navigate = useNavigate();
 
@@ -33,7 +33,7 @@ export const Header = () => {
           </ul>
 
           <div className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <p className=''> { name } {' '} { lastname } </p>
+            <p className=''> { user.name } {' '} { user.lastname } </p>
           </div>
 
           <div className="dropdown text-end">

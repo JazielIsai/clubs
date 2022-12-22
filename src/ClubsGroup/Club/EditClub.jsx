@@ -1,5 +1,5 @@
 import React from 'react'
-import { requestPost } from '../../helpers/requestPost';
+import { requestPost } from '../../helpers';
 import { useForm } from '../../hooks/useForm';
 
 export const EditClub = () => {

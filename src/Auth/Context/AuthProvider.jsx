@@ -26,7 +26,9 @@ export const AuthProvider = ({children}) => {
             name:dataUser.nombre,
             lastname:dataUser.lastname,
             email: dataUser.correo,
-            rol_user:dataUser.rol
+            rol_user:dataUser.rol,
+            id_club:dataUser.id_club,
+            club: dataUser.club,
         }
 
         console.log(user);

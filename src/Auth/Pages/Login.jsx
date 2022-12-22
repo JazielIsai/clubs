@@ -1,5 +1,5 @@
 import {useContext, useState} from 'react';
-import{requestGet, requestPost} from '../../helpers';
+import {AlertError, requestGet, requestPost} from '../../helpers';
 import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../Context';
 import ITESI_TECNM from '../../Assets/img/ITESI-TECNM.png';
@@ -29,8 +29,9 @@ export const Login = () => {
 
         console.log(resp);
 
-        if (resp.includes('Error: missing info.')) {
-          throw new Error('Error: missing info.');
+        if (resp.includes('Error: missing info.') || resp.includes('Error: user not found.')) {
+          AlertError('Error', 'Usuario o contraseña incorrectos');
+          throw new Error('Error: user not found.');
         }
         
         // const user = JSON.parse(resp);
