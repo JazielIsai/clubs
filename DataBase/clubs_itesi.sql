@@ -18,6 +18,7 @@ CREATE TABLE usuarios (
   id_rol INT NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+ALTER TABLE usuarios ADD COLUMN id_club INT AFTER fecha_creacion;
 
 -- Tablas para la administración de clubs
 
@@ -178,6 +179,9 @@ INSERT INTO usuarios (nombre, correo, contraseña, id_rol)
 VALUES ('Oscar', 'oscar@gmail.com', '12345678', 1),
        ('Mariana', 'mariana@gmail.com', '123456', 2),
        ('Jaziel', 'isai@gmail.com', '123456', 3);
+
+UPDATE usuarios SET id_club = 1 WHERE id = 2;
+UPDATE usuarios SET id_club = 2 WHERE id = 3;
 
 SELECT usuarios.id, usuarios.nombre, usuarios.correo, usuarios.fecha_creacion,
        roles.nombre as rol_usuario
