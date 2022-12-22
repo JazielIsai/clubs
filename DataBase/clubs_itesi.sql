@@ -168,6 +168,16 @@ CREATE TABLE `habilidades`(
   `nombre` VARCHAR(50) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- new table for the evaluate of the members by activity
+CREATE TABLE `evaluacion_miembro`(
+  `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `observaciones` TEXT,
+  `hab_desarrollada` VARCHAR(50) NOT NULL,
+  `competencia_conocer` VARCHAR(50) NOT NULL,
+  `calificacion` VARCHAR(50) NOT NULL,
+  `id_miembro` INT NOT NULL,
+  `id_actividad` INT NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- roles
 INSERT INTO roles (nombre)
