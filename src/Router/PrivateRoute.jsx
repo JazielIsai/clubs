@@ -4,7 +4,7 @@ import { AuthContext } from "../Auth"
 
 export const PrivateRoutes = ({children}) => {
 
-    const {logged} = useContext(AuthContext)
+    const { logged } = useContext(AuthContext);
 
     // it is going validate if the user is logged
     return ( logged )

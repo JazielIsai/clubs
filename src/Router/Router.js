@@ -10,7 +10,7 @@ import { PublicRoutes } from './PublicRoute'
 export const Router = () => {
     
     const { user } = useContext( AuthContext );
-  
+
     return (
         <div className='d-flex flex-column w-100 mw-100' style={{"minHeight": "calc(100% - 60px)"}}>
             <main className='d-flex w-100 h-100 mw-100 mh-100'>
@@ -25,23 +25,36 @@ export const Router = () => {
                         }
                     />
 
-                    <Route
-                        path='admin/*'
-                        element={
-                            <PrivateRoutes>
-                                <RoutesClubs />
-                            </PrivateRoutes>
-                        }
-                    />
+                    {
+                        user && user.id_club == null &&
+                            user.rol_user === 'Administrador' ? (
+                            <Route
+                                path='admin/*'
+                                element={
+                                    <PrivateRoutes>
+                                        <RoutesClubs />
+                                    </PrivateRoutes>
+                                }
+                            />
+                        ) : (
+                            <Route path="/*" element={<Navigate to="/club" />} />
+                        )
+                    }
 
-                    <Route
-                        path='club/*'
-                        element={
-                            <PrivateRoutes>
-                                <RoutesClubGroup />
-                            </PrivateRoutes>
-                        }
-                    />
+                    {
+                        user && user.id_club != null ? (
+                            <Route
+                                path='club/*'
+                                element={
+                                    <PrivateRoutes>
+                                        <RoutesClubGroup />
+                                    </PrivateRoutes>
+                                }
+                            />
+                        ) : (
+                            <Route path="/*" element={<Navigate to="/admin" />} />
+                        )
+                    }
 
                     <Route path="/" element={<Navigate to="/auth" />} />
                 

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import React, {useContext, useEffect} from 'react'
+import {Navigate, Route, Routes, useNavigate} from 'react-router-dom'
 import { Footer } from '../../Includes/Footer'
 import { Activities } from '../Activities/Activities'
 import { EditActivitie } from '../Activities/EditActivitie'
@@ -13,24 +13,36 @@ import { Members } from '../Members/Members'
 import { AddMember } from '../Members/AddMember'
 import { EditMember } from '../Members/EditMember'
 import {HeaderUser} from "../../Includes/HeaderUser";
+import {AuthContext} from "../../Auth";
+import {ViewEvidences} from "../Activities/Evidences/ViewEvidences";
 
 export const RoutesClubGroup = () => {
-    
-  
+
+    const { user } = useContext(AuthContext); // Get the context
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!user){
+            navigate(`/club/dashboard/${user.id_club}`);
+        }
+    }, [user]);
+
     return (
         <div className='d-flex w-100 flex-column' >
             <HeaderUser />
             <div style={{minHeight: 'calc(100vh - 120px - 100px)'}} >
                 <Routes>
 
-                    <Route path='dashboard' element={<DashboardByClub />} />
+                    <Route path='dashboard/:id' element={<DashboardByClub />} />
                     
                     <Route path='updateClub/:club_id' element={<EditClub />} />
                     
                     <Route path='activities/:club_id' element={<Activities />} />
                     <Route path='activities/add/:club_id' element={<NewActivite />} />
                     <Route path='activities/edit/:club_id/:id_activitie' element={<EditActivitie/>} />
-                    
+
+                    <Route path='evidences/:club_id/' element={<ViewEvidences />} />
                     <Route path='activities/evidences/:id_activitie/:nameActivitie' element={<Evidences />} />
                     <Route path='activities/evidences/add/:id_activitie' element={<AddEvidences />} />
                     <Route path='activities/evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
@@ -41,7 +53,7 @@ export const RoutesClubGroup = () => {
                     
                     <Route path='members/assign' element={<div>AssignMembers</div>} />
                     
-                    <Route path='/*' element={<Navigate to={'/club/dashboard'} />} />
+                    <Route path='/*' element={<Navigate to={`/club/dashboard/${user.id_club}`} />} />
                     
                 </Routes>
             </div>

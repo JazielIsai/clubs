@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react';
+import {AuthContext} from "../../Auth";
 import { useNavigate, useParams } from 'react-router-dom';
 import { ViewActivities } from './ViewActivities'
 
@@ -6,9 +7,13 @@ export const Activities = () => {
 
   const navigate = useNavigate();
   const { club_id } = useParams();
+  const { user } = useContext(AuthContext);
 
   const handleGoAddActivity = () => {
-    navigate('/admin/activities/add/'+club_id)
+      if (user?.id_club != null) {
+        navigate(`club/activities/add/${club_id}`);
+      }
+      navigate('/admin/activities/add/'+club_id)
   }
 
   return (

@@ -1,26 +1,51 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { NavLink, useParams } from 'react-router-dom'
+import {AuthContext} from "../../Auth";
 
 export const NavigationByClub = () => {
-  
-  const { id: id_club } = useParams();
+
+    const { user } = useContext(AuthContext);
+
+    const { id: id_club } = useParams();
+
 
 
   return (
     <div>
         <ul className="nav flex-column">
-              
+
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to={`/admin/activities/${id_club}`}> Actividades </NavLink>
+              <NavLink
+                  className="nav-link active"
+                  aria-current="page"
+                  to={user?.id_club != null ? `/club/activities/${id_club}` : `/admin/activities/${id_club}`}
+              >
+                  Actividades
+              </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to={`/admin/evidences/${id_club}`}> Evidencias </NavLink>
+              <NavLink
+                  className="nav-link"
+                  to={ user?.id_club != null ? `/club/evidences/${id_club}` : `/admin/evidences/${id_club}`}
+              >
+                  Evidencias
+              </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#"> Eventos </NavLink>
+              <NavLink
+                  className="nav-link"
+                  to="#"
+              >
+                  Eventos
+              </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to={`/admin/members/${id_club}`}> Miembros </NavLink>
+              <NavLink
+                  className="nav-link"
+                  to={ user?.id_club ? `/club/members/${id_club}` : `/admin/members/${id_club}`}
+              >
+                  Miembros
+              </NavLink>
             </li>
 
         </ul>

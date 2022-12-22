@@ -173,6 +173,10 @@ CREATE TABLE `habilidades`(
 INSERT INTO roles (nombre)
 VALUES ('Administrador'), ('Presidente'), ('Consulta');
 
+UPDATE roles SET nombre = 'Consultor' WHERE id = 3;
+
+INSERT INTO roles (nombre)
+VALUES ('Asesor');
 
 -- usuarios
 INSERT INTO usuarios (nombre, correo, contraseña, id_rol)
