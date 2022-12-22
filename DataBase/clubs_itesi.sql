@@ -189,10 +189,12 @@ FROM usuarios
          INNER JOIN roles ON usuarios.id_rol = roles.id;
 
 SELECT usuarios.id, usuarios.nombre, usuarios.correo, usuarios.contraseña,
-       usuarios.fecha_creacion, usuarios.id_rol,
-       roles.nombre AS rol
+       usuarios.fecha_creacion, usuarios.id_rol, usuarios.id_club,
+       roles.nombre AS rol,
+       clubes.name AS club
 FROM usuarios
 INNER JOIN roles ON usuarios.id_rol = roles.id
+LEFT JOIN clubes ON usuarios.id_club = clubes.id
 WHERE usuarios.correo = ? AND usuarios.contraseña = ?;
 
 -- speciality by club

@@ -25,7 +25,7 @@ class Users extends MethodsCrud {
                     clubes.name AS club
             FROM usuarios
             INNER JOIN roles ON usuarios.id_rol = roles.id
-            INNER JOIN clubes ON usuarios.id_club = clubes.id
+            LEFT JOIN clubes ON usuarios.id_club = clubes.id
             WHERE usuarios.correo = ? AND usuarios.contraseña = ?;
         ";
 
@@ -36,7 +36,7 @@ class Users extends MethodsCrud {
         if ( count($data) > 0 ) {
             return $data;
         } else {
-            return 'User not existing';
+            return 'Error: user not found.';
         }
 
     }
