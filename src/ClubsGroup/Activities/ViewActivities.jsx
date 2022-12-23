@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFetch_RequestGet } from '../../hooks/useFetchGet';
+import {AuthContext} from "../../Auth";
 
 export const ViewActivities = () => {
 
     const { club_id } = useParams();
     const navigate = useNavigate();
-    
+
+    const { user } = useContext(AuthContext); // Get the context
 
     const { data: activitiesByClub } = useFetch_RequestGet(`get_activities_by_club&club_id=${club_id}`);
 
@@ -24,11 +26,21 @@ export const ViewActivities = () => {
     }, [activitiesByClub] )
 
     const handleNavigateToEditActivitie = (id_activitie) => {
-        navigate(`/admin/activities/edit/${club_id}/${id_activitie}`)
+        if ( user.id_club == null ) {
+            navigate(`/admin/activities/edit/${club_id}/${id_activitie}`)
+        } else {
+            navigate(`/club/activities/edit/${club_id}/${id_activitie}`)
+        }
+
     }
 
     const handleNavigateToSendEvidences = (idActivitie, nameActivitie) => {
-        navigate(`/admin/activities/evidences/${idActivitie}/${nameActivitie}`)
+        if (user.id_club == null) {
+            navigate(`/admin/activities/evidences/${idActivitie}/${nameActivitie}`)
+        } else {
+            navigate(`/club/activities/evidences/${idActivitie}/${nameActivitie}`)
+        }
+
     }
 
     return (

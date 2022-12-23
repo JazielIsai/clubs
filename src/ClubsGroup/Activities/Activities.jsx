@@ -10,10 +10,11 @@ export const Activities = () => {
   const { user } = useContext(AuthContext);
 
   const handleGoAddActivity = () => {
-      if (user?.id_club != null) {
-        navigate(`club/activities/add/${club_id}`);
+      if (user?.id_club == null) {
+          navigate('/admin/activities/add/'+club_id);
+      } else {
+          navigate(`/club/activities/add/${club_id}`);
       }
-      navigate('/admin/activities/add/'+club_id)
   }
 
   return (

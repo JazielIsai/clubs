@@ -1,15 +1,21 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ViewMembers } from './ViewMembers';
+import {AuthContext} from "../../Auth";
 
 export const Members = () => {
 
     const {club_id} = useParams();
     const navigate = useNavigate();
 
+    const { user } = useContext(AuthContext);
 
     const handleGoAddMember = () => {
-        navigate(`/admin/members/add/${club_id}`)
+        if (user.id_club == null){
+            navigate(`/admin/members/add/${club_id}`)
+        } else {
+            navigate(`/club/members/add/${club_id}`)
+        }
     }
 
 

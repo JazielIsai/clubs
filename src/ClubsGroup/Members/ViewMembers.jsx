@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch_RequestGet } from '../../hooks/useFetchGet'
+import {AuthContext} from "../../Auth";
 
 export const ViewMembers = () => {
 
     const { club_id } = useParams();
+
+    const { user } = useContext(AuthContext);
 
     const {data} = useFetch_RequestGet('get_users_by_club&club_id='+club_id)
     
@@ -22,12 +25,20 @@ export const ViewMembers = () => {
         
     }, [data] )
 
-    const handleNavigateToMember = (id_activitie) => {
+    const handleNavigateToMember = (id_activity) => {
+        if ( user?.id_club == null ) {
 
+        } else {
+
+        }
     }
 
     const handleDelete = (id_activitie) => {
+        if ( user?.id_club == null ) {
 
+        } else {
+
+        }
     }
 
     return (
@@ -70,29 +81,29 @@ export const ViewMembers = () => {
                         {
                             getRowMembers !== null &&
                             getRowMembers !== undefined && 
-                                getRowMembers.map( (activitie, index) => (
+                                getRowMembers.map( (activity, index) => (
                                     <tr key={index}>
 
                                         {/* <th scope="row"> {club?.id_club} </th> */}
-                                        <td> {activitie?.no_control} </td>
-                                        <td> { activitie?.nombre } </td>
-                                        <td>  {activitie?.apellido_paterno} </td>
-                                        <td>  { activitie?.apellido_materno }   </td>
-                                        <td>  {activitie?.sexo} </td>
-                                        <td>  {activitie?.correo} </td>
-                                        <td>  {activitie?.telefono} </td>
-                                        <td>  {activitie?.rango} </td>
-                                        <td>  {activitie?.semestre} </td>
+                                        <td> {activity?.no_control} </td>
+                                        <td> { activity?.nombre } </td>
+                                        <td>  {activity?.apellido_paterno} </td>
+                                        <td>  { activity?.apellido_materno }   </td>
+                                        <td>  {activity?.sexo} </td>
+                                        <td>  {activity?.correo} </td>
+                                        <td>  {activity?.telefono} </td>
+                                        <td>  {activity?.rango} </td>
+                                        <td>  {activity?.semestre} </td>
                                         {/* <td>  {activitie?.especialidad_miembro} </td> */}
 
-                                        <td>  {activitie?.rol_miembro} </td>
+                                        <td>  {activity?.rol_miembro} </td>
                                         {/* <td>  {activitie?.nombre_club} </td> */}
 
                                         <td>
-                                            <button onClick={()=>handleNavigateToMember(activitie?.id)} class="btn btn-primary"> Editar </button>
+                                            <button onClick={()=>handleNavigateToMember(activity?.id)} class="btn btn-primary"> Editar </button>
                                         </td>
                                         <td>
-                                            <button onClick={()=>handleDelete(activitie?.id)} className="btn btn-danger"> Eliminar </button>
+                                            <button onClick={()=>handleDelete(activity?.id)} className="btn btn-danger"> Eliminar </button>
                                         </td>
 
                                     </tr>

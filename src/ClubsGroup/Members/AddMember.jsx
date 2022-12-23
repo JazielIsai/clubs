@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { AlertError } from '../../helpers/Alerts/AlertError';
 import { AlertSuccess } from '../../helpers/Alerts/AlertSuccess';
 import { requestPost } from '../../helpers/requestPost';
 import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 import { useForm } from '../../hooks/useForm';
+import {AuthContext} from "../../Auth";
 
 export const AddMember = () => {
 
     const { club_id } = useParams();
+
+    const { user } = useContext(AuthContext);
 
     const { data : speciality } = useFetch_RequestGet('get_all_speciality');
     const { data : rolesMembers } = useFetch_RequestGet('get_all_rol_members_clubs');
