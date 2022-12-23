@@ -1,10 +1,37 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { requestPost } from '../../helpers';
 import { useForm } from '../../hooks/useForm';
+import {useNavigate, useParams} from "react-router-dom";
+import {useFetch_RequestGet} from "../../hooks/useFetchGet";
 
 export const EditClub = () => {
 
+    const navigate = useNavigate();
+    const { club_id } = useParams();
+
     const { dataForm, onInputChange, onResetForm } = useForm({});
+
+    const { data : speciality_by_club } = useFetch_RequestGet('get_all_clubs_speciality');
+    const { data : category_by_club } = useFetch_RequestGet('get_all_category_to_club');
+    const { data : campuses } = useFetch_RequestGet('get_all_campuses');
+
+    const [ getSpeciality, setSpeciality ] = useState();
+    const [ getCategory, setCategory ] = useState();
+    const [ getCampuses, setCampuses ] = useState();
+
+    useEffect( () => {
+
+        try {
+
+            setSpeciality(JSON.parse(speciality_by_club));
+            setCategory(JSON.parse(category_by_club));
+            setCampuses(JSON.parse(campuses));
+
+        } catch (err) {
+            console.log(err);
+        }
+
+    }, [ speciality_by_club, category_by_club, campuses ] );
 
 
     const handleSendPost = (e) => {
@@ -32,7 +59,8 @@ export const EditClub = () => {
                 console.log(err);
             })
     }
-    
+
+
     
     return (
     <section className="container" >
@@ -58,8 +86,16 @@ export const EditClub = () => {
                         
                         <div class="form-floating mb-3">
                             <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option selected>Escoje la especialidad</option>
-                                <option value="1">Irapuato</option>
+                                <option selected>Escoge la especialidad</option>
+                                {
+                                    getSpeciality !== null &&
+                                    getSpeciality !== undefined &&
+                                        getSpeciality.map( (speciality, index) => {
+                                            return (
+                                                <option key={index} value={speciality.id}> {speciality.nombre} </option>
+                                            )
+                                        } )
+                                }
                             </select>
                             <label for="floatingSelect">Especialidad</label>
                         </div>
@@ -68,10 +104,18 @@ export const EditClub = () => {
                     <div className='col-12 col-md-6'>
                         <div class="form-floating mb-3">
                             <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option selected>Escoje la categoría</option>
-                                <option value="1">Irapuato</option>
+                                <option selected>Escoge la categoría</option>
+                                {
+                                    getCategory !== null &&
+                                    getCategory !== undefined &&
+                                        getCategory.map( (category, index) => {
+                                            return (
+                                                <option key={index} value={category.id}> {category.nombre} </option>
+                                            )
+                                        } )
+                                }
                             </select>
-                            <label for="floatingSelect">Categoria del Club</label>
+                            <label for="floatingSelect">Categoría del Club</label>
                         </div>
                     </div>
                     
@@ -86,8 +130,16 @@ export const EditClub = () => {
                     <div className='col-12 col-md-6'>
                         <div class="form-floating mb-3">
                             <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option selected>Escoje el Plantel</option>
-                                <option value="1">Irapuato</option>
+                                <option selected>Escoge el Plantel</option>
+                                {
+                                    getCampuses !== null &&
+                                    getCampuses !== undefined &&
+                                        getCampuses.map( (campus, index) => {
+                                            return (
+                                                <option key={index} value={campus.id}> {campus.nombre} </option>
+                                            )
+                                        } )
+                                }
                             </select>
                             <label for="floatingSelect">Plantel</label>
                         </div>
