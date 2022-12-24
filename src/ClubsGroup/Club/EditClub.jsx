@@ -35,6 +35,8 @@ export const EditClub = () => {
 
 
     const handleSendPost = (e) => {
+        e.preventDefault();
+
         const body = {
             "id": 1,
             "name": "Ajedrez",
@@ -60,122 +62,149 @@ export const EditClub = () => {
             })
     }
 
+    const updateFilePlanAnual = (event) => {
+        const file = event.target.files[0];
 
+        const formData = new FormData();
+        formData.append('plan_anual', file);
+
+        requestPost('add_club', formData)
+            .then( response => {
+                console.log(response);
+            } )
+
+    }
+
+    const updateFileActaConstitutiva = (event) => {
+        const file = event.target.files[0];
+
+        const formData = new FormData();
+        formData.append('acta_constitutiva', file);
+
+        requestPost('add_club', formData)
+            .then( response => {
+                    console.log(response);
+                }
+            )
+
+    }
     
     return (
-    <section className="container" >
+        <section className="container" >
 
-        <h2> Registrar Clubs </h2>
+            <h2> Registrar Clubs </h2>
 
+            <div className="" id="">
+                <form className="mt-4" >
 
-        <div className="" id="">
-            <form className="mt-4" >
-                
-                <div className="form-group mb-3">
-                    <label htmlFor="name_club"> Nombre del Club: </label>
-                    <input type="text" onChange={onInputChange} className="form-control" id="name_club" placeholder="Ej: Ajedrez" name="name_club" />
-                </div>
-                
-                <div className="form-group mb-3">
-                    <label htmlFor="objective_club"> Objetivo del Club: </label>
-                    <input type="text" onChange={onInputChange} className="form-control" id="objective_club" placeholder="Objetivo..." name="objective_club" />
-                </div>
+                    <div className="form-group mb-3">
+                        <label htmlFor="name_club"> Nombre del Club: </label>
+                        <input type="text" onChange={onInputChange} className="form-control" id="name_club" placeholder="Ej: Ajedrez" name="name_club" />
+                    </div>
 
-                <div className='row'>
-                    <div className='col-12 col-md-6'>
-                        
-                        <div class="form-floating mb-3">
-                            <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option selected>Escoge la especialidad</option>
-                                {
-                                    getSpeciality !== null &&
-                                    getSpeciality !== undefined &&
-                                        getSpeciality.map( (speciality, index) => {
-                                            return (
-                                                <option key={index} value={speciality.id}> {speciality.nombre} </option>
-                                            )
-                                        } )
-                                }
-                            </select>
-                            <label for="floatingSelect">Especialidad</label>
+                    <div className="form-group mb-3">
+                        <label htmlFor="objective_club"> Objetivo del Club: </label>
+                        <input type="text" onChange={onInputChange} className="form-control" id="objective_club" placeholder="Objetivo..." name="objective_club" />
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-12 col-md-6'>
+
+                            <div class="form-floating mb-3">
+                                <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected>Escoge la especialidad</option>
+                                    {
+                                        getSpeciality !== null &&
+                                        getSpeciality !== undefined &&
+                                            getSpeciality.map( (speciality, index) => {
+                                                return (
+                                                    <option key={index} value={speciality.id}> {speciality.nombre} </option>
+                                                )
+                                            } )
+                                    }
+                                </select>
+                                <label for="floatingSelect">Especialidad</label>
+                            </div>
+
+                        </div>
+
+                        <div className='col-12 col-md-6'>
+                            <div class="form-floating mb-3">
+                                <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected>Escoge la categoría</option>
+                                    {
+                                        getCategory !== null &&
+                                        getCategory !== undefined &&
+                                            getCategory.map( (category, index) => {
+                                                return (
+                                                    <option key={index} value={category.id}> {category.nombre} </option>
+                                                )
+                                            } )
+                                    }
+                                </select>
+                                <label for="floatingSelect">Categoría del Club</label>
+                            </div>
                         </div>
 
                     </div>
-                    <div className='col-12 col-md-6'>
-                        <div class="form-floating mb-3">
-                            <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option selected>Escoge la categoría</option>
-                                {
-                                    getCategory !== null &&
-                                    getCategory !== undefined &&
-                                        getCategory.map( (category, index) => {
-                                            return (
-                                                <option key={index} value={category.id}> {category.nombre} </option>
-                                            )
-                                        } )
-                                }
-                            </select>
-                            <label for="floatingSelect">Categoría del Club</label>
-                        </div>
+
+                    <div className="form-group mb-3">
+                        <label htmlFor="manager_club"> Lider del club: </label>
+                        <input type="text" onChange={onInputChange} className="form-control" id="manager_club" placeholder="Lider..." name="manager_club" />
                     </div>
-                    
-                </div>
 
-                <div className="form-group mb-3">
-                    <label htmlFor="manager_club"> Lider del club: </label>
-                    <input type="text" onChange={onInputChange} className="form-control" id="manager_club" placeholder="Lider..." name="manager_club" />
-                </div>
-                
-                <div className='row'>
-                    <div className='col-12 col-md-6'>
-                        <div class="form-floating mb-3">
-                            <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option selected>Escoge el Plantel</option>
-                                {
-                                    getCampuses !== null &&
-                                    getCampuses !== undefined &&
-                                        getCampuses.map( (campus, index) => {
-                                            return (
-                                                <option key={index} value={campus.id}> {campus.nombre} </option>
-                                            )
-                                        } )
-                                }
-                            </select>
-                            <label for="floatingSelect">Plantel</label>
+                    <div className='row'>
+
+                        <div className='col-12 col-md-6'>
+                            <div class="form-floating mb-3">
+                                <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected>Escoge el Plantel</option>
+                                    {
+                                        getCampuses !== null &&
+                                        getCampuses !== undefined &&
+                                            getCampuses.map( (campus, index) => {
+                                                return (
+                                                    <option key={index} value={campus.id}> {campus.nombre} </option>
+                                                )
+                                            } )
+                                    }
+                                </select>
+                                <label for="floatingSelect">Plantel</label>
+                            </div>
                         </div>
-                    </div>
-                    <div className='col-12 col-md-6'>
-                        <div className="form-group mb-3">
-                            <label htmlFor="date_created"> Fecha de creación: </label>
-                            <input type="date" onChange={onInputChange} className="form-control" id="date_created" placeholder="Objetivo..." name="date_created" />
+
+                        <div className='col-12 col-md-6'>
+                            <div className="form-group mb-3">
+                                <label htmlFor="date_created"> Fecha de creación: </label>
+                                <input type="date" onChange={onInputChange} className="form-control" id="date_created" placeholder="Objetivo..." name="date_created" />
+                            </div>
                         </div>
+
                     </div>
-                </div>
-                
 
-                <div className="form-group mb-3">
-                    <label htmlFor="annual_plan"> Plan anual: </label>
-                    <input type="file" className="form-control" id="annual_plan" placeholder="Lider..." name="manager_club" />
-                </div>
+                    <div className="form-group mb-3">
+                        <label htmlFor="annual_plan"> Plan anual: </label>
+                        <input type="file" className="form-control" id="annual_plan" placeholder="Lider..." name="manager_club" />
+                    </div>
 
-                <div className="form-group mb-3">
-                    <label htmlFor="constitutive_act"> Acta constitutiva: </label>
-                    <input type="file" className="form-control" id="constitutive_act" placeholder="Lider..." name="manager_club" />
-                </div>
+                    <div className="form-group mb-3">
+                        <label htmlFor="constitutive_act"> Acta constitutiva: </label>
+                        <input type="file" className="form-control" id="constitutive_act" placeholder="Lider..." name="manager_club" />
+                    </div>
 
-                <div className="form-group mb-3">
-                    <label htmlFor="club_logo"> Logo del Club: </label>
-                    <input type="file" className="form-control" id="club_logo" placeholder="Lider..." name="manager_club" />
-                </div>
+                    <div className="form-group mb-3">
+                        <label htmlFor="club_logo"> Logo del Club: </label>
+                        <input type="file" className="form-control" id="club_logo" placeholder="Lider..." name="manager_club" />
+                    </div>
 
+                    <div className="mb-3 d-flex justify-content-end ">
+                        <input type="submit" className="btn btn-success" value="Guardar registro" id="" />
+                    </div>
 
-                <div className="mb-3 d-flex justify-content-end ">
-                    <input type="submit" className="btn btn-success" value="Guardar registro" id="" />
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
 
 
-    </section>
+        </section>
     )
 }

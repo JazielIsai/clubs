@@ -25,7 +25,7 @@ export const ViewActivities = () => {
         }
     }, [activitiesByClub] )
 
-    const handleNavigateToEditActivitie = (id_activitie) => {
+    const handleNavigateToEditActivity = (id_activitie) => {
         if ( user.id_club == null ) {
             navigate(`/admin/activities/edit/${club_id}/${id_activitie}`)
         } else {
@@ -41,6 +41,14 @@ export const ViewActivities = () => {
             navigate(`/club/activities/evidences/${idActivitie}/${nameActivitie}`)
         }
 
+    }
+
+    const handleNavigateEvaluateMembers = (idActivity, nameActivity) => {
+        if (user.id_club == null) {
+            navigate(`/admin/activities/evaluate/${idActivity}/${nameActivity}`)
+        } else {
+            navigate(`/club/activities/evaluate/${idActivity}/${nameActivity}`)
+        }
     }
 
     return (
@@ -91,34 +99,45 @@ export const ViewActivities = () => {
                         {
                             getRowActivities !== null &&
                             getRowActivities !== undefined && 
-                                getRowActivities.map( (activitie, index) => (
+                                getRowActivities.map( (activity, index) => (
                                     <tr key={index}>
 
                                         {/* <th scope="row"> {club?.id_club} </th> */}
-                                        <td> { activitie?.nombre } </td>
-                                        <td> {activitie?.modalidad} </td>
+                                        <td> { activity?.nombre } </td>
+                                        <td> {activity?.modalidad} </td>
                                         {/* <td>  {activitie?.objetivo_desarrollo_s} </td> */}
                                         {/* <td>  { activitie?.atributo_egreso }   </td> */}
-                                        <td>  {activitie?.calificacion_valor} </td>
-                                        <td>  {activitie?.tipo_evidencia} </td>
-                                        <td>  {activitie?.responsable} </td>
+                                        <td>  {activity?.calificacion_valor} </td>
+                                        <td>  {activity?.tipo_evidencia} </td>
+                                        <td>  {activity?.responsable} </td>
                                         {/* <td>  {activitie?.observaciones} </td> */}
-                                        <td>  {activitie?.estatus} </td>
+                                        <td>  {activity?.estatus} </td>
                                         {/* <td>  {activitie?.modelo} </td> */}
 
                                         {/* <td>  {activitie?.dominio} </td> */}
                                         {/* <td>  {activitie?.habilidad} </td> */}
-                                        <td>  {activitie?.tipo_actividad} </td>
+                                        <td>  {activity?.tipo_actividad} </td>
                                         {/* <td>  {activitie?.club} </td> */}
                                         {/* <td>  {activitie?.idioma} </td> */}
 
 
                                         <td>
-                                            <button onClick={()=>handleNavigateToSendEvidences(activitie?.id, activitie?.nombre)} class="btn btn-info"> Ir a la actividad </button>
+                                            <button onClick={()=>handleNavigateToSendEvidences(activity?.id, activity?.nombre)} class="btn btn-info">
+                                                Ir a la actividad
+                                            </button>
                                         </td>
 
                                         <td>
-                                            <button onClick={()=>handleNavigateToEditActivitie(activitie?.id)} class="btn btn-primary"> Editar </button>
+                                            <button onClick={()=>handleNavigateToEditActivity(activity?.id)} class="btn btn-primary">
+                                                Editar
+                                            </button>
+                                        </td>
+
+                                        <td>
+                                            <button onClick={() => handleNavigateEvaluateMembers(activity?.id)}
+                                                    className="btn btn-secondary">
+                                                Evaluar desempeño
+                                            </button>
                                         </td>
 
                                     </tr>
