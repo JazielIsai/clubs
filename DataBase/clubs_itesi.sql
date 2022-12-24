@@ -172,12 +172,36 @@ CREATE TABLE `habilidades`(
 CREATE TABLE `evaluacion_miembro`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `observaciones` TEXT,
-  `hab_desarrollada` VARCHAR(50) NOT NULL,
-  `competencia_conocer` VARCHAR(50) NOT NULL,
-  `calificacion` VARCHAR(50) NOT NULL,
-  `id_miembro` INT NOT NULL,
+  `hab_desarrollada` VARCHAR(50),
+  `competencia_conocer` VARCHAR(50),
+  `calificacion` VARCHAR(50),
+  `id_miembro` INT,
   `id_actividad` INT NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO evaluacion_miembro (observaciones, hab_desarrollada, competencia_conocer, calificacion, id_miembro, id_actividad)
+VALUES (?, ?, ?, ?, ?, ?);
+
+INSERT INTO evaluacion_miembro (id_actividad) VALUES (1);
+
+SELECT * FROM evaluacion_miembro;
+
+SELECT evaluacion_miembro.id, evaluacion_miembro.observaciones,
+       evaluacion_miembro.hab_desarrollada, evaluacion_miembro.competencia_conocer,
+       evaluacion_miembro.calificacion, evaluacion_miembro.id_miembro,
+       evaluacion_miembro.id_actividad, CONCAT(miembros_club.nombre, ' ', miembros_club.apellido_paterno) AS nombre_miembro,
+         actividad.nombre AS nombre_actividad
+FROM evaluacion_miembro
+RIGHT JOIN miembros_club ON miembros_club.id = evaluacion_miembro.id_miembro
+INNER JOIN actividad ON actividad.id = evaluacion_miembro.id_actividad;
+
+INSERT INTO evaluacion_miembro (id_actividad, id_miembro)
+SELECT ?, miembros_club.id FROM miembros_club
+WHERE miembros_club.id_club = 1;
+
+-- DELETE FROM evaluacion_miembro WHERE id_actividad = 1;
+
 
 -- roles
 INSERT INTO roles (nombre)

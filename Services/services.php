@@ -45,6 +45,7 @@ include_once './model/ActivitiesClub.php';
 include_once './model/PlanAnual.php';
 include_once  './model/ActaConstitutiva.php';
 include_once './model/TypeActivity.php';
+include_once './model/EvaluationMember.php';
 
 $services_users = new Users();
 $services_clubes = new Clubes();
@@ -64,6 +65,7 @@ $services_ActivitiesClub = new ActivitiesClub();
 $services_planAnual = new PlanAnual();
 $services_acta = new ActaConstitutiva();
 $services_type_activity = new TypeActivity();
+$services_evaluation_member = new EvaluationMember();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -489,6 +491,23 @@ switch ($servicesName){
     case 'add_new_acta':
         if (isset($_POST['acta_info'])) {
             echo json_encode($services_acta->add_new_acta(json_decode($_POST['acta_info'])));
+        }
+        break;
+
+// evaluation member by activity
+    case 'add_evaluation_member_by_activity':
+        if (isset($_POST['evaluation_member_info'])) {
+            echo json_encode($services_evaluation_member->add_evaluation_member_by_activity(json_decode($_POST['evaluation_member_info'])));
+        } else {
+            echo "Error: Missing info.";
+        }
+        break;
+
+    case 'update_evaluation_member_by_activity':
+        if (isset($_POST['evaluation_member_info'])) {
+            echo json_encode($services_evaluation_member->update_evaluation_member_by_activity(json_decode($_POST['evaluation_member_info'])));
+        } else {
+            echo "Error: Missing info.";
         }
         break;
 
