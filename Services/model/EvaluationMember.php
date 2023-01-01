@@ -16,25 +16,28 @@ class EvaluationMember extends MethodsCrud {
         return $this->select_query($query, $params);
     }
 
-    public function get_evaluation_member () {
+    public function get_evaluation_member ($id_activity) {
         $query = "
-            SELECT evaluacion_miembro.id, evaluacion_miembro.observaciones,
+            SELECT CONCAT(miembros_club.nombre, ' ', miembros_club.apellido_paterno) AS nombre_miembro,
+                   evaluacion_miembro.id, evaluacion_miembro.observaciones,
                    evaluacion_miembro.hab_desarrollada, evaluacion_miembro.competencia_conocer,
                    evaluacion_miembro.calificacion, evaluacion_miembro.id_miembro,
-                   evaluacion_miembro.id_actividad, 
-                   CONCAT(miembros_club.nombre, ' ', miembros_club.apellido_paterno) AS nombre_miembro,
+                   evaluacion_miembro.id_actividad,
                    actividad.nombre AS nombre_actividad
             FROM evaluacion_miembro
             RIGHT JOIN miembros_club ON miembros_club.id = evaluacion_miembro.id_miembro
-            INNER JOIN actividad ON actividad.id = evaluacion_miembro.id_actividad;
+            INNER JOIN actividad ON actividad.id = evaluacion_miembro.id_actividad
+            WHERE evaluacion_miembro.id_actividad = ?;
         ";
 
-        return $this->select_query($query);
+        $params = array($id_activity);
+
+        return $this->select_query($query, $params);
     }
 
     public function add_evaluation_member_by_activity ($evaluation_member_info) {
 
-        if ( count(get_evaluation_member_by_activity($evaluation_member_info->id_actividad)) > 0 ) {
+        if ( count($this->get_evaluation_member_by_activity($evaluation_member_info->id_actividad)) > 0 ) {
             return 'Evaluation member already exists.';
         }
 
@@ -55,7 +58,7 @@ class EvaluationMember extends MethodsCrud {
     public function update_evaluation_member_by_activity ($evaluation_member_info) {
         $query = "
             UPDATE evaluacion_miembro SET observaciones = ?, hab_desarrollada = ?, competencia_conocer = ?, calificacion = ?
-            WHERE id_miembro = ? AND id_actividad = ?;
+            WHERE id = ?;
         ";
 
         $params = array(
@@ -63,11 +66,10 @@ class EvaluationMember extends MethodsCrud {
                 $evaluation_member_info->hab_desarrollada,
                 $evaluation_member_info->competencia_conocer,
                 $evaluation_member_info->calificacion,
-                $evaluation_member_info->id_miembro,
-                $evaluation_member_info->id_actividad
+                $evaluation_member_info->id
         );
 
-        return $this->update_query($query, array($params));
+        return $this->update_delete_query($query, array($params));
     }
 
 
