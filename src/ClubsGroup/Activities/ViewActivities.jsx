@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 import {AuthContext} from "../../Auth";
+import {requestPost} from "../../helpers";
 
 export const ViewActivities = () => {
 
@@ -44,10 +45,29 @@ export const ViewActivities = () => {
     }
 
     const handleNavigateEvaluateMembers = (idActivity, nameActivity) => {
+
+        const body = {
+            id_actividad: parseInt(idActivity),
+            id_club: parseInt(club_id)
+        }
+
+        console.log(body);
+
+        const formData = new FormData();
+        formData.append('evaluation_member_info', JSON.stringify(body));
+
+        requestPost('add_evaluation_member_by_activity', formData)
+            .then( (res) => {
+                console.log("response -> ",res)
+            } )
+            .catch( (err) => {
+                console.log(err);
+            } )
+
         if (user.id_club == null) {
             navigate(`/admin/activities/evaluate/${idActivity}/${nameActivity}`)
         } else {
-            navigate(`/club/activities/evaluate/${idActivity}/${nameActivity}`)
+            navigate(`/club/activities/evaluateMember/${club_id}/${idActivity}/${nameActivity}`)
         }
     }
 

@@ -198,7 +198,7 @@ INNER JOIN actividad ON actividad.id = evaluacion_miembro.id_actividad;
 
 INSERT INTO evaluacion_miembro (id_actividad, id_miembro)
 SELECT ?, miembros_club.id FROM miembros_club
-WHERE miembros_club.id_club = 1;
+WHERE miembros_club.id_club = ?;
 
 -- DELETE FROM evaluacion_miembro WHERE id_actividad = 1;
 

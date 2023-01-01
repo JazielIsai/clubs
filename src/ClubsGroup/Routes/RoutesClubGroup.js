@@ -15,6 +15,7 @@ import { EditMember } from '../Members/EditMember'
 import {HeaderUser} from "../../Includes/HeaderUser";
 import {AuthContext} from "../../Auth";
 import {ViewEvidences} from "../Activities/Evidences/ViewEvidences";
+import {EvaluatePerformance} from "../Activities/EvaluatePerformance/EvaluatePerformance";
 
 export const RoutesClubGroup = () => {
 
@@ -46,6 +47,8 @@ export const RoutesClubGroup = () => {
                     <Route path='activities/evidences/:id_activitie/:nameActivitie' element={<Evidences />} />
                     <Route path='activities/evidences/add/:id_activitie' element={<AddEvidences />} />
                     <Route path='activities/evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
+
+                    <Route path='activities/evaluateMember/:club_id/:idActivity/:nameActivity' element={<EvaluatePerformance /> } />
                     
                     <Route path='members/:club_id' element={<Members />} />
                     <Route path='members/add/:club_id' element={<AddMember />} />
