@@ -1,7 +1,9 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFetch_RequestGet } from '../../../hooks/useFetchGet';
+import {AlertToast, requestPost} from "../../../helpers";
 import {AuthContext} from "../../../Auth";
+import {useForm} from "../../../hooks/useForm";
 
 
 export const EvaluatePerformance = () => {
@@ -15,6 +17,8 @@ export const EvaluatePerformance = () => {
 
     const [ getRowMembers, setRowMembers ] = useState(null);
 
+    const { dataForm, onInputChange, onResetForm } = useForm({});
+
     useEffect( ( ) => {
         try {
             console.log( evaluationMembers );
@@ -24,7 +28,35 @@ export const EvaluatePerformance = () => {
         }
     } , [evaluationMembers] );
 
-    const handleSaveEvaluationByMember = ( data ) => {
+    const handleSaveEvaluationByMember = ( data, form ) => {
+
+
+
+        const body = {
+            observaciones: form.observaciones,
+            hab_desarrollada: form.hab_desarrollada,
+            competencia_conocer: form.competencia_conocer,
+            calificacion: form.calificacion,
+            id: data.id
+        }
+
+        console.log("this is the body to send request", body);
+
+        const formData = new FormData();
+        formData.append('evaluation_member_info', JSON.stringify(body));
+
+        requestPost('update_evaluation_member_by_activity', formData)
+            .then( (res) => {
+                console.log(res);
+                if ( res.includes('1') ) {
+                    AlertToast("Se ha guardado la evaluación correctamente", "success", 3000);
+                } else {
+                    AlertToast("Ha ocurrido un error al guardar la evaluación", "error", 3000);
+                }
+            } )
+            .catch( (err) => {
+                console.log(err);
+            } )
 
     }
 
@@ -62,16 +94,16 @@ export const EvaluatePerformance = () => {
                             getRowMembers !== null &&
                                 getRowMembers.map( (row, index) => {
                                     return (
-                                        <tr>
+                                        <tr key={index} >
                                             <td>{row.nombre_miembro}</td>
-                                            <td> <input type='text' defaultValue={ row?.observaciones } name='observaciones' className='form-control' /> </td>
-                                            <td> <input type='text' defaultValue={ row?.hab_desarrollada } name='observaciones' className='form-control' /> </td>
-                                            <td> <input type='text' defaultValue={ row?.competencia_conocer } name='observaciones' className='form-control' /> </td>
-                                            <td> <input type='text' defaultValue={ row?.calificacion } name='observaciones' className='form-control' /> </td>
+                                            <td> <input type='text' defaultValue={ row?.observaciones } name='observaciones' onChange={onInputChange} className='form-control' /> </td>
+                                            <td> <input type='text' defaultValue={ row?.hab_desarrollada } name='hab_desarrollada' onChange={onInputChange} className='form-control' /> </td>
+                                            <td> <input type='text' defaultValue={ row?.competencia_conocer } name='competencia_conocer' onChange={onInputChange} className='form-control' /> </td>
+                                            <td> <input type='text' defaultValue={ row?.calificacion } name='calificacion' onChange={onInputChange} className='form-control' /> </td>
                                             <td>
                                                 <button
                                                     className='btn btn-primary'
-                                                    onClick={()=>handleSaveEvaluationByMember(row)}
+                                                    onClick={()=>handleSaveEvaluationByMember(row, dataForm)}
                                                 >
                                                     Guardar
                                                 </button>
