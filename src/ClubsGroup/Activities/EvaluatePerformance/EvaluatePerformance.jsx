@@ -63,7 +63,7 @@ export const EvaluatePerformance = () => {
 
     return (
         <div className='container'>
-            <h3> {nameActivity} </h3>
+            <h3 className='fs-3 text-center'> {nameActivity} </h3>
             <h4 className='fs-4' > Evaluar el desempeño de cada alumno </h4>
 
             <div className="table-responsive">

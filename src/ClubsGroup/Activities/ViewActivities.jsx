@@ -154,7 +154,7 @@ export const ViewActivities = () => {
                                         </td>
 
                                         <td>
-                                            <button onClick={() => handleNavigateEvaluateMembers(activity?.id)}
+                                            <button onClick={() => handleNavigateEvaluateMembers(activity?.id, activity?.nombre)}
                                                     className="btn btn-secondary">
                                                 Evaluar desempeño
                                             </button>
