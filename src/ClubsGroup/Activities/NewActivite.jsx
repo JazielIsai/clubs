@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { requestPost, AlertToast } from '../../helpers'
+import {requestPost, AlertToast, AlertError} from '../../helpers'
 import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 import { useForm } from '../../hooks/useForm';
 
@@ -55,6 +55,15 @@ export const NewActivite = () => {
       id_club: club_id,
       id_idioma: dataForm.id_idioma,
     }
+
+    console.log(body);
+
+    Object.entries(body).map( ([key, element]) => {
+       if ( element === '' || element === undefined || element === null ) {
+         AlertError("Error", "Por favor, complete todos los campos");
+         throw new Error("Error");
+       }
+    });
 
     const formData = new FormData();
     formData.append('activity_info', JSON.stringify(body));
@@ -154,6 +163,33 @@ export const NewActivite = () => {
               <label for="floatingAttribut">Atributo Egreso</label>
             </div>
 
+            <div className={'row'}>
+
+                <div className={'col-md-6 col-12'}>
+                    <div className='form-floating mb-3'>
+                        <select className="form-select" onChange={onInputChange} name='modality' id="floatingModality"
+                                aria-label="Floating label select example">
+                            <option selected>Escoge el tipo de la actividad</option>
+                            <option value="Reporte"> Reporte </option>
+                            <option value="Video"> Video </option>
+                            <option value="Foto"> Foto </option>
+                            <option value="Presentación"> Presentación </option>
+                            <option value="Otro"> Otro </option>
+                        </select>
+                        <label htmlFor="floatingModality">Tipo de evidencia</label>
+                    </div>
+                </div>
+
+                <div className={'col-md-6 col-12'}>
+                    <div className='form-floating mb-3'>
+                        <input type="text" className="form-control" onChange={onInputChange} name='domain'
+                               id="floatingValue"/>
+                        <label htmlFor="floatingValue"> Dominio </label>
+                    </div>
+                </div>
+
+            </div>
+
 
             <div className={'row'}>
 
@@ -167,14 +203,14 @@ export const NewActivite = () => {
 
                 <div className={'col-md-6 col-12'}>
                     <div className='form-floating mb-3'>
-                        <select className="form-select" onChange={onInputChange} name='modality' id="floatingModality"
+                        <select className="form-select" onChange={onInputChange} name='typeEvidence' id="floatingTypeEvidence"
                                 aria-label="Floating label select example">
                             <option selected>Escoge el tipo de la actividad</option>
                             <option value="Presencial"> Presencial </option>
                             <option value="Virtual"> Virtual </option>
                             <option value="Hibrido"> Hibrido </option>
                         </select>
-                        <label htmlFor="floatingModality">Modalidad</label>
+                        <label htmlFor="floatingTypeEvidence">Modalidad</label>
                     </div>
                 </div>
 
@@ -199,7 +235,7 @@ export const NewActivite = () => {
 
                 <div className={'col-md-6 col-12'}>
                     <div className="form-floating mb-3">
-                        <select className="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <select className="form-select" id="floatingSelect" onChange={onInputChange} name={'status'} aria-label="Floating label select example">
                             <option selected>Escoge el estado de la actividad</option>
                             <option value="Programada">Programada</option>
                             <option value="Realizada">Realizada</option>
