@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="Add component in order to views all evidences by activity">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" afterDir="false" />
+    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="load">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Actividad.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Actividad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidences.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Club/EditClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Club/EditClub.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +96,7 @@
       <workItem from="1672022675233" duration="8093000" />
       <workItem from="1672539513230" duration="2188000" />
       <workItem from="1672553975239" duration="1487000" />
-      <workItem from="1672626856309" duration="8549000" />
+      <workItem from="1672626856309" duration="9592000" />
     </task>
     <task id="LOCAL-00001" summary="fix: change the services the super global from post to get">
       <created>1671419906553</created>
@@ -279,7 +273,35 @@
       <option name="project" value="LOCAL" />
       <updated>1672637579296</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Upload club's data by defect">
+      <created>1672637656350</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1672637656350</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Upload all activities by club and add button in the table by each row in order to navigate to view evidence of the activity current">
+      <created>1672637798822</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1672637798822</updated>
+    </task>
+    <task id="LOCAL-00028" summary="load">
+      <created>1672637827223</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1672637827223</updated>
+    </task>
+    <task id="LOCAL-00029" summary="load">
+      <created>1672637835776</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1672637835776</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,9 +319,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: change the services the super global from post to get" />
-    <MESSAGE value="fix: change the services the super global from post to get and fix the text" />
-    <MESSAGE value="fix some services and connect the services with the interface" />
     <MESSAGE value="Update the interfaces and its logic and design" />
     <MESSAGE value="add services to evidences" />
     <MESSAGE value="add interface to get evidences" />
@@ -322,6 +341,9 @@
     <MESSAGE value="fix: method to send request type post to save activity" />
     <MESSAGE value="Divide component in two to its major administration so, I create a new component: TableEvidences.jsx" />
     <MESSAGE value="Add component in order to views all evidences by activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add component in order to views all evidences by activity" />
+    <MESSAGE value="Upload club's data by defect" />
+    <MESSAGE value="Upload all activities by club and add button in the table by each row in order to navigate to view evidence of the activity current" />
+    <MESSAGE value="load" />
+    <option name="LAST_COMMIT_MESSAGE" value="load" />
   </component>
 </project>
