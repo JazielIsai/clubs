@@ -11,10 +11,12 @@ export const EditClub = () => {
 
     const { dataForm, onInputChange, onResetForm } = useForm({});
 
+    const { data: getClub } = useFetch_RequestGet(`get_club_by_id&club_id=${club_id}`);
     const { data : speciality_by_club } = useFetch_RequestGet('get_all_clubs_speciality');
     const { data : category_by_club } = useFetch_RequestGet('get_all_category_to_club');
     const { data : campuses } = useFetch_RequestGet('get_all_campuses');
 
+    const [ getRowClub, setRowClub ] = useState();
     const [ getSpeciality, setSpeciality ] = useState();
     const [ getCategory, setCategory ] = useState();
     const [ getCampuses, setCampuses ] = useState();
@@ -23,6 +25,7 @@ export const EditClub = () => {
 
         try {
 
+            setRowClub(JSON.parse(getClub)[0]);
             setSpeciality(JSON.parse(speciality_by_club));
             setCategory(JSON.parse(category_by_club));
             setCampuses(JSON.parse(campuses));
@@ -92,19 +95,19 @@ export const EditClub = () => {
     return (
         <section className="container" >
 
-            <h2> Registrar Clubs </h2>
+            <h2> Editar Club </h2>
 
             <div className="" id="">
                 <form className="mt-4" >
 
                     <div className="form-group mb-3">
                         <label htmlFor="name_club"> Nombre del Club: </label>
-                        <input type="text" onChange={onInputChange} className="form-control" id="name_club" placeholder="Ej: Ajedrez" name="name_club" />
+                        <input type="text" onChange={onInputChange} className="form-control" id="name_club" defaultValue={getRowClub?.name} name="name_club" />
                     </div>
 
                     <div className="form-group mb-3">
                         <label htmlFor="objective_club"> Objetivo del Club: </label>
-                        <input type="text" onChange={onInputChange} className="form-control" id="objective_club" placeholder="Objetivo..." name="objective_club" />
+                        <input type="text" onChange={onInputChange} className="form-control" id="objective_club" defaultValue={getRowClub?.objetivo} name="objective_club" />
                     </div>
 
                     <div className='row'>
@@ -118,7 +121,13 @@ export const EditClub = () => {
                                         getSpeciality !== undefined &&
                                             getSpeciality.map( (speciality, index) => {
                                                 return (
-                                                    <option key={index} value={speciality.id}> {speciality.nombre} </option>
+                                                    <option
+                                                        key={index}
+                                                        value={speciality.id}
+                                                        selected={speciality.nombre == getRowClub?.especialidad_club ? true : false}
+                                                    >
+                                                        {speciality.nombre}
+                                                    </option>
                                                 )
                                             } )
                                     }
@@ -137,7 +146,13 @@ export const EditClub = () => {
                                         getCategory !== undefined &&
                                             getCategory.map( (category, index) => {
                                                 return (
-                                                    <option key={index} value={category.id}> {category.nombre} </option>
+                                                    <option
+                                                        key={index}
+                                                        value={category.id}
+                                                        selected={category.nombre == getRowClub?.categoria_club ? 'selected' : false}
+                                                    >
+                                                        {category.nombre}
+                                                    </option>
                                                 )
                                             } )
                                     }
@@ -164,7 +179,13 @@ export const EditClub = () => {
                                         getCampuses !== undefined &&
                                             getCampuses.map( (campus, index) => {
                                                 return (
-                                                    <option key={index} value={campus.id}> {campus.nombre} </option>
+                                                    <option
+                                                        key={index}
+                                                        value={campus.id}
+                                                        selected={campus.nombre == getRowClub?.plantel ? true : false}
+                                                    >
+                                                        {campus.nombre}
+                                                    </option>
                                                 )
                                             } )
                                     }
@@ -176,7 +197,7 @@ export const EditClub = () => {
                         <div className='col-12 col-md-6'>
                             <div className="form-group mb-3">
                                 <label htmlFor="date_created"> Fecha de creación: </label>
-                                <input type="date" onChange={onInputChange} className="form-control" id="date_created" placeholder="Objetivo..." name="date_created" />
+                                <input type="text" disabled defaultValue={getRowClub?.fecha_creacion} className="form-control" id="date_created" name="date_created" />
                             </div>
                         </div>
 
