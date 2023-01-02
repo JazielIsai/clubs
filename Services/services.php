@@ -146,7 +146,7 @@ switch ($servicesName){
         if (!isset($_POST['activity_info']))
             echo 'Error: missing info.';
         else
-            echo ($services_activities->add_activity(secure_json_decode($_POST['activity_info'])));
+            echo ($services_activities->add_activity(json_decode($_POST['activity_info'])));
         break;
     case 'update_activity':
         if (!isset($_POST['activity_info']))
@@ -495,6 +495,14 @@ switch ($servicesName){
         break;
 
 // evaluation member by activity
+    case 'get_evaluation_member':
+        if (isset($_GET['id_activity'])) {
+            echo json_encode($services_evaluation_member->get_evaluation_member($_GET['id_activity']));
+        } else {
+            echo 'Error: missing info.';
+        }
+        break;
+
     case 'add_evaluation_member_by_activity':
         if (isset($_POST['evaluation_member_info'])) {
             echo json_encode($services_evaluation_member->add_evaluation_member_by_activity(json_decode($_POST['evaluation_member_info'])));
