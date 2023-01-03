@@ -7,15 +7,18 @@ export const TableUsers = () => {
     const navigate = useNavigate();
 
     const {data: users } = useFetch_RequestGet('get_all_users');
+    const {data: roles } = useFetch_RequestGet('get_all_roles');
 
     const [getColumnUsers, setColumUsers] = useState(null);
     const [getDataUsers, setDataUsers] = useState(null);
+    const [getDataRoles, setDataRoles] = useState(null);
 
     useEffect( () => {
         try {
             console.log(JSON.parse(users));
-            setDataUsers(JSON.parse(users));
+            setDataRoles(JSON.parse(roles));
             setColumUsers(JSON.parse(users)[0]);
+            setDataUsers(JSON.parse(users));
         }
         catch (err) {
             console.log(err);
@@ -53,8 +56,9 @@ export const TableUsers = () => {
                                     })
                                     
                             }
-                            <th scope="col"> Ir a </th>
-                            <th scope="col"> Eliminar </th>
+                            <th scope="col"> Actualizar rol </th>
+                            <th scope="col"> Editar usuario </th>
+                            <th scope="col"> Eliminar</th>
 
                         </tr>
                     </thead>
@@ -69,11 +73,33 @@ export const TableUsers = () => {
                                         <td> { user?.nombre } </td>
                                         <td> {user?.correo} </td>
                                         <td>  {user?.fecha_creacion} </td>
-                                        <td>  { user?.rol_usuario }   </td>
-
+                                        <td>
+                                            <div className="">
+                                                <select className="form-select">
+                                                    {
+                                                        getDataRoles &&
+                                                        getDataRoles.map( (role, index) => (
+                                                            <option
+                                                                key={index}
+                                                                value={role?.id_rol}
+                                                                selected={role?.nombre == user?.rol_usuario  ? true : false}
+                                                            >
+                                                                {role?.nombre}
+                                                            </option>
+                                                        ))
+                                                    }
+                                                </select>
+                                            </div>
+                                        </td>
 
                                         <td>
-                                            <button onClick={()=>handleNavigateEditUser(user?.id)} class="btn btn-primary"> Editar Usuario </button>
+                                            <button onClick={() => handleNavigateEditUser(user?.id)}
+                                                    className="btn btn-success">
+                                                Actualizar rol
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button onClick={()=>handleNavigateEditUser(user?.id)} class="btn btn-primary"> Editar </button>
                                         </td>
                                         <td>
                                             <button onClick={()=>handleDelete(user?.id)} className="btn btn-danger"> Eliminar </button>
