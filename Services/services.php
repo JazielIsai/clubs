@@ -180,6 +180,11 @@ switch ($servicesName){
             echo secure_json_encode($services_activities->get_count_activities_by_club($_GET['club_id']));
         }
         break;
+
+    case 'get_public_activities':
+        echo secure_json_encode($services_activities->get_public_activities());
+        break;
+
 // Evidences
     case 'get_evidences_by_activity':
         if (isset($_GET['id_activity']))
