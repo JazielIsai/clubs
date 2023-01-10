@@ -47,6 +47,8 @@ include_once  './model/ActaConstitutiva.php';
 include_once './model/TypeActivity.php';
 include_once './model/EvaluationMember.php';
 
+include_once './Controller/UploadDocument.php';
+
 $services_users = new Users();
 $services_clubes = new Clubes();
 $services_roles_user = new RolesUsers();

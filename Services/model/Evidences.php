@@ -2,11 +2,16 @@
 
 class Evidences extends MethodsCrud {
 
+    private $uploadDocument;
+
     public function __construct() {
         parent::__construct('clubs_itesi');
+
+        $this->uploadDocument = new UploadDocument();
     }
 
     public function get_evidences_by_activity ($id_activity) {
+
         $query = "
             SELECT * FROM evidencia WHERE id_actividad = ?;
         ";
@@ -26,8 +31,23 @@ class Evidences extends MethodsCrud {
 
     public function add_evidence ($new_evidence)
     {
-        $query = "INSERT INTO evidencia (nombre, tipo, ruta, id_actividad) VALUES (?, ?, ?, ?)";
-        $data = array($new_evidence->nombre, $new_evidence->tipo, $new_evidence->ruta, $new_evidence->id_actividad);
-        return $this->insert_query($query, array($data));
+        $path_destination = './evidencias/' . $new_evidence->id_actividad . '/';
+
+        $response = $this->uploadDocument->upload_file($_FILES['file_info'], $path_destination, 240000);
+
+        if ($response['upload']) {
+            $query = "INSERT INTO evidencia (nombre, tipo, ruta, id_actividad) VALUES (?, ?, ?, ?)";
+            $data = array(
+                $new_evidence->nombre,
+                $new_evidence->tipo,
+                $response['file_destination'],
+                $new_evidence->id_actividad
+            );
+            return $this->insert_query($query, array($data));
+        } else {
+            return $response;
+        }
+
+
     }
 }

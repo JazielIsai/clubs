@@ -9,7 +9,7 @@ class UploadDocument {
     public function upload_file ($file_info, $path_destination, $define_size) {
 
         if (!isset($file_info)) {
-            return "File is empty";
+            return "No existe archivo";
         }
 
         // upload document
@@ -27,7 +27,7 @@ class UploadDocument {
         $file_ext = explode('.', $file_name);
         $file_ext = strtolower(end($file_ext));
 
-        $allowed = array('pdf', 'doc', 'docx', 'jpg', 'jpeg', 'png', 'gif', 'txt');
+        $allowed = array('pdf', 'doc', 'docx', 'csv', 'xml', 'ppt', 'jpg', 'jpeg', 'png', 'gif', 'txt');
 
         // move the file upload to folder MovementIndex
         if (in_array($file_ext, $allowed)) {
