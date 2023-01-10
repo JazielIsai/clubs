@@ -103,4 +103,13 @@ class Actividad extends MethodsCrud {
 
         return $this->update_delete_query($query, array($data));
     }
+
+    public function get_public_activities()
+    {
+        $query = "SELECT actividad.nombre, actividad.modalidad, actividad.fecha, clubes.name as club
+                    FROM actividad INNER JOIN clubes ON actividad.id_club = clubes.id
+                    AND actividad.dominio LIKE 'Público';";
+
+        return $this->select_query($query);
+    }
 }
