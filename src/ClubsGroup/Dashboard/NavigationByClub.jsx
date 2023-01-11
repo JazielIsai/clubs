@@ -51,7 +51,7 @@ export const NavigationByClub = () => {
             <li className="nav-item">
                 <NavLink
                     className="nav-link"
-                    to={ user?.id_club ? `/club/members/${id_club}` : `/admin/members/${id_club}`}
+                    to={ user?.id_club ? `/club/reports_by_club/${id_club}` : `/admin/reports_by_club/${id_club}`}
                 >
                     Reportes
                 </NavLink>

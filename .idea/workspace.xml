@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="load">
+    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="class to upload files">
+      <change afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Events/Events.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ClubsGroup/Reports/Reports.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/useDataCollectionRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/UserPermissions/UserPermissions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/UserPermissions/UserPermissions.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Dashboard/NavigationByClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Dashboard/NavigationByClub.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +41,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/isai/Documents/file_of_control_for_lawyer&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/var/www/html/workflow_backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -96,7 +103,20 @@
       <workItem from="1672022675233" duration="8093000" />
       <workItem from="1672539513230" duration="2188000" />
       <workItem from="1672553975239" duration="1487000" />
-      <workItem from="1672626856309" duration="9592000" />
+      <workItem from="1672626856309" duration="9740000" />
+      <workItem from="1672723038446" duration="857000" />
+      <workItem from="1672725516732" duration="228000" />
+      <workItem from="1672861864440" duration="1749000" />
+      <workItem from="1672894978872" duration="22000" />
+      <workItem from="1672903107086" duration="25000" />
+      <workItem from="1673329094987" duration="1512000" />
+      <workItem from="1673364368867" duration="2501000" />
+      <workItem from="1673368213170" duration="1811000" />
+      <workItem from="1673375454794" duration="656000" />
+      <workItem from="1673403180836" duration="49000" />
+      <workItem from="1673415357988" duration="1011000" />
+      <workItem from="1673446662908" duration="620000" />
+      <workItem from="1673456734825" duration="3157000" />
     </task>
     <task id="LOCAL-00001" summary="fix: change the services the super global from post to get">
       <created>1671419906553</created>
@@ -301,7 +321,42 @@
       <option name="project" value="LOCAL" />
       <updated>1672637835776</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add component to user permissions">
+      <created>1672642316501</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1672642316501</updated>
+    </task>
+    <task id="LOCAL-00031" summary="update the user table to change the rol of the user if is required">
+      <created>1672723848247</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1672723848247</updated>
+    </task>
+    <task id="LOCAL-00032" summary="files to validate different expression and to download files">
+      <created>1673365419935</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1673365419935</updated>
+    </task>
+    <task id="LOCAL-00033" summary="class to upload files">
+      <created>1673365437416</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1673365437416</updated>
+    </task>
+    <task id="LOCAL-00034" summary="include the method to upload evidences">
+      <created>1673370102345</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1673370102345</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,11 +374,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update the interfaces and its logic and design" />
-    <MESSAGE value="add services to evidences" />
-    <MESSAGE value="add interface to get evidences" />
-    <MESSAGE value="add services to checking if the user exist" />
-    <MESSAGE value="update service to the method de login" />
     <MESSAGE value="add query alter table users and update data users" />
     <MESSAGE value="update query to access to system" />
     <MESSAGE value="update query and db to access to system" />
@@ -344,6 +394,11 @@
     <MESSAGE value="Upload club's data by defect" />
     <MESSAGE value="Upload all activities by club and add button in the table by each row in order to navigate to view evidence of the activity current" />
     <MESSAGE value="load" />
-    <option name="LAST_COMMIT_MESSAGE" value="load" />
+    <MESSAGE value="add component to user permissions" />
+    <MESSAGE value="update the user table to change the rol of the user if is required" />
+    <MESSAGE value="files to validate different expression and to download files" />
+    <MESSAGE value="class to upload files" />
+    <MESSAGE value="include the method to upload evidences" />
+    <option name="LAST_COMMIT_MESSAGE" value="include the method to upload evidences" />
   </component>
 </project>
