@@ -63,7 +63,6 @@ $services_users_club = new UsuariosMiembros();
 $services_specialities = new Especialidad();
 $services_rol_member_club = new rol_member_club();
 $services_evidences = new Evidences();
-$services_ActivitiesClub = new ActivitiesClub();
 $services_planAnual = new PlanAnual();
 $services_acta = new ActaConstitutiva();
 $services_type_activity = new TypeActivity();
@@ -445,41 +444,41 @@ switch ($servicesName){
 
     
         //actividades por club
-    case 'get_activities_by_club':
-        if (isset($_GET['activities_by_club']))
-        echo secure_json_encode($services_ActivitiesClub->get_activities_by_club($_GET['activities_by_club']));
+    case 'get_activities_by_id_club':
+        if (isset($_GET['get_activities_by_id_club']))
+        echo secure_json_encode($services_activities->get_activities_by_id_club($_GET['get_activities_by_id_club']));
         break;
     case 'get_activities_in_progress_by_club':
         if (isset($_GET['activities_in_progress_by_club']))
-        echo secure_json_encode($services_ActivitiesClub->get_activities_in_progress_by_club($_GET['activities_in_progress_by_club']));
+        echo secure_json_encode($services_activities->get_activities_in_progress_by_club($_GET['activities_in_progress_by_club']));
         break;
     case 'get_uninitiated_activities_by_club':
         if (isset($_GET['uninitiated_activities_by_club']))
-        echo secure_json_encode($services_ActivitiesClub->get_uninitiated_activities_by_club($_GET['uninitiated_activities_by_club']));
+        echo secure_json_encode($services_activities->get_uninitiated_activities_by_club($_GET['uninitiated_activities_by_club']));
         break;
     case 'get_activities_completed_by_club':
         if (isset($_GET['activities_completed_by_club']))
-        echo secure_json_encode($services_ActivitiesClub->get_activities_completed_by_club($_GET['activities_completed_by_club']));
+        echo secure_json_encode($services_activities->get_activities_completed_by_club($_GET['activities_completed_by_club']));
         break;
     case 'get_activities_per_semester_by_club':
         if (isset($_GET['activities_per_semester_by_club']))
-        echo secure_json_encode($services_ActivitiesClub->get_activities_per_semester_by_club($_GET['activities_per_semester_by_club']));
+        echo secure_json_encode($services_activities->get_activities_per_semester_by_club($_GET['activities_per_semester_by_club']));
         break;
     case 'get_incidents_by_activity':
         if (isset($_GET['incidents_by_activity']))
-        echo secure_json_encode($services_ActivitiesClub->get_incidents_by_activity($_GET['incidents_by_activity']));
+        echo secure_json_encode($services_activities->get_incidents_by_activity($_GET['incidents_by_activity']));
         break;
     case 'get_number_of_incidents_by_activity':
         if (isset($_GET['number_of_incidents_by_activity']))
-        echo secure_json_encode($services_ActivitiesClub->get_number_of_incidents_by_activity($_GET['number_of_incidents_by_activity']));
+        echo secure_json_encode($services_activities->get_number_of_incidents_by_activity($_GET['number_of_incidents_by_activity']));
         break;
     case 'get_evidence_by_club':
         if (isset($_GET['evidence_by_club']))
-        echo secure_json_encode($services_ActivitiesClub->get_evidence_by_club($_GET['evidence_by_club']));
+        echo secure_json_encode($services_activities->get_evidence_by_club($_GET['evidence_by_club']));
         break;
     case 'get_skills_developed_by_club':
         if (isset($_GET['skills_developed_by_club']))
-        echo secure_json_encode($services_ActivitiesClub->get_skills_developed_by_club($_GET['skills_developed_by_club']));
+        echo secure_json_encode($services_activities->get_skills_developed_by_club($_GET['skills_developed_by_club']));
         break;
 
  //Plan anual
