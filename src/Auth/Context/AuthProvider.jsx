@@ -8,7 +8,7 @@ const initialState = {
 }
 
 const init = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('user_clubs_system'));
 
     return {
         logged: !!user,
@@ -33,7 +33,7 @@ export const AuthProvider = ({children}) => {
 
         console.log(user);
 
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user_clubs_system', JSON.stringify(user));
 
         dispatch({
             type: types.login,
@@ -52,12 +52,12 @@ export const AuthProvider = ({children}) => {
         }
         
         localStorage.setItem('user', JSON.stringify(user));
-        console.log(localStorage.getItem('user'));
+        console.log(localStorage.getItem('user_clubs_system'));
             
     }
 
     const logout = () => {
-        localStorage.removeItem('user');
+        localStorage.removeItem('user_clubs_system');
 
         dispatch({
             type: types.logout,
