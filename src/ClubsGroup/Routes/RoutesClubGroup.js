@@ -16,6 +16,7 @@ import {HeaderUser} from "../../Includes/HeaderUser";
 import {AuthContext} from "../../Auth";
 import {ViewEvidences} from "../Activities/Evidences/ViewEvidences";
 import {EvaluatePerformance} from "../Activities/EvaluatePerformance/EvaluatePerformance";
+import {Events} from "../Activities/Events/Events";
 
 export const RoutesClubGroup = () => {
 
@@ -54,7 +55,7 @@ export const RoutesClubGroup = () => {
                     <Route path='members/add/:club_id' element={<AddMember />} />
                     <Route path='members/edit/:club_id/:id_member' element={<EditMember />} />
                     
-                    <Route path='members/assign' element={<div>AssignMembers</div>} />
+                    <Route path='events_public' element={<Events />} />
                     
                     <Route path='/*' element={<Navigate to={`/club/dashboard/${user.id_club}`} />} />
                     
