@@ -41,7 +41,6 @@ include_once './model/UsuariosMiembros.php';
 include_once './model/Especialidad.php';
 include_once './model/rol_member_club.php';
 include_once './model/Evidences.php';
-include_once './model/ActivitiesClub.php';
 include_once './model/PlanAnual.php';
 include_once  './model/ActaConstitutiva.php';
 include_once './model/TypeActivity.php';
@@ -355,7 +354,13 @@ switch ($servicesName){
             echo secure_json_encode($services_users_club->get_users_by_club($_GET['club_id']));
         }
         break;
-        
+    case 'get_members_by_id':
+        if (!isset($_GET['member_id'])) {
+            echo 'Error: missing info.';
+        } else {
+            echo json_encode($services_users_club->get_members_by_id($_GET['member_id']));
+        }
+        break;
     case 'add_new_member_club':
         if (!isset($_POST['member_info']))
             echo 'Error: missing info.';
@@ -371,6 +376,14 @@ switch ($servicesName){
         else
             echo ($services_users_club->update_member(secure_json_decode($_POST['member_info'])));
         break;
+
+    case 'update_rol_member_club':
+        if (!isset($_POST['member_info']))
+            echo 'Error: missing info.';
+        else
+            echo ($services_users_club->update_rol_member_club(json_decode( $_POST['member_info'] )));
+        break;
+
     case 'delete_member':
         if (!isset($_POST['id_member']))
             echo 'Error: missing id.';
