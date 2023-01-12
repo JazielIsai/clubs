@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { requestPost } from '../../helpers';
 import { useForm } from '../../hooks/useForm';
 import {useNavigate, useParams} from "react-router-dom";
-import {useFetch_RequestGet} from "../../hooks/useFetchGet";
+import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
 
 export const EditClub = () => {
 
@@ -21,12 +21,15 @@ export const EditClub = () => {
         'all'
     );
 
-        } catch (err) {
-            console.log(err);
-        }
+    const { dataCollectionRequest: getCategory } = useDataCollectionRequest(
+        `get_all_category_to_club`,
+        'all'
+    );
 
-    }, [ speciality_by_club, category_by_club, campuses ] );
-
+    const { dataCollectionRequest: getCampuses } = useDataCollectionRequest(
+        `get_all_campuses`,
+        'all'
+    );
 
     const handleSendPost = (e) => {
         e.preventDefault();
