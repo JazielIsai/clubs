@@ -189,9 +189,13 @@ export const NewActivite = () => {
 
                 <div className={'col-md-6 col-12'}>
                     <div className='form-floating mb-3'>
-                        <input type="text" className="form-control" onChange={onInputChange} name='domain'
-                               id="floatingValue"/>
-                        <label htmlFor="floatingValue"> Dominio </label>
+                        <select className="form-select" onChange={onInputChange} name='domain' id="floatingModality"
+                                aria-label="Floating label select example">
+                            <option selected>Escoge el dominio de la actividad</option>
+                            <option value="Público"> Público </option>
+                            <option value="Privada"> Privada </option>
+                        </select>
+                        <label htmlFor="floatingModality"> Dominio </label>
                     </div>
                 </div>
 
