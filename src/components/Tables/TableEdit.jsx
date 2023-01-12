@@ -66,7 +66,7 @@ export const TableEdit = ( {onCaption = false, getColumns = [], getRows = [], ge
                                                         key={index}
                                                         options={column?.options}
                                                         onChange={(e)=>column?.onChange(e, row)}
-                                                        valueSelected={row[column?.field]}
+                                                        valueSelected={ column?.valueSelected ? column?.valueSelected : row[column?.field]}
                                                         name={column?.field}
                                                     />
                                                 ) : column?.type === 'text' ||
