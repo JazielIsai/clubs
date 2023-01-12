@@ -71,7 +71,10 @@ export const ViewActivities = () => {
                     { headerName: 'Modalidad', field: 'modalidad' },
                     { headerName: 'Tipo evidencia', field: 'tipo_evidencia' },
                     { headerName: 'Responsable', field: 'responsable' },
-                    { headerName: 'Estatus', field: 'estatus' },
+                    {
+                        headerName: 'Estatus',
+                        field: 'estatus',
+                    },
                     {
                         headerName: 'Entregar evidencias',
                         field: 'entrega_evidencias',
