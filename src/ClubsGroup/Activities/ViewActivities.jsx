@@ -4,6 +4,7 @@ import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 import {AuthContext} from "../../Auth";
 import {requestPost} from "../../helpers";
 import {Table} from "../../components/Tables";
+import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
 
 export const ViewActivities = () => {
 
@@ -12,20 +13,10 @@ export const ViewActivities = () => {
 
     const { user } = useContext(AuthContext); // Get the context
 
-    const { data: activitiesByClub } = useFetch_RequestGet(`get_activities_by_club&club_id=${club_id}`);
-
-    const [ getRowActivities, setRowActivities ] = useState();
-    const [getColumnActivities, setColumnActivities] = useState();
-
-    useEffect( ( ) => {
-        try {
-            console.log(JSON.parse(activitiesByClub)[0]);
-            setColumnActivities(JSON.parse(activitiesByClub)[0]);
-            setRowActivities(JSON.parse(activitiesByClub));
-        } catch (err ) {
-
-        }
-    }, [activitiesByClub] )
+    const { dataCollectionRequest: getActivitiesByClub } = useDataCollectionRequest(
+        `get_activities_by_club&club_id=${club_id}`,
+        'all',
+    );
 
     const handleNavigateToEditActivity = (e, dataRow) => {
         if ( user.id_club == null ) {
@@ -107,7 +98,7 @@ export const ViewActivities = () => {
                         nameClass: 'btn btn-success',
                     }
                 ]}
-                getRows={getRowActivities || []}
+                getRows={getActivitiesByClub || []}
             />
 
 
