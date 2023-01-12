@@ -362,31 +362,34 @@ switch ($servicesName){
         }
         break;
     case 'add_new_member_club':
-        if (!isset($_POST['member_info']))
+        if (!isset($_POST['member_info'])) {
             echo 'Error: missing info.';
-        else
-        {
+        }
+        else {
             echo $services_users_club->add_new_member_club(json_decode($_POST['member_info']));
         }
         break;
 
     case 'update_member':
-        if (!isset($_POST['member_info']))
+        if (!isset($_POST['member_info'])) {
             echo 'Error: missing info.';
+        }
         else
             echo ($services_users_club->update_member(secure_json_decode($_POST['member_info'])));
         break;
 
     case 'update_rol_member_club':
-        if (!isset($_POST['member_info']))
+        if (!isset($_POST['member_info'])) {
             echo 'Error: missing info.';
+        }
         else
             echo ($services_users_club->update_rol_member_club(json_decode( $_POST['member_info'] )));
         break;
 
     case 'delete_member':
-        if (!isset($_POST['id_member']))
+        if (!isset($_POST['id_member'])) {
             echo 'Error: missing id.';
+        }
         else
             echo secure_json_encode($services_users_club->delete_member($_POST['id_member']));
         break;
