@@ -1,9 +1,22 @@
 import React from 'react'
+import {useParams} from "react-router-dom";
+import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
+import {useForm} from "../../hooks/useForm";
 
 export const EditMember = () => {
-  
+
+    const { club_id, id_member } = useParams();
+
+    const { dataForm, onInputChange, onResetForm } = useForm({});
+
+    const { dataCollectionRequest: getUser } = useDataCollectionRequest(
+        `get_members_by_id&member_id=${id_member}`,
+        'row'
+    );
+
+
     return (
-        <div>
+        <div className={'container'}>
 
              <form>
             
