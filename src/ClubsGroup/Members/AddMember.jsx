@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import { AlertError } from '../../helpers/Alerts/AlertError';
 import { AlertSuccess } from '../../helpers/Alerts/AlertSuccess';
 import { requestPost } from '../../helpers/requestPost';
@@ -12,6 +12,8 @@ export const AddMember = () => {
     const { club_id } = useParams();
 
     const { user } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const { data : speciality } = useFetch_RequestGet('get_all_speciality');
     const { data : rolesMembers } = useFetch_RequestGet('get_all_rol_members_clubs');
@@ -73,6 +75,7 @@ export const AddMember = () => {
                 if ( !(response.includes('Error: missing info.')) ){
                     AlertSuccess('Exito', 'Miembro agregado correctamente');
                     onResetForm();
+                    user?.id_club == null ? navigate(`/admin/members/${club_id}`) : navigate(`/club/members/${club_id}`)
                 }
             })
             .catch( err => {
@@ -83,6 +86,7 @@ export const AddMember = () => {
 
     return (
         <div className='container'>
+            <h4 className={'mt-4 mb-4 text-center'}> Agregar Miembro al club  </h4>
             <form>
                 <div className='row'>
                     
