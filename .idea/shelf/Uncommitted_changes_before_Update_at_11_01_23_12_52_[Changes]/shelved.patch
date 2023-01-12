@@ -1,0 +1,399 @@
+Index: src/ClubsGroup/Dashboard/NavigationByClub.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {useContext} from 'react'\nimport { NavLink, useParams } from 'react-router-dom'\nimport {AuthContext} from \"../../Auth\";\n\nexport const NavigationByClub = () => {\n\n    const { user } = useContext(AuthContext);\n\n    const { id: id_club } = useParams();\n\n\n\n  return (\n    <div>\n        <ul className=\"nav flex-column\">\n\n            <li className=\"nav-item\">\n              <NavLink\n                  className=\"nav-link active\"\n                  aria-current=\"page\"\n                  to={user?.id_club != null ? `/club/activities/${id_club}` : `/admin/activities/${id_club}`}\n              >\n                  Actividades\n              </NavLink>\n            </li>\n            <li className=\"nav-item\">\n              <NavLink\n                  className=\"nav-link\"\n                  to={ user?.id_club != null ? `/club/evidences/${id_club}` : `/admin/evidences/${id_club}`}\n              >\n                  Evidencias\n              </NavLink>\n            </li>\n            <li className=\"nav-item\">\n              <NavLink\n                  className=\"nav-link\"\n                  to=\"#\"\n              >\n                  Eventos\n              </NavLink>\n            </li>\n            <li className=\"nav-item\">\n              <NavLink\n                  className=\"nav-link\"\n                  to={ user?.id_club ? `/club/members/${id_club}` : `/admin/members/${id_club}`}\n              >\n                  Miembros\n              </NavLink>\n            </li>\n\n        </ul>\n    </div>\n  )\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ClubsGroup/Dashboard/NavigationByClub.jsx b/src/ClubsGroup/Dashboard/NavigationByClub.jsx
+--- a/src/ClubsGroup/Dashboard/NavigationByClub.jsx	(revision bca3679810e99054989888533cdedf7273be890c)
++++ b/src/ClubsGroup/Dashboard/NavigationByClub.jsx	(date 1673461383611)
+@@ -34,7 +34,7 @@
+             <li className="nav-item">
+               <NavLink
+                   className="nav-link"
+-                  to="#"
++                  to={ user?.id_club ? `/club/events_public` : `/admin/events_public` }
+               >
+                   Eventos
+               </NavLink>
+@@ -47,6 +47,15 @@
+                   Miembros
+               </NavLink>
+             </li>
++
++            <li className="nav-item">
++                <NavLink
++                    className="nav-link"
++                    to={ user?.id_club ? `/club/members/${id_club}` : `/admin/members/${id_club}`}
++                >
++                    Reportes
++                </NavLink>
++            </li>
+ 
+         </ul>
+     </div>
+Index: src/ClubsGroup/Routes/RoutesClubGroup.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {useContext, useEffect} from 'react'\nimport {Navigate, Route, Routes, useNavigate} from 'react-router-dom'\nimport { Footer } from '../../Includes/Footer'\nimport { Activities } from '../Activities/Activities'\nimport { EditActivitie } from '../Activities/EditActivitie'\nimport { NewActivite } from '../Activities/NewActivite'\nimport { EditClub } from '../Club/EditClub'\nimport { DashboardByClub } from '../Dashboard/DashboardByClub'\nimport { AddEvidences } from '../Activities/Evidences/AddEvidences'\nimport { EditEvidences } from '../Activities/Evidences/EditEvidences'\nimport { Evidences } from '../Activities/Evidences/Evidences'\nimport { Members } from '../Members/Members'\nimport { AddMember } from '../Members/AddMember'\nimport { EditMember } from '../Members/EditMember'\nimport {HeaderUser} from \"../../Includes/HeaderUser\";\nimport {AuthContext} from \"../../Auth\";\nimport {ViewEvidences} from \"../Activities/Evidences/ViewEvidences\";\nimport {EvaluatePerformance} from \"../Activities/EvaluatePerformance/EvaluatePerformance\";\n\nexport const RoutesClubGroup = () => {\n\n    const { user } = useContext(AuthContext); // Get the context\n\n    const navigate = useNavigate();\n\n    useEffect(() => {\n        if(!user){\n            navigate(`/club/dashboard/${user.id_club}`);\n        }\n    }, [user]);\n\n    return (\n        <div className='d-flex w-100 flex-column' >\n            <HeaderUser />\n            <div style={{minHeight: 'calc(100vh - 120px - 100px)'}} >\n                <Routes>\n\n                    <Route path='dashboard/:id' element={<DashboardByClub />} />\n                    \n                    <Route path='updateClub/:club_id' element={<EditClub />} />\n                    \n                    <Route path='activities/:club_id' element={<Activities />} />\n                    <Route path='activities/add/:club_id' element={<NewActivite />} />\n                    <Route path='activities/edit/:club_id/:id_activitie' element={<EditActivitie/>} />\n\n                    <Route path='evidences/:club_id/' element={<ViewEvidences />} />\n                    <Route path='activities/evidences/:id_activitie/:nameActivitie' element={<Evidences />} />\n                    <Route path='activities/evidences/add/:id_activitie' element={<AddEvidences />} />\n                    <Route path='activities/evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />\n\n                    <Route path='activities/evaluateMember/:club_id/:idActivity/:nameActivity' element={<EvaluatePerformance /> } />\n                    \n                    <Route path='members/:club_id' element={<Members />} />\n                    <Route path='members/add/:club_id' element={<AddMember />} />\n                    <Route path='members/edit/:club_id/:id_member' element={<EditMember />} />\n                    \n                    <Route path='members/assign' element={<div>AssignMembers</div>} />\n                    \n                    <Route path='/*' element={<Navigate to={`/club/dashboard/${user.id_club}`} />} />\n                    \n                </Routes>\n            </div>\n            <Footer />\n        </div>\n    )\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ClubsGroup/Routes/RoutesClubGroup.js b/src/ClubsGroup/Routes/RoutesClubGroup.js
+--- a/src/ClubsGroup/Routes/RoutesClubGroup.js	(revision bca3679810e99054989888533cdedf7273be890c)
++++ b/src/ClubsGroup/Routes/RoutesClubGroup.js	(date 1673461300370)
+@@ -16,6 +16,7 @@
+ import {AuthContext} from "../../Auth";
+ import {ViewEvidences} from "../Activities/Evidences/ViewEvidences";
+ import {EvaluatePerformance} from "../Activities/EvaluatePerformance/EvaluatePerformance";
++import {Events} from "../Activities/Events/Events";
+ 
+ export const RoutesClubGroup = () => {
+ 
+@@ -54,7 +55,7 @@
+                     <Route path='members/add/:club_id' element={<AddMember />} />
+                     <Route path='members/edit/:club_id/:id_member' element={<EditMember />} />
+                     
+-                    <Route path='members/assign' element={<div>AssignMembers</div>} />
++                    <Route path='events_public' element={<Events />} />
+                     
+                     <Route path='/*' element={<Navigate to={`/club/dashboard/${user.id_club}`} />} />
+                     
+Index: src/hooks/useDataCollectionRequest.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/hooks/useDataCollectionRequest.js b/src/hooks/useDataCollectionRequest.js
+new file mode 100644
+--- /dev/null	(date 1673461438775)
++++ b/src/hooks/useDataCollectionRequest.js	(date 1673461438775)
+@@ -0,0 +1,37 @@
++import {useState, useEffect} from "react";
++import {useFetch_RequestGet} from "./useFetchGet";
++
++export function useDataCollectionRequest ( url, method ) {
++
++    const {data} = useFetch_RequestGet(url);
++
++    const [dataCollectionRequest, setDataCollectionRequest] = useState(null);
++    const [error, setError] = useState(null);
++
++    useEffect(() => {
++
++        try {
++
++            if (data) {
++                if (method === 'row') {
++                    setDataCollectionRequest(JSON.parse(data)[0]);
++
++                } else {
++                    setDataCollectionRequest(JSON.parse(data));
++                }
++            }
++
++        } catch (error) {
++            setError(error);
++            console.log("useDataCollectionRequest: ", error);
++        }
++
++    },[data, method]);
++
++
++    return {
++        dataCollectionRequest,
++        setDataCollectionRequest,
++        error
++    };
++}
+\ No newline at end of file
+Index: src/Auth/Context/AuthProvider.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { useReducer } from \"react\";\nimport { types } from \"../Types\";\nimport { AuthContext } from \"./AuthContext\";\nimport { authReducer } from \"./authReducer\";\n\nconst initialState = {\n    logged: false,\n}\n\nconst init = () => {\n    const user = JSON.parse(localStorage.getItem('user'));\n\n    return {\n        logged: !!user,\n        user: user\n    }\n}\n\nexport const AuthProvider = ({children}) => {\n\n    const [authState, dispatch] = useReducer(authReducer, initialState, init);\n\n    const login = (dataUser) => {\n        const user = {\n            user_id:dataUser.id,\n            name:dataUser.nombre,\n            lastname:dataUser.lastname,\n            email: dataUser.correo,\n            rol_user:dataUser.rol,\n            id_club:dataUser.id_club,\n            club: dataUser.club,\n        }\n\n        console.log(user);\n\n        localStorage.setItem('user', JSON.stringify(user));\n\n        dispatch({\n            type: types.login,\n            payload: user\n        })\n    }\n    \n    const editInfoUser = (dataUser) => {\n        \n        const user = {\n            user_id:dataUser.user_id,\n            name:dataUser.name,\n            lastname:dataUser.lastname,\n            email: dataUser.email,\n            rol_user:dataUser.rol_user\n        }\n        \n        localStorage.setItem('user', JSON.stringify(user));\n        console.log(localStorage.getItem('user'));\n            \n    }\n\n    const logout = () => {\n        localStorage.removeItem('user');\n\n        dispatch({\n            type: types.logout,\n        })\n    }\n\n    return (\n        <AuthContext.Provider \n            value={{\n                ...authState,\n                login,\n                editInfoUser,\n                logout\n            }}\n        >\n            {children}\n        </AuthContext.Provider>\n    )\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Auth/Context/AuthProvider.jsx b/src/Auth/Context/AuthProvider.jsx
+--- a/src/Auth/Context/AuthProvider.jsx	(revision bca3679810e99054989888533cdedf7273be890c)
++++ b/src/Auth/Context/AuthProvider.jsx	(date 1673458382943)
+@@ -8,7 +8,7 @@
+ }
+ 
+ const init = () => {
+-    const user = JSON.parse(localStorage.getItem('user'));
++    const user = JSON.parse(localStorage.getItem('user_clubs_system'));
+ 
+     return {
+         logged: !!user,
+@@ -33,7 +33,7 @@
+ 
+         console.log(user);
+ 
+-        localStorage.setItem('user', JSON.stringify(user));
++        localStorage.setItem('user_clubs_system', JSON.stringify(user));
+ 
+         dispatch({
+             type: types.login,
+@@ -52,12 +52,12 @@
+         }
+         
+         localStorage.setItem('user', JSON.stringify(user));
+-        console.log(localStorage.getItem('user'));
++        console.log(localStorage.getItem('user_clubs_system'));
+             
+     }
+ 
+     const logout = () => {
+-        localStorage.removeItem('user');
++        localStorage.removeItem('user_clubs_system');
+ 
+         dispatch({
+             type: types.logout,
+Index: src/ClubsAdmin/UserPermissions/UserPermissions.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {useState, useEffect, useContext} from \"react\";\nimport {useNavigate, useParams} from \"react-router-dom\";\nimport {AuthContext} from \"../../Auth\";\nimport {useFetch_RequestGet} from \"../../hooks/useFetchGet\";\n\nexport const UserPermissions = () => {\n\n\n    return (\n        <>\n\n        </>\n    )\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ClubsAdmin/UserPermissions/UserPermissions.jsx b/src/ClubsAdmin/UserPermissions/UserPermissions.jsx
+--- a/src/ClubsAdmin/UserPermissions/UserPermissions.jsx	(revision bca3679810e99054989888533cdedf7273be890c)
++++ b/src/ClubsAdmin/UserPermissions/UserPermissions.jsx	(date 1672723110606)
+@@ -8,7 +8,23 @@
+ 
+     return (
+         <>
++            <div className={'container'}>
++
++                <h3>Permisos de usuario</h3>
++
++                <div className={'row'}>
++
++                    <div className={'col-12 col-md-6'}>
+ 
++                    </div>
++
++                    <div className={'col-12 col-md-6'}>
++
++                    </div>
++
++                </div>
++
++            </div>
+         </>
+     )
+ }
+\ No newline at end of file
+Index: src/ClubsGroup/Reports/Reports.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ClubsGroup/Reports/Reports.jsx b/src/ClubsGroup/Reports/Reports.jsx
+new file mode 100644
+--- /dev/null	(date 1673458817468)
++++ b/src/ClubsGroup/Reports/Reports.jsx	(date 1673458817468)
+@@ -0,0 +1,5 @@
++
++
++export const Reports = () => {
++
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"e3202f7a-554f-4764-a620-db8dbb10f043\" name=\"Changes\" comment=\"load\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\">\n    <execution />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitToolBoxStore\">\n    <option name=\"projectConfigVersion\" value=\"5\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2IgXWaaNK1aTz7Z3cZt1aQ7NFKm\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/isai/Documents/file_of_control_for_lawyer&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  },\n  &quot;keyToStringList&quot;: {\n    &quot;DatabaseDriversLRU&quot;: [\n      &quot;mysql&quot;\n    ]\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/ClubsGroup/Activities/EvaluatePerformance\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"start\" type=\"js.build_tools.npm\" nameIsGenerated=\"true\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"start\" />\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"e3202f7a-554f-4764-a620-db8dbb10f043\" name=\"Changes\" comment=\"\" />\n      <created>1670604232722</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1670604232722</updated>\n      <workItem from=\"1670604233944\" duration=\"84000\" />\n      <workItem from=\"1671199804091\" duration=\"4579000\" />\n      <workItem from=\"1671208795694\" duration=\"7833000\" />\n      <workItem from=\"1671322181242\" duration=\"1887000\" />\n      <workItem from=\"1671419444263\" duration=\"4397000\" />\n      <workItem from=\"1671461436239\" duration=\"7576000\" />\n      <workItem from=\"1671519307096\" duration=\"10779000\" />\n      <workItem from=\"1671552460083\" duration=\"8179000\" />\n      <workItem from=\"1671597269762\" duration=\"340000\" />\n      <workItem from=\"1671669107314\" duration=\"15000\" />\n      <workItem from=\"1671669131630\" duration=\"290000\" />\n      <workItem from=\"1671677003282\" duration=\"365000\" />\n      <workItem from=\"1671677433026\" duration=\"70000\" />\n      <workItem from=\"1671687767289\" duration=\"16000\" />\n      <workItem from=\"1671734202089\" duration=\"643000\" />\n      <workItem from=\"1671742349920\" duration=\"419000\" />\n      <workItem from=\"1671743027071\" duration=\"1244000\" />\n      <workItem from=\"1671820907234\" duration=\"1490000\" />\n      <workItem from=\"1671822406966\" duration=\"3409000\" />\n      <workItem from=\"1671830189990\" duration=\"1523000\" />\n      <workItem from=\"1671852141174\" duration=\"371000\" />\n      <workItem from=\"1671852585958\" duration=\"3618000\" />\n      <workItem from=\"1672022675233\" duration=\"8093000\" />\n      <workItem from=\"1672539513230\" duration=\"2188000\" />\n      <workItem from=\"1672553975239\" duration=\"1487000\" />\n      <workItem from=\"1672626856309\" duration=\"9592000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"fix: change the services the super global from post to get\">\n      <created>1671419906553</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671419906553</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"fix: change the services the super global from post to get and fix the text\">\n      <created>1671420124281</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671420124281</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"fix some services and connect the services with the interface\">\n      <created>1671424211651</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671424211651</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Update the interfaces and its logic and design\">\n      <created>1671463183820</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671463183820</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"add services to evidences\">\n      <created>1671463205003</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671463205003</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"add interface to get evidences\">\n      <created>1671468893117</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671468893117</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"add services to checking if the user exist\">\n      <created>1671554070165</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671554070165</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"update service to the method de login\">\n      <created>1671554548444</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671554548444</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"add query alter table users and update data users\">\n      <created>1671679141541</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671679141541</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"update query to access to system\">\n      <created>1671679168286</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671679168286</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"update query and db to access to system\">\n      <created>1671680574571</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671680574571</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"update the access to system according ti its rol and club if is the case\">\n      <created>1671680635166</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671680635166</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"update the access to system according ti its rol and club if is the case\">\n      <created>1671684296936</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671684296936</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"add table evaluacion_miembro\">\n      <created>1671686943973</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671686943973</updated>\n    </task>\n    <task id=\"LOCAL-00015\" summary=\"add navigation according to clubs and admin\">\n      <created>1671824879411</created>\n      <option name=\"number\" value=\"00015\" />\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671824879411</updated>\n    </task>\n    <task id=\"LOCAL-00016\" summary=\"add use fetch request get\">\n      <created>1671825012741</created>\n      <option name=\"number\" value=\"00016\" />\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671825012741</updated>\n    </task>\n    <task id=\"LOCAL-00017\" summary=\"add services to table evaluation member\">\n      <created>1671855918450</created>\n      <option name=\"number\" value=\"00017\" />\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671855918450</updated>\n    </task>\n    <task id=\"LOCAL-00018\" summary=\"update components\">\n      <created>1671855958069</created>\n      <option name=\"number\" value=\"00018\" />\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671855958070</updated>\n    </task>\n    <task id=\"LOCAL-00019\" summary=\"add component to evaluate performance by member\">\n      <created>1671855982286</created>\n      <option name=\"number\" value=\"00019\" />\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1671855982286</updated>\n    </task>\n    <task id=\"LOCAL-00020\" summary=\"add route to go evaluate to member by activity\">\n      <created>1672540182114</created>\n      <option name=\"number\" value=\"00020\" />\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672540182114</updated>\n    </task>\n    <task id=\"LOCAL-00021\" summary=\"add method of save and update the evaluation by member\">\n      <created>1672549616297</created>\n      <option name=\"number\" value=\"00021\" />\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672549616297</updated>\n    </task>\n    <task id=\"LOCAL-00022\" summary=\"fix: add parameter to method of go to evaluate member and update the title design\">\n      <created>1672550740832</created>\n      <option name=\"number\" value=\"00022\" />\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672550740832</updated>\n    </task>\n    <task id=\"LOCAL-00023\" summary=\"update design and add field\">\n      <created>1672553652159</created>\n      <option name=\"number\" value=\"00023\" />\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672553652159</updated>\n    </task>\n    <task id=\"LOCAL-00024\" summary=\"Divide component in two to its major administration so, I create a new component: TableEvidences.jsx\">\n      <created>1672637538791</created>\n      <option name=\"number\" value=\"00024\" />\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672637538791</updated>\n    </task>\n    <task id=\"LOCAL-00025\" summary=\"Add component in order to views all evidences by activity\">\n      <created>1672637579296</created>\n      <option name=\"number\" value=\"00025\" />\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672637579296</updated>\n    </task>\n    <task id=\"LOCAL-00026\" summary=\"Upload club's data by defect\">\n      <created>1672637656350</created>\n      <option name=\"number\" value=\"00026\" />\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672637656350</updated>\n    </task>\n    <task id=\"LOCAL-00027\" summary=\"Upload all activities by club and add button in the table by each row in order to navigate to view evidence of the activity current\">\n      <created>1672637798822</created>\n      <option name=\"number\" value=\"00027\" />\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672637798822</updated>\n    </task>\n    <task id=\"LOCAL-00028\" summary=\"load\">\n      <created>1672637827223</created>\n      <option name=\"number\" value=\"00028\" />\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672637827223</updated>\n    </task>\n    <task id=\"LOCAL-00029\" summary=\"load\">\n      <created>1672637835776</created>\n      <option name=\"number\" value=\"00029\" />\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1672637835776</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"30\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Update the interfaces and its logic and design\" />\n    <MESSAGE value=\"add services to evidences\" />\n    <MESSAGE value=\"add interface to get evidences\" />\n    <MESSAGE value=\"add services to checking if the user exist\" />\n    <MESSAGE value=\"update service to the method de login\" />\n    <MESSAGE value=\"add query alter table users and update data users\" />\n    <MESSAGE value=\"update query to access to system\" />\n    <MESSAGE value=\"update query and db to access to system\" />\n    <MESSAGE value=\"update the access to system according ti its rol and club if is the case\" />\n    <MESSAGE value=\"add table evaluacion_miembro\" />\n    <MESSAGE value=\"add navigation according to clubs and admin\" />\n    <MESSAGE value=\"add use fetch request get\" />\n    <MESSAGE value=\"add services to table evaluation member\" />\n    <MESSAGE value=\"update components\" />\n    <MESSAGE value=\"add component to evaluate performance by member\" />\n    <MESSAGE value=\"add route to go evaluate to member by activity\" />\n    <MESSAGE value=\"add method of save and update the evaluation by member\" />\n    <MESSAGE value=\"fix: add parameter to method of go to evaluate member and update the title design\" />\n    <MESSAGE value=\"update design and add field\" />\n    <MESSAGE value=\"fix: method to send request type post to save activity\" />\n    <MESSAGE value=\"Divide component in two to its major administration so, I create a new component: TableEvidences.jsx\" />\n    <MESSAGE value=\"Add component in order to views all evidences by activity\" />\n    <MESSAGE value=\"Upload club's data by defect\" />\n    <MESSAGE value=\"Upload all activities by club and add button in the table by each row in order to navigate to view evidence of the activity current\" />\n    <MESSAGE value=\"load\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"load\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision bca3679810e99054989888533cdedf7273be890c)
++++ b/.idea/workspace.xml	(date 1673461127723)
+@@ -4,8 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="load">
++    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="class to upload files">
++      <change afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Events/Events.jsx" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/ClubsGroup/Reports/Reports.jsx" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/hooks/useDataCollectionRequest.js" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/UserPermissions/UserPermissions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/UserPermissions/UserPermissions.jsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Dashboard/NavigationByClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Dashboard/NavigationByClub.jsx" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -34,7 +41,7 @@
+     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/home/isai/Documents/file_of_control_for_lawyer&quot;,
++    &quot;last_opened_file_path&quot;: &quot;/var/www/html/workflow_backend&quot;,
+     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+@@ -96,7 +103,20 @@
+       <workItem from="1672022675233" duration="8093000" />
+       <workItem from="1672539513230" duration="2188000" />
+       <workItem from="1672553975239" duration="1487000" />
+-      <workItem from="1672626856309" duration="9592000" />
++      <workItem from="1672626856309" duration="9740000" />
++      <workItem from="1672723038446" duration="857000" />
++      <workItem from="1672725516732" duration="228000" />
++      <workItem from="1672861864440" duration="1749000" />
++      <workItem from="1672894978872" duration="22000" />
++      <workItem from="1672903107086" duration="25000" />
++      <workItem from="1673329094987" duration="1512000" />
++      <workItem from="1673364368867" duration="2501000" />
++      <workItem from="1673368213170" duration="1811000" />
++      <workItem from="1673375454794" duration="656000" />
++      <workItem from="1673403180836" duration="49000" />
++      <workItem from="1673415357988" duration="1011000" />
++      <workItem from="1673446662908" duration="620000" />
++      <workItem from="1673456734825" duration="3157000" />
+     </task>
+     <task id="LOCAL-00001" summary="fix: change the services the super global from post to get">
+       <created>1671419906553</created>
+@@ -301,7 +321,42 @@
+       <option name="project" value="LOCAL" />
+       <updated>1672637835776</updated>
+     </task>
+-    <option name="localTasksCounter" value="30" />
++    <task id="LOCAL-00030" summary="add component to user permissions">
++      <created>1672642316501</created>
++      <option name="number" value="00030" />
++      <option name="presentableId" value="LOCAL-00030" />
++      <option name="project" value="LOCAL" />
++      <updated>1672642316501</updated>
++    </task>
++    <task id="LOCAL-00031" summary="update the user table to change the rol of the user if is required">
++      <created>1672723848247</created>
++      <option name="number" value="00031" />
++      <option name="presentableId" value="LOCAL-00031" />
++      <option name="project" value="LOCAL" />
++      <updated>1672723848247</updated>
++    </task>
++    <task id="LOCAL-00032" summary="files to validate different expression and to download files">
++      <created>1673365419935</created>
++      <option name="number" value="00032" />
++      <option name="presentableId" value="LOCAL-00032" />
++      <option name="project" value="LOCAL" />
++      <updated>1673365419935</updated>
++    </task>
++    <task id="LOCAL-00033" summary="class to upload files">
++      <created>1673365437416</created>
++      <option name="number" value="00033" />
++      <option name="presentableId" value="LOCAL-00033" />
++      <option name="project" value="LOCAL" />
++      <updated>1673365437416</updated>
++    </task>
++    <task id="LOCAL-00034" summary="include the method to upload evidences">
++      <created>1673370102345</created>
++      <option name="number" value="00034" />
++      <option name="presentableId" value="LOCAL-00034" />
++      <option name="project" value="LOCAL" />
++      <updated>1673370102345</updated>
++    </task>
++    <option name="localTasksCounter" value="35" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -319,11 +374,6 @@
+     </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="Update the interfaces and its logic and design" />
+-    <MESSAGE value="add services to evidences" />
+-    <MESSAGE value="add interface to get evidences" />
+-    <MESSAGE value="add services to checking if the user exist" />
+-    <MESSAGE value="update service to the method de login" />
+     <MESSAGE value="add query alter table users and update data users" />
+     <MESSAGE value="update query to access to system" />
+     <MESSAGE value="update query and db to access to system" />
+@@ -344,6 +394,11 @@
+     <MESSAGE value="Upload club's data by defect" />
+     <MESSAGE value="Upload all activities by club and add button in the table by each row in order to navigate to view evidence of the activity current" />
+     <MESSAGE value="load" />
+-    <option name="LAST_COMMIT_MESSAGE" value="load" />
++    <MESSAGE value="add component to user permissions" />
++    <MESSAGE value="update the user table to change the rol of the user if is required" />
++    <MESSAGE value="files to validate different expression and to download files" />
++    <MESSAGE value="class to upload files" />
++    <MESSAGE value="include the method to upload evidences" />
++    <option name="LAST_COMMIT_MESSAGE" value="include the method to upload evidences" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/ClubsGroup/Activities/Events/Events.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ClubsGroup/Activities/Events/Events.jsx b/src/ClubsGroup/Activities/Events/Events.jsx
+new file mode 100644
+--- /dev/null	(date 1673463090568)
++++ b/src/ClubsGroup/Activities/Events/Events.jsx	(date 1673463090568)
+@@ -0,0 +1,37 @@
++
++import {Table} from "../../../components/Tables";
++import {useDataCollectionRequest} from "../../../hooks/useDataCollectionRequest";
++
++export const Events = () => {
++
++    const { dataCollectionRequest : getActivitiesPublic, setDataCollectionRequest } = useDataCollectionRequest(
++        'get_public_activities',
++        'all',
++    );
++
++
++
++    return (
++        <div className={'container'}>
++
++            <div className={''}>
++                <h4>Eventos</h4>
++            </div>
++
++            <div className={'row mt-3'}>
++                <Table
++                    getColumns={[
++                        { field: 'id', headerName: 'ID', hidden: true, },
++                        { field: 'nombre', headerName: 'Nombre' },
++                        { field: 'modalidad', headerName: 'Modalidad' },
++                        { field: 'fecha', headerName: 'Fecha' },
++                        { field: 'club', headerName: 'Club que organiza' },
++                        { field: 'lugar', headerName: 'Lugar' },
++                    ]}
++                    getRows={getActivitiesPublic ? getActivitiesPublic : []}
++
++                />
++            </div>
++        </div>
++    )
++}
+\ No newline at end of file
+Index: src/ClubsGroup/Activities/Evidences/AddEvidences.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react'\n\nexport const AddEvidences = () => {\n\n  return (\n    <div className='container'>\n        <form>\n            \n            <div className='form-floating mb-3'>\n              <input type=\"text\" class=\"form-control\" id=\"floatingName\" placeholder=\"\" />\n              <label for=\"floatingName\">Nombre</label>\n            </div>\n            \n            <div class=\"form-floating mb-3\">\n              <select class=\"form-select\" id=\"floatingSelect\" aria-label=\"Floating label select example\">\n                <option selected>Escoje el tipo </option>\n                <option value=\"1\">Trabajo en Equipo</option>\n              </select>\n              <label for=\"floatingSelect\">Tipo</label>\n            </div>\n\n            <div className='form-floating mb-3'>\n              <textarea class=\"form-control\" id=\"floatingReference\" ></textarea>\n              <label for=\"floatingReference\"> Referencia </label>\n            </div>\n\n            <div class=\"input-group mb-3\">\n              <label class=\"input-group-text\" for=\"inputGroupFile01\">Subir archivos</label>\n              <input type=\"file\" class=\"form-control\" id=\"inputGroupFile01\" />\n            </div>\n\n            <div className='d-flex justify-content-end'>\n              <button className='btn btn-success'>\n                Enviar evidencia\n              </button>\n            </div>\n        </form>\n    </div>\n  )\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx b/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx
+--- a/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx	(revision bca3679810e99054989888533cdedf7273be890c)
++++ b/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx	(date 1673370551085)
+@@ -2,6 +2,8 @@
+ 
+ export const AddEvidences = () => {
+ 
++
++
+   return (
+     <div className='container'>
+         <form>
