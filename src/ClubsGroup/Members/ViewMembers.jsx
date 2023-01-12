@@ -13,12 +13,12 @@ export const ViewMembers = () => {
 
     const navigate = useNavigate();
 
-    const { dataCollectionRequest: getUsers  } = useDataCollectionRequest(
+    const { dataCollectionRequest: getUsers, setDataCollectionRequest  } = useDataCollectionRequest(
         'get_users_by_club&club_id='+club_id,
         'all',
     );
 
-    const { dataCollectionRequest: getRoles, setDataCollectionRequest  } = useDataCollectionRequest(
+    const { dataCollectionRequest: getRoles  } = useDataCollectionRequest(
         'get_all_rol_members_clubs',
         'all',
     );
@@ -77,6 +77,12 @@ export const ViewMembers = () => {
 
                     requestPost('delete_member', formData)
                         .then( (response) => {
+                            console.log(response.trim());
+                            if (response.trim() == '1') {
+                                setDataCollectionRequest( (data) => data.filter( (item) => item.id !== dataRow?.id ) );
+                            } else {
+                                AlertError('Error', 'No se pudo eliminar el miembro');
+                            }
 
                         } )
                         .catch( (err) => {
