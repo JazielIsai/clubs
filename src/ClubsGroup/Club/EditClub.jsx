@@ -11,24 +11,15 @@ export const EditClub = () => {
 
     const { dataForm, onInputChange, onResetForm } = useForm({});
 
-    const { data: getClub } = useFetch_RequestGet(`get_club_by_id&club_id=${club_id}`);
-    const { data : speciality_by_club } = useFetch_RequestGet('get_all_clubs_speciality');
-    const { data : category_by_club } = useFetch_RequestGet('get_all_category_to_club');
-    const { data : campuses } = useFetch_RequestGet('get_all_campuses');
+    const { dataCollectionRequest: getRowClub } = useDataCollectionRequest(
+        `get_club_by_id&club_id=${club_id}`,
+        'row'
+    );
 
-    const [ getRowClub, setRowClub ] = useState();
-    const [ getSpeciality, setSpeciality ] = useState();
-    const [ getCategory, setCategory ] = useState();
-    const [ getCampuses, setCampuses ] = useState();
-
-    useEffect( () => {
-
-        try {
-
-            setRowClub(JSON.parse(getClub)[0]);
-            setSpeciality(JSON.parse(speciality_by_club));
-            setCategory(JSON.parse(category_by_club));
-            setCampuses(JSON.parse(campuses));
+    const { dataCollectionRequest: getSpeciality } = useDataCollectionRequest(
+        `get_all_clubs_speciality`,
+        'all'
+    );
 
         } catch (err) {
             console.log(err);
