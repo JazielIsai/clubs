@@ -6,38 +6,34 @@ import { useNavigate, NavLink } from 'react-router-dom';
 import { NavigationByClub } from './NavigationByClub';
 import {BsPerson} from 'react-icons/bs';
 import {FcList} from 'react-icons/fc';
+import {TbCalendarEvent} from 'react-icons/tb';
+import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
 
 export const DashboardByClub = () => {
 
   const {id} = useParams();
 
-  const {data} = useFetch_RequestGet(`get_club_by_id&club_id=${id}`);
-  const {data: membersByClub} = useFetch_RequestGet(`get_existing_members_by_club&club_id=${id}`);
-  const {data: activitiesByClub} = useFetch_RequestGet(`get_count_activities_by_club&club_id=${id}`);
+  const { dataCollectionRequest : getDataByClub } = useDataCollectionRequest(
+      `get_club_by_id&club_id=${id}`,
+      'row'
+  )
+
+  const { dataCollectionRequest : getMembersByClub } = useDataCollectionRequest(
+      `get_existing_members_by_club&club_id=${id}`,
+      'row'
+  );
+
+  const { dataCollectionRequest : getActivitiesByClub } = useDataCollectionRequest(
+      `get_count_activities_by_club&club_id=${id}`,
+      'row'
+    );
+
+  const { dataCollectionRequest: getEvents } = useDataCollectionRequest(
+      'get_count_activities_public',
+      'row')
 
   const navigate = useNavigate();
 
-  const [ getDataByClub, setDataByClub ] = useState(null);
-  const [ getMembersByClub, setMembersByClub ] = useState(null);
-  const [ getActivitiesByClub, setActivitiesByClub ] = useState(null);
-  
-
-  useEffect( () => {
-
-    try {
-
-      // console.log(data[0], id);
-      
-      setMembersByClub(JSON.parse(membersByClub)[0]);
-      setActivitiesByClub(JSON.parse(activitiesByClub)[0]);
-      setDataByClub(JSON.parse(data)[0]);
-      
-
-    } catch (err) {
-      console.log(err);
-    }
-
-  }, [data, membersByClub] )
   
   return (
     <div className='container'>
@@ -61,7 +57,7 @@ export const DashboardByClub = () => {
             <div className='d-flex flex-column w-100 gap-2 justify-content-center align-middle'>
               <CardNumeric numeric={getActivitiesByClub?.count_activities_by_club} description='Actividades' icon={<FcList style={{width: '100%', fontSize: '60px' }} />} styles={{width: '100%'}} />
               <CardNumeric numeric={ `${getMembersByClub?.member_by_club}` } description='Miembros' icon={<BsPerson style={{width: '100%', fontSize: '60px' }} />} styles={{width: '100%'}} />
-              <CardNumeric numeric='' description='Actividades' icon styles={{width: '100%'}} />
+              <CardNumeric numeric={ `${getEvents?.count_activities_public}` } description='Eventos' icon={<TbCalendarEvent style={{width: '100%', fontSize: '60px' }} />} styles={{width: '100%'}} />
 
             </div>
           </div>

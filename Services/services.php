@@ -45,6 +45,7 @@ include_once './model/PlanAnual.php';
 include_once  './model/ActaConstitutiva.php';
 include_once './model/TypeActivity.php';
 include_once './model/EvaluationMember.php';
+include_once './model/LogoClub.php';
 
 include_once './Controller/UploadDocument.php';
 
@@ -66,6 +67,7 @@ $services_planAnual = new PlanAnual();
 $services_acta = new ActaConstitutiva();
 $services_type_activity = new TypeActivity();
 $services_evaluation_member = new EvaluationMember();
+$services_logo = new LogoClub();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -128,7 +130,7 @@ switch ($servicesName){
         if (!isset($_POST['club_info']))
             echo 'Error: missing info.';
         else
-            echo ($services_clubes->update_club(secure_json_decode($_POST['club_info'])));
+            echo ($services_clubes->update_club(json_decode($_POST['club_info'])));
         break;
 
     case 'delete club':
@@ -141,6 +143,7 @@ switch ($servicesName){
     case 'get_count_clubs':
         echo secure_json_encode($services_clubes->get_count_clubs());
         break;
+
     //Services to table Activity
     case 'add_activity':
         if (!isset($_POST['activity_info']))
@@ -148,6 +151,7 @@ switch ($servicesName){
         else
             echo ($services_activities->add_activity(json_decode($_POST['activity_info'])));
         break;
+
     case 'update_activity':
         if (!isset($_POST['activity_info']))
             echo 'Error: missing info.';
@@ -173,6 +177,7 @@ switch ($servicesName){
             echo json_encode($services_activities->get_activities_by_id($_GET['activities_id']));
         }
         break;
+
     case 'get_count_activities_by_club':
         if (isset($_GET['club_id'])){
             echo secure_json_encode($services_activities->get_count_activities_by_club($_GET['club_id']));
@@ -181,6 +186,10 @@ switch ($servicesName){
 
     case 'get_public_activities':
         echo secure_json_encode($services_activities->get_public_activities());
+        break;
+
+    case 'get_count_activities_public':
+        echo json_encode($services_activities->get_count_activities_public());
         break;
 
 // Evidences
@@ -499,8 +508,8 @@ switch ($servicesName){
 
  //Plan anual
     case 'add_new_planAnual':
-        if (isset($_POST['plan_info'])) {
-            echo json_encode($services_planAnual->add_new_planAnual(json_decode($_POST['plan_info'])));
+        if (isset($_POST['plan_info'], $_POST['nameClub'])) {
+            echo $services_planAnual->add_new_planAnual(json_decode($_POST['plan_info']), $_POST['nameClub']);
         }
         break;
     case 'get_all_planAnual':
@@ -511,8 +520,24 @@ switch ($servicesName){
         echo secure_json_encode($services_acta->get_all_acta());
         break;
     case 'add_new_acta':
-        if (isset($_POST['acta_info'])) {
-            echo json_encode($services_acta->add_new_acta(json_decode($_POST['acta_info'])));
+        if (isset($_POST['acta_info'], $_POST['nameClub'])) {
+            echo ($services_acta->add_new_acta(json_decode($_POST['acta_info']), $_POST['nameClub']));
+        }
+        break;
+
+// logo del club
+    case 'add_logo':
+        if (isset($_POST['logo_info'], $_POST['nameClub'])) {
+            echo ($services_logo->add_logo(json_decode($_POST['logo_info']), $_POST['nameClub']));
+        } else {
+            echo 'Error: missing info.';
+        }
+        break;
+    case 'get_logo_by_club':
+        if (isset($_GET['id_club'])) {
+            echo json_encode($services_logo->get_logo_by_club($_GET['id_club']));
+        } else {
+            echo 'Error: missing info.';
         }
         break;
 

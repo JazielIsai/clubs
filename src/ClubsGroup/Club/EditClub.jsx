@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { requestPost } from '../../helpers';
+import {AlertToast, requestPost} from '../../helpers';
 import { useForm } from '../../hooks/useForm';
 import {useNavigate, useParams} from "react-router-dom";
 import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
@@ -31,6 +31,91 @@ export const EditClub = () => {
         'all'
     );
 
+    const [ planAnual, setPlanAnual ] = useState(null);
+    const [ actaConstitutiva, setActaConstitutiva ] = useState(null);
+    const [ logo, setLogo ] = useState(null);
+
+    const handleChangePlanAnual = (e) => {
+        console.log(e.target.files[0]);
+        setPlanAnual(e.target.files[0]);
+    }
+
+    const handleChangeActaConstitutiva = (e) => {
+        setActaConstitutiva(e.target.files[0]);
+    }
+
+    const handleChangeLogo = (e) => {
+        setLogo(e.target.files[0]);
+    }
+
+    const updateFilePlanAnual = () => {
+
+        const body = {
+            nombre: planAnual?.name,
+            "id_club": parseInt(club_id),
+        }
+
+        const formData = new FormData();
+        formData.append('plan_info', JSON.stringify(body));
+        formData.append('nameClub', getRowClub?.name);
+        formData.append('file', planAnual);
+
+        requestPost('add_new_planAnual', formData)
+            .then( response => {
+                console.log(response);
+                AlertToast('Plan anual actualizado correctamente', 'success', 3000);
+            } )
+            .catch( err => {
+                console.log(err);
+            } )
+
+    }
+
+    const updateFileActaConstitutiva = () => {
+
+        const body = {
+            nombre: actaConstitutiva?.name,
+            id_club: parseInt(club_id),
+        }
+
+        const formData = new FormData();
+        formData.append('acta_info', JSON.stringify(body));
+        formData.append('nameClub', getRowClub?.name);
+        formData.append('file_info', actaConstitutiva);
+
+        requestPost('add_new_acta', formData)
+            .then( response => {
+                console.log(response);
+                AlertToast('Acta constitutiva actualizada correctamente', 'success', 3000);
+            })
+            .catch( err => {
+                console.log(err);
+            } );
+
+    }
+
+    const updateFileLogo = () => {
+
+            const body = {
+                nombre: logo?.name,
+                id_club: parseInt(club_id),
+            }
+
+            const formData = new FormData();
+            formData.append('logo_info', JSON.stringify(body));
+            formData.append('nameClub', getRowClub?.name);
+            formData.append('file_info', logo);
+
+            requestPost('add_logo', formData)
+                .then( response => {
+                    console.log(response);
+                    AlertToast('Logo actualizado correctamente', 'success', 3000);
+                })
+                .catch( err => {
+                    console.log(err);
+                } );
+    }
+
     const handleSendPost = (e) => {
         e.preventDefault();
 
@@ -38,7 +123,6 @@ export const EditClub = () => {
             "id": 1,
             "name": "Ajedrez",
             "objetivo": "Jugar y ganar para la representación del itesi",
-            "fecha_creacion": "2022-12-16 01:40:37",
             "estatus": "activo",
             "id_plantel": 1,
             "id_especialidad": 1,
@@ -46,44 +130,24 @@ export const EditClub = () => {
         }
 
         const formData = new FormData();
-        formData.append('club_info', JSON.stringify(dataForm));
+        formData.append('club_info', JSON.stringify(body));
 
-        requestPost('clubs', formData)
+        requestPost('update_club', formData)
             .then( response => {
-                // AlertSuccess('Registro exitoso', 'El registro se ha realizado correctamente')
-                // AlertError('Registro fallido', 'El registro no se pudo realizar')
                 console.log(response);
+                if (response.trim() == 1) {
+
+                    AlertToast('Edicción exitoso', 'success', 3000);
+                    updateFilePlanAnual();
+                    updateFileActaConstitutiva();
+                    updateFileLogo();
+                } else {
+                    AlertToast('Edicción fallido', 'error', 3000);
+                }
             })
             .catch( err => {
                 console.log(err);
             })
-    }
-
-    const updateFilePlanAnual = (event) => {
-        const file = event.target.files[0];
-
-        const formData = new FormData();
-        formData.append('plan_anual', file);
-
-        requestPost('add_club', formData)
-            .then( response => {
-                console.log(response);
-            } )
-
-    }
-
-    const updateFileActaConstitutiva = (event) => {
-        const file = event.target.files[0];
-
-        const formData = new FormData();
-        formData.append('acta_constitutiva', file);
-
-        requestPost('add_club', formData)
-            .then( response => {
-                    console.log(response);
-                }
-            )
-
     }
     
     return (
@@ -94,46 +158,40 @@ export const EditClub = () => {
             <div className="" id="">
                 <form className="mt-4" >
 
-                    <div className="form-group mb-3">
-                        <label htmlFor="name_club"> Nombre del Club: </label>
-                        <input type="text" onChange={onInputChange} className="form-control" id="name_club" defaultValue={getRowClub?.name} name="name_club" />
+                    <div className="row">
+                        <div className="col-md-6 col-12">
+                            <div className="form-floating mb-3">
+                                <input type="text" onChange={onInputChange} className="form-control" id="name_club" defaultValue={getRowClub?.name} name="name" />
+                                <label htmlFor="name_club"> Nombre del Club: </label>
+                            </div>
+                        </div>
+                        <div className="col-md-6 col-12">
+                            <div className="form-floating mb-3">
+                                <input type="text" disabled defaultValue={getRowClub?.fecha_creacion} className="form-control" id="date_created" name="date_created" />
+                                <label htmlFor="date_created"> Fecha de creación: </label>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="form-group mb-3">
+
+                    <div className="form-floating mb-3">
+                        <input type="text" onChange={onInputChange} className="form-control" id="objective_club" defaultValue={getRowClub?.objetivo} name="objetivo" />
                         <label htmlFor="objective_club"> Objetivo del Club: </label>
-                        <input type="text" onChange={onInputChange} className="form-control" id="objective_club" defaultValue={getRowClub?.objetivo} name="objective_club" />
                     </div>
 
                     <div className='row'>
                         <div className='col-12 col-md-6'>
 
-                            <div class="form-floating mb-3">
-                                <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                    <option selected>Escoge la especialidad</option>
-                                    {
-                                        getSpeciality !== null &&
-                                        getSpeciality !== undefined &&
-                                            getSpeciality.map( (speciality, index) => {
-                                                return (
-                                                    <option
-                                                        key={index}
-                                                        value={speciality.id}
-                                                        selected={speciality.nombre == getRowClub?.especialidad_club ? true : false}
-                                                    >
-                                                        {speciality.nombre}
-                                                    </option>
-                                                )
-                                            } )
-                                    }
-                                </select>
-                                <label for="floatingSelect">Especialidad</label>
+                            <div className="form-floating mb-3">
+                                <input type="text" onChange={onInputChange} className="form-control" name="manager_club" id="floatingInput"  />
+                                <label htmlFor="floatingInput"> Lider del club: </label>
                             </div>
 
                         </div>
 
                         <div className='col-12 col-md-6'>
                             <div class="form-floating mb-3">
-                                <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <select onChange={onInputChange} className="form-select" name={'id_categoria_club'} id="floatingSelect" aria-label="Floating label select example">
                                     <option selected>Escoge la categoría</option>
                                     {
                                         getCategory !== null &&
@@ -157,16 +215,13 @@ export const EditClub = () => {
 
                     </div>
 
-                    <div className="form-group mb-3">
-                        <label htmlFor="manager_club"> Lider del club: </label>
-                        <input type="text" onChange={onInputChange} className="form-control" id="manager_club" placeholder="Lider..." name="manager_club" />
-                    </div>
+
 
                     <div className='row'>
 
                         <div className='col-12 col-md-6'>
                             <div class="form-floating mb-3">
-                                <select onChange={onInputChange} class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <select onChange={onInputChange} class="form-select" name={'id_plantel'} id="floatingSelect" aria-label="Floating label select example">
                                     <option selected>Escoge el Plantel</option>
                                     {
                                         getCampuses !== null &&
@@ -189,9 +244,27 @@ export const EditClub = () => {
                         </div>
 
                         <div className='col-12 col-md-6'>
-                            <div className="form-group mb-3">
-                                <label htmlFor="date_created"> Fecha de creación: </label>
-                                <input type="text" disabled defaultValue={getRowClub?.fecha_creacion} className="form-control" id="date_created" name="date_created" />
+                            <div className="form-floating mb-3">
+                                <select onChange={onInputChange} className="form-select" name={'id_especialidad'}
+                                        id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected>Escoge la especialidad</option>
+                                    {
+                                        getSpeciality !== null &&
+                                        getSpeciality !== undefined &&
+                                        getSpeciality.map((speciality, index) => {
+                                            return (
+                                                <option
+                                                    key={index}
+                                                    value={speciality.id}
+                                                    selected={speciality.nombre == getRowClub?.especialidad_club ? true : false}
+                                                >
+                                                    {speciality.nombre}
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                                <label htmlFor="floatingSelect">Especialidad</label>
                             </div>
                         </div>
 
@@ -199,21 +272,21 @@ export const EditClub = () => {
 
                     <div className="form-group mb-3">
                         <label htmlFor="annual_plan"> Plan anual: </label>
-                        <input type="file" className="form-control" id="annual_plan" placeholder="Lider..." name="manager_club" />
+                        <input type="file" className="form-control" id="annual_plan" onChange={handleChangePlanAnual} name="file_plan_anual[]" />
                     </div>
 
                     <div className="form-group mb-3">
                         <label htmlFor="constitutive_act"> Acta constitutiva: </label>
-                        <input type="file" className="form-control" id="constitutive_act" placeholder="Lider..." name="manager_club" />
+                        <input type="file" className="form-control" id="constitutive_act" onChange={handleChangeActaConstitutiva} name="file_constitutive_act[]" />
                     </div>
 
                     <div className="form-group mb-3">
                         <label htmlFor="club_logo"> Logo del Club: </label>
-                        <input type="file" className="form-control" id="club_logo" placeholder="Lider..." name="manager_club" />
+                        <input type="file" className="form-control" id="club_logo" onChange={handleChangeLogo} name="file_logo[]" />
                     </div>
 
                     <div className="mb-3 d-flex justify-content-end ">
-                        <input type="submit" className="btn btn-success" value="Guardar registro" id="" />
+                        <input type="submit" className="btn btn-success" value="Guardar" id="" onClick={handleSendPost} />
                     </div>
 
                 </form>

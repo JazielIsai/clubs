@@ -140,6 +140,9 @@ CREATE TABLE `tipo_actividad`(
   `nombre` varchar(50) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+SELECT * FROM tipo_actividad;
+-- DELETE FROM tipo_actividad WHERE id BETWEEN 8 and 14; // Elimina los campos entre el id 8 y el id 14
+
 CREATE TABLE `evidencia`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `nombre` varchar(50) NOT NULL,

@@ -55,13 +55,19 @@ class Clubes extends MethodsCrud {
 
     public function update_club ($club_info) {
         $query = "
-        UPDATE clubes SET name = ?, objetivo = ?, fecha_creacion = ?, estatus = ?, id_plantel = ?, 
+        UPDATE clubes SET name = ?, objetivo = ?, estatus = ?, id_plantel = ?, 
         id_especialidad = ?, id_categoria_club = ?
         WHERE id = ?";
 
-        $data = array($club_info->name, $club_info->objetivo, $club_info->fecha_creacion, $club_info->estatus,
-                $club_info->id_plantel, $club_info->id_especialidad, $club_info->id_categoria_club,
-                $club_info->id);
+        $data = array(
+            $club_info->name,
+            $club_info->objetivo,
+            $club_info->estatus,
+            $club_info->id_plantel,
+            $club_info->id_especialidad,
+            $club_info->id_categoria_club,
+            $club_info->id
+        );
 
         return $this->update_delete_query($query, array($data));
     }

@@ -113,6 +113,12 @@ class Actividad extends MethodsCrud {
         return $this->select_query($query);
     }
 
+    public function get_count_activities_public ()
+    {
+        $query = "SELECT COUNT(*) count_activities_public FROM actividad WHERE dominio LIKE 'Público';";
+        return $this->select_query($query);
+    }
+
     public function get_activities_by_id_club($id)
     {
         $query = "SELECT COUNT(nombre) FROM actividad WHERE id_club = ?;";
