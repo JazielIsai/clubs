@@ -10,8 +10,11 @@ class UsuariosMiembros extends MethodsCrud {
     public function get_users_by_club($club_id) {
         $query = "
         SELECT miembros_club.id, miembros_club.no_control, miembros_club.nombre,
-            miembros_club.apellido_paterno, miembros_club.apellido_materno, miembros_club.sexo,
+            miembros_club.apellido_paterno, miembros_club.apellido_materno, 
+            CONCAT(miembros_club.nombre, ' ', miembros_club.apellido_paterno, ' ', miembros_club.apellido_materno) AS nombre_completo,
+            miembros_club.sexo,
             miembros_club.correo, miembros_club.telefono, miembros_club.rango, miembros_club.semestre,
+            miembros_club.id_especialidad, miembros_club.id_rol_member_club, miembros_club.id_club,
             especialidad_miebro.nombre AS especialidad_miembro, rol_miembro_club.nombre AS rol_miembro,
             clubes.name AS nombre_club
         FROM miembros_club
@@ -22,6 +25,28 @@ class UsuariosMiembros extends MethodsCrud {
         ";
         
         $params = array($club_id);
+
+        return $this->select_query($query, $params);
+    }
+
+    public function get_members_by_id($member_id) {
+        $query = "
+        SELECT miembros_club.id, miembros_club.no_control, miembros_club.nombre,
+            miembros_club.apellido_paterno, miembros_club.apellido_materno, 
+            CONCAT(miembros_club.nombre, ' ', miembros_club.apellido_paterno, ' ', miembros_club.apellido_materno) AS nombre_completo,
+            miembros_club.sexo,
+            miembros_club.correo, miembros_club.telefono, miembros_club.rango, miembros_club.semestre,
+            miembros_club.id_especialidad, miembros_club.id_rol_member_club, miembros_club.id_club,
+            especialidad_miebro.nombre AS especialidad_miembro, rol_miembro_club.nombre AS rol_miembro,
+            clubes.name AS nombre_club
+        FROM miembros_club
+        INNER JOIN especialidad_miebro ON miembros_club.id_especialidad = especialidad_miebro.id
+        INNER JOIN rol_miembro_club ON miembros_club.id_rol_member_club = rol_miembro_club.id
+        INNER JOIN clubes ON miembros_club.id_club= clubes.id
+        WHERE miembros_club.id = ?;
+        ";
+
+        $params = array($member_id);
 
         return $this->select_query($query, $params);
     }
@@ -83,6 +108,18 @@ class UsuariosMiembros extends MethodsCrud {
                 $member_info->apellido_materno, $member_info->sexo, $member_info->correo, $member_info->telefono, 
                 $member_info->rango, $member_info->semestre, $member_info->id_especialidad, 
                 $member_info->id_rol_member_club, $member_info->id_club, $member_info->id);
+
+        return $this->update_delete_query($query, array($data));
+    }
+
+    public function update_rol_member_club ($member_info)
+    {
+        $query = "
+                    UPDATE miembros_club SET id_rol_member_club = ?
+                    WHERE id = ?;
+                ";
+
+        $data = array($member_info->id_rol_member_club, $member_info->id);
 
         return $this->update_delete_query($query, array($data));
     }
