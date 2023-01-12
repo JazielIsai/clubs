@@ -14,9 +14,23 @@ export const NavigationByClub = () => {
     <div>
         <ul className="nav flex-column">
 
+            {
+                user?.id_club == null && (
+                    <li className="nav-item">
+                        <NavLink
+                            className="nav-link"
+                            aria-current="page"
+                            to={`/admin/updateClub/${id_club}`}
+                        >
+                            Editar Club
+                        </NavLink>
+                    </li>
+                )
+            }
+
             <li className="nav-item">
               <NavLink
-                  className="nav-link active"
+                  className="nav-link"
                   aria-current="page"
                   to={user?.id_club != null ? `/club/activities/${id_club}` : `/admin/activities/${id_club}`}
               >
