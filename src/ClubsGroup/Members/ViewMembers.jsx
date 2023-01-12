@@ -1,6 +1,5 @@
-import React, {useContext, useEffect, useState} from 'react'
-import {useNavigate, useParams} from 'react-router-dom'
-import { useFetch_RequestGet } from '../../hooks/useFetchGet'
+import React, {useContext, useEffect, useState} from 'react';
+import {useNavigate, useParams} from 'react-router-dom';
 import {AuthContext} from "../../Auth";
 import {TableEdit} from "../../components/Tables";
 import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
@@ -17,11 +16,12 @@ export const ViewMembers = () => {
     const { dataCollectionRequest: getUsers  } = useDataCollectionRequest(
         'get_users_by_club&club_id='+club_id,
         'all',
-    )
+    );
+
     const { dataCollectionRequest: getRoles, setDataCollectionRequest  } = useDataCollectionRequest(
         'get_all_rol_members_clubs',
         'all',
-    )
+    );
 
     const handleNavigateToMember = (e, dataRow) => {
         console.log(dataRow);

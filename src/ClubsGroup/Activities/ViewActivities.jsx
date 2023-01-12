@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 import {AuthContext} from "../../Auth";
 import {requestPost} from "../../helpers";
 import {Table} from "../../components/Tables";
