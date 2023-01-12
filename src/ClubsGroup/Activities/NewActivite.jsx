@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React, {useContext, useEffect, useState} from 'react'
+import {useNavigate, useParams} from 'react-router-dom';
 import {requestPost, AlertToast, AlertError} from '../../helpers'
 import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 import { useForm } from '../../hooks/useForm';
+import {AuthContext} from "../../Auth";
 
 export const NewActivite = () => {
 
   const { club_id } = useParams();
+
+  const {user} = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const {data: typeActivity} = useFetch_RequestGet('get_all_type_activity');
   const {data: skill} = useFetch_RequestGet('get_all_skills');
@@ -73,6 +78,8 @@ export const NewActivite = () => {
           console.log(resp);
           if ( !(resp.includes('Error: missing info.')) ) {
             AlertToast("Se ha guardado la actividad correctamente", "success", 3000);
+            user?.id_club == null ? navigate(`/admin/activities/${club_id}`) : navigate(`/club/activities/${club_id}`)
+
           } else {
             AlertToast("Ha ocurrido un error al guardar la actividad", "error", 3000);
           }
