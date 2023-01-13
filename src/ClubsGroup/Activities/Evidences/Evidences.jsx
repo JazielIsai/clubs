@@ -13,6 +13,8 @@ export const Evidences = () => {
   const { data: activitiesById } = useFetch_RequestGet(`get_activities_by_id&activities_id=${id_activitie}`);
 
   const [ getDataActivities, setDataActivities ] = useState();
+  
+  const [buttonAddEvidences, setButtonAddEvidences]=useState(false);
 
   const handleGoAddEvidence = () => {
     navigate('/admin/evidences/add')
@@ -31,18 +33,34 @@ export const Evidences = () => {
   const handleNavigateToEditEvidence = (id_activitie) => {
     navigate(`/admin/evidences/edit/${id_activitie}`)
   }
+  
+  const handleAddEvidences=()=>{
+    if (buttonAddEvidences==false)
+    {setButtonAddEvidences(true);}
+    else{
+    setButtonAddEvidences(false);
+    }
+  }
+  
+  console.log("AddEvidence",buttonAddEvidences);
 
   return (
     <div className='container'>
         
         <div className='d-flex flex-column'>
-          <h3 className='fs-3 mt-3'> 
-            {nameActivitie}
-            {}
-          </h3>
+          <div className='row d-flex'>
+              <div className='col-md-2 d-flex justify-content-start pe-0'>
+                <h2>Actividad:</h2>
+              </div>
+              <div className='col-md-10 fw-normal d-flex justify-content-start ps-0'>
+                <h3 > 
+                  {nameActivitie}
+                </h3>
+              </div>
+            </div>
 
           <table className='table caption-top'>
-            <caption>{nameActivitie}</caption>
+            <caption>Descripción de la actividad:</caption>
             <thead>
               <tr>
                 <th scope="col">  </th>
@@ -79,25 +97,34 @@ export const Evidences = () => {
 
           </table>
 
-          <div className='mt-5 mb-3'>
-            <h3 className='fs-3'>Entrega de evidencias</h3>
+          <div>
+           <button className='btn btn-success'
+           onClick={handleAddEvidences}>
+                {buttonAddEvidences ? 'Cancelar' :'Agregar evidencias'}
+           </button>
           </div>
           
-          <div className='row'>
-          
-            <div className='col-12 col-md-6'>
+          { buttonAddEvidences &&
+           <div>
+              <div className='mt-5 mb-3'>
+                <h3 className='fs-3'>Entrega de evidencias</h3>
+              </div>
               
-              <AddEvidences />
-
+              <div className='row'>
+              
+                <div className='col-12 col-md-6'>
+                  <AddEvidences id_activity={id_activitie} />
+                </div>
+                
+                <div className='col-12 col-md-6'>
+    
+                  <TableEvidences id_activity={id_activitie} />
+    
+                </div>
+              </div>
             </div>
-            <div className='col-12 col-md-6'>
-
-              <TableEvidences id_activity={id_activitie} />
-
-            </div>
+          }
           
-          </div>
-              {/* <ViewEvidences /> */}
         </div>
     </div>
   )
