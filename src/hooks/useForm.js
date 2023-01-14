@@ -13,8 +13,12 @@ export const useForm = (initialData = {}) => {
         })
     }
 
-    const onResetForm = () => {
-        setDataForm(initialData);
+    const onResetForm = (data = {}) => {
+        if (initialData.length > 0) {
+            setDataForm(initialData);
+        } else {
+            setDataForm(data);
+        }
     }
 
     return {
