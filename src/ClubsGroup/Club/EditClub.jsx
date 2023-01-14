@@ -3,6 +3,7 @@ import {AlertToast, requestPost} from '../../helpers';
 import { useForm } from '../../hooks/useForm';
 import {useNavigate, useParams} from "react-router-dom";
 import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
+import {urlDBLogin} from "../../Shared/baseUrl";
 
 export const EditClub = () => {
 
@@ -31,9 +32,33 @@ export const EditClub = () => {
         'all'
     );
 
+    const { dataCollectionRequest: getLogoByClub } = useDataCollectionRequest(
+        'get_logo_by_club&id_club=' + club_id,
+        'row'
+    );
+
+    const { dataCollectionRequest: getPlanAnualByClub } = useDataCollectionRequest(
+        'get_plan_anual_by_club_id&club_id=' + club_id,
+        'row'
+    );
+
+    const { dataCollectionRequest: getActaConstitutivaByClub } = useDataCollectionRequest(
+        'get_acta_constitutiva_by_club&club_id=' + club_id,
+        'row'
+    );
+
+
     const [ planAnual, setPlanAnual ] = useState(null);
     const [ actaConstitutiva, setActaConstitutiva ] = useState(null);
     const [ logo, setLogo ] = useState(null);
+
+    useEffect(() => {
+
+        if ( getRowClub ) {
+            onResetForm(getRowClub);
+        }
+
+    }, [getRowClub] );
 
     const handleChangePlanAnual = (e) => {
         console.log(e.target.files[0]);
@@ -58,7 +83,8 @@ export const EditClub = () => {
         const formData = new FormData();
         formData.append('plan_info', JSON.stringify(body));
         formData.append('nameClub', getRowClub?.name);
-        formData.append('file', planAnual);
+        formData.append('file_plan_anual', planAnual);
+
 
         requestPost('add_new_planAnual', formData)
             .then( response => {
@@ -81,7 +107,7 @@ export const EditClub = () => {
         const formData = new FormData();
         formData.append('acta_info', JSON.stringify(body));
         formData.append('nameClub', getRowClub?.name);
-        formData.append('file_info', actaConstitutiva);
+        formData.append('file_acta_constitutive', actaConstitutiva);
 
         requestPost('add_new_acta', formData)
             .then( response => {
@@ -104,7 +130,7 @@ export const EditClub = () => {
             const formData = new FormData();
             formData.append('logo_info', JSON.stringify(body));
             formData.append('nameClub', getRowClub?.name);
-            formData.append('file_info', logo);
+            formData.append('file_logo', logo);
 
             requestPost('add_logo', formData)
                 .then( response => {
@@ -116,18 +142,22 @@ export const EditClub = () => {
                 } );
     }
 
+
     const handleSendPost = (e) => {
         e.preventDefault();
 
+
         const body = {
-            "id": 1,
-            "name": "Ajedrez",
-            "objetivo": "Jugar y ganar para la representación del itesi",
-            "estatus": "activo",
-            "id_plantel": 1,
-            "id_especialidad": 1,
-            "id_categoria_club": 3
+            name: dataForm?.name,
+            objetivo: dataForm?.objetivo,
+            estatus: dataForm?.estatus,
+            id_plantel: parseInt(dataForm?.id_plantel),
+            id_especialidad: parseInt(dataForm?.id_especialidad),
+            id_categoria_club: parseInt(dataForm?.id_categoria_club),
+            id: parseInt(club_id),
         }
+
+        console.log(body);
 
         const formData = new FormData();
         formData.append('club_info', JSON.stringify(body));
@@ -136,18 +166,26 @@ export const EditClub = () => {
             .then( response => {
                 console.log(response);
                 if (response.trim() == 1) {
-
                     AlertToast('Edicción exitoso', 'success', 3000);
+
                     updateFilePlanAnual();
                     updateFileActaConstitutiva();
                     updateFileLogo();
                 } else {
-                    AlertToast('Edicción fallido', 'error', 3000);
+                    AlertToast('Edicción fallida', 'error', 3000);
                 }
             })
             .catch( err => {
                 console.log(err);
             })
+    }
+
+    const handleViewPlanAnual = (e) => {
+        window.open(urlDBLogin.concat(getPlanAnualByClub?.ruta.split(2, getPlanAnualByClub?.ruta.length)), '_blank');
+    }
+
+    const handleViewActaConstitutiva = (e) => {
+        window.open(urlDBLogin.concat(getActaConstitutivaByClub?.ruta.split(2, getActaConstitutivaByClub?.ruta.length)), '_blank');
     }
     
     return (
@@ -194,8 +232,7 @@ export const EditClub = () => {
                                 <select onChange={onInputChange} className="form-select" name={'id_categoria_club'} id="floatingSelect" aria-label="Floating label select example">
                                     <option selected>Escoge la categoría</option>
                                     {
-                                        getCategory !== null &&
-                                        getCategory !== undefined &&
+                                        getCategory &&
                                             getCategory.map( (category, index) => {
                                                 return (
                                                     <option
@@ -224,8 +261,7 @@ export const EditClub = () => {
                                 <select onChange={onInputChange} class="form-select" name={'id_plantel'} id="floatingSelect" aria-label="Floating label select example">
                                     <option selected>Escoge el Plantel</option>
                                     {
-                                        getCampuses !== null &&
-                                        getCampuses !== undefined &&
+                                        getCampuses &&
                                             getCampuses.map( (campus, index) => {
                                                 return (
                                                     <option
@@ -239,7 +275,7 @@ export const EditClub = () => {
                                             } )
                                     }
                                 </select>
-                                <label for="floatingSelect">Plantel</label>
+                                <label htmlFor="floatingSelect">Plantel</label>
                             </div>
                         </div>
 
@@ -249,8 +285,7 @@ export const EditClub = () => {
                                         id="floatingSelect" aria-label="Floating label select example">
                                     <option selected>Escoge la especialidad</option>
                                     {
-                                        getSpeciality !== null &&
-                                        getSpeciality !== undefined &&
+                                        getSpeciality &&
                                         getSpeciality.map((speciality, index) => {
                                             return (
                                                 <option
@@ -270,20 +305,69 @@ export const EditClub = () => {
 
                     </div>
 
-                    <div className="form-group mb-3">
-                        <label htmlFor="annual_plan"> Plan anual: </label>
-                        <input type="file" className="form-control" id="annual_plan" onChange={handleChangePlanAnual} name="file_plan_anual[]" />
+                    <div className="form-floating mb-3">
+                        <select onChange={onInputChange} className="form-select" name={'estatus'}
+                                id="floatingSelect" aria-label="Floating label select example">
+                            <option selected>Escoge la especialidad</option>
+                            <option value="Activo"> Activo </option>
+                            <option value="Inactivo"> Inactivo </option>
+                        </select>
+                        <label htmlFor="floatingSelect"> Estatus: </label>
                     </div>
 
-                    <div className="form-group mb-3">
-                        <label htmlFor="constitutive_act"> Acta constitutiva: </label>
-                        <input type="file" className="form-control" id="constitutive_act" onChange={handleChangeActaConstitutiva} name="file_constitutive_act[]" />
+                    <div className={'row'}>
+
+                        <div className={'col-12 col-md-8'}>
+                            <div className="form-group mb-3">
+                                <label htmlFor="annual_plan"> Plan anual: </label>
+                                <input type="file" className="form-control" id="annual_plan" onChange={handleChangePlanAnual} name="file_plan_anual[]" />
+                            </div>
+                        </div>
+
+                        <div className={'col-12 col-md-4'}>
+                            <div className={'d-flex justify-content-center align-content-center m-auto h-100'}>
+                                <button className={'btn btn-link'} onClick={handleViewPlanAnual}>
+                                    Ver Plan anual
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className={'col-12 col-md-8'}>
+                            <div className="form-group mb-3">
+                                <label htmlFor="constitutive_act"> Acta constitutiva: </label>
+                                <input type="file" className="form-control" id="constitutive_act" onChange={handleChangeActaConstitutiva} name="file_constitutive_act[]" />
+                            </div>
+                        </div>
+
+                        <div className={'col-12 col-md-4'}>
+                            <div className={'d-flex justify-content-center align-content-center m-auto h-100'}>
+                                <button className={'btn btn-link'} onClick={handleViewActaConstitutiva} >
+                                    Ver Acta constitutiva
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className={'col-12 col-md-6'}>
+                            <div className="form-group mb-3">
+                                <label htmlFor="club_logo"> Logo del Club: </label>
+                                <input type="file" className="form-control" id="club_logo" onChange={handleChangeLogo} name="file_logo[]" />
+                            </div>
+                        </div>
+
+                        <div className={'col-12 col-md-6'}>
+                            <div className={'d-flex justify-content-center align-content-center m-auto '}>
+                                <img
+                                    className={'figure-img w-50 h-25'}
+                                    src={urlDBLogin.concat(getLogoByClub?.ruta.split(2, getLogoByClub?.ruta.length))}
+                                    alt={getLogoByClub?.nombre}
+
+                                />
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div className="form-group mb-3">
-                        <label htmlFor="club_logo"> Logo del Club: </label>
-                        <input type="file" className="form-control" id="club_logo" onChange={handleChangeLogo} name="file_logo[]" />
-                    </div>
+
 
                     <div className="mb-3 d-flex justify-content-end ">
                         <input type="submit" className="btn btn-success" value="Guardar" id="" onClick={handleSendPost} />
