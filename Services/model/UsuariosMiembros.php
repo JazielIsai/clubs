@@ -124,7 +124,7 @@ class UsuariosMiembros extends MethodsCrud {
         return $this->update_delete_query($query, array($data));
     }
 
-    public function delete_member ($id_member){
+    public function delete_member ($id_member) {
         $query = "DELETE FROM miembros_club WHERE id = ?";
 
         $data = array($id_member);
