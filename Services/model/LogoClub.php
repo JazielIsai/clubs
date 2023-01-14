@@ -11,8 +11,8 @@ class LogoClub extends MethodsCrud
 
     }
 
-    public function get_logo_by_club($id_club) {
-        $query = "SELECT id, name, ruta FROM logo_clubs WHERE id_club = ?";
+    public function get_logo_by_club ($id_club) {
+        $query = "SELECT id, nombre, ruta FROM logo_clubs WHERE id_club = ?";
 
         $params = array($id_club);
 
@@ -21,18 +21,19 @@ class LogoClub extends MethodsCrud
 
     public function add_logo($logo_data, $nameClub) {
 
-        $path_destination = './clubs/' . $logo_data->id_club . '_' . $nameClub . '/plan_anual/' ;
+        $path_destination = './clubs_files/' . $logo_data->id_club . '_' . $nameClub . '/logo/' ;
 
-        $response = $this->uploadDocument->upload_file($_FILES['file_info'], $path_destination, 240000);
+        $response = $this->uploadDocument->upload_file($_FILES['file_logo'], $path_destination, 2097152);
 
         if ($response['upload']) {
+
             $query = "
-                        INSERT INTO logo_clubs (name, ruta, id_club)
-                        VALUES (?, ?, ?)
+                        INSERT INTO logo_clubs (nombre, ruta, id_club)
+                        VALUES (?, ?, ?);
                      ";
 
             $data = array(
-                $logo_data->name,
+                $logo_data->nombre,
                 $response['file_destination'],
                 $logo_data->id_club
             );
