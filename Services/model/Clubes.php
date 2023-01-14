@@ -24,6 +24,7 @@ class Clubes extends MethodsCrud {
 
         $query = "
                 SELECT clubes.id, clubes.name, clubes.objetivo, clubes.fecha_creacion, clubes.estatus,
+                       clubes.id_plantel, clubes.id_especialidad, clubes.id_categoria_club,
                        plantel.nombre AS plantel, especialidad_club.nombre AS especialidad_club,
                        categoria_club.nombre AS categoria_club
                 FROM clubes
