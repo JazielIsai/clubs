@@ -18,11 +18,21 @@ class ActaConstitutiva extends MethodsCrud {
         return $this->select_query($query);
     }
 
+    public function get_acta_constitutiva_by_club ($id_club) {
+        $query = "
+                SELECT * FROM clubs_itesi.archivos_acta_constitutiva_club WHERE id_club = ?
+                ";
+
+        $params = array($id_club);
+
+        return $this->select_query($query, $params);
+    }
+
     public function add_new_acta ($acta_info, $nameClub) {
 
-        $path_destination = './clubs/' . $acta_info->id_club . '_' . $nameClub . '/plan_anual/' ;
+        $path_destination = './clubs_files/' . $acta_info->id_club . '_' . $nameClub . '/acta_constitutiva/' ;
 
-        $response = $this->uploadDocument->upload_file($_FILES['file_info'], $path_destination, 240000);
+        $response = $this->uploadDocument->upload_file($_FILES['file_acta_constitutive'], $path_destination, 2097152);
 
         if ($response['upload']) {
 
