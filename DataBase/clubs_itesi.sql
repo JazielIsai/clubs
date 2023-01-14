@@ -61,6 +61,9 @@ CREATE TABLE logo_clubs (
     id_club INT NOT NULL
 );
 
+ALTER TABLE logo_clubs CHANGE name nombre TEXT NOT NULL;
+ALTER TABLE logo_clubs CHANGE ruta ruta TEXT NOT NULL;
+
 CREATE TABLE archivos_plan_anual_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
@@ -68,12 +71,20 @@ CREATE TABLE archivos_plan_anual_club (
   id_club INT NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+ALTER TABLE archivos_plan_anual_club CHANGE nombre nombre TEXT NOT NULL;
+ALTER TABLE archivos_plan_anual_club CHANGE ruta ruta TEXT NOT NULL;
+
+SELECT * FROM archivos_plan_anual_club;
+
 CREATE TABLE archivos_acta_constitutiva_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
   ruta VARCHAR(50) NOT NULL,
   id_club INT NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE archivos_acta_constitutiva_club CHANGE nombre nombre TEXT NOT NULL;
+ALTER TABLE archivos_acta_constitutiva_club CHANGE ruta ruta TEXT NOT NULL;
 
 -- Tablas para la administración de miembros
 
@@ -93,18 +104,19 @@ CREATE TABLE miembros_club (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   no_control VARCHAR(50),
   nombre VARCHAR(50) NOT NULL,
-  apellido_paterno VARCHAR(50) NOT NULL,
-  apellido_materno VARCHAR(50) NOT NULL,
-  sexo VARCHAR(50) NOT NULL,
+  apellido_paterno VARCHAR(50),
+  apellido_materno VARCHAR(50),
+  sexo VARCHAR(50),
   correo VARCHAR(50) NOT NULL,
-  telefono VARCHAR(50) NOT NULL,
+  telefono VARCHAR(50),
   rango VARCHAR(50),
-  semestre VARCHAR(50) NOT NULL,
-  id_especialidad INT NOT NULL,
+  semestre VARCHAR(50),
+  id_especialidad INT,
   id_rol_member_club INT NOT NULL,
   id_club INT NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- DROP TABLE miembros_club;
 
 -- Tablas para la administración de actividades
 
@@ -150,6 +162,9 @@ CREATE TABLE `evidencia`(
   `ruta` varchar(200) NOT NULL,
   `id_actividad` int NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE evidencia CHANGE tipo descripcion TEXT AFTER nombre;
+ALTER TABLE evidencia ADD COLUMN fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP AFTER descripcion;
 
 CREATE TABLE `idioma`(
   `id` INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
