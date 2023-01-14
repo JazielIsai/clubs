@@ -29,17 +29,17 @@ class Evidences extends MethodsCrud {
         return $this->update_delete_query($query, array($data));
     }
 
-    public function add_evidence ($new_evidence)
+    public function add_evidence ($new_evidence, $id_club, $nameClub)
     {
-        $path_destination = './evidencias/' . $new_evidence->id_actividad . '/';
+        $path_destination = './clubs_files/' . $id_club . '_' . $nameClub . '/evidencias/' . $new_evidence->id_actividad . '/';
 
-        $response = $this->uploadDocument->upload_file($_FILES['file_info'], $path_destination, 240000);
+        $response = $this->uploadDocument->upload_file($_FILES['file_evidencia_info'], $path_destination, 2097152);
 
         if ($response['upload']) {
-            $query = "INSERT INTO evidencia (nombre, tipo, ruta, id_actividad) VALUES (?, ?, ?, ?)";
+            $query = "INSERT INTO evidencia (nombre, descripcion, ruta, id_actividad) VALUES (?, ?, ?, ?)";
             $data = array(
                 $new_evidence->nombre,
-                $new_evidence->tipo,
+                $new_evidence->descripcion,
                 $response['file_destination'],
                 $new_evidence->id_actividad
             );
