@@ -205,8 +205,8 @@ switch ($servicesName){
             echo ($services_evidences->update_evidence(secure_json_decode($_POST['evidence_info'])));
         break;
     case 'add_evidence':
-        if (isset($_POST['insert_evidence']))
-        echo ($services_evidences->add_evidence(secure_json_decode($_POST['insert_evidence'])));    
+        if (isset( $_POST['evidence_info'], $_POST['id_club'], $_POST['nameClub'] ))
+        echo ($services_evidences->add_evidence(secure_json_decode($_POST['evidence_info']), $_POST['id_club'], $_POST['nameClub']));
         break;
 // Campuses
     case 'get_all_campuses':
@@ -515,6 +515,11 @@ switch ($servicesName){
     case 'get_all_planAnual':
         echo secure_json_encode($services_planAnual->get_all_planAnual());
         break;
+    case 'get_plan_anual_by_club_id':
+        if (isset($_GET['club_id']))
+            echo secure_json_encode($services_planAnual->get_plan_anual_by_club_id($_GET['club_id']));
+        break;
+
 //Acta Constitutiva
     case 'get_all_acta':
         echo secure_json_encode($services_acta->get_all_acta());
@@ -523,6 +528,10 @@ switch ($servicesName){
         if (isset($_POST['acta_info'], $_POST['nameClub'])) {
             echo ($services_acta->add_new_acta(json_decode($_POST['acta_info']), $_POST['nameClub']));
         }
+        break;
+    case 'get_acta_constitutiva_by_club':
+        if (isset($_GET['club_id']))
+            echo secure_json_encode($services_acta->get_acta_constitutiva_by_club($_GET['club_id']));
         break;
 
 // logo del club
