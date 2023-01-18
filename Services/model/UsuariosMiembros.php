@@ -131,5 +131,10 @@ class UsuariosMiembros extends MethodsCrud {
 
         return $this->update_delete_query($query, array($data));
     }
+
+    public function get_all_presidents() {
+        $query = "SELECT * FROM miembros_club INNER JOIN rol_miembro_club ON miembros_club.id_rol_member_club=rol_miembro_club.id WHERE rol_miembro_club.nombre = 'Presidente';";
+        return $this->select_query($query);
+    }
   
 }

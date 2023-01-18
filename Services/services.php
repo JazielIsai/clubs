@@ -421,6 +421,9 @@ switch ($servicesName){
         else
             echo secure_json_encode($services_users_club->get_members_by_speciality($_GET['speciality_id']));
         break;
+    
+    case 'get_all_presidents':
+        echo secure_json_encode($services_users_club->get_all_presidents());
 
     // Especialidad
     case 'get_all_speciality':

@@ -52,13 +52,29 @@ class Users extends MethodsCrud {
 
         return $this->select_query($query, $params);
     }
+
+    public function add_member_user($user_info)
+    {
+        $query = "INSERT INTO miembros_club (no_control, nombre, apellido_paterno, apellido_materno, sexo, correo, telefono, rango, semestre, id_especialidad, id_rol_member_club, id_club)
+                VALUES (DEFAULT, ?, NULL, NULL, NULL, ?, NULL, NULL, NULL, NULL, NULL, ?)";
+        $data = array($user_info->nombre, $user_info->correo, $user_info->id_club);
+
+        return $this->insert_query($query, array($data));
+    }    
     
     public function add_user ($user_info) {
-        $query = "INSERT INTO usuarios (nombre, correo, contraseña, fecha_creacion, id_rol)
-                VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO usuarios (nombre, correo, contraseña, fecha_creacion, id_club, id_rol)
+                VALUES (?, ?, ?, ?, ?, ?);";
         
-        $data = array($user_info->nombre, $user_info->correo, $user_info->contraseña, 
-        $user_info->fecha_creacion, $user_info->id_rol);
+        $data = array($user_info->nombre, $user_info->correo, $user_info->contraseña, $user_info->fecha_creacion, $user_info->id_club,$user_info->id_rol);
+        
+        $var_id_club = $user_info->id_club;
+
+
+        if ($var_id_club != NULL)
+        {
+            $this->add_member_user($user_info);
+        }
 
         return $this->insert_query($query, array($data));
     }
@@ -72,5 +88,4 @@ class Users extends MethodsCrud {
 
         return $this->update_delete_query($query, array($data));
     }
-
 }
