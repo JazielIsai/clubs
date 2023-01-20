@@ -206,7 +206,7 @@ switch ($servicesName){
         break;
     case 'add_evidence':
         if (isset( $_POST['evidence_info'], $_POST['id_club'], $_POST['nameClub'] ))
-        echo ($services_evidences->add_evidence(secure_json_decode($_POST['evidence_info']), $_POST['id_club'], $_POST['nameClub']));
+            echo ($services_evidences->add_evidence(secure_json_decode($_POST['evidence_info']), $_POST['id_club'], $_POST['nameClub']));
         break;
 // Campuses
     case 'get_all_campuses':
