@@ -7,7 +7,7 @@ import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
 
 export const ViewActivities = () => {
 
-    const { club_id } = useParams();
+    const { club_id, club_name } = useParams();
     const navigate = useNavigate();
 
     const { user } = useContext(AuthContext); // Get the context
@@ -28,9 +28,9 @@ export const ViewActivities = () => {
 
     const handleNavigateToSendEvidences = (e, dataRow) => {
         if (user.id_club == null) {
-            navigate(`/admin/activities/evidences/${dataRow?.id}/${dataRow?.nombre}`)
+            navigate(`/admin/activities/evidences/${club_id}/${club_name}/${dataRow?.id}/${dataRow?.nombre}`)
         } else {
-            navigate(`/club/activities/evidences/${dataRow?.id}/${dataRow?.nombre}`)
+            navigate(`/club/activities/evidences/${dataRow?.id}/${club_name}/${dataRow?.id}/${dataRow?.nombre}`)
         }
     }
 

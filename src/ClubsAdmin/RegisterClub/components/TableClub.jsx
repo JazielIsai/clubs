@@ -22,8 +22,8 @@ export const TableClub = () => {
 
     }, [data] )
 
-    const handleNavigateToClub = (id) => {
-        navigate(`/admin/viewClubs/${id}`)
+    const handleNavigateToClub = (id, club_name) => {
+        navigate(`/admin/viewClubs/${id}/${club_name}`);
     }
 
     return (
@@ -72,7 +72,7 @@ export const TableClub = () => {
 
 
                                     <td>
-                                        <button onClick={()=>handleNavigateToClub(club?.id)} class="btn btn-primary"> Ir al Club </button>
+                                        <button onClick={()=>handleNavigateToClub(club?.id, club?.name)} className="btn btn-primary"> Ir al Club </button>
                                     </td>
 
                                 </tr>
