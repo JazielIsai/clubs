@@ -1,21 +1,24 @@
 import React, {useState} from 'react'
 import {useForm} from "../../../hooks/useForm";
 import {useParams} from "react-router-dom";
-import {requestPost} from "../../../helpers";
+import {AlertSuccess, requestPost} from "../../../helpers";
 
 export const AddEvidences = () => {
 
-    const { club_id, id_activitie } = useParams();
+    const { club_id, name_club, id_activitie } = useParams();
 
     const { dataForm, onInputChange, onResetForm } = useForm({});
 
     const [getFile, setFile] = useState();
 
+    console.log('club_id', club_id, 'name_club', name_club, 'id_activitie', id_activitie);
+
     const handleFile = (e) => {
         setFile(e.target.files[0]);
     }
 
-    const onHandleAddEvidence = () => {
+    const onHandleAddEvidence = (e) => {
+        e.preventDefault();
 
         const body = {
             nombre: dataForm?.nombre,
@@ -26,14 +29,13 @@ export const AddEvidences = () => {
         const formData = new FormData();
         formData.append('evidence_info', JSON.stringify(body));
         formData.append('id_club', club_id);
-        formData.append('nameClub','');
+        formData.append('nameClub', name_club);
         formData.append('file_evidencia_info', getFile);
 
-        requestPost('', formData)
+        requestPost('add_evidence', formData)
             .then( (res) => {
-
-                console.log(res);
-
+                console.log("response -> ",res)
+                AlertSuccess('¡Entregada!','Evidencia agregada correctamente');
             } )
             .catch( (err) => {
                 console.log(err)
