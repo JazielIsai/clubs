@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CardNumeric } from '../../components/CardNumeric';
-import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { NavigationByClub } from './NavigationByClub';
 import {BsPerson} from 'react-icons/bs';
@@ -11,7 +10,7 @@ import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
 
 export const DashboardByClub = () => {
 
-  const {id} = useParams();
+  const {id, club_name} = useParams();
 
   const { dataCollectionRequest : getDataByClub } = useDataCollectionRequest(
       `get_club_by_id&club_id=${id}`,
@@ -58,7 +57,6 @@ export const DashboardByClub = () => {
               <CardNumeric numeric={getActivitiesByClub?.count_activities_by_club} description='Actividades' icon={<FcList style={{width: '100%', fontSize: '60px' }} />} styles={{width: '100%'}} />
               <CardNumeric numeric={ `${getMembersByClub?.member_by_club}` } description='Miembros' icon={<BsPerson style={{width: '100%', fontSize: '60px' }} />} styles={{width: '100%'}} />
               <CardNumeric numeric={ `${getEvents?.count_activities_public}` } description='Eventos' icon={<TbCalendarEvent style={{width: '100%', fontSize: '60px' }} />} styles={{width: '100%'}} />
-
             </div>
           </div>
           

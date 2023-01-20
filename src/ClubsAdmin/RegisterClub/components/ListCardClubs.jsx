@@ -15,8 +15,8 @@ export const ListCardClubs = ({dataClub}) => {
 
     const [ getDataClubs, setDataClubs ] = useState(null);
 
-    const navigateToClub = (id) => {
-        navigate(`/admin/viewClubs/${id}`)
+    const navigateToClub = (id, club_name) => {
+        navigate(`/admin/viewClubs/${id}/${club_name}`);
     }
 
     useEffect( () => {
@@ -42,7 +42,7 @@ export const ListCardClubs = ({dataClub}) => {
                         nameClub={dataClub?.name}
                         liderClub={dataClub?.lider}
                         dateCreated={dataClub?.fecha_creacion}
-                        handleNavigateTo={() => navigateToClub(dataClub?.id)}
+                        handleNavigateTo={() => navigateToClub(dataClub?.id, dataClub?.name)}
                     />
                 ))
                     

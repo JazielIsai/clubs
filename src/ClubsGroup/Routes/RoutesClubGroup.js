@@ -27,7 +27,7 @@ export const RoutesClubGroup = () => {
 
     useEffect(() => {
         if(!user){
-            navigate(`/club/dashboard/${user.id_club}`);
+            navigate(`/club/dashboard/${user.id_club}/${user.club}`);
         }
     }, [user]);
 
@@ -37,17 +37,17 @@ export const RoutesClubGroup = () => {
             <div style={{minHeight: 'calc(100vh - 120px - 100px)'}} >
                 <Routes>
 
-                    <Route path='dashboard/:id' element={<DashboardByClub />} />
+                    <Route path='dashboard/:id/:club_name' element={<DashboardByClub />} />
                     
                     <Route path='updateClub/:club_id' element={<EditClub />} />
                     
-                    <Route path='activities/:club_id' element={<Activities />} />
+                    <Route path='activities/:club_id/:club_name' element={<Activities />} />
                     <Route path='activities/add/:club_id' element={<NewActivite />} />
                     <Route path='activities/edit/:club_id/:id_activitie' element={<EditActivitie/>} />
 
                     <Route path='evidences/:club_id/' element={<ViewEvidences />} />
-                    <Route path='activities/evidences/:id_activitie/:nameActivitie' element={<Evidences />} />
-                    <Route path='activities/evidences/add/:id_activitie' element={<AddEvidences />} />
+                    <Route path='activities/evidences/:club_id/:name_club/:id_activitie/:nameActivitie' element={<Evidences />} />
+                    <Route path='activities/evidences/add/:club_id/:id_activitie' element={<AddEvidences />} />
                     <Route path='activities/evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
 
                     <Route path='activities/evaluateMember/:club_id/:idActivity/:nameActivity' element={<EvaluatePerformance /> } />
@@ -60,7 +60,7 @@ export const RoutesClubGroup = () => {
 
                     <Route path={'reports_by_club/:club_id'} element={<Reports />} />
                     
-                    <Route path='/*' element={<Navigate to={`/club/dashboard/${user.id_club}`} />} />
+                    <Route path='/*' element={<Navigate to={`/club/dashboard/${user.id_club}/${user.club}`} />} />
                     
                 </Routes>
             </div>

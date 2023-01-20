@@ -35,7 +35,7 @@ export const RoutesClubs = () => {
               <Route path='updateClub' element={<EditClub />} />
               
               <Route path="viewClubs" element={<ViewsClubs />} />
-              <Route path="viewClubs/:id" element={<DashboardByClub />} />
+              <Route path="viewClubs/:id/:club_name" element={<DashboardByClub />} />
               <Route path="registerClub" element={<RegisterClub />} />
               
               <Route path="activities/:club_id" element={<Activities />} />
