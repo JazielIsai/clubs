@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useForm} from "../../../hooks/useForm";
 import {useParams} from "react-router-dom";
-import {AlertSuccess, requestPost} from "../../../helpers";
+import {AlertError, AlertSuccess, requestPost} from "../../../helpers";
 
 export const AddEvidences = () => {
 
@@ -32,10 +32,15 @@ export const AddEvidences = () => {
         formData.append('nameClub', name_club);
         formData.append('file_evidencia_info', getFile);
 
+
         requestPost('add_evidence', formData)
             .then( (res) => {
                 console.log("response -> ",res)
-                AlertSuccess('¡Entregada!','Evidencia agregada correctamente');
+                if (parseInt(res.trim()) >= 0) {
+                    AlertSuccess('¡Entregada!','Evidencia agregada correctamente');
+                } else {
+                    AlertError('Error', 'La evidencia no fue entregada')
+                }
             } )
             .catch( (err) => {
                 console.log(err)
