@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.evidencie_by_activity .flexlayout__layout {
+  top: 83px;
+}
+
+.evidencie_by_activity .flexlayout__tab {
+  top: 70px !important;
+  overflow: hidden;
+  z-index: 1 !important;
+}
+
+.evidencie_by_activity .flexlayout__border_top {
+  display: none;
+  z-index: 0;
+}
+
+.evidencie_by_activity .flexlayout__tab_border_top {
+  top: 0 !important;
+  height: 35px !important;
+}
+
+.evidencie_by_activity .flexlayout__splitter_horz {
+  left: 0 !important;
+  right: 0 !important;
+  display: none;
+}
+
+.evidencie_by_activity .flexlayout__tabset {
+  top: 35px !important;
+  height: 35px !important;
+}
+
+.evidencie_by_activity .flexlayout__tabset_content {
+  height: auto;
+}
+
+
+
+
+

@@ -76,6 +76,7 @@ switch ($servicesName){
     case 'get_all_roles':
         echo secure_json_encode($services_roles_user->get_all_roles());
         break;
+
     //Services to table users
     case 'get_all_users':
         echo secure_json_encode($services_users->get_all_users());
@@ -91,8 +92,8 @@ switch ($servicesName){
         } else {
             echo 'Error: missing id.';
         }
-
         break;
+
     case 'add_user':
         if (!isset($_POST['user_info']))
             echo 'Error: missing info.';
@@ -211,14 +212,17 @@ switch ($servicesName){
         else
             echo ($services_evidences->update_evidence(secure_json_decode($_POST['evidence_info'])));
         break;
+
     case 'add_evidence':
         if (isset( $_POST['evidence_info'], $_POST['id_club'], $_POST['nameClub'] ))
-        echo ($services_evidences->add_evidence(secure_json_decode($_POST['evidence_info']), $_POST['id_club'], $_POST['nameClub']));
+            echo ($services_evidences->add_evidence(secure_json_decode($_POST['evidence_info']), $_POST['id_club'], $_POST['nameClub']));
         break;
+
 // Campuses
     case 'get_all_campuses':
         echo secure_json_encode($services_campuses->get_all_campuses());
         break;
+
     case 'add_campuses':
         if (!isset($_POST['name_campus'])){
             echo 'Error: missing info.';
@@ -226,6 +230,7 @@ switch ($servicesName){
             echo $services_campuses->add_campuses($_POST['name_campus']);
         }
         break;
+
     case 'update_campuses':
         if (!isset($_POST['name_campus'], $_POST['id_campus'])){
             echo 'Error: missing info.';
@@ -233,6 +238,7 @@ switch ($servicesName){
             echo $services_campuses->update_campuses($_POST['name_campus'],  $_POST['id_campus']);
         }
         break;
+
     case 'delete_campuses':
         if (!isset($_POST['id_campus'])){
             echo 'Error: missing info.';
@@ -246,6 +252,7 @@ switch ($servicesName){
     case 'get_all_category_to_club':
         echo secure_json_encode($services_category_to_club->get_all_category_to_club());
         break;
+
     case 'add_category_to_club':
         if (!isset($_POST['name_category'])){
             echo 'Error: missing info.';
@@ -253,6 +260,7 @@ switch ($servicesName){
             echo $services_category_to_club->add_category_to_club($_POST['name_category']);
         }
         break;
+
     case 'update_category_to_club':
         if (!isset($_POST['name_category'], $_POST['id_category'])){
             echo 'Error: missing info.';
@@ -260,6 +268,7 @@ switch ($servicesName){
             echo $services_category_to_club->update_category_to_club($_POST['name_category'],  $_POST['id_category']);
         }
         break;
+
     case 'delete_category_to_club':
         if (!isset($_POST['id_category'])){
             echo 'Error: missing info.';
@@ -272,6 +281,7 @@ switch ($servicesName){
     case 'get_all_clubs_speciality':
         echo secure_json_encode($services_club_speciality->get_all_clubs_speciality());
         break;
+
     case 'add_clubs_speciality':
         if (!isset($_POST['name_speciality'])){
             echo 'Error: missing info.';
@@ -279,6 +289,7 @@ switch ($servicesName){
             echo $services_club_speciality->add_clubs_speciality($_POST['name_speciality']);
         }
         break;
+
     case 'update_clubs_speciality':
         if (!isset($_POST['name_speciality'], $_POST['id_speciality'])){
             echo 'Error: missing info.';
@@ -286,6 +297,7 @@ switch ($servicesName){
             echo $services_club_speciality->update_clubs_speciality($_POST['name_speciality'],  $_POST['id_speciality']);
         }
         break;
+
     case 'delete_clubs_speciality':
         if (!isset($_POST['id_speciality'])){
             echo 'Error: missing info.';
@@ -312,6 +324,7 @@ switch ($servicesName){
             echo "Error";
         }
         break;
+
     case 'update_skill':
         if (!isset($_POST['name_skill'], $_POST['id_skill'])){
             echo 'Error: missing info.';
@@ -319,6 +332,7 @@ switch ($servicesName){
             echo $services_skills->update_skill($_POST['name_skill'],  $_POST['id_skill']);
         }
         break;
+
     case 'delete_skill':
         if (!isset($_POST['id_skill'])){
             echo 'Error: missing info.';
@@ -332,6 +346,7 @@ switch ($servicesName){
     case 'get_all_idioms':
         echo secure_json_encode($service_idioms->get_all_idioms());
         break;
+
     case 'insert_a_new_language':
         if(isset($_POST['language_name'])){
             echo $service_idioms->insert_a_new_language( $_POST['language_name'] );
@@ -347,6 +362,7 @@ switch ($servicesName){
             echo $service_idioms->update_language($_POST['name_language'],  $_POST['id_language']);
         }
         break;
+
     case 'delete_language':
         if (!isset($_POST['id_language'])){
             echo 'Error: missing info.';
@@ -365,11 +381,11 @@ switch ($servicesName){
     case 'get_users_by_club':
         if (!isset($_GET['club_id']))
             echo 'Error: missing id.';
-        else
-        {
+        else {
             echo secure_json_encode($services_users_club->get_users_by_club($_GET['club_id']));
         }
         break;
+
     case 'get_members_by_id':
         if (!isset($_GET['member_id'])) {
             echo 'Error: missing info.';
@@ -377,6 +393,7 @@ switch ($servicesName){
             echo json_encode($services_users_club->get_members_by_id($_GET['member_id']));
         }
         break;
+
     case 'add_new_member_club':
         if (!isset($_POST['member_info'])) {
             echo 'Error: missing info.';
@@ -413,15 +430,18 @@ switch ($servicesName){
     case 'get_all_members':
         echo secure_json_encode($services_users_club->get_all_members());
         break;
+
     case 'get_existing_members':
         echo secure_json_encode($services_users_club->get_existing_members());
         break;
+
     case 'get_existing_members_by_club':
         if (!isset($_GET['club_id']))
             echo 'Error: missing id.';
         else
             echo secure_json_encode($services_users_club->get_existing_members_by_club($_GET['club_id']));
         break;
+
     case 'get_members_by_speciality':
         if (!isset($_GET['speciality_id']))
             echo 'Error: missing id.';
@@ -431,6 +451,7 @@ switch ($servicesName){
     
     case 'get_all_presidents':
         echo secure_json_encode($services_users_club->get_all_presidents());
+        break;
 
     // Especialidad
     case 'get_all_speciality':
@@ -470,6 +491,7 @@ switch ($servicesName){
         else
             echo ($services_rol_member_club->update_rol_member_club($_POST['name_rol_member_club'], $_POST['id_rol_member_club']));
         break;
+
     case 'delete_rol_member_club':
         if (!isset($_POST['id_rol_member_club']))
             echo 'Error: missing id.';
@@ -483,34 +505,42 @@ switch ($servicesName){
         if (isset($_GET['get_activities_by_id_club']))
         echo secure_json_encode($services_activities->get_activities_by_id_club($_GET['get_activities_by_id_club']));
         break;
+
     case 'get_activities_in_progress_by_club':
         if (isset($_GET['activities_in_progress_by_club']))
         echo secure_json_encode($services_activities->get_activities_in_progress_by_club($_GET['activities_in_progress_by_club']));
         break;
+
     case 'get_uninitiated_activities_by_club':
         if (isset($_GET['uninitiated_activities_by_club']))
         echo secure_json_encode($services_activities->get_uninitiated_activities_by_club($_GET['uninitiated_activities_by_club']));
         break;
+
     case 'get_activities_completed_by_club':
         if (isset($_GET['activities_completed_by_club']))
         echo secure_json_encode($services_activities->get_activities_completed_by_club($_GET['activities_completed_by_club']));
         break;
+
     case 'get_activities_per_semester_by_club':
         if (isset($_GET['activities_per_semester_by_club']))
         echo secure_json_encode($services_activities->get_activities_per_semester_by_club($_GET['activities_per_semester_by_club']));
         break;
+
     case 'get_incidents_by_activity':
         if (isset($_GET['incidents_by_activity']))
         echo secure_json_encode($services_activities->get_incidents_by_activity($_GET['incidents_by_activity']));
         break;
+
     case 'get_number_of_incidents_by_activity':
         if (isset($_GET['number_of_incidents_by_activity']))
         echo secure_json_encode($services_activities->get_number_of_incidents_by_activity($_GET['number_of_incidents_by_activity']));
         break;
+
     case 'get_evidence_by_club':
         if (isset($_GET['evidence_by_club']))
         echo secure_json_encode($services_activities->get_evidence_by_club($_GET['evidence_by_club']));
         break;
+
     case 'get_skills_developed_by_club':
         if (isset($_GET['skills_developed_by_club']))
         echo secure_json_encode($services_activities->get_skills_developed_by_club($_GET['skills_developed_by_club']));
@@ -522,9 +552,11 @@ switch ($servicesName){
             echo $services_planAnual->add_new_planAnual(json_decode($_POST['plan_info']), $_POST['nameClub']);
         }
         break;
+
     case 'get_all_planAnual':
         echo secure_json_encode($services_planAnual->get_all_planAnual());
         break;
+
     case 'get_plan_anual_by_club_id':
         if (isset($_GET['club_id']))
             echo secure_json_encode($services_planAnual->get_plan_anual_by_club_id($_GET['club_id']));
@@ -534,11 +566,13 @@ switch ($servicesName){
     case 'get_all_acta':
         echo secure_json_encode($services_acta->get_all_acta());
         break;
+
     case 'add_new_acta':
         if (isset($_POST['acta_info'], $_POST['nameClub'])) {
             echo ($services_acta->add_new_acta(json_decode($_POST['acta_info']), $_POST['nameClub']));
         }
         break;
+
     case 'get_acta_constitutiva_by_club':
         if (isset($_GET['club_id']))
             echo secure_json_encode($services_acta->get_acta_constitutiva_by_club($_GET['club_id']));
@@ -552,6 +586,7 @@ switch ($servicesName){
             echo 'Error: missing info.';
         }
         break;
+
     case 'get_logo_by_club':
         if (isset($_GET['id_club'])) {
             echo json_encode($services_logo->get_logo_by_club($_GET['id_club']));

@@ -6,7 +6,7 @@ export const NavigationByClub = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { id: id_club } = useParams();
+    const { id: id_club, club_name } = useParams();
 
 
 
@@ -32,7 +32,7 @@ export const NavigationByClub = () => {
               <NavLink
                   className="nav-link"
                   aria-current="page"
-                  to={user?.id_club != null ? `/club/activities/${id_club}` : `/admin/activities/${id_club}`}
+                  to={user?.id_club != null ? `/club/activities/${id_club}/${club_name}` : `/admin/activities/${id_club}/${club_name}`}
               >
                   Actividades
               </NavLink>

@@ -6,7 +6,7 @@ import { ViewActivities } from './ViewActivities'
 export const Activities = () => {
 
   const navigate = useNavigate();
-  const { club_id } = useParams();
+  const { club_id, club_name } = useParams();
   const { user } = useContext(AuthContext);
 
   const handleGoAddActivity = () => {
@@ -20,7 +20,7 @@ export const Activities = () => {
   return (
     <div className='container'>
         <div>
-            <h1>Activities</h1>
+            <h1 className={'fs-2 mt-2 mb-0 text-capitalize'} >Actividades</h1>
         </div>
         <div className='d-flex justify-content-end'>
             <button onClick={handleGoAddActivity} className='btn btn-outline-primary'> Agregar una nueva actividad </button>

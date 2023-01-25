@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useFetch_RequestGet } from '../../../hooks/useFetchGet';
-import { ViewEvidences } from './ViewEvidences';
 import { AddEvidences } from './AddEvidences';
-import {TableEvidences} from "./TableEvidences";
 
 export const Evidences = () => {
 
@@ -79,14 +77,21 @@ export const Evidences = () => {
                       if (keyRow == 'id_habilidad_desarrollada') {return null;}
                       if (keyRow == 'id_tipo_actividad') {return null;}
                       if (keyRow == 'id_club') {return null;}
+                      if (keyRow == 'club') {return null;}
+                        if (keyRow == 'nombre') {return null;}
 
                       keyRow = keyRow.replace(/_/g, ' ');
                       keyRow = keyRow.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
 
+
                       return (
-                        <tr>
-                          <th scope="row" className='w-25'>{keyRow}</th>
-                          <td className='w-75'>{valueRow}</td>
+                        <tr className={''} key={index}>
+                          <th scope="row" className='w-25'>
+                            {keyRow}
+                          </th>
+                          <td className='w-75'>
+                            {valueRow}
+                          </td>
                         </tr>
                       )
 
@@ -104,25 +109,27 @@ export const Evidences = () => {
            </button>
           </div>
           
-          { buttonAddEvidences &&
-           <div>
-              <div className='mt-5 mb-3'>
-                <h3 className='fs-3'>Entrega de evidencias</h3>
-              </div>
-              
-              <div className='row'>
-              
-                <div className='col-12 col-md-6'>
-                  <AddEvidences id_activity={id_activitie} />
+          {
+            buttonAddEvidences && (
+               <div>
+                  <div className='mt-5 mb-3 d-flex justify-content-center'>
+                    <h3 className='fs-3'>Entrega de evidencias</h3>
+                  </div>
+
+                  <div className='row justify-content-center'>
+                    <div className='col-md-8'>
+                      <AddEvidences id_activity={id_activitie} />
+                    </div>
+                    {/*
+                    <div className='col-12 col-md-6'>
+                    </div>
+                    <div className='col-12 col-md-6'>
+                      <TableEvidences id_activity={id_activitie} />
+                    </div>
+                    */}
+                  </div>
                 </div>
-                
-                <div className='col-12 col-md-6'>
-    
-                  <TableEvidences id_activity={id_activitie} />
-    
-                </div>
-              </div>
-            </div>
+              )
           }
           
         </div>
