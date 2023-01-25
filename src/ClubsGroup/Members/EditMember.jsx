@@ -1,6 +1,5 @@
 import React from 'react'
 import {useParams} from "react-router-dom";
-//import { useEffect } from 'react';
 import { AlertToast } from '../../helpers';
 import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
 import {useForm} from "../../hooks/useForm";
@@ -30,41 +29,41 @@ export const EditMember = () => {
     
    
    const handleSendPost = (e) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    const body = {
-        id:parseInt(id_member),
-        no_control:dataForm?.no_control || getMember?.no_control,
-        nombre:dataForm?.name || getMember?.nombre,
-        apellido_paterno:dataForm?.apellido_paterno || getMember?.apellido_paterno,
-        apellido_materno:dataForm?.apellido_materno || getMember?.apellido_materno,
-        id_especialidad:parseInt(dataForm?.id_speciality) || getMember?.id_especialidad,
-        semestre:dataForm?.semestre || getMember?.semestre,
-        id_club:parseInt(club_id),
-        rango:dataForm?.rango || getMember?.rango,
-        id_rol_member_club:parseInt(dataForm?.id_rol) || getMember?.id_rol_member_club,
-        sexo:dataForm?.sexo || getMember?.sexo,
-        correo:dataForm?.email || getMember?.correo,
-        telefono:dataForm?.phone || getMember?.telefono,
+        const body = {
+            id:parseInt(id_member),
+            no_control:dataForm?.no_control || getMember?.no_control,
+            nombre:dataForm?.name || getMember?.nombre,
+            apellido_paterno:dataForm?.apellido_paterno || getMember?.apellido_paterno,
+            apellido_materno:dataForm?.apellido_materno || getMember?.apellido_materno,
+            id_especialidad:parseInt(dataForm?.id_speciality) || getMember?.id_especialidad,
+            semestre:dataForm?.semestre || getMember?.semestre,
+            id_club:parseInt(club_id),
+            rango:dataForm?.rango || getMember?.rango,
+            id_rol_member_club:parseInt(dataForm?.id_rol) || getMember?.id_rol_member_club,
+            sexo:dataForm?.sexo || getMember?.sexo,
+            correo:dataForm?.email || getMember?.correo,
+            telefono:dataForm?.phone || getMember?.telefono,
+        }
+
+        console.log(body);
+
+        const formData = new FormData();
+        formData.append('member_info', JSON.stringify(body));
+        requestPost('update_member', formData)
+            .then( response => {
+                console.log(response);
+                if (response.trim() == 1) {
+                    AlertToast('Edicción exitoso', 'success', 3000);
+                } else {
+                    AlertToast('Edicción fallida', 'error', 3000);
+                }
+            })
+            .catch( err => {
+                console.log(err);
+            })
     }
-
-    console.log(body);
-
-    const formData = new FormData();
-    formData.append('member_info', JSON.stringify(body));
-    requestPost('update_member', formData)
-        .then( response => {
-            console.log(response);
-            if (response.trim() == 1) {
-                AlertToast('Edicción exitoso', 'success', 3000);
-            } else {
-                AlertToast('Edicción fallida', 'error', 3000);
-            }
-        })
-        .catch( err => {
-            console.log(err);
-        })
-}
    
      
     return (
@@ -104,12 +103,10 @@ export const EditMember = () => {
                         <select class="form-select" id="floatingSelect" name='id_speciality' onChange={onInputChange} aria-label="Floating label select example">
                             <option disable="true" selected>{getMember?.especialidad_miembro} </option>
                             {
-                                
-                                getMember && 
-                                
+                                getAllSpeciality &&
                                     getAllSpeciality.map( (speciality, index) => (
-                                    speciality.nombre !== getMember.especialidad_miembro &&
-                                    <option key={index} value={speciality.id}> {speciality.nombre} </option>
+                                        speciality.nombre !== getMember.especialidad_miembro &&
+                                        <option key={index} value={speciality.id}> {speciality.nombre} </option>
                                     ))
                             }
                         </select>
@@ -135,12 +132,11 @@ export const EditMember = () => {
                         <select className="form-select" id="floatingSelect" onChange={onInputChange} name="id_rol" aria-label="Floating label select example" >
                             <option disable="true" selected>{getMember?.rol_miembro} </option>
                             {
-                              getMember &&
-                              
-                              getAllRolMembers.map((rol,index)=>(
-                              rol.nombre !== getMember.rol_miembro &&
-                              <option key={index} value={rol.id}>{rol.nombre}</option>
-                              ))
+                                getAllRolMembers &&
+                                  getAllRolMembers.map((rol,index)=>(
+                                      rol.nombre !== getMember.rol_miembro &&
+                                      <option key={index} value={rol.id}>{rol.nombre}</option>
+                                  ))
                             }
                             
                         </select>
