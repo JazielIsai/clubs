@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useFetch_RequestGet } from '../../../hooks/useFetchGet';
-import { ViewEvidences } from './ViewEvidences';
 import { AddEvidences } from './AddEvidences';
-import {TableEvidences} from "./TableEvidences";
 
 export const Evidences = () => {
 
