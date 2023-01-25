@@ -30,7 +30,7 @@ export const ViewActivities = () => {
         if (user.id_club == null) {
             navigate(`/admin/activities/evidences/${club_id}/${club_name}/${dataRow?.id}/${dataRow?.nombre}`)
         } else {
-            navigate(`/club/activities/evidences/${dataRow?.id}/${club_name}/${dataRow?.id}/${dataRow?.nombre}`)
+            navigate(`/club/activities/evidences/${club_id}/${club_name}/${dataRow?.id}/${dataRow?.nombre}`)
         }
     }
 
@@ -55,7 +55,7 @@ export const ViewActivities = () => {
             } )
 
         if (user.id_club == null) {
-            navigate(`/admin/activities/evaluate/${dataRow?.id}/${dataRow?.nombre}`)
+            navigate(`/admin/activities/evaluateMember/${club_id}/${dataRow?.id}/${dataRow?.nombre}`)
         } else {
             navigate(`/club/activities/evaluateMember/${club_id}/${dataRow?.id}/${dataRow?.nombre}`)
         }
