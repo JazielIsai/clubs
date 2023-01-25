@@ -7,18 +7,13 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="add search component to search the evidences by its name or description">
-      <change afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/components/ViewEvidencie.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/components/ViewPDF.jsx" afterDir="false" />
+    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_01_23_12_52_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_01_23_12_52__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/model/Evidences.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Evidences.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidenceByActivity.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidenceByActivity.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidences.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
@@ -145,49 +140,7 @@
       <workItem from="1674574467268" duration="3145000" />
       <workItem from="1674583379305" duration="2558000" />
       <workItem from="1674586365206" duration="9119000" />
-      <workItem from="1674613226437" duration="1233000" />
-    </task>
-    <task id="LOCAL-00035" summary="delete repeated class">
-      <created>1673493707752</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1673493707752</updated>
-    </task>
-    <task id="LOCAL-00036" summary="add the navigation when the user register a member then navigate to other url">
-      <created>1673499285953</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499285953</updated>
-    </task>
-    <task id="LOCAL-00037" summary="add the navigation when the user register a member then navigate to other url">
-      <created>1673499303601</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499303601</updated>
-    </task>
-    <task id="LOCAL-00038" summary="add a link to navigate to edit club to the admin">
-      <created>1673499335853</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499335853</updated>
-    </task>
-    <task id="LOCAL-00039" summary="add service to get the member by his id">
-      <created>1673499368774</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499368774</updated>
-    </task>
-    <task id="LOCAL-00040" summary="change to a function of type promise">
-      <created>1673499398767</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499398767</updated>
+      <workItem from="1674613226437" duration="1548000" />
     </task>
     <task id="LOCAL-00041" summary="update">
       <created>1673499409635</created>
@@ -490,7 +443,49 @@
       <option name="project" value="LOCAL" />
       <updated>1674618906874</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="update navigation route">
+      <created>1674618993212</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618993212</updated>
+    </task>
+    <task id="LOCAL-00085" summary="add components to view evidence by activity component">
+      <created>1674619063588</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619063588</updated>
+    </task>
+    <task id="LOCAL-00086" summary="update or used to table component in this component">
+      <created>1674619117371</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619117371</updated>
+    </task>
+    <task id="LOCAL-00087" summary="add view evidences component, this it will integrate in the component: view evidences by activity">
+      <created>1674619196726</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619196726</updated>
+    </task>
+    <task id="LOCAL-00088" summary="add view pdf component, this it will integrate in the component: view evidences">
+      <created>1674619219035</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619219035</updated>
+    </task>
+    <task id="LOCAL-00089" summary="update">
+      <created>1674619242494</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619242494</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,11 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add method to upload file" />
-    <MESSAGE value="update db tn its table" />
-    <MESSAGE value="add and update services" />
-    <MESSAGE value="update space" />
-    <MESSAGE value="update method to turn in evidence by activity" />
     <MESSAGE value="update method to upload logo by club" />
     <MESSAGE value="update method to upload plan anual by club" />
     <MESSAGE value="update service to get more columns of table clubs" />
@@ -524,7 +514,6 @@
     <MESSAGE value="update the method and variables to upload evidencie" />
     <MESSAGE value="update the as show the activity" />
     <MESSAGE value="update and add params" />
-    <MESSAGE value="update" />
     <MESSAGE value="add conditional to when the user upload an evidence then can view if was success or not. This can view the user through of alerts" />
     <MESSAGE value="add context to the communication by club" />
     <MESSAGE value="delete dependencies that it not need" />
@@ -533,7 +522,13 @@
     <MESSAGE value="add flex layout library" />
     <MESSAGE value="add or upload routes" />
     <MESSAGE value="add search component to search the evidences by its name or description" />
-    <option name="LAST_COMMIT_MESSAGE" value="add search component to search the evidences by its name or description" />
+    <MESSAGE value="update navigation route" />
+    <MESSAGE value="add components to view evidence by activity component" />
+    <MESSAGE value="update or used to table component in this component" />
+    <MESSAGE value="add view evidences component, this it will integrate in the component: view evidences by activity" />
+    <MESSAGE value="add view pdf component, this it will integrate in the component: view evidences" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
