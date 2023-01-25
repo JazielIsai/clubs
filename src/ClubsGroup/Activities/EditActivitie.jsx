@@ -52,7 +52,7 @@ export const EditActivitie = () => {
       modelo: dataForm.modelo || getActivity.modelo,
       dominio: dataForm.dominio || getActivity.dominio,
       id_habilidad_desarrollada: parseInt(dataForm.habilidad) || getActivity.id_habilidad_desarrollada,
-      id_tipo_actividad: parseInt(dataForm.tipo_actividad) || getActivity.id_tipo_actividad,
+      id_tipo_actividad: parseInt(dataForm.tipo_activity) || getActivity.id_tipo_actividad,
       id_club:parseInt(club_id),
       fecha: dataForm.fecha || getActivity.fecha,
       id_idioma: parseInt(dataForm.idioma) || getActivity.id_idioma,
@@ -119,7 +119,7 @@ export const EditActivitie = () => {
           <div className='row d-flex justify-content-between mt-4 mb-4'>
             <div class="col-12 col-md-3 form-floating ps-0 mb-3">
               <select class="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={onInputChange}  name='tipo_activity'>
-                <option selected>{getActivity?.tipo_actividad}</option>
+                <option selected disabled>{getActivity?.tipo_actividad}</option>
                 {
                   getAllTypeActivity &&
                   
