@@ -3,157 +3,22 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BnAndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="upload component edit club, use the hook useDataCollectionRequest instead of methods">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/clubs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/clubs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="add search component to search the evidences by its name or description">
+      <change afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/components/ViewEvidencie.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/components/ViewPDF.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_01_23_12_52_[Changes]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_01_23_12_52_[Changes]/shelved.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_01_23_12_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_01_23_12_52__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_01_23_12_52_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_01_23_12_52__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOCS/ER-DB-Clubs.png" beforeDir="false" afterPath="$PROJECT_DIR$/DOCS/ER-DB-Clubs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOCS/ERDD_Clubs.png" beforeDir="false" afterPath="$PROJECT_DIR$/DOCS/ERDD_Clubs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DOCS/ModeloER_CLUBS.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/DOCS/ModeloER_CLUBS.mdj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DataBase/clubs_itesi.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/Controller/DownloadFiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Controller/DownloadFiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/Controller/UploadDocument.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Controller/UploadDocument.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/Controller/Validations.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Controller/Validations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/config/DBCnx.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/config/DBCnx.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/config/configuration.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Services/config/configuration.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/ActaConstitutiva.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/ActaConstitutiva.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Actividad.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Actividad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/CategoryClub.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/CategoryClub.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/ClubSpecialty.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/ClubSpecialty.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Clubes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Clubes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Especialidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Especialidad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/EvaluationMember.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/EvaluationMember.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/model/Evidences.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Evidences.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Habilidades.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Habilidades.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Idioma.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Idioma.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Incidencias.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Incidencias.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/LoginService.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/LoginService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/LogoClub.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/LogoClub.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/MethodsCrud.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/MethodsCrud.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Miembros.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Miembros.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/PlanAnual.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/PlanAnual.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Plantel.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Plantel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/RolesUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/RolesUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/TypeActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/TypeActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/UsuariosMiembros.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/UsuariosMiembros.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/rol_member_club.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/rol_member_club.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/img/ITESI-TECNM.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/img/ITESI-TECNM.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/img/LogoITESI.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/img/LogoITESI.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/img/buhosItesi.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/img/buhosItesi.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Context/AuthContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Context/AuthContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Context/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Context/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Context/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Context/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Pages/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Pages/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Routes/AuthRoutes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Routes/AuthRoutes.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Types/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Types/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/Types/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Types/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/RegisterUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/RegisterUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/UpdateUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/UpdateUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/ViewUsers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/ViewUsers.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/components/TableUsers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/components/TableUsers.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/AdminGeneral.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/AdminGeneral.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/AdminActivities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/AdminActivities.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/AdminClubs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/AdminClubs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/AdminMembers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/AdminMembers.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/Especialidad.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/Especialidad.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Dashboard/Dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Dashboard/Dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/ViewsClubs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/ViewsClubs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/ListCardClubs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/ListCardClubs.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/TableClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/UserPermissions/UserPermissions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/UserPermissions/UserPermissions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Activities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Activities.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/EditActivitie.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/EditActivitie.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/EvaluatePerformance/EvaluatePerformance.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/EvaluatePerformance/EvaluatePerformance.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Events/Events.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Events/Events.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/AddEvidences.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/EditEvidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/EditEvidences.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/Evidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/Evidences.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/TableEvidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/TableEvidences.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidenceByActivity.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidenceByActivity.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidences.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/Evidences/ViewEvidences.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/NewActivite.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/NewActivite.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Activities/ViewActivities.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Club/EditClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Club/EditClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Dashboard/DashboardByClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Dashboard/DashboardByClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Dashboard/NavigationByClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Dashboard/NavigationByClub.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/AddMember.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/AddMember.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/EditMember.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/EditMember.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/Members.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/Members.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Members/ViewMembers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Members/ViewMembers.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Reports/Reports.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Reports/Reports.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsGroup/Routes/RoutesClubGroup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Context/MainContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Context/MainContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Includes/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Includes/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Includes/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Includes/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Includes/HeaderUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Includes/HeaderUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router/PrivateRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router/PrivateRoute.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router/PublicRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router/PublicRoute.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router/Router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/baseUrl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/baseUrl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardNumeric.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardNumeric.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tables/Components/Button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tables/Components/Button.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tables/Components/Input.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tables/Components/Input.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tables/Components/Select.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tables/Components/Select.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tables/Components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tables/Components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tables/Table.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tables/Table.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tables/TableEdit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tables/TableEdit.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tables/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tables/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/Alerts/AlertConfirmDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/Alerts/AlertConfirmDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/Alerts/AlertDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/Alerts/AlertDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/Alerts/AlertError.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/Alerts/AlertError.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/Alerts/AlertInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/Alerts/AlertInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/Alerts/AlertSuccess.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/Alerts/AlertSuccess.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/Alerts/AlertToast.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/Alerts/AlertToast.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/Alerts/AlertWithTime.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/Alerts/AlertWithTime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/Alerts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/Alerts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/requestGet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/requestGet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/requestPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/requestPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useDataCollectionRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useDataCollectionRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useFetchGet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useFetchGet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useRightClickMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useRightClickMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
@@ -184,13 +49,13 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/var/www/html/workflow_backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/isai/Documents/components-pattern&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AtomConfig&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -201,6 +66,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Context" />
       <recent name="$PROJECT_DIR$/src/ClubsGroup/Activities/EvaluatePerformance" />
     </key>
   </component>
@@ -261,210 +127,25 @@
       <workItem from="1673446662908" duration="620000" />
       <workItem from="1673456734825" duration="6962000" />
       <workItem from="1673488367493" duration="6509000" />
-      <workItem from="1673532931503" duration="1433000" />
-    </task>
-    <task id="LOCAL-00006" summary="add interface to get evidences">
-      <created>1671468893117</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1671468893117</updated>
-    </task>
-    <task id="LOCAL-00007" summary="add services to checking if the user exist">
-      <created>1671554070165</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1671554070165</updated>
-    </task>
-    <task id="LOCAL-00008" summary="update service to the method de login">
-      <created>1671554548444</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1671554548444</updated>
-    </task>
-    <task id="LOCAL-00009" summary="add query alter table users and update data users">
-      <created>1671679141541</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1671679141541</updated>
-    </task>
-    <task id="LOCAL-00010" summary="update query to access to system">
-      <created>1671679168286</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1671679168286</updated>
-    </task>
-    <task id="LOCAL-00011" summary="update query and db to access to system">
-      <created>1671680574571</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1671680574571</updated>
-    </task>
-    <task id="LOCAL-00012" summary="update the access to system according ti its rol and club if is the case">
-      <created>1671680635166</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1671680635166</updated>
-    </task>
-    <task id="LOCAL-00013" summary="update the access to system according ti its rol and club if is the case">
-      <created>1671684296936</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1671684296936</updated>
-    </task>
-    <task id="LOCAL-00014" summary="add table evaluacion_miembro">
-      <created>1671686943973</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1671686943973</updated>
-    </task>
-    <task id="LOCAL-00015" summary="add navigation according to clubs and admin">
-      <created>1671824879411</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1671824879411</updated>
-    </task>
-    <task id="LOCAL-00016" summary="add use fetch request get">
-      <created>1671825012741</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1671825012741</updated>
-    </task>
-    <task id="LOCAL-00017" summary="add services to table evaluation member">
-      <created>1671855918450</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1671855918450</updated>
-    </task>
-    <task id="LOCAL-00018" summary="update components">
-      <created>1671855958069</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1671855958070</updated>
-    </task>
-    <task id="LOCAL-00019" summary="add component to evaluate performance by member">
-      <created>1671855982286</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1671855982286</updated>
-    </task>
-    <task id="LOCAL-00020" summary="add route to go evaluate to member by activity">
-      <created>1672540182114</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1672540182114</updated>
-    </task>
-    <task id="LOCAL-00021" summary="add method of save and update the evaluation by member">
-      <created>1672549616297</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1672549616297</updated>
-    </task>
-    <task id="LOCAL-00022" summary="fix: add parameter to method of go to evaluate member and update the title design">
-      <created>1672550740832</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1672550740832</updated>
-    </task>
-    <task id="LOCAL-00023" summary="update design and add field">
-      <created>1672553652159</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1672553652159</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Divide component in two to its major administration so, I create a new component: TableEvidences.jsx">
-      <created>1672637538791</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637538791</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Add component in order to views all evidences by activity">
-      <created>1672637579296</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637579296</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Upload club's data by defect">
-      <created>1672637656350</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637656350</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Upload all activities by club and add button in the table by each row in order to navigate to view evidence of the activity current">
-      <created>1672637798822</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637798822</updated>
-    </task>
-    <task id="LOCAL-00028" summary="load">
-      <created>1672637827223</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637827223</updated>
-    </task>
-    <task id="LOCAL-00029" summary="load">
-      <created>1672637835776</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637835776</updated>
-    </task>
-    <task id="LOCAL-00030" summary="add component to user permissions">
-      <created>1672642316501</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1672642316501</updated>
-    </task>
-    <task id="LOCAL-00031" summary="update the user table to change the rol of the user if is required">
-      <created>1672723848247</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1672723848247</updated>
-    </task>
-    <task id="LOCAL-00032" summary="files to validate different expression and to download files">
-      <created>1673365419935</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1673365419935</updated>
-    </task>
-    <task id="LOCAL-00033" summary="class to upload files">
-      <created>1673365437416</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1673365437416</updated>
-    </task>
-    <task id="LOCAL-00034" summary="include the method to upload evidences">
-      <created>1673370102345</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1673370102345</updated>
+      <workItem from="1673532931503" duration="16754000" />
+      <workItem from="1673568823425" duration="10000" />
+      <workItem from="1673584047582" duration="1216000" />
+      <workItem from="1673620896463" duration="1230000" />
+      <workItem from="1673630010676" duration="5587000" />
+      <workItem from="1673650747070" duration="601000" />
+      <workItem from="1673663092439" duration="1548000" />
+      <workItem from="1673890844357" duration="403000" />
+      <workItem from="1673922754093" duration="37000" />
+      <workItem from="1673924702083" duration="186000" />
+      <workItem from="1674226192635" duration="14677000" />
+      <workItem from="1674245516857" duration="60000" />
+      <workItem from="1674357409938" duration="1325000" />
+      <workItem from="1674451482304" duration="208000" />
+      <workItem from="1674570721452" duration="1198000" />
+      <workItem from="1674574467268" duration="3145000" />
+      <workItem from="1674583379305" duration="2558000" />
+      <workItem from="1674586365206" duration="9119000" />
+      <workItem from="1674613226437" duration="1233000" />
     </task>
     <task id="LOCAL-00035" summary="delete repeated class">
       <created>1673493707752</created>
@@ -606,7 +287,210 @@
       <option name="project" value="LOCAL" />
       <updated>1673502882823</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="add method to upload file">
+      <created>1673534496193</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1673534496194</updated>
+    </task>
+    <task id="LOCAL-00056" summary="add method to upload file">
+      <created>1673534549084</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1673534549084</updated>
+    </task>
+    <task id="LOCAL-00057" summary="add method to upload file">
+      <created>1673534598902</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1673534598902</updated>
+    </task>
+    <task id="LOCAL-00058" summary="update">
+      <created>1673534645129</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1673534645129</updated>
+    </task>
+    <task id="LOCAL-00059" summary="update db tn its table">
+      <created>1673663553186</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663553186</updated>
+    </task>
+    <task id="LOCAL-00060" summary="add and update services">
+      <created>1673663590588</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663590588</updated>
+    </task>
+    <task id="LOCAL-00061" summary="update space">
+      <created>1673663625690</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663625690</updated>
+    </task>
+    <task id="LOCAL-00062" summary="update method to turn in evidence by activity">
+      <created>1673663703998</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663703998</updated>
+    </task>
+    <task id="LOCAL-00063" summary="update method to upload logo by club">
+      <created>1673663738213</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663738214</updated>
+    </task>
+    <task id="LOCAL-00064" summary="update method to upload plan anual by club">
+      <created>1673663763797</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663763797</updated>
+    </task>
+    <task id="LOCAL-00065" summary="update service to get more columns of table clubs">
+      <created>1673663800448</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663800448</updated>
+    </task>
+    <task id="LOCAL-00066" summary="update method to upload acta constitutiva by club">
+      <created>1673663871987</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663871987</updated>
+    </task>
+    <task id="LOCAL-00067" summary="update component to edit the club">
+      <created>1673663930850</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663930850</updated>
+    </task>
+    <task id="LOCAL-00068" summary="add methods to upload evidence">
+      <created>1673664006407</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1673664006407</updated>
+    </task>
+    <task id="LOCAL-00069" summary="update the hook">
+      <created>1673664022476</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1673664022476</updated>
+    </task>
+    <task id="LOCAL-00070" summary="update design">
+      <created>1674235591127</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235591127</updated>
+    </task>
+    <task id="LOCAL-00071" summary="update the method and variables to upload evidencie">
+      <created>1674235636388</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235636388</updated>
+    </task>
+    <task id="LOCAL-00072" summary="update the as show the activity">
+      <created>1674235683135</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235683135</updated>
+    </task>
+    <task id="LOCAL-00073" summary="update and add params">
+      <created>1674235709562</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235709562</updated>
+    </task>
+    <task id="LOCAL-00074" summary="update and add params">
+      <created>1674235732919</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235732919</updated>
+    </task>
+    <task id="LOCAL-00075" summary="update">
+      <created>1674235767794</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235767794</updated>
+    </task>
+    <task id="LOCAL-00076" summary="add conditional to when the user upload an evidence then can view if was success or not. This can view the user through of alerts">
+      <created>1674618489034</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618489034</updated>
+    </task>
+    <task id="LOCAL-00077" summary="add context to the communication by club">
+      <created>1674618531313</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618531313</updated>
+    </task>
+    <task id="LOCAL-00078" summary="delete dependencies that it not need">
+      <created>1674618621622</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618621622</updated>
+    </task>
+    <task id="LOCAL-00079" summary="add component to that the user view your files or evidences uploaded">
+      <created>1674618710174</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618710174</updated>
+    </task>
+    <task id="LOCAL-00080" summary="add json to use flex layout library to can view evidences by activity">
+      <created>1674618817230</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618817230</updated>
+    </task>
+    <task id="LOCAL-00081" summary="add flex layout library">
+      <created>1674618835610</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618835611</updated>
+    </task>
+    <task id="LOCAL-00082" summary="add or upload routes">
+      <created>1674618862358</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618862358</updated>
+    </task>
+    <task id="LOCAL-00083" summary="add search component to search the evidences by its name or description">
+      <created>1674618906874</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618906874</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,31 +508,35 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="class to upload files" />
-    <MESSAGE value="include the method to upload evidences" />
-    <MESSAGE value="add components tables" />
-    <MESSAGE value="change the key from localstorage from user to user_clubs_system" />
-    <MESSAGE value="add components to events" />
-    <MESSAGE value="add components to reports" />
-    <MESSAGE value="add new link and access to link of events" />
-    <MESSAGE value="add the route to events" />
-    <MESSAGE value="create a hook to get the data from request get" />
-    <MESSAGE value="update the component to user permission" />
-    <MESSAGE value="update components" />
-    <MESSAGE value="delete repeated class" />
-    <MESSAGE value="add the navigation when the user register a member then navigate to other url" />
-    <MESSAGE value="add a link to navigate to edit club to the admin" />
-    <MESSAGE value="add service to get the member by his id" />
-    <MESSAGE value="change to a function of type promise" />
-    <MESSAGE value="add service to get member by id and update the rol of the member" />
-    <MESSAGE value="add conditional" />
-    <MESSAGE value="update some method and add method to update the rol from member and get member by id" />
-    <MESSAGE value="change component to used component TableEdit" />
-    <MESSAGE value="use hook useDataCollectionRequest instead of method that here were" />
-    <MESSAGE value="add to method handleDelete a condition to delete from table the member that was deleted" />
-    <MESSAGE value="upload component edit club, use the hook useDataCollectionRequest instead of methods" />
-    <MESSAGE value="change the domain from input to select" />
+    <MESSAGE value="add method to upload file" />
+    <MESSAGE value="update db tn its table" />
+    <MESSAGE value="add and update services" />
+    <MESSAGE value="update space" />
+    <MESSAGE value="update method to turn in evidence by activity" />
+    <MESSAGE value="update method to upload logo by club" />
+    <MESSAGE value="update method to upload plan anual by club" />
+    <MESSAGE value="update service to get more columns of table clubs" />
+    <MESSAGE value="update method to upload acta constitutiva by club" />
+    <MESSAGE value="update component to edit the club" />
+    <MESSAGE value="add methods to upload evidence" />
+    <MESSAGE value="update the hook" />
+    <MESSAGE value="update design" />
+    <MESSAGE value="update the method and variables to upload evidencie" />
+    <MESSAGE value="update the as show the activity" />
+    <MESSAGE value="update and add params" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="add conditional to when the user upload an evidence then can view if was success or not. This can view the user through of alerts" />
+    <MESSAGE value="add context to the communication by club" />
+    <MESSAGE value="delete dependencies that it not need" />
+    <MESSAGE value="add component to that the user view your files or evidences uploaded" />
+    <MESSAGE value="add json to use flex layout library to can view evidences by activity" />
+    <MESSAGE value="add flex layout library" />
+    <MESSAGE value="add or upload routes" />
+    <MESSAGE value="add search component to search the evidences by its name or description" />
+    <option name="LAST_COMMIT_MESSAGE" value="add search component to search the evidences by its name or description" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
