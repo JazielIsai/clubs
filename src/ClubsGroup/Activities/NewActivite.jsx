@@ -49,7 +49,7 @@ export const NewActivite = () => {
       objetivo_desarrollo_s: dataForm.objectiveDevelopment,
       atributo_egreso: dataForm.egressAttribute,
       calificacion_valor: dataForm.calificationValue,
-      tipo_evidencia: dataForm.typeEvidence,
+      tipo_evidencia: dataForm.tipo_evidencia,
       responsable: dataForm.responsible,
       observaciones: dataForm.observations,
       estatus: dataForm.status,
@@ -174,9 +174,9 @@ export const NewActivite = () => {
 
                 <div className={'col-md-6 col-12'}>
                     <div className='form-floating mb-3'>
-                        <select className="form-select" onChange={onInputChange} name='modality' id="floatingModality"
+                        <select className="form-select" onChange={onInputChange} name='tipo_evidencia' id="floatingModality"
                                 aria-label="Floating label select example">
-                            <option selected>Escoge el tipo de la actividad</option>
+                            <option selected>Escoge el tipo de evidencia la actividad</option>
                             <option value="Reporte"> Reporte </option>
                             <option value="Video"> Video </option>
                             <option value="Foto"> Foto </option>
@@ -193,7 +193,7 @@ export const NewActivite = () => {
                                 aria-label="Floating label select example">
                             <option selected>Escoge el dominio de la actividad</option>
                             <option value="Público"> Público </option>
-                            <option value="Privada"> Privada </option>
+                            <option value="Privado"> Privado </option>
                         </select>
                         <label htmlFor="floatingModality"> Dominio </label>
                     </div>
@@ -214,7 +214,7 @@ export const NewActivite = () => {
 
                 <div className={'col-md-6 col-12'}>
                     <div className='form-floating mb-3'>
-                        <select className="form-select" onChange={onInputChange} name='typeEvidence' id="floatingTypeEvidence"
+                        <select className="form-select" onChange={onInputChange} name='modality' id="floatingTypeEvidence"
                                 aria-label="Floating label select example">
                             <option selected>Escoge el tipo de la actividad</option>
                             <option value="Presencial"> Presencial </option>
