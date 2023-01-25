@@ -182,4 +182,13 @@ class Actividad extends MethodsCrud {
         $params = array($id);
         return $this->select_query($query, $params);
     }
+
+    public function update_status_of_activity($user_info)
+    {
+        $query = "UPDATE `actividad` SET `estatus`=? WHERE id = ?;";
+
+        $data = array($user_info->estatus, $user_info->id);
+
+        return $this->update_delete_query($query, array($data));
+    }
 }
