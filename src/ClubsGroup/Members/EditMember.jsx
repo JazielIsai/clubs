@@ -8,7 +8,6 @@ import { requestPost} from '../../helpers';
 export const EditMember = () => {
 
     const { club_id, id_member } = useParams();
-    
 
     const { dataForm, onInputChange, onResetForm } = useForm({});
 
@@ -26,7 +25,6 @@ export const EditMember = () => {
         `get_all_rol_members_clubs`,
         'all'
     );
-    
    
    const handleSendPost = (e) => {
         e.preventDefault();
@@ -47,8 +45,6 @@ export const EditMember = () => {
             telefono:dataForm?.phone || getMember?.telefono,
         }
 
-        console.log(body);
-
         const formData = new FormData();
         formData.append('member_info', JSON.stringify(body));
         requestPost('update_member', formData)
@@ -64,8 +60,7 @@ export const EditMember = () => {
                 console.log(err);
             })
     }
-   
-     
+
     return (
         <div className={'container'}>
 
@@ -119,7 +114,7 @@ export const EditMember = () => {
                     </div>
                     
                     <div className='col-12 col-md-2  form-floating mb-3 ps-0'>
-                        <input type="text" className="form-control " id="floatingClub" onChange={onInputChange} name='club' defaultValue={getMember?.nombre_club}/>
+                        <input type="text" className="form-control " disabled id="floatingClub" onChange={onInputChange} name='club' defaultValue={getMember?.nombre_club}/>
                         <label  for="floatingClub"> Club </label>
                     </div>
                     
