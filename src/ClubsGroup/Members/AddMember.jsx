@@ -6,6 +6,8 @@ import { requestPost } from '../../helpers/requestPost';
 import { useFetch_RequestGet } from '../../hooks/useFetchGet';
 import { useForm } from '../../hooks/useForm';
 import {AuthContext} from "../../Auth";
+import {validateEmail, validateNumberControl} from '../../helpers/Validation';
+
 
 export const AddMember = () => {
 
@@ -24,6 +26,9 @@ export const AddMember = () => {
     const [ getSpeciality, setSpeciality ] = useState(null);
     const [ getRolesMembers, setRolesMembers ] = useState(null);
     const [ getClubs, setClubs ] = useState(null);
+
+    const [emailError, setemailError] = useState();
+    const [numberControlError, setnumberControlError] = useState();
 
     useEffect ( () => {
             
@@ -92,7 +97,8 @@ export const AddMember = () => {
                     
                     <div className='col-12 col-md-6'>
                         <div className='form-floating mb-3'>
-                            <input type="text" onChange={onInputChange} name='number_control' class="form-control" id="floatingNumberControl" placeholder="" />
+                            <input type="text" onChange={onInputChange} name='number_control' class="form-control" id="floatingNumberControl" placeholder="" onBlur={()=>setnumberControlError(validateNumberControl(dataForm.number_control))}/>
+                            <div className="text-danger">{numberControlError}</div>
                             <label for="floatingNumberControl">Numero de Control</label>
                         </div>
                     </div>
@@ -169,7 +175,8 @@ export const AddMember = () => {
                     
                     <div className='col-12 col-md-6'>
                         <div className='form-floating mb-3'>
-                            <input type={'email'} onChange={onInputChange} name='email' class="form-control" id="floatingEmail" ></input>
+                            <input type={'email'} onChange={onInputChange} name='email' class="form-control" id="floatingEmail" onBlur={()=>setemailError(validateEmail(dataForm.email))}></input>
+                            <div className="text-danger">{emailError}</div>
                             <label for="floatingEmail"> Email </label>
                         </div>
                     </div>
