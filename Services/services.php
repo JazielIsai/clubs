@@ -152,6 +152,7 @@ switch ($servicesName){
         else
             echo ($services_activities->add_activity(json_decode($_POST['activity_info'])));
         break;
+
     case 'update_activity':
         if (!isset($_POST['activity_info']))
             echo 'Error: missing info.';
@@ -191,14 +192,6 @@ switch ($servicesName){
     case 'get_count_activities_public':
         echo json_encode($services_activities->get_count_activities_public());
         break;
-
-    case 'update_status_of_activity':
-        if (!isset($_POST['$user_info']))
-            echo 'Error: missing info.';
-        else
-            echo ($services_activities->update_status_of_activity(secure_json_decode($_POST['$user_info'])));
-        break;
-
 
 // Evidences
     case 'get_evidences_by_activity':
@@ -491,7 +484,7 @@ switch ($servicesName){
         else
             echo ($services_rol_member_club->update_rol_member_club($_POST['name_rol_member_club'], $_POST['id_rol_member_club']));
         break;
-
+    
     case 'delete_rol_member_club':
         if (!isset($_POST['id_rol_member_club']))
             echo 'Error: missing id.';
@@ -499,7 +492,6 @@ switch ($servicesName){
             echo $services_rol_member_club->delete_rol_member_club($_POST['id_rol_member_club']);
         break;
 
-    
         //actividades por club
     case 'get_activities_by_id_club':
         if (isset($_GET['get_activities_by_id_club']))

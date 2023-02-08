@@ -33,6 +33,8 @@ class Evidences extends MethodsCrud {
     {
         $path_destination = './clubs_files/' . $id_club . '_' . $nameClub . '/evidencias/' . $new_evidence->id_actividad . '/';
 
+        error_log('id_club ' . $id_club);
+
         $response = $this->uploadDocument->upload_file($_FILES['file_evidencia_info'], $path_destination, 2097152);
 
         if ($response['upload']) {
