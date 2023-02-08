@@ -4,6 +4,7 @@ import { useForm } from '../../hooks/useForm';
 import { AuthContext } from '../Context';
 import ITESI_TECNM from '../../Assets/img/ITESI-TECNM.png';
 import LogoITESI from '../../Assets/img/LogoITESI.png';
+import {validateEmail, validatePassword} from '../../helpers/Validation';
 
 export const Login = () => {
 
@@ -14,7 +15,9 @@ export const Login = () => {
   email:'',
   password:''
   });
-  
+
+  const [emailError, setemailError] = useState();
+  const [passwordError, setpasswordError] = useState();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -80,9 +83,11 @@ export const Login = () => {
                   id="floatingInput"
                   value={email}
                   onChange={onInputChange}
+                  onBlur={()=>setemailError(validateEmail(email))}
                   placeholder="name@example.com"
                   name="email"
                 />
+                <div className="text-danger">{emailError}</div>
                 <label htmlFor="floatingInput">Correo electronico</label>
               </div>
               <div className="form-floating">
@@ -90,11 +95,13 @@ export const Login = () => {
                   type="password"
                   value={password}
                   onChange={onInputChange}
+                  onBlur={()=>setpasswordError(validatePassword(password))}
                   className="form-control"
                   id="floatingPassword"
                   placeholder="Password"
                   name="password"
                 />
+                <div className="text-danger">{passwordError}</div>
                 <label htmlFor="floatingPassword">Contraseña</label>
               </div>
               <div className="d-flex justify-content-end">
