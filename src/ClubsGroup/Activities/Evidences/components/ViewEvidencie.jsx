@@ -11,7 +11,7 @@ export const ViewEvidencies = ( { evidencies, handleAddTab } ) => {
     console.log(dataEvidencie);
 
     return (
-        <div className='container'>
+        <div className='w-100 h-100 d-flex '>
 
             {
                 dataEvidencie?.ruta ? (
