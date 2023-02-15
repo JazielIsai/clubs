@@ -22,19 +22,11 @@ export const ViewPDF = ( { pathFile = '' } ) => {
     console.log(pathFile)
 
     return (
-        <div className=''>
+        <object
+        id={"pdfHolder"}
+        data={}
+        >
 
-            <Document
-                file={ { url: pathFile, httpHeaders: { 'X-CustomHeader': '40359820958024350238508234' }, withCredentials: true } }
-                onLoadSuccess={onDocumentLoadSuccess}
-                loading={<p>The pdf is loading...</p>}
-                options={options}
-            >
-                <Page pageNumber={pageNumber} />
-            </Document>
-            <p>
-                Page {pageNumber} of {numPages}
-            </p>
-        </div>
+        </object>
     )
 }
