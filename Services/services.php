@@ -46,6 +46,7 @@ include_once  './model/ActaConstitutiva.php';
 include_once './model/TypeActivity.php';
 include_once './model/EvaluationMember.php';
 include_once './model/LogoClub.php';
+include_once './model/profile_user.php';
 
 include_once './Controller/UploadDocument.php';
 
@@ -68,6 +69,7 @@ $services_acta = new ActaConstitutiva();
 $services_type_activity = new TypeActivity();
 $services_evaluation_member = new EvaluationMember();
 $services_logo = new LogoClub();
+$services_profile_user = new ProfileUser();
 
 $servicesName = $_GET['servicesName'] ?? '';
 
@@ -108,7 +110,24 @@ switch ($servicesName){
             echo ($services_users->update_user(secure_json_decode($_POST['user_info'])));
         break;
     
-        
+    // phot of profile user
+    case 'add_photo':
+        try {
+            echo ($services_profile_user->add_photo(secure_json_decode($_POST['photo_data']), $_POST['nameUser']));
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+        break;
+    
+    case 'get_photo_by_user':
+        if (!isset($_GET['user_id']))
+            echo 'Error: missing id.';
+        else
+            echo secure_json_encode($services_profile_user->get_photo_by_user($_GET['user_id']));
+        break;
+
+
     // Services to table clubs
     case 'get_all_clubs':
         echo secure_json_encode($services_clubes->get_all_clubs());
@@ -209,6 +228,8 @@ switch ($servicesName){
     case 'add_evidence':
         if (isset( $_POST['evidence_info'], $_POST['id_club'], $_POST['nameClub'] ))
             echo ($services_evidences->add_evidence(secure_json_decode($_POST['evidence_info']), $_POST['id_club'], $_POST['nameClub']));
+        else
+            echo 'Error: missing info.';
         break;
 
 // Campuses
@@ -302,6 +323,15 @@ switch ($servicesName){
 // Type Activity
     case 'get_all_type_activity':
         echo json_encode($services_type_activity->get_all_type_activity());
+        break;
+    
+    case 'add_type_activity':
+        if (!isset($_POST['name_type_activity'])){
+            echo 'Error: missing info.
+                    ya mamaste';
+        } else {
+            echo $services_type_activity->add_type_activity($_POST['name_type_activity']);
+        }
         break;
 
 
