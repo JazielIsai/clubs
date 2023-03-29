@@ -19,13 +19,14 @@ class Idioma extends MethodsCrud
         return $this->insert_query($query,array($query_data));
     }
 
-    public function update_language ($name_language, $id_language) {
+    public function update_language ($language_info) {
         $query = "
             UPDATE clubs_itesi.idioma SET idioma = ?
             WHERE id = ?
         ";
 
-        $params = array($name_language, $id_language);
+        $params = array($language_info->idioma,
+                        $language_info->id);
         return $this->update_delete_query($query, array($params));
     }
 
