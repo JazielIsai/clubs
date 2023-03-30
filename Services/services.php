@@ -352,6 +352,20 @@ switch ($servicesName){
             echo $services_type_activity->add_type_activity($_POST['name_type_activity']);
         }
         break;
+    case 'delete_type_activity':
+        if (!isset($_POST['id_type_activity'])){
+            echo 'Error: missing info.';
+        } else {
+            echo $services_type_activity->delete_type_activity($_POST['id_type_activity']);
+        }
+        break;
+    case 'update_type_activity':
+        if (!isset($_POST['name_type_activity'], $_POST['id_type_activity'])){
+            echo 'Error: missing info.';
+        } else {
+            echo $services_type_activity->update_type_activity($_POST['name_type_activity'],  $_POST['id_type_activity']);
+        }
+        break;
 
 
 //Skills
