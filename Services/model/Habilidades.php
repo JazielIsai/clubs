@@ -19,13 +19,14 @@ class Habilidades extends MethodsCrud {
             return $this->insert_query($query,array($query_data));
     }
 
-    public function update_skill ($name_skill, $id_skill) {
+    public function update_skill ($skill_info) {
         $query = "
             UPDATE habilidades SET nombre = ?
             WHERE id = ?
         ";
 
-        $params = array($name_skill, $id_skill);
+        $params = array($skill_info->nombre,
+                        $skill_info->id);
         return $this->update_delete_query($query, array($params));
     }
 
@@ -37,7 +38,4 @@ class Habilidades extends MethodsCrud {
 
         return $this->update_delete_query($query, array($params));
     }
-
-
-
 }
