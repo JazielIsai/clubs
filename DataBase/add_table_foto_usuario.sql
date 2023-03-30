@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `foto_usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `foto_usuario` (
-  `id_foto` int(11) NOT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `ruta` varchar(60) DEFAULT NULL,
-  `id_user` int(11) NOT NULL,
+  `id_foto` int NOT NULL auto_increment,
+  `nombre` text DEFAULT NULL,
+  `ruta` text DEFAULT NULL,
+  `id_user` int NOT NULL,
   PRIMARY KEY (`id_foto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
