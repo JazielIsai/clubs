@@ -2,7 +2,9 @@ import React, {useContext, useEffect, useState} from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Auth';
 import logo_itesi from '../Assets/img/LogoITESI.png'
-import {useFetch_RequestGet} from "../hooks/useFetchGet";
+import {useFetch_RequestGet, useDataCollectionRequest} from "../hooks/useFetchGet";
+import {urlDBLogin} from "../Shared/baseUrl";
+import {requestGet} from "../helpers";
 
 export const HeaderUser = () => {
 
@@ -14,14 +16,33 @@ export const HeaderUser = () => {
 
   const [ dataClub, setDataClub ] = useState('');
 
+  const [img, setImg] = useState();
+
+  const {data: fotoUser} = useFetch_RequestGet(
+      `get_photo_by_user&user_id=${user.user_id}`,
+      `row`
+  )
+
   const handleLogout = () => {
     logout();
     navigate('/auth');
   }
 
-  useEffect(() => {
+  
+  const handleNavigateEditUser = (user_id) => {
+    navigate(`updateUser/${user_id}`);
+    console.log('este es mi user id,',user_id);
+  }
 
+  useEffect(() => {
+    requestGet(`get_photo_by_user&user_id=${user.user_id}`)
+        .then( (fotoUser) => {
+          fotoUser = JSON.parse(fotoUser)[0]
+          setImg(urlDBLogin.concat(fotoUser?.ruta.split(/^\.\//, fotoUser?.ruta.length)[1]));
+
+        } )
     try {
+
      setDataClub(JSON.parse(getClub))
     } catch (error) {
       console.log(error);
@@ -53,11 +74,11 @@ export const HeaderUser = () => {
             </div>
 
             <NavLink to="#" className="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle"/>
+              <img src={img} alt="mdo" width="32" height="32" className="rounded-circle"/>
             </NavLink>
             <ul className="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-              <li><NavLink className="dropdown-item" to="/admin/">Perfil</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/admin/">Configuración</NavLink></li>
+              <li><NavLink className="dropdown-item" to={`/club/updateUser/${user?.user_id}`}>Perfil</NavLink></li>
+              <li><NavLink className="dropdown-item" to={`/club/updateUser/${user?.user_id}`}>Configuración</NavLink></li>
               <li><hr className="dropdown-divider"/></li>
               <li><button className="dropdown-item" onClick={handleLogout} >Cerrar Sesión</button></li>
             </ul>
