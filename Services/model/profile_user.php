@@ -20,20 +20,43 @@ class ProfileUser extends MethodsCrud
         return $this->select_query($query, $params);
     }
 
-    public function add_photo($photo_data, $nameUser) 
+    public function add_photo($photo_data, $nameUser)
     {
 
-        $path_destination = $_SERVER['DOCUMENT_ROOT'].'/CLUBS/users_files/' . $photo_data->id_user . '_' . $nameUser . '/photo/' ;
-
-        print($path_destination);
+        $path_destination = './users_files/' . $photo_data->id_user . '_' . $nameUser . '/photo/' ;
 
         $response = $this->uploadDocument->upload_file($_FILES['file_photo'], $path_destination, 2097152);
 
+        $query = "SELECT id_foto, ruta FROM foto_usuario WHERE id_user = ?";
+        $id =array($photo_data->id_user);
+        $result = $this->select_query($query, $id);
+        if((count($result) > 0)){
+            $path_file = $result[0]['ruta'];
+            unlink($path_file);
+
+            if ($response['upload']) {
+
+                $query = "UPDATE foto_usuario SET nombre = ?, ruta = ?
+                        WHERE id_user = ?";
+
+                $data = array(
+                    $photo_data->nombre,
+                    $response['file_destination'],
+                    $photo_data->id_user
+                );
+
+                return $this->update_delete_query($query, array($data));
+            }
+                else {
+                            return $response;
+                }
+        }
+        else{
         if ($response['upload']) {
 
             $query = "
-                        INSERT INTO foto_usuario (id_foto, nombre, ruta, id_user)
-                        VALUES (?, ?, ?, ?);
+                        INSERT INTO foto_usuario (nombre, ruta, id_user)
+                        VALUES (?, ?, ?);
                     ";
 
             $data = array(
@@ -43,9 +66,14 @@ class ProfileUser extends MethodsCrud
             );
 
             return $this->insert_query($query, array($data));
-        } else {
-            return $response;
+            }
+            else {
+                        return $response;
+            }
         }
+
+
+
 
     }
 }
