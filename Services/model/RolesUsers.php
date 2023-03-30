@@ -43,4 +43,13 @@ class RolesUsers extends MethodsCrud {
         return $this->update_delete_query($query, array($data));
     }
 
+    public function get_rol_name_by_rol_id_user(){
+        $query = "
+            SELECT roles.id, roles.nombre FROM roles
+            INNER JOIN usuarios
+            ON usuarios.id_rol=roles.id
+        ";
+        
+        return $this->select_query($query);
+    }
 }
