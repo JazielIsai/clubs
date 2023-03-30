@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react'
-import {Navigate, Route, Routes, useNavigate} from 'react-router-dom';
+import {Navigate, Route, Routes, useNavigate} from 'react-router-dom'
 import { Footer } from '../../Includes/Footer'
 import { Activities } from '../Activities/Activities'
 import { EditActivitie } from '../Activities/EditActivitie'
@@ -18,7 +18,7 @@ import {ViewEvidences} from "../Activities/Evidences/ViewEvidences";
 import {EvaluatePerformance} from "../Activities/EvaluatePerformance/EvaluatePerformance";
 import {Events} from "../Activities/Events/Events";
 import {Reports} from "../Reports/Reports";
-import {ViewEvidenceByActivity} from "../Activities/Evidences/ViewEvidenceByActivity";
+import {UpdateUser} from "../../ClubsAdmin/Accounts/UpdateUser";
 
 export const RoutesClubGroup = () => {
 
@@ -39,9 +39,11 @@ export const RoutesClubGroup = () => {
                 <Routes>
 
                     <Route path='dashboard/:id/:club_name' element={<DashboardByClub />} />
-
+                    
                     <Route path='updateClub/:club_id' element={<EditClub />} />
 
+                    <Route path='updateUser/:user_id' element={<UpdateUser />} />
+                    
                     <Route path='activities/:club_id/:club_name' element={<Activities />} />
                     <Route path='activities/add/:club_id' element={<NewActivite />} />
                     <Route path='activities/edit/:club_id/:id_activitie' element={<EditActivitie/>} />
@@ -50,20 +52,19 @@ export const RoutesClubGroup = () => {
                     <Route path='activities/evidences/:club_id/:name_club/:id_activitie/:nameActivitie' element={<Evidences />} />
                     <Route path='activities/evidences/add/:club_id/:id_activitie' element={<AddEvidences />} />
                     <Route path='activities/evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
-                    <Route path={'activities/view_evidencie_by_activity/:activity_id/:activity_name'} element={<ViewEvidenceByActivity />} />
 
                     <Route path='activities/evaluateMember/:club_id/:idActivity/:nameActivity' element={<EvaluatePerformance /> } />
-
+                    
                     <Route path='members/:club_id' element={<Members />} />
                     <Route path='members/add/:club_id' element={<AddMember />} />
                     <Route path='members/edit/:club_id/:id_member' element={<EditMember />} />
-
+                    
                     <Route path='events_public' element={<Events />} />
 
                     <Route path={'reports_by_club/:club_id'} element={<Reports />} />
-
+                    
                     <Route path='/*' element={<Navigate to={`/club/dashboard/${user.id_club}/${user.club}`} />} />
-
+                    
                 </Routes>
             </div>
             <Footer />
