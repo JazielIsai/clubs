@@ -78,33 +78,14 @@ switch ($servicesName){
     case 'get_all_roles':
         echo secure_json_encode($services_roles_user->get_all_roles());
         break;
-    case 'add_new_role':
-        if(isset($_POST['role_name']))
-            echo json_encode($services_roles_user->add_new_role($_POST['role_name']));
-        else
-            echo 'Error: missing role name';
-        break;
-    case 'update_role':
-        if(isset($_POST['role_info']))
-            echo ($services_roles_user->update_role(json_decode($_POST['role_info'])));
-        else
-            echo 'Error: missing role info';
-        break;
-    case 'delete_role':
-        if (!isset($_POST['id_role']))
-            echo 'Error: missing id.';
-        else
-            echo secure_json_encode($services_roles_user->delete_role($_POST['id_role']));
-        break;
-
 
     //Services to table users
     case 'get_all_users':
         echo secure_json_encode($services_users->get_all_users());
         break;
     case 'get_user_by_id':
-        if ( isset($_POST['user_id']) )
-        echo secure_json_encode($services_users->get_user_by_id($_POST['user_id']));
+        if ( isset($_GET['user_id']) )
+        echo secure_json_encode($services_users->get_user_by_id($_GET['user_id']));
         break;
 
     case 'existing_user':
@@ -290,7 +271,7 @@ switch ($servicesName){
         if (!isset($_POST['name_category'])){
             echo 'Error: missing info.';
         } else {
-            echo $services_category_to_club->add_category_to_club(secure_json_decode($_POST['name_category']));
+            echo $services_category_to_club->add_category_to_club($_POST['name_category']);
         }
         break;
 
@@ -352,20 +333,6 @@ switch ($servicesName){
             echo $services_type_activity->add_type_activity($_POST['name_type_activity']);
         }
         break;
-    case 'delete_type_activity':
-        if (!isset($_POST['id_type_activity'])){
-            echo 'Error: missing info.';
-        } else {
-            echo $services_type_activity->delete_type_activity($_POST['id_type_activity']);
-        }
-        break;
-    case 'update_type_activity':
-        if (!isset($_POST['name_type_activity'], $_POST['id_type_activity'])){
-            echo 'Error: missing info.';
-        } else {
-            echo $services_type_activity->update_type_activity($_POST['name_type_activity'],  $_POST['id_type_activity']);
-        }
-        break;
 
 
 //Skills
@@ -375,17 +342,17 @@ switch ($servicesName){
 
     case 'insert_a_new_skill':
         if(isset($_POST['skill_info'])){
-            echo $services_skills->insert_a_new_skill($_POST['skill_info'] );
+            echo $services_skills->insert_a_new_skill( $_POST['skill_info'] );
         }else{
-            echo "Error: missing skill_info";
+            echo "Error";
         }
         break;
 
     case 'update_skill':
-        if (!isset($_POST['skill_info'])){
+        if (!isset($_POST['name_skill'], $_POST['id_skill'])){
             echo 'Error: missing info.';
         } else {
-            echo $services_skills->update_skill(secure_json_decode($_POST['skill_info']));
+            echo $services_skills->update_skill($_POST['name_skill'],  $_POST['id_skill']);
         }
         break;
 
@@ -412,10 +379,10 @@ switch ($servicesName){
         break;
 
     case 'update_language':
-        if (!isset($_POST['language_info'])){
+        if (!isset($_POST['name_language'], $_POST['id_language'])){
             echo 'Error: missing info.';
         } else {
-            echo $service_idioms->update_language(json_decode($_POST['language_info']));
+            echo $service_idioms->update_language($_POST['name_language'],  $_POST['id_language']);
         }
         break;
 
@@ -509,30 +476,17 @@ switch ($servicesName){
         echo secure_json_encode($services_users_club->get_all_presidents());
         break;
 
-// Especialidad
-    case 'get_all_specialties':
-        echo secure_json_encode($services_specialities->get_all_specialties());
+    // Especialidad
+    case 'get_all_speciality':
+        echo secure_json_encode($services_specialities->get_all_especialidades());
         break;
 
-    case 'add_new_specialty':
-        if(isset($_POST['specialty_info']))
-            echo $services_specialities->add_new_specialty(secure_json_decode($_POST['specialty_info']));
-        else
-            echo "Error: missing specialty_info";
-        break;
-
-    case 'update_specialty':
-        if(isset($_POST['specialty_info']))
-            echo $services_specialities->update_specialty(secure_json_decode($_POST['specialty_info']));
-        else
-            echo "Error: missing specialty_info";
-        break;
-
-    case 'delete_specialty':
-        if (!isset($_POST['id_specialty']))
-            echo 'Error: missing id.';
-        else
-            echo $services_specialities->delete_specialty(secure_json_decode($_POST['id_specialty']));
+    case 'add_new_especialidad':
+        if(isset($_POST['especialidad_info'])){
+            echo $services_specialities->add_new_especialidad(secure_json_decode($_POST['especialidad_info']));
+        }else{
+            echo "Error";
+        }
         break;
 
 
