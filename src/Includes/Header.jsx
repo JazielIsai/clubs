@@ -9,10 +9,15 @@ export const Header = () => {
 
   const navigate = useNavigate();
 
+
   const handleLogout = () => {
     logout();
     navigate('/auth');
   }
+
+  const handleNavigateEditUser = () => {
+    navigate(`/admin/updateUser/`);
+}
 
   return (
     <header className="p-3 mb-3 border-bottom">
@@ -41,8 +46,8 @@ export const Header = () => {
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle"/>
             </NavLink>
             <ul className="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-              <li><NavLink className="dropdown-item" to="/admin/">Perfil</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/admin/">Configuración</NavLink></li>
+              <li><NavLink className="dropdown-item" to={`/admin/updateUser/${user?.user_id}`}>Perfil</NavLink></li>
+              <li><NavLink className="dropdown-item" to={`/admin/updateUser/${user?.user_id}`}>Configuración</NavLink></li>
               <li><hr className="dropdown-divider"/></li>
               <li><button className="dropdown-item" onClick={handleLogout} >Cerrar Sesión</button></li>
             </ul>

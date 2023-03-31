@@ -67,7 +67,7 @@ export const RoutesClubs = () => {
               <Route path="viewUsers" element={<ViewUsers />} />
               <Route path='registerUsers' element={<RegisterUser />} />
               <Route path='updateUser/:user_id' element={<UpdateUser />} />
-
+    
               <Route path="adminGeneral" element={<AdminGeneral />} />
               
               <Route path="/*" element={<Navigate to="/admin/dashboard" />} />
