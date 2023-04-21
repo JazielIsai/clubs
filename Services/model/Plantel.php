@@ -23,8 +23,8 @@ class Plantel extends MethodsCrud {
     }
     public function update_campuses ($name_campus, $id_campus) {
         $query = "
-            UPDATE plantel SET nombre = ?
-            WHERE id = ?
+            UPDATE clubs_itesi.plantel p SET p.nombre = ?
+            WHERE p.id = ?;
         ";
 
         $params = array($name_campus, $id_campus);
