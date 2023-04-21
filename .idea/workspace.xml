@@ -3,17 +3,26 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BnAndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="Modificar la ruta para mostrar el componente UpdateUser">
+    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/config/configuration.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Services/config/configuration.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/model/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DOCS/ModeloER_CLUBS.mdj" beforeDir="false" afterPath="$PROJECT_DIR$/DOCS/ModeloER_CLUBS.mdj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/rol_member_club.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/rol_member_club.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/UpdateUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/UpdateUser.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Routes/RoutesClubs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Includes/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Includes/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Abilitis.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/Lenguage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Activities/TipoAct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/CategoryClub.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/EspecialidadClub.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Clubs/Plantel.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/Especialidad.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/Especialidad.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/AdminGeneral/Components/Members/RolMember.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Context/ClubProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Context/ClubProvider.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,33 +41,36 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
   <component name="ProjectId" id="2IgXWaaNK1aTz7Z3cZt1aQ7NFKm" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/var/www/html/workflow_backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/isai/Documents/components-pattern",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "AtomConfig",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Context" />
       <recent name="$PROJECT_DIR$/src/ClubsGroup/Activities/EvaluatePerformance" />
     </key>
   </component>
@@ -119,215 +131,25 @@
       <workItem from="1673446662908" duration="620000" />
       <workItem from="1673456734825" duration="6962000" />
       <workItem from="1673488367493" duration="6509000" />
-      <workItem from="1673532931503" duration="1433000" />
-      <workItem from="1676917137817" duration="165000" />
-      <workItem from="1677686246837" duration="372000" />
-      <workItem from="1680115326736" duration="15190000" />
-      <workItem from="1680188612398" duration="17020000" />
-      <workItem from="1680284481475" duration="980000" />
-    </task>
-    <task id="LOCAL-00012" summary="update the access to system according ti its rol and club if is the case">
-      <created>1671680635166</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1671680635166</updated>
-    </task>
-    <task id="LOCAL-00013" summary="update the access to system according ti its rol and club if is the case">
-      <created>1671684296936</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1671684296936</updated>
-    </task>
-    <task id="LOCAL-00014" summary="add table evaluacion_miembro">
-      <created>1671686943973</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1671686943973</updated>
-    </task>
-    <task id="LOCAL-00015" summary="add navigation according to clubs and admin">
-      <created>1671824879411</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1671824879411</updated>
-    </task>
-    <task id="LOCAL-00016" summary="add use fetch request get">
-      <created>1671825012741</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1671825012741</updated>
-    </task>
-    <task id="LOCAL-00017" summary="add services to table evaluation member">
-      <created>1671855918450</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1671855918450</updated>
-    </task>
-    <task id="LOCAL-00018" summary="update components">
-      <created>1671855958069</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1671855958070</updated>
-    </task>
-    <task id="LOCAL-00019" summary="add component to evaluate performance by member">
-      <created>1671855982286</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1671855982286</updated>
-    </task>
-    <task id="LOCAL-00020" summary="add route to go evaluate to member by activity">
-      <created>1672540182114</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1672540182114</updated>
-    </task>
-    <task id="LOCAL-00021" summary="add method of save and update the evaluation by member">
-      <created>1672549616297</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1672549616297</updated>
-    </task>
-    <task id="LOCAL-00022" summary="fix: add parameter to method of go to evaluate member and update the title design">
-      <created>1672550740832</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1672550740832</updated>
-    </task>
-    <task id="LOCAL-00023" summary="update design and add field">
-      <created>1672553652159</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1672553652159</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Divide component in two to its major administration so, I create a new component: TableEvidences.jsx">
-      <created>1672637538791</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637538791</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Add component in order to views all evidences by activity">
-      <created>1672637579296</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637579296</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Upload club's data by defect">
-      <created>1672637656350</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637656350</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Upload all activities by club and add button in the table by each row in order to navigate to view evidence of the activity current">
-      <created>1672637798822</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637798822</updated>
-    </task>
-    <task id="LOCAL-00028" summary="load">
-      <created>1672637827223</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637827223</updated>
-    </task>
-    <task id="LOCAL-00029" summary="load">
-      <created>1672637835776</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1672637835776</updated>
-    </task>
-    <task id="LOCAL-00030" summary="add component to user permissions">
-      <created>1672642316501</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1672642316501</updated>
-    </task>
-    <task id="LOCAL-00031" summary="update the user table to change the rol of the user if is required">
-      <created>1672723848247</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1672723848247</updated>
-    </task>
-    <task id="LOCAL-00032" summary="files to validate different expression and to download files">
-      <created>1673365419935</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1673365419935</updated>
-    </task>
-    <task id="LOCAL-00033" summary="class to upload files">
-      <created>1673365437416</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1673365437416</updated>
-    </task>
-    <task id="LOCAL-00034" summary="include the method to upload evidences">
-      <created>1673370102345</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1673370102345</updated>
-    </task>
-    <task id="LOCAL-00035" summary="delete repeated class">
-      <created>1673493707752</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1673493707752</updated>
-    </task>
-    <task id="LOCAL-00036" summary="add the navigation when the user register a member then navigate to other url">
-      <created>1673499285953</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499285953</updated>
-    </task>
-    <task id="LOCAL-00037" summary="add the navigation when the user register a member then navigate to other url">
-      <created>1673499303601</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499303601</updated>
-    </task>
-    <task id="LOCAL-00038" summary="add a link to navigate to edit club to the admin">
-      <created>1673499335853</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499335853</updated>
-    </task>
-    <task id="LOCAL-00039" summary="add service to get the member by his id">
-      <created>1673499368774</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499368774</updated>
-    </task>
-    <task id="LOCAL-00040" summary="change to a function of type promise">
-      <created>1673499398767</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499398767</updated>
+      <workItem from="1673532931503" duration="16754000" />
+      <workItem from="1673568823425" duration="10000" />
+      <workItem from="1673584047582" duration="1216000" />
+      <workItem from="1673620896463" duration="1230000" />
+      <workItem from="1673630010676" duration="5587000" />
+      <workItem from="1673650747070" duration="601000" />
+      <workItem from="1673663092439" duration="1548000" />
+      <workItem from="1673890844357" duration="403000" />
+      <workItem from="1673922754093" duration="37000" />
+      <workItem from="1673924702083" duration="186000" />
+      <workItem from="1674226192635" duration="14677000" />
+      <workItem from="1674245516857" duration="60000" />
+      <workItem from="1674357409938" duration="1325000" />
+      <workItem from="1674451482304" duration="208000" />
+      <workItem from="1674570721452" duration="1198000" />
+      <workItem from="1674574467268" duration="3145000" />
+      <workItem from="1674583379305" duration="2558000" />
+      <workItem from="1674586365206" duration="9119000" />
+      <workItem from="1674613226437" duration="1548000" />
     </task>
     <task id="LOCAL-00041" summary="update">
       <created>1673499409635</created>
@@ -427,49 +249,252 @@
       <option name="project" value="LOCAL" />
       <updated>1673502882823</updated>
     </task>
-    <task id="LOCAL-00055" summary="actualizar el archivo sql que agrega la tabla foto_usuario">
-      <created>1680202569274</created>
+    <task id="LOCAL-00055" summary="add method to upload file">
+      <created>1673534496193</created>
       <option name="number" value="00055" />
       <option name="presentableId" value="LOCAL-00055" />
       <option name="project" value="LOCAL" />
-      <updated>1680202569275</updated>
+      <updated>1673534496194</updated>
     </task>
-    <task id="LOCAL-00056" summary="modicaciones para validar si existe o no una imagen en la base de datos">
-      <created>1680202879111</created>
+    <task id="LOCAL-00056" summary="add method to upload file">
+      <created>1673534549084</created>
       <option name="number" value="00056" />
       <option name="presentableId" value="LOCAL-00056" />
       <option name="project" value="LOCAL" />
-      <updated>1680202879111</updated>
+      <updated>1673534549084</updated>
     </task>
-    <task id="LOCAL-00057" summary="arreglar para que funcione la actualizacion de usuarios asi como la foto de perfil">
-      <created>1680202952688</created>
+    <task id="LOCAL-00057" summary="add method to upload file">
+      <created>1673534598902</created>
       <option name="number" value="00057" />
       <option name="presentableId" value="LOCAL-00057" />
       <option name="project" value="LOCAL" />
-      <updated>1680202952688</updated>
+      <updated>1673534598902</updated>
     </task>
-    <task id="LOCAL-00058" summary="Modificaciones para la ruta al presionar el boton de perfil y para mostrar la imagen">
-      <created>1680203281047</created>
+    <task id="LOCAL-00058" summary="update">
+      <created>1673534645129</created>
       <option name="number" value="00058" />
       <option name="presentableId" value="LOCAL-00058" />
       <option name="project" value="LOCAL" />
-      <updated>1680203281047</updated>
+      <updated>1673534645129</updated>
     </task>
-    <task id="LOCAL-00059" summary="Añadir la funcion para obtener el nombre del rol con el id del usuario">
-      <created>1680203359614</created>
+    <task id="LOCAL-00059" summary="update db tn its table">
+      <created>1673663553186</created>
       <option name="number" value="00059" />
       <option name="presentableId" value="LOCAL-00059" />
       <option name="project" value="LOCAL" />
-      <updated>1680203359614</updated>
+      <updated>1673663553186</updated>
     </task>
-    <task id="LOCAL-00060" summary="Modificar la ruta para mostrar el componente UpdateUser">
-      <created>1680203484046</created>
+    <task id="LOCAL-00060" summary="add and update services">
+      <created>1673663590588</created>
       <option name="number" value="00060" />
       <option name="presentableId" value="LOCAL-00060" />
       <option name="project" value="LOCAL" />
-      <updated>1680203484046</updated>
+      <updated>1673663590588</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="update space">
+      <created>1673663625690</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663625690</updated>
+    </task>
+    <task id="LOCAL-00062" summary="update method to turn in evidence by activity">
+      <created>1673663703998</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663703998</updated>
+    </task>
+    <task id="LOCAL-00063" summary="update method to upload logo by club">
+      <created>1673663738213</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663738214</updated>
+    </task>
+    <task id="LOCAL-00064" summary="update method to upload plan anual by club">
+      <created>1673663763797</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663763797</updated>
+    </task>
+    <task id="LOCAL-00065" summary="update service to get more columns of table clubs">
+      <created>1673663800448</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663800448</updated>
+    </task>
+    <task id="LOCAL-00066" summary="update method to upload acta constitutiva by club">
+      <created>1673663871987</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663871987</updated>
+    </task>
+    <task id="LOCAL-00067" summary="update component to edit the club">
+      <created>1673663930850</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1673663930850</updated>
+    </task>
+    <task id="LOCAL-00068" summary="add methods to upload evidence">
+      <created>1673664006407</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1673664006407</updated>
+    </task>
+    <task id="LOCAL-00069" summary="update the hook">
+      <created>1673664022476</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1673664022476</updated>
+    </task>
+    <task id="LOCAL-00070" summary="update design">
+      <created>1674235591127</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235591127</updated>
+    </task>
+    <task id="LOCAL-00071" summary="update the method and variables to upload evidencie">
+      <created>1674235636388</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235636388</updated>
+    </task>
+    <task id="LOCAL-00072" summary="update the as show the activity">
+      <created>1674235683135</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235683135</updated>
+    </task>
+    <task id="LOCAL-00073" summary="update and add params">
+      <created>1674235709562</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235709562</updated>
+    </task>
+    <task id="LOCAL-00074" summary="update and add params">
+      <created>1674235732919</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235732919</updated>
+    </task>
+    <task id="LOCAL-00075" summary="update">
+      <created>1674235767794</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1674235767794</updated>
+    </task>
+    <task id="LOCAL-00076" summary="add conditional to when the user upload an evidence then can view if was success or not. This can view the user through of alerts">
+      <created>1674618489034</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618489034</updated>
+    </task>
+    <task id="LOCAL-00077" summary="add context to the communication by club">
+      <created>1674618531313</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618531313</updated>
+    </task>
+    <task id="LOCAL-00078" summary="delete dependencies that it not need">
+      <created>1674618621622</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618621622</updated>
+    </task>
+    <task id="LOCAL-00079" summary="add component to that the user view your files or evidences uploaded">
+      <created>1674618710174</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618710174</updated>
+    </task>
+    <task id="LOCAL-00080" summary="add json to use flex layout library to can view evidences by activity">
+      <created>1674618817230</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618817230</updated>
+    </task>
+    <task id="LOCAL-00081" summary="add flex layout library">
+      <created>1674618835610</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618835611</updated>
+    </task>
+    <task id="LOCAL-00082" summary="add or upload routes">
+      <created>1674618862358</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618862358</updated>
+    </task>
+    <task id="LOCAL-00083" summary="add search component to search the evidences by its name or description">
+      <created>1674618906874</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618906874</updated>
+    </task>
+    <task id="LOCAL-00084" summary="update navigation route">
+      <created>1674618993212</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1674618993212</updated>
+    </task>
+    <task id="LOCAL-00085" summary="add components to view evidence by activity component">
+      <created>1674619063588</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619063588</updated>
+    </task>
+    <task id="LOCAL-00086" summary="update or used to table component in this component">
+      <created>1674619117371</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619117371</updated>
+    </task>
+    <task id="LOCAL-00087" summary="add view evidences component, this it will integrate in the component: view evidences by activity">
+      <created>1674619196726</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619196726</updated>
+    </task>
+    <task id="LOCAL-00088" summary="add view pdf component, this it will integrate in the component: view evidences">
+      <created>1674619219035</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619219035</updated>
+    </task>
+    <task id="LOCAL-00089" summary="update">
+      <created>1674619242494</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1674619242494</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,31 +512,35 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add new link and access to link of events" />
-    <MESSAGE value="add the route to events" />
-    <MESSAGE value="create a hook to get the data from request get" />
-    <MESSAGE value="update the component to user permission" />
-    <MESSAGE value="update components" />
-    <MESSAGE value="delete repeated class" />
-    <MESSAGE value="add the navigation when the user register a member then navigate to other url" />
-    <MESSAGE value="add a link to navigate to edit club to the admin" />
-    <MESSAGE value="add service to get the member by his id" />
-    <MESSAGE value="change to a function of type promise" />
-    <MESSAGE value="add service to get member by id and update the rol of the member" />
-    <MESSAGE value="add conditional" />
-    <MESSAGE value="update some method and add method to update the rol from member and get member by id" />
-    <MESSAGE value="change component to used component TableEdit" />
-    <MESSAGE value="use hook useDataCollectionRequest instead of method that here were" />
-    <MESSAGE value="add to method handleDelete a condition to delete from table the member that was deleted" />
-    <MESSAGE value="upload component edit club, use the hook useDataCollectionRequest instead of methods" />
-    <MESSAGE value="change the domain from input to select" />
+    <MESSAGE value="update method to upload logo by club" />
+    <MESSAGE value="update method to upload plan anual by club" />
+    <MESSAGE value="update service to get more columns of table clubs" />
+    <MESSAGE value="update method to upload acta constitutiva by club" />
+    <MESSAGE value="update component to edit the club" />
+    <MESSAGE value="add methods to upload evidence" />
+    <MESSAGE value="update the hook" />
+    <MESSAGE value="update design" />
+    <MESSAGE value="update the method and variables to upload evidencie" />
+    <MESSAGE value="update the as show the activity" />
+    <MESSAGE value="update and add params" />
+    <MESSAGE value="add conditional to when the user upload an evidence then can view if was success or not. This can view the user through of alerts" />
+    <MESSAGE value="add context to the communication by club" />
+    <MESSAGE value="delete dependencies that it not need" />
+    <MESSAGE value="add component to that the user view your files or evidences uploaded" />
+    <MESSAGE value="add json to use flex layout library to can view evidences by activity" />
+    <MESSAGE value="add flex layout library" />
+    <MESSAGE value="add or upload routes" />
+    <MESSAGE value="add search component to search the evidences by its name or description" />
+    <MESSAGE value="update navigation route" />
+    <MESSAGE value="add components to view evidence by activity component" />
+    <MESSAGE value="update or used to table component in this component" />
+    <MESSAGE value="add view evidences component, this it will integrate in the component: view evidences by activity" />
+    <MESSAGE value="add view pdf component, this it will integrate in the component: view evidences" />
     <MESSAGE value="update" />
-    <MESSAGE value="actualizar el archivo sql que agrega la tabla foto_usuario" />
-    <MESSAGE value="modicaciones para validar si existe o no una imagen en la base de datos" />
-    <MESSAGE value="arreglar para que funcione la actualizacion de usuarios asi como la foto de perfil" />
-    <MESSAGE value="Modificaciones para la ruta al presionar el boton de perfil y para mostrar la imagen" />
-    <MESSAGE value="Añadir la funcion para obtener el nombre del rol con el id del usuario" />
-    <MESSAGE value="Modificar la ruta para mostrar el componente UpdateUser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificar la ruta para mostrar el componente UpdateUser" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

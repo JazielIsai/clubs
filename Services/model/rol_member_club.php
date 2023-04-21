@@ -34,7 +34,7 @@ class rol_member_club extends MethodsCrud
         return $this->insert_query($query, array($params));
     }
 
-    public function update_rol_member_club ($name_rol_member_club, $id_rol_member_club) {
+    public function update_name_rol_member_club ($name_rol_member_club, $id_rol_member_club) {
         $query = "
             UPDATE clubs_itesi.rol_miembro_club SET nombre = ?
             WHERE id = ?

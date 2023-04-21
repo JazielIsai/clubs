@@ -15,6 +15,7 @@ export const Plantel = () => {
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();
+    const [disableEdit, setDisableEdit] = useState(true);
 
     useEffect( () => {
 
@@ -53,8 +54,26 @@ export const Plantel = () => {
 
     }
 
-    const handleEdit = (id) => {
-        
+    const handleEdit = (id, nameCampus) => {
+
+        if (nameCampus == '' || nameCampus == null || nameCampus == undefined) {
+            AlertError('Error', 'Todos los campos son obligatorios');
+            throw new Error('Todos los campos son obligatorios');
+        }
+
+        const formData = new FormData();
+        formData.append('name_campus', nameCampus);
+        formData.append('id_campus', id);
+
+        requestPost('update_campuses', formData)
+            .then( response => {
+                console.log(response);
+                if ( !(response.includes('Error: missing info.')) ) {
+                    AlertSuccess('Exito', 'El plantel fue actualizado con exito');
+                } else {
+                    AlertError('Error', 'Ocurrio un error al registrar la categoria');
+                }
+            });
     }
 
     const handleDelete = (id) => {
@@ -102,7 +121,11 @@ export const Plantel = () => {
                 </form>
             </div>
             <div className='col-12 col-md-6' style={{maxHeight: '65vh'}}>
-                <h5> Ver Tabla </h5>
+                <div className={'d-flex flex-row justify-content-between'}>
+                    <h5> Ver Tabla </h5>
+                    <button onClick={()=> setDisableEdit(!disableEdit)} className={'btn btn-primary'} > Editar </button>
+                </div>
+
                 <div className='table-responsive' style={{height: '90%'}}>
                 
                     <table className="table table-hover">
@@ -136,10 +159,12 @@ export const Plantel = () => {
                                         <tr key={index}>
 
                                             {/* <th scope="row"> {club?.id_club} </th> */}
-                                            <td> { activitie?.nombre } </td>
+                                            <td>
+                                                <input type={'text'} className={'form-control'} defaultValue={ activitie?.nombre } disabled={disableEdit} />
+                                            </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Editar </button>
+                                                <button onClick={()=>handleEdit(activitie?.id, activitie?.nombre)} className="btn btn-success"> Actualizar </button>
                                             </td>
                                                 
                                             <td>

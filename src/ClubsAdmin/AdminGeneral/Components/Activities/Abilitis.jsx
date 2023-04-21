@@ -14,6 +14,7 @@ export const Abilitis = () => {
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();
+    const [disableEdit, setDisableEdit] = useState(true);
 
     useEffect( () => {
 
@@ -52,8 +53,29 @@ export const Abilitis = () => {
 
     }
 
-    const handleEdit = (id) => {
-        
+    const handleEdit = (id, nameAbilities) => {
+        if (nameAbilities == '' || nameAbilities == null || nameAbilities == undefined) {
+            AlertError('Error', 'Todos los campos son obligatorios');
+            throw new Error('Todos los campos son obligatorios');
+        }
+
+        const skill_info = {
+            id: id,
+            nombre: nameAbilities
+        }
+
+        const formData = new FormData();
+        formData.append('skill_info', JSON.stringify(skill_info));
+
+        requestPost('update_skill', formData)
+            .then( response => {
+                console.log(response);
+                if ( !(response.includes('Error: missing info.')) ) {
+                    AlertSuccess('Exito', 'Categoria registrada con exito');
+                } else {
+                    AlertError('Error', 'Ocurrio un error al registrar la categoria');
+                }
+            });
     }
 
     const handleDelete = (id) => {
@@ -101,7 +123,10 @@ export const Abilitis = () => {
                     </form>
                 </div>
                 <div className='col-12 col-md-6' style={{maxHeight: '65vh'}}>
-                    <h5> Ver Tabla </h5>
+                    <div className={'d-flex flex-row justify-content-between'}>
+                        <h5> Ver Tabla </h5>
+                        <button className={'btn btn-primary'} onClick={()=>setDisableEdit(!disableEdit)} > Editar </button>
+                    </div>
                     <div className='table-responsive' style={{height: '90%'}}>
                         <table className="table table-hover">
                             <thead>
@@ -134,10 +159,12 @@ export const Abilitis = () => {
                                             <tr key={index}>
 
                                                 {/* <th scope="row"> {club?.id_club} </th> */}
-                                                <td> { activitie?.nombre } </td>
+                                                <td>
+                                                    <input type={'text'} className={'form-control'} disabled={disableEdit} defaultValue={ activitie?.nombre } />
+                                                </td>
 
                                                 <td>
-                                                    <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Editar </button>
+                                                    <button onClick={()=>handleEdit(activitie?.id, activitie?.nombre)} className="btn btn-success"> Editar </button>
                                                 </td>
 
                                                 <td>

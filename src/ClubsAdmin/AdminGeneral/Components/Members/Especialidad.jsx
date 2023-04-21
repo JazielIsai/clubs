@@ -4,13 +4,12 @@ import { useFetch_RequestGet } from '../../../../hooks/useFetchGet';
 export const Especialidad = () => {
 
 
-    const { data } = useFetch_RequestGet('get_all_speciality');
+    const { data } = useFetch_RequestGet('get_all_specialties');
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();
 
     useEffect( () => {
-
         try {
             console.log(JSON.parse(data)[0]);
             setColumn(JSON.parse(data)[0]);
@@ -26,6 +25,10 @@ export const Especialidad = () => {
     }
 
     const handleDelete = (id) => {
+
+    }
+
+    const handleEnableEdit = () => {
 
     }
 
@@ -46,7 +49,10 @@ export const Especialidad = () => {
                 </form>
             </div>
             <div className='col-12 col-md-6' style={{maxHeight: '65vh'}}>
-                <h5> Ver Tabla </h5>
+                <div className={'d-flex flex-row justify-content-between'}>
+                    <h5> Ver Tabla </h5>
+                    <button className={'btn btn-primary'} onClick={handleEnableEdit}> Editar </button>
+                </div>
                 <div className='table-responsive'  style={{height: '90%'}}>
                     <table className="table table-hover">
                         <thead>
@@ -66,7 +72,7 @@ export const Especialidad = () => {
                                         })
                                         
                                 }
-                                <th scope="col"> Ir a </th>
+                                <th scope="col"> Actualizar </th>
                                 <th scope="col"> Eliminar </th>
 
                             </tr>
@@ -82,7 +88,7 @@ export const Especialidad = () => {
                                             <td> { activitie?.nombre } </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Editar </button>
+                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-success"> Actualizar </button>
                                             </td>
                                                 
                                             <td>

@@ -15,6 +15,7 @@ export const EspecialidadClub = () => {
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();
+    const [disableEdit, setDisableEdit] = useState(true);
 
     useEffect( () => {
 
@@ -53,8 +54,27 @@ export const EspecialidadClub = () => {
 
     }
 
-    const handleEdit = (id) => {
-        
+    const handleEdit = (id, nameSpeciality) => {
+
+        if (nameSpeciality == '' || nameSpeciality == null || nameSpeciality == undefined) {
+            AlertError('Error', 'Todos los campos son obligatorios');
+            throw new Error('Todos los campos son obligatorios');
+        }
+
+        const formData = new FormData();
+        formData.append('name_speciality', nameSpeciality);
+        formData.append('id_speciality', id)
+
+        requestPost('update_clubs_speciality', formData)
+            .then( response => {
+                console.log(response);
+                if ( !(response.includes('Error: missing info.')) ) {
+                    AlertSuccess('Exito', 'La categoria se ha actualizado con exito');
+                } else {
+                    AlertError('Error', 'Ocurrio un error al registrar la categoria');
+                }
+            });
+
     }
 
     const handleDelete = (id) => {
@@ -84,6 +104,10 @@ export const EspecialidadClub = () => {
 
     }
 
+    const handleEnableEdit = () => {
+        setDisableEdit(!disableEdit);
+    }
+
   return (
     <div className='container'>
         <h3> Especialidad del club </h3>
@@ -101,7 +125,10 @@ export const EspecialidadClub = () => {
                 </form>
             </div>
             <div className='col-12 col-md-6' style={{maxHeight: '65vh'}}>
-                <h5> Ver Tabla </h5>
+                <div className={'d-flex flex-row justify-content-between'}>
+                    <h5> Ver Tabla </h5>
+                    <button className={'btn btn-primary'} onClick={handleEnableEdit}> Editar </button>
+                </div>
                 <div className='table-responsive' style={{height: '90%'}}>
 
                     <table className="table table-hover">
@@ -117,7 +144,9 @@ export const EspecialidadClub = () => {
                                             keyRow = keyRow.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
 
                                             return(
-                                                <th key={index} scope="col"> {keyRow} </th>
+                                                <th key={index} scope="col">
+                                                   {keyRow}
+                                                </th>
                                             )
                                         })
                                         
@@ -135,10 +164,12 @@ export const EspecialidadClub = () => {
                                         <tr key={index}>
 
                                             {/* <th scope="row"> {club?.id_club} </th> */}
-                                            <td> { activitie?.nombre } </td>
+                                            <td>
+                                                <input type={'text'} defaultValue={ activitie?.nombre } disabled={disableEdit} className={'form-control'} />
+                                            </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Editar </button>
+                                                <button onClick={()=>handleEdit(activitie?.id, activitie?.nombre)} className="btn btn-success"> Actualizar </button>
                                             </td>
                                                 
                                             <td>

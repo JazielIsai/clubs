@@ -15,6 +15,7 @@ export const RolMember = () => {
 
     const [ getRow, setRow ] = useState();
     const [getColumn, setColumn] = useState();
+    const [disableEdit, setDisableEdit] = useState(true);
 
     useEffect( () => {
 
@@ -53,8 +54,26 @@ export const RolMember = () => {
 
     }
 
-    const handleEdit = (id) => {
-        
+    const handleDisabledEdit = () => {
+        setDisableEdit(!disableEdit);
+    }
+
+    const handleEdit = (id, name) => {
+
+        const formData = new FormData();
+        formData.append('name_rol_member_club', name);
+        formData.append('id_rol_member_club', id);
+
+        requestPost('update_name_rol_member_club', formData)
+            .then( response => {
+                console.log(response);
+                if ( !(response.includes('Error: missing info.')) ) {
+                    AlertSuccess('Exito', 'Categoria actualizada con exito');
+                } else {
+                    AlertError('Error', 'Ocurrio un error al actualizar la categoria');
+                }
+            } );
+
     }
 
     const handleDelete = (id) => {
@@ -62,7 +81,7 @@ export const RolMember = () => {
         confirmDialog('¿Eliminar?','¿Estas seguro de eliminar esta categoria?', 'Eliminar', 'Cancelar')
             .then( response => {
                 if (response) {
-                    
+
                     const formData = new FormData();
                     formData.append('id_rol_member_club', id);
                     requestPost('delete_rol_member_club', formData)
@@ -78,7 +97,7 @@ export const RolMember = () => {
 
                 } else {
                     return;
-                } 
+                }
             } )
 
 
@@ -103,7 +122,10 @@ export const RolMember = () => {
                 </form>
             </div>
             <div className='col-12 col-md-6' style={{maxHeight: '65vh'}}>
-                <h5> Ver Tabla </h5>
+                <div className={'d-flex flex-row justify-content-between'}>
+                    <h5> Ver Tabla </h5>
+                    <button onClick={()=>handleDisabledEdit(disableEdit)} className="btn btn-primary"> Editar </button>
+                </div>
                 <div className='table-responsive' style={{height: '90%'}}>
 
                     <table className="table table-hover">
@@ -124,7 +146,7 @@ export const RolMember = () => {
                                         })
                                         
                                 }
-                                <th scope="col"> Ir a </th>
+                                <th scope="col"> Actualizar </th>
                                 <th scope="col"> Eliminar </th>
 
                             </tr>
@@ -132,17 +154,19 @@ export const RolMember = () => {
                         <tbody>
                             {
                                 getRow !== null &&
-                                getRow !== undefined && 
+                                getRow !== undefined &&
                                     getRow.map( (activitie, index) => (
                                         <tr key={index}>
 
                                             {/* <th scope="row"> {club?.id_club} </th> */}
-                                            <td> { activitie?.nombre } </td>
+                                            <td>
+                                                <input type={'text'} defaultValue={activitie?.nombre} disabled={disableEdit} id={activitie.id} className={'form-control'} />
+                                            </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-primary"> Editar </button>
+                                                <button onClick={()=>{handleEdit(activitie?.id,activitie?.nombre)}} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
                                             </td>
-                                                
+
                                             <td>
                                                 <button onClick={()=>handleDelete(activitie?.id)} className="btn btn-danger"> Eliminar </button>
                                             </td>
@@ -157,3 +181,5 @@ export const RolMember = () => {
     </div>
   )
 }
+
+
