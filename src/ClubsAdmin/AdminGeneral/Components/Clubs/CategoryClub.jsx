@@ -53,15 +53,15 @@ export const CategoryClub = () => {
 
     }
 
-    const handleEdit = (id, name) => {
+    const handleEdit = (id) => {
 
-        if (name == '' || name == null || name == undefined) {
+        if (dataForm.name == '' || dataForm.name == null || dataForm.name == undefined) {
             AlertError('Error', 'Todos los campos son obligatorios');
             throw new Error('Todos los campos son obligatorios');
         }
 
         const formData = new FormData();
-        formData.append('name_category', name);
+        formData.append('name_category', dataForm.name);
         formData.append('id_category', id);
 
         requestPost('update_category_to_club', formData)
@@ -160,7 +160,7 @@ export const CategoryClub = () => {
 
                                             {/* <th scope="row"> {club?.id_club} </th> */}
                                             <td>
-                                                <input type={'text'} className={'form-control'} disabled={disableEdit} defaultValue={ activitie?.nombre }  />
+                                                <input type={'text'} className={'form-control'} disabled={disableEdit} defaultValue={ activitie?.nombre } onChange={onInputChange} name={'name'}  />
                                             </td>
 
                                             <td>

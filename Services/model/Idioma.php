@@ -20,6 +20,7 @@ class Idioma extends MethodsCrud
     }
 
     public function update_language ($language_info) {
+
         $query = "
             UPDATE clubs_itesi.idioma SET idioma = ?
             WHERE id = ?
@@ -27,6 +28,7 @@ class Idioma extends MethodsCrud
 
         $params = array($language_info->idioma,
                         $language_info->id);
+
         return $this->update_delete_query($query, array($params));
     }
 

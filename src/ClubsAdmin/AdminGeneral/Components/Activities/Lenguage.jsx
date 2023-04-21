@@ -54,27 +54,27 @@ export const Lenguage = () => {
 
     }
 
-    const handleEdit = (id, language) => {
-        if (language == '' || language == null || language == undefined) {
+    const handleEdit = (id) => {
+        if (dataForm.idioma == '' || dataForm.idioma == null || dataForm.idioma == undefined) {
             AlertError('Error', 'Todos los campos son obligatorios');
             throw new Error('Todos los campos son obligatorios');
         }
 
         const body = {
             id: id,
-            idioma: language
+            idioma: dataForm.idioma
         }
 
         const formData = new FormData();
-        formData.append('language_name', JSON.stringify(body));
+        formData.append('language_info', JSON.stringify(body));
 
         requestPost('update_language', formData)
             .then( response => {
                 console.log(response);
-                if ( !(response.includes('Error: missing info.')) ) {
-                    AlertSuccess('Exito', 'Categoria registrada con exito');
+                if ( !(response.includes('Error: missing info.')) && !response.includes('0') ) {
+                    AlertSuccess('Exito', 'Idioma actualizado con éxito');
                 } else {
-                    AlertError('Error', 'Ocurrio un error al registrar la categoria');
+                    AlertError('Error', 'Ocurrió un error al editar el idioma');
                 }
             });
     }
@@ -162,11 +162,11 @@ export const Lenguage = () => {
 
                                             {/* <th scope="row"> {club?.id_club} </th> */}
                                             <td>
-                                                <input type={'text'} className={'form-control'} disabled={disableEdit} defaultValue={ activitie?.idioma } />
+                                                <input type={'text'} className={'form-control'} disabled={disableEdit} defaultValue={ activitie?.idioma } onChange={onInputChange} name={'idioma'} />
                                             </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id, activitie?.idioma)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
+                                                <button onClick={()=>handleEdit(activitie?.id)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
                                             </td>
                                             
                                             <td>

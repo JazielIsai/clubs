@@ -50,20 +50,20 @@ export const TipoAct = () => {
     }
 
 
-    const handleEdit = (id, typeAct) => {
+    const handleEdit = (id) => {
 
-        if (typeAct == '' || typeAct == null || typeAct == undefined) {
+        if (dataForm.name == '' || dataForm.name == null || dataForm.name == undefined) {
             AlertError('Error', 'Todos los campos son obligatorios');
             throw new Error('Todos los campos son obligatorios');
         }
 
         const body = {
             id: id,
-            nombre: typeAct
+            nombre: dataForm.name
         }
 
         const formData = new FormData();
-        formData.append('language_name', JSON.stringify(body));
+        formData.append('activity_info', JSON.stringify(body));
 
         requestPost('update_type_activity', formData)
             .then( response => {
@@ -80,15 +80,16 @@ export const TipoAct = () => {
     const handleDelete = (id) => {
 
         const formData = new FormData();
-        formData.append('id', id);
+        formData.append('id_type_activity', id);
 
         requestPost('delete_type_activity', formData)
             .then( response => {
                 console.log(response);
                 if ( !(response.includes('Error: missing info.')) ) {
-                    AlertSuccess('Exito', 'Categoria registrada con exito');
+                    AlertSuccess('Éxito', 'El tipo de actividad fue eliminada con éxito');
+                    setRow(getRow.filter( activitie => activitie.id !== id ));
                 } else {
-                    AlertError('Error', 'Ocurrio un error al registrar la categoria');
+                    AlertError('Error', 'Ocurrió un error al eliminar');
                 }
             });
 
@@ -152,11 +153,11 @@ export const TipoAct = () => {
 
                                                 {/* <th scope="row"> {club?.id_club} </th> */}
                                                 <td>
-                                                    <input type={'text'} className={'form-control'} disabled={disableEdit} defaultValue={ activitie?.nombre }  />
+                                                    <input type={'text'} className={'form-control'} disabled={disableEdit} defaultValue={ activitie?.nombre } onChange={onInputChange} name={'name'}  />
                                                 </td>
 
                                                 <td>
-                                                    <button onClick={()=>handleEdit(activitie?.id, activitie?.nombre)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
+                                                    <button onClick={()=>handleEdit(activitie?.id)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
                                                 </td>
                                                 
                                                 <td>

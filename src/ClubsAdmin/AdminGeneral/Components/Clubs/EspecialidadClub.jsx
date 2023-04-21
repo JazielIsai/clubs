@@ -53,15 +53,15 @@ export const EspecialidadClub = () => {
 
     }
 
-    const handleEdit = (id, nameSpeciality) => {
+    const handleEdit = (id) => {
 
-        if (nameSpeciality == '' || nameSpeciality == null || nameSpeciality == undefined) {
+        if (dataForm?.name == '' || dataForm?.name == null || dataForm?.name == undefined) {
             AlertError('Error', 'Todos los campos son obligatorios');
             throw new Error('Todos los campos son obligatorios');
         }
 
         const formData = new FormData();
-        formData.append('name_speciality', nameSpeciality);
+        formData.append('name_speciality', dataForm?.name);
         formData.append('id_speciality', id)
 
         requestPost('update_clubs_speciality', formData)
@@ -164,11 +164,11 @@ export const EspecialidadClub = () => {
 
                                             {/* <th scope="row"> {club?.id_club} </th> */}
                                             <td>
-                                                <input type={'text'} defaultValue={ activitie?.nombre } disabled={disableEdit} className={'form-control'} />
+                                                <input type={'text'} defaultValue={ activitie?.nombre } disabled={disableEdit} className={'form-control'} onChange={onInputChange} name={'name'} />
                                             </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id, activitie?.nombre)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
+                                                <button onClick={()=>handleEdit(activitie?.id)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
                                             </td>
                                                 
                                             <td>

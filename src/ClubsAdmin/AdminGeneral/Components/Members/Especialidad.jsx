@@ -26,6 +26,7 @@ export const Especialidad = () => {
     },[data])
 
     const handleEdit = (id) => {
+
         if (dataForm.name == '' || dataForm.name == null || dataForm.name == undefined) {
             AlertError('Error', 'Todos los campos son obligatorios');
             throw new Error('Todos los campos son obligatorios');
@@ -43,10 +44,10 @@ export const Especialidad = () => {
             .then( response => {
                 console.log(response);
                 if ( !(response.includes('Error: missing info.')) ) {
-                    AlertSuccess('Exito', 'Categoria actualizada con exito');
+                    AlertSuccess('Éxito', 'Especialidad fue actualizada con éxito');
                     setRow([...getRow, {id: parseInt(response), nombre: dataForm.name}]);
                 } else {
-                    AlertError('Error', 'Ocurrio un error al actualizar la categoria');
+                    AlertError('Error', 'Ocurrió un error al actualizar la especialidad');
                 }
             } );
 
@@ -164,7 +165,7 @@ export const Especialidad = () => {
 
                                             {/* <th scope="row"> {club?.id_club} </th> */}
                                             <td>
-                                                <input type={'text'} className={'form-control'} disabled={disableEdit} defaultValue={ activitie?.nombre } />
+                                                <input type={'text'} className={'form-control'} disabled={disableEdit} defaultValue={ activitie?.nombre } onChange={onInputChange} name={'name'} />
                                             </td>
 
                                             <td>

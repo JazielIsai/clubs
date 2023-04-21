@@ -40,7 +40,7 @@ class TypeActivity extends MethodsCrud {
             UPDATE tipo_actividad SET nombre = ?
             WHERE id = ?";
 
-        $data = array($activity_info->name,
+        $data = array($activity_info->nombre,
                       $activity_info->id);
         return $this->update_delete_query($query, array($data));
     }

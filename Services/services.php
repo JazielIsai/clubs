@@ -333,6 +333,20 @@ switch ($servicesName){
             echo $services_type_activity->add_type_activity($_POST['name_type_activity']);
         }
         break;
+    case 'update_type_activity':
+        if (!isset($_POST['activity_info'])){
+            echo 'Error: missing info.';
+        } else {
+            echo $services_type_activity->update_type_activity( json_decode($_POST['activity_info']) );
+        }
+        break;
+    case 'delete_type_activity':
+        if (!isset($_POST['id_type_activity'])){
+            echo 'Error: missing info.';
+        } else {
+            echo $services_type_activity->delete_type_activity($_POST['id_type_activity']);
+        }
+        break;
 
 
 //Skills
@@ -379,10 +393,10 @@ switch ($servicesName){
         break;
 
     case 'update_language':
-        if (!isset($_POST['name_language'], $_POST['id_language'])){
+        if (!isset($_POST['language_info'])){
             echo 'Error: missing info.';
         } else {
-            echo $service_idioms->update_language($_POST['name_language'],  $_POST['id_language']);
+            echo $service_idioms->update_language(json_decode($_POST['language_info']));
         }
         break;
 

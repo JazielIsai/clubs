@@ -58,10 +58,10 @@ export const RolMember = () => {
         setDisableEdit(!disableEdit);
     }
 
-    const handleEdit = (id, name) => {
+    const handleEdit = (id) => {
 
         const formData = new FormData();
-        formData.append('name_rol_member_club', name);
+        formData.append('name_rol_member_club', dataForm.name);
         formData.append('id_rol_member_club', id);
 
         requestPost('update_name_rol_member_club', formData)
@@ -160,11 +160,11 @@ export const RolMember = () => {
 
                                             {/* <th scope="row"> {club?.id_club} </th> */}
                                             <td>
-                                                <input type={'text'} defaultValue={activitie?.nombre} disabled={disableEdit} id={activitie.id} className={'form-control'} />
+                                                <input type={'text'} defaultValue={activitie?.nombre} disabled={disableEdit} id={activitie.id} className={'form-control'} onChange={onInputChange} name={'name'} />
                                             </td>
 
                                             <td>
-                                                <button onClick={()=>{handleEdit(activitie?.id,activitie?.nombre)}} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
+                                                <button onClick={()=>{handleEdit(activitie?.id)}} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
                                             </td>
 
                                             <td>
