@@ -18,31 +18,22 @@ export const HeaderUser = () => {
 
   const [img, setImg] = useState();
 
-  const {data: fotoUser} = useFetch_RequestGet(
-      `get_photo_by_user&user_id=${user.user_id}`,
-      `row`
-  )
 
   const handleLogout = () => {
     logout();
     navigate('/auth');
   }
 
-  
-  const handleNavigateEditUser = (user_id) => {
-    navigate(`updateUser/${user_id}`);
-    console.log('este es mi user id,',user_id);
-  }
 
   useEffect(() => {
-    requestGet(`get_photo_by_user&user_id=${user.user_id}`)
-        .then( (fotoUser) => {
-          fotoUser = JSON.parse(fotoUser)[0]
-          setImg(urlDBLogin.concat(fotoUser?.ruta.split(/^\.\//, fotoUser?.ruta.length)[1]));
-
-        } )
     try {
+      requestGet(`get_photo_by_user&user_id=${user.user_id}`)
+          .then( (fotoUser) => {
+            console.log(fotoUser)
+            fotoUser = JSON.parse(fotoUser)[0]
+            setImg(urlDBLogin.concat(fotoUser?.ruta.split(/^\.\//, fotoUser?.ruta.length)[1]));
 
+          } )
      setDataClub(JSON.parse(getClub))
     } catch (error) {
       console.log(error);
@@ -78,7 +69,7 @@ export const HeaderUser = () => {
             </NavLink>
             <ul className="dropdown-menu text-small" aria-labelledby="dropdownUser1">
               <li><NavLink className="dropdown-item" to={`/club/updateUser/${user?.user_id}`}>Perfil</NavLink></li>
-              <li><NavLink className="dropdown-item" to={`/club/updateUser/${user?.user_id}`}>Configuración</NavLink></li>
+              <li><NavLink className="dropdown-item" to={`/club/updateUser/config/${user?.user_id}`}> Configuración </NavLink> </li>
               <li><hr className="dropdown-divider"/></li>
               <li><button className="dropdown-item" onClick={handleLogout} >Cerrar Sesión</button></li>
             </ul>
