@@ -477,18 +477,31 @@ switch ($servicesName){
         break;
 
     // Especialidad
-    case 'get_all_speciality':
-        echo secure_json_encode($services_specialities->get_all_especialidades());
+    case 'get_all_specialties':
+        echo secure_json_encode($services_specialities->get_all_specialties());
         break;
 
-    case 'add_new_especialidad':
+    case 'add_new_specialty':
         if(isset($_POST['especialidad_info'])){
-            echo $services_specialities->add_new_especialidad(secure_json_decode($_POST['especialidad_info']));
+            echo $services_specialities->add_new_specialty(secure_json_decode($_POST['especialidad_info']));
         }else{
             echo "Error";
         }
         break;
-
+    case 'update_specialty':
+        if (!isset($_POST['specialty_info'])) {
+            echo 'Error: missing info.';
+        }
+        else
+            echo ($services_specialities->update_specialty(secure_json_decode($_POST['specialty_info'])));
+        break;
+    case 'delete_specialty':
+        if (!isset($_POST['id_specialty'])) {
+            echo 'Error: missing id.';
+        }
+        else
+            echo secure_json_encode($services_specialities->delete_specialty($_POST['id_specialty']));
+        break;
 
 
 //rol members club
@@ -508,11 +521,11 @@ switch ($servicesName){
             echo 'Error: missing id.';
         break;
 
-    case 'update_rol_member_club':
+    case 'update_name_rol_member_club':
         if (!isset($_POST['name_rol_member_club'], $_POST['id_rol_member_club']))
             echo 'Error: missing info.';
         else
-            echo ($services_rol_member_club->update_rol_member_club($_POST['name_rol_member_club'], $_POST['id_rol_member_club']));
+            echo ($services_rol_member_club->update_name_rol_member_club($_POST['name_rol_member_club'], $_POST['id_rol_member_club']));
         break;
     
     case 'delete_rol_member_club':
