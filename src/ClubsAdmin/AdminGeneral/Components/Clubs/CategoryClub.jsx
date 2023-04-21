@@ -164,7 +164,7 @@ export const CategoryClub = () => {
                                             </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id)} className="btn btn-success"> Actualizar </button>
+                                                <button onClick={()=>handleEdit(activitie?.id)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
                                             </td>
                                                 
                                             <td>

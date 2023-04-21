@@ -45,7 +45,7 @@ export const EvaluatePerformance = () => {
         const formData = new FormData();
         formData.append('evaluation_member_info', JSON.stringify(body));
 
-        requestPost('update_evaluation_member_by_activity', formData)
+        requestPost('_evaluation_member_by_activity', formData)
             .then( (res) => {
                 console.log(res);
                 if ( res.includes('1') ) {

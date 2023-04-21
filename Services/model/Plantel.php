@@ -28,6 +28,7 @@ class Plantel extends MethodsCrud {
         ";
 
         $params = array($name_campus, $id_campus);
+
         return $this->update_delete_query($query, array($params));
     }
 

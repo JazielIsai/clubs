@@ -156,7 +156,7 @@ export const TipoAct = () => {
                                                 </td>
 
                                                 <td>
-                                                    <button onClick={()=>handleEdit(activitie?.id, activitie?.nombre)} className="btn btn-success"> Actualizar </button>
+                                                    <button onClick={()=>handleEdit(activitie?.id, activitie?.nombre)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
                                                 </td>
                                                 
                                                 <td>

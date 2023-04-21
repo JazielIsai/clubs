@@ -62,13 +62,13 @@ export const Plantel = () => {
         }
 
         const formData = new FormData();
-        formData.append('name_campus', nameCampus);
-        formData.append('id_campus', id);
+        formData.append('name_campus', nameCampus );
+        formData.append('id_campus', id );
 
         requestPost('update_campuses', formData)
             .then( response => {
                 console.log(response);
-                if ( !(response.includes('Error: missing info.')) ) {
+                if ( !(response.includes('Error: missing info.')) && !(response.includes('0')) ) {
                     AlertSuccess('Exito', 'El plantel fue actualizado con exito');
                 } else {
                     AlertError('Error', 'Ocurrio un error al registrar la categoria');
@@ -164,7 +164,7 @@ export const Plantel = () => {
                                             </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id, activitie?.nombre)} className="btn btn-success"> Actualizar </button>
+                                                <button onClick={()=>handleEdit(activitie?.id, activitie?.nombre)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
                                             </td>
                                                 
                                             <td>

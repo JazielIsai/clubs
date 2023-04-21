@@ -166,7 +166,7 @@ export const Lenguage = () => {
                                             </td>
 
                                             <td>
-                                                <button onClick={()=>handleEdit(activitie?.id, activitie?.idioma)} className="btn btn-success"> Actualizar </button>
+                                                <button onClick={()=>handleEdit(activitie?.id, activitie?.idioma)} disabled={disableEdit} className="btn btn-success"> Actualizar </button>
                                             </td>
                                             
                                             <td>
