@@ -64,6 +64,15 @@ class UsuariosMiembros extends MethodsCrud {
         return $this->insert_query($query, array($data));
     }
 
+    public function add_member_user($user_info)
+    {
+        $query = "INSERT INTO miembros_club (no_control, nombre, apellido_paterno, apellido_materno, sexo, correo, telefono, rango, semestre, id_especialidad, id_rol_member_club, id_club)
+                VALUES (DEFAULT, ?, NULL, NULL, NULL, ?, NULL, NULL, NULL, NULL, ?, ?)";
+        $data = array($user_info->nombre, $user_info->correo, $user_info->id_rol, $user_info->id_club);
+
+        return $this->insert_query($query, array($data));
+    }
+
     public function get_all_members () {
 
         $query = "
