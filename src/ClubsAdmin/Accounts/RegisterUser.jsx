@@ -45,6 +45,7 @@ export const RegisterUser = () => {
         <div className="form-group mt-3">  
           <label for="club_user"> Club del Usuario: </label>
           <select className="form-control" id="club_user" name="club_user">
+            <option value={'none'}> No pertenece a ningun Club </option>
             <option value="1">Ajedrez</option>
             <option value="2">Futbol</option>
             <option value="3">Basquetbol</option>

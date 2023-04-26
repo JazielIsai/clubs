@@ -18,11 +18,6 @@ export const TableUsers = () => {
 
     useEffect( () => {
         try {
-            console.log("users: ",JSON.parse(users));
-            console.log("user:->",JSON.parse(users)[0]);
-            console.log("rol: ",JSON.parse(roles)[0]);
-
-
             setDataRoles(JSON.parse(roles));
             setColumUsers(JSON.parse(users)[0]);
             setDataUsers(JSON.parse(users));
@@ -39,6 +34,7 @@ export const TableUsers = () => {
         console.log("id_user: ", id);
         navigate(`/admin/updateUser/${id}`);
     }
+    
     const handleUpdateRolUser = (e) => {
 
 
