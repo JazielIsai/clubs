@@ -104,20 +104,32 @@ export const RegisterClub = () => {
     return (
         <section className="container" >
 
-            <h2> Registrar Clubs </h2>
+            <h2 className={'mt-2 text-center '} > Registrar Club </h2>
 
 
             <div className="" id="">
                 <form className="mt-4" >
-                    
-                    <div className="form-group mb-3">
-                        <label htmlFor="name_club"> Nombre del Club: </label>
-                        <input type="text" onChange={onInputChange} className="form-control" id="name_club" placeholder="Ej: Ajedrez" name="name_club" />
+
+
+                    <div className={'row row-cols-md-2'}>
+                        <div>
+                            <div className="form-floating mb-3">
+                                <input type="text" onChange={onInputChange} className="form-control" id="name_club" placeholder="Ej: Ajedrez" name="name_club" />
+                                <label htmlFor="name_club"> Nombre del Club: </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="form-floating mb-3">
+                                <input type="text" onChange={onInputChange} className="form-control" id="manager_club" placeholder="Lider..." name="manager_club" />
+                                <label htmlFor="manager_club"> Lider del club: </label>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div className="form-group mb-3">
-                        <label htmlFor="objective_club"> Objetivo del Club: </label>
+                    <div className="form-floating mb-3">
                         <input type="text" onChange={onInputChange} className="form-control" id="objective_club" placeholder="Objetivo..." name="objective_club" />
+                        <label htmlFor="objective_club"> Objetivo del Club: </label>
                     </div>
 
                     <div className='row'>
@@ -151,11 +163,6 @@ export const RegisterClub = () => {
                         </div>
                         
                     </div>
-
-                    <div className="form-group mb-3">
-                        <label htmlFor="manager_club"> Lider del club: </label>
-                        <input type="text" onChange={onInputChange} className="form-control" id="manager_club" placeholder="Lider..." name="manager_club" />
-                    </div>
                     
                     <div className='row'>
                         <div className='col-12 col-md-6'>
@@ -171,17 +178,19 @@ export const RegisterClub = () => {
                                 <label for="floatingSelect">Plantel</label>
                             </div>
                         </div>
+
                         <div className='col-12 col-md-6'>
-                            <div className="form-group mb-3">
-                                <label htmlFor="date_created"> Fecha de creación: </label>
+                            <div className="input-group mb-3">
+                                <label htmlFor="date_created" className={'input-group-text'} > Fecha de creación: </label>
                                 <input type="date" onChange={onInputChange} className="form-control" id="date_created" placeholder="Objetivo..." name="date_created" />
                             </div>
                         </div>
+
                     </div>
                     
 
-                    <div className="form-group mb-3">
-                        <label htmlFor="annual_plan"> Plan anual: </label>
+                    <div className="input-group mb-3">
+                        <label htmlFor="annual_plan" className={'input-group-text'}> Plan anual </label>
                         <input 
                             type="file" 
                             className="form-control" 
@@ -194,8 +203,8 @@ export const RegisterClub = () => {
                         />
                     </div>
 
-                    <div className="form-group mb-3">
-                        <label htmlFor="constitutive_act"> Acta constitutiva: </label>
+                    <div className="input-group mb-3">
+                        <label htmlFor="constitutive_act" className={'input-group-text'} > Acta constitutiva </label>
                         <input 
                             type="file" 
                             className="form-control" 
@@ -208,8 +217,8 @@ export const RegisterClub = () => {
                         />
                     </div>
 
-                    <div className="form-group mb-3">
-                        <label htmlFor="club_logo"> Logo del Club: </label>
+                    <div className="input-group mb-3">
+                        <label htmlFor="club_logo" className={'input-group-text'}> Logo del Club </label>
                         <input type="file" className="form-control" id="club_logo" placeholder="Lider..." name="manager_club" />
                     </div>
 
