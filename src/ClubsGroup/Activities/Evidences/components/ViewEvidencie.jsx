@@ -8,8 +8,6 @@ export const ViewEvidencies = ( { evidencies, handleAddTab } ) => {
 
     const { dataEvidencie } = useContext(ClubContext);
 
-    console.log(dataEvidencie);
-
     return (
         <div className='w-100 h-100 d-flex '>
 

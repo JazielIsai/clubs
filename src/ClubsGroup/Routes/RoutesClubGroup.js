@@ -19,6 +19,7 @@ import {EvaluatePerformance} from "../Activities/EvaluatePerformance/EvaluatePer
 import {Events} from "../Activities/Events/Events";
 import {Reports} from "../Reports/Reports";
 import {UpdateUser} from "../../ClubsAdmin/Accounts/UpdateUser";
+import { ViewEvidenceByActivity } from '../Activities/Evidences/ViewEvidenceByActivity'
 
 export const RoutesClubGroup = () => {
 
@@ -52,6 +53,7 @@ export const RoutesClubGroup = () => {
                     <Route path='activities/evidences/:club_id/:name_club/:id_activitie/:nameActivitie' element={<Evidences />} />
                     <Route path='activities/evidences/add/:club_id/:id_activitie' element={<AddEvidences />} />
                     <Route path='activities/evidences/edit/:club_id/:id_evidence' element={<EditEvidences />} />
+                    <Route path={'activities/view_evidencie_by_activity/:activity_id/:activity_name'} element={<ViewEvidenceByActivity />} />
 
                     <Route path='activities/evaluateMember/:club_id/:idActivity/:nameActivity' element={<EvaluatePerformance /> } />
                     
