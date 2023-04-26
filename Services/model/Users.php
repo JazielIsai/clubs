@@ -128,6 +128,12 @@ class Users extends MethodsCrud {
 
         return $this->update_delete_query($query, array($data));
     }
+    public function update_role_user($user_rol_info){
+        $query="UPDATE usuarios SET id_rol=? WHERE id=?;";
+        $query_data=array($user_rol_info->id_rol,$user_rol_info->id);
+
+        return $this->update_delete_query($query,array($query_data));
+    }
 
     public function get_user_by_email_and_password($email, $password){
         $query = "

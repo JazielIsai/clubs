@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFetch_RequestGet } from '../../../hooks/useFetchGet';
+import {AlertError, AlertToast, requestPost} from "../../../helpers";
+import {stringify} from "query-string";
 
 export const TableUsers = () => {
 
     const navigate = useNavigate();
+
 
     const {data: users } = useFetch_RequestGet('get_all_users');
     const {data: roles } = useFetch_RequestGet('get_all_roles');
@@ -15,7 +18,11 @@ export const TableUsers = () => {
 
     useEffect( () => {
         try {
-            console.log(JSON.parse(users));
+            console.log("users: ",JSON.parse(users));
+            console.log("user:->",JSON.parse(users)[0]);
+            console.log("rol: ",JSON.parse(roles)[0]);
+
+
             setDataRoles(JSON.parse(roles));
             setColumUsers(JSON.parse(users)[0]);
             setDataUsers(JSON.parse(users));
@@ -24,10 +31,43 @@ export const TableUsers = () => {
             console.log(err);
         }
 
-    }, [users] )
+    }, [users,roles] )
+
+
 
     const handleNavigateEditUser = (id) => {
+        console.log("id_user: ", id);
         navigate(`/admin/updateUser/${id}`);
+    }
+    const handleUpdateRolUser = (e) => {
+
+
+        console.log("Rol", JSON.parse(e.target.value).id_rol);
+        console.log("Id", JSON.parse(e.target.value).id_user);
+
+        const body = {
+            id_rol: JSON.parse(e.target.value).id_rol,
+            id: JSON.parse(e.target.value).id_user
+        }
+
+        console.log("body ->", body);
+
+        const formData = new FormData();
+        formData.append('user_rol_info', JSON.stringify(body));
+
+        requestPost('update_role_user', formData)
+            .then( (response) => {
+                console.log(response.trim());
+                if (response.trim() == '1') {
+                    AlertToast('Rol actualizado correctamente','success',3000);
+                } else {
+                    AlertError('Error', 'No se pudo actualizar el rol del miembro');
+                }
+            } )
+            .catch( (error) => {
+                console.log(error);
+            } );
+
     }
 
     const handleDelete = (id) => {
@@ -53,10 +93,10 @@ export const TableUsers = () => {
                                         return(
                                             <th key={index} scope="col"> {keyRow} </th>
                                         )
+
                                     })
-                                    
+
                             }
-                            <th scope="col"> Actualizar rol </th>
                             <th scope="col"> Editar usuario </th>
                             <th scope="col"> Eliminar</th>
 
@@ -75,29 +115,25 @@ export const TableUsers = () => {
                                         <td>  {user?.fecha_creacion} </td>
                                         <td>
                                             <div className="">
-                                                <select className="form-select">
+                                                <select className="form-select" onChange={handleUpdateRolUser}>
+                                                    <option disable="true" selected >{user?.rol_usuario}</option>
                                                     {
                                                         getDataRoles &&
                                                         getDataRoles.map( (role, index) => (
+                                                            role?.nombre !== user?.rol_usuario &&
+
                                                             <option
                                                                 key={index}
-                                                                value={role?.id_rol}
-                                                                selected={role?.nombre == user?.rol_usuario  ? true : false}
+                                                                value={JSON.stringify({id_rol:role?.id, id_user:user?.id})}
                                                             >
                                                                 {role?.nombre}
-                                                            </option>
+                                                             </option>
                                                         ))
                                                     }
                                                 </select>
                                             </div>
                                         </td>
 
-                                        <td>
-                                            <button onClick={() => handleNavigateEditUser(user?.id)}
-                                                    className="btn btn-success">
-                                                Actualizar rol
-                                            </button>
-                                        </td>
                                         <td>
                                             <button onClick={()=>handleNavigateEditUser(user?.id)} class="btn btn-primary"> Editar </button>
                                         </td>

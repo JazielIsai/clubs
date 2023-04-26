@@ -109,6 +109,12 @@ switch ($servicesName){
         else
             echo ($services_users->update_user(secure_json_decode($_POST['user_info'])));
         break;
+    case 'update_role_user':
+        if (!isset($_POST['user_rol_info']))
+            echo 'Error: missing info.';
+        else
+            echo ($services_users->update_role_user(secure_json_decode($_POST['user_rol_info'])));
+        break;
     
     // phot of profile user
     case 'add_photo':

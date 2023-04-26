@@ -122,11 +122,10 @@ export const EditActivitie = () => {
                 <option selected disabled>{getActivity?.tipo_actividad}</option>
                 {
                   getAllTypeActivity &&
-                  
-                  getAllTypeActivity.map( (type, index) => (
-                                    type.nombre !== getActivity.tipo_actividad &&
-                                    <option key={index} value={type.id}> {type.nombre} </option>
-                                    ))
+                    getAllTypeActivity.map( (type, index) => (
+                      type.nombre !== getActivity.tipo_actividad &&
+                      <option key={index} value={type.id}> {type.nombre} </option>
+                    ))
                 }
               </select>
               <label for="floatingSelect">Tipo de actividad</label>
@@ -163,17 +162,15 @@ export const EditActivitie = () => {
             
             
           <div className='row d-flex justify-content-between mt-4 mb-4'>
-          
-          <div class="col-12 col-md-3 form-floating ps-0 mb-3">
+            <div class="col-12 col-md-3 form-floating ps-0 mb-3">
               <select class="form-select" id="floatingSelect" aria-label="Floating label select example" onChange={onInputChange} name='habilidad'>
                 <option selected>{getActivity?.habilidad}</option>
                 {
                   getAllHabilidades &&
-                  
-                  getAllHabilidades.map( (habilidad, index) => (
-                                    habilidad.nombre !== getActivity.habilidad &&
-                                    <option key={index} value={habilidad.id}> {habilidad.nombre} </option>
-                                    ))
+                    getAllHabilidades.map( (habilidad, index) => (
+                      habilidad.nombre !== getActivity.habilidad &&
+                      <option key={index} value={habilidad.id}> {habilidad.nombre} </option>
+                    ))
                 }
               </select>
               <label for="floatingSelect">Habilidad</label>
@@ -194,11 +191,10 @@ export const EditActivitie = () => {
                 <option selected>{getActivity?.idioma}</option>
                 {
                   getAllIdioma &&
-                  
-                  getAllIdioma.map( (idioma, index) => (
-                                    idioma.idioma !== getActivity.idioma &&
-                                    <option key={index} value={idioma.id}> {idioma.idioma} </option>
-                                    ))
+                    getAllIdioma.map( (idioma, index) => (
+                      idioma.idioma !== getActivity.idioma &&
+                      <option key={index} value={idioma.id}> {idioma.idioma} </option>
+                    ))
                 }
               </select>
               <label for="floatingSelect">Idioma</label>
