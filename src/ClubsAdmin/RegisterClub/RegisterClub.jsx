@@ -148,6 +148,7 @@ export const RegisterClub = () => {
                             </div>
 
                         </div>
+
                         <div className='col-12 col-md-6'>
                             <div class="form-floating mb-3">
                                 <select onChange={onInputChange} name='id_category' class="form-select" id="floatingSelect" aria-label="Floating label select example">

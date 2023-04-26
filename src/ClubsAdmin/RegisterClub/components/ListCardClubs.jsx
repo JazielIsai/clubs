@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { CardInfo } from '../../../components/CardInfo';
 import { useFetch_RequestGet } from '../../../hooks/useFetchGet';
 import buhosItesi from '../../../Assets/img/buhosItesi.jpg';
+import {urlDBLogin} from "../../../Shared/baseUrl";
 
 
 export const ListCardClubs = ({dataClub}) => {
@@ -21,7 +22,6 @@ export const ListCardClubs = ({dataClub}) => {
 
     useEffect( () => {
         try {
-            console.log(JSON.parse(data));
             setDataClubs(JSON.parse(data));
         } catch (err) {
             console.log(err);
@@ -38,7 +38,7 @@ export const ListCardClubs = ({dataClub}) => {
                 getDataClubs.map( (dataClub, index) => (
                     <CardInfo
                         key={index}
-                        img={buhosItesi}
+                        img={ dataClub?.logo_club !== null && dataClub?.logo_club !== undefined ? urlDBLogin.concat(dataClub?.logo_club.split(/^\.\//, dataClub?.logo_club.length)[1]) : buhosItesi }
                         nameClub={dataClub?.name}
                         liderClub={dataClub?.lider}
                         dateCreated={dataClub?.fecha_creacion}

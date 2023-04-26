@@ -41,14 +41,13 @@ export const Header = () => {
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <NavLink to="/" className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-            <img src={logo_itesi} alt="logo" width="50" height="50" />
+            <img src={logo_itesi} alt="logo" className={''} width="50" height="50" />
           </NavLink>
 
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 
             <li><NavLink to="/admin/viewClubs" className="nav-link px-2 link-dark">Clubs</NavLink></li>
             <li><NavLink to="/admin/ViewUsers" className="nav-link px-2 link-dark">Usuarios</NavLink></li>
-            <li><NavLink to="#" className="nav-link px-2 link-dark"> Evaluación </NavLink></li>
             <li><NavLink to="/admin/adminGeneral" className="nav-link px-2 link-dark"> Administración </NavLink></li>
             <li><NavLink to="/admin/reports" className="nav-link px-2 link-dark"> Reportes </NavLink></li>
 

@@ -10,11 +10,12 @@ class Clubes extends MethodsCrud {
         $query = "
                 SELECT clubes.id, clubes.name, clubes.objetivo, clubes.fecha_creacion, clubes.estatus,
                        plantel.nombre AS plantel, especialidad_club.nombre AS especialidad_club,
-                       categoria_club.nombre AS categoria_club
+                       categoria_club.nombre AS categoria_club, logo_clubs.ruta AS logo_club
                 FROM clubes
                 INNER JOIN plantel ON clubes.id_plantel = plantel.id
                 INNER JOIN especialidad_club ON clubes.id_especialidad = especialidad_club.id
-                INNER JOIN categoria_club ON clubes.id_categoria_club = categoria_club.id;
+                INNER JOIN categoria_club ON clubes.id_categoria_club = categoria_club.id
+                LEFT JOIN logo_clubs ON clubes.id = logo_clubs.id_club;
                 ";
 
         return $this->select_query($query);

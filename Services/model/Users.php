@@ -35,7 +35,7 @@ class Users extends MethodsCrud {
             return $err;
         }
 
-        $user_exists = $this->get_user_by_email($email);
+        $user_exists = $this->get_user_by_email_and_password($email, $password);
 
         if (empty($user_exists)) {
             return "User does not exist";
@@ -129,9 +129,18 @@ class Users extends MethodsCrud {
         return $this->update_delete_query($query, array($data));
     }
 
-    public function get_user_by_email($email){
-        $query = "SELECT * FROM usuarios WHERE correo like ?";
-        return $this->select_query($query, array($email));
+    public function get_user_by_email_and_password($email, $password){
+        $query = "
+            SELECT usuarios.id, usuarios.nombre, usuarios.correo, usuarios.contraseña,
+                    usuarios.fecha_creacion, usuarios.id_rol, usuarios.id_club, 
+                    roles.nombre AS rol,
+                    clubes.name AS club
+            FROM usuarios
+            INNER JOIN roles ON usuarios.id_rol = roles.id
+            LEFT JOIN clubes ON usuarios.id_club = clubes.id
+            WHERE usuarios.correo = ? AND usuarios.contraseña = ?;
+        ";
+        return $this->select_query($query, array($email, $password));
     }
 
 }

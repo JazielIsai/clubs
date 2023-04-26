@@ -31,8 +31,6 @@ export const AuthProvider = ({children}) => {
             club: dataUser.club,
         }
 
-        console.log(user);
-
         localStorage.setItem('user_clubs_system', JSON.stringify(user));
 
         dispatch({
@@ -44,16 +42,16 @@ export const AuthProvider = ({children}) => {
     const editInfoUser = (dataUser) => {
         
         const user = {
-            user_id:dataUser.user_id,
-            name:dataUser.name,
+            user_id:dataUser.id,
+            name:dataUser.nombre,
             lastname:dataUser.lastname,
-            email: dataUser.email,
-            rol_user:dataUser.rol_user
+            email: dataUser.correo,
+            rol_user:dataUser.rol,
+            id_club:dataUser.id_club,
+            club: dataUser.club,
         }
         
         localStorage.setItem('user', JSON.stringify(user));
-        console.log(localStorage.getItem('user_clubs_system'));
-            
     }
 
     const logout = () => {

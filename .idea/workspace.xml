@@ -7,14 +7,20 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="Tje user can update campuses">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/710d7646-146d-4214-ae83-d440e0b3918d.xml" afterDir="false" />
+    <list default="true" id="e3202f7a-554f-4764-a620-db8dbb10f043" name="Changes" comment="modify from design of register club">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/Clubes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Clubes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/model/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/Services/model/Users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/users_files/1_Oscar/photo/6442c3fddd2f46.30612390.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/RegisterUser.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/Accounts/RegisterUser.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/img/ITESI-TECNM.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/img/ITESI-TECNM.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Assets/img/LogoITESI.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Assets/img/LogoITESI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Context/AuthProvider.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Auth/Pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Auth/Pages/Login.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/RegisterClub.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/ViewsClubs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/ViewsClubs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/ListCardClubs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClubsAdmin/RegisterClub/components/ListCardClubs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Includes/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Includes/Header.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +51,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/isai/Documents/components-pattern&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/var/www/html/clubs/src/Assets/img&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -61,6 +67,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Assets/img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Context" />
       <recent name="$PROJECT_DIR$/src/ClubsGroup/Activities/EvaluatePerformance" />
@@ -143,21 +152,7 @@
       <workItem from="1674586365206" duration="9119000" />
       <workItem from="1674613226437" duration="1548000" />
       <workItem from="1682120130015" duration="14000" />
-      <workItem from="1682528449775" duration="2481000" />
-    </task>
-    <task id="LOCAL-00045" summary="change component to used component TableEdit">
-      <created>1673499545019</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499545019</updated>
-    </task>
-    <task id="LOCAL-00046" summary="change component to used component TableEdit">
-      <created>1673499556170</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1673499556170</updated>
+      <workItem from="1682528449775" duration="7115000" />
     </task>
     <task id="LOCAL-00047" summary="use hook useDataCollectionRequest instead of method that here were">
       <created>1673499784815</created>
@@ -488,7 +483,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682107299052</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="add font from api google">
+      <created>1682531447254</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1682531447254</updated>
+    </task>
+    <task id="LOCAL-00095" summary="modify from design of register club">
+      <created>1682531548130</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1682531548130</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,8 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update component to edit the club" />
-    <MESSAGE value="add methods to upload evidence" />
     <MESSAGE value="update the hook" />
     <MESSAGE value="update design" />
     <MESSAGE value="update the method and variables to upload evidencie" />
@@ -531,7 +538,9 @@
     <MESSAGE value="update several changes from admin clubs by design" />
     <MESSAGE value="fix bug: in the interfaces from admin club can be updated correctly field" />
     <MESSAGE value="image in the header" />
-    <option name="LAST_COMMIT_MESSAGE" value="image in the header" />
+    <MESSAGE value="add font from api google" />
+    <MESSAGE value="modify from design of register club" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify from design of register club" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

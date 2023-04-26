@@ -30,23 +30,14 @@ export const Login = () => {
     requestGet(`existing_user&email=${email}&password=${password}`)
       .then(resp=>{
 
-        console.log(resp);
-
         if (resp.includes('Error: missing info.') || resp.includes('Error: user not found.')) {
           AlertError('Error', 'Usuario o contraseña incorrectos');
           throw new Error('Error: user not found.');
         }
         
-        // const user = JSON.parse(resp);
-        
         login(JSON.parse(resp)[0]);
         
       })
-    
-    
-    // console.log({email, password});
-
-    // login({user_id: 1, name: 'Jaz', lastname: 'Pérez', email, rol_user: 1});
     
   }
 
@@ -64,7 +55,7 @@ export const Login = () => {
             
             <div className=' d-flex flex-column align-middle m-auto '>
 
-              <img src={LogoITESI} alt='Logo del itesi' className='w-50 m-auto' />
+              <img src={LogoITESI} alt='Logo del itesi' className='w-50 m-auto App-logo' />
 
             </div>
 
