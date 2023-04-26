@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,1;0,100;0,400;0,600;1,1;1,300&display=swap');
+
+body {
+  font-family: 'Ysabeau', serif;
+}
+
 .App {
   text-align: center;
 }
