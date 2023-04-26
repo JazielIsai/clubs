@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {useParams} from "react-router-dom";
 import { AlertToast } from '../../helpers';
 import {useDataCollectionRequest} from "../../hooks/useDataCollectionRequest";
 import {useForm} from "../../hooks/useForm";
 import { requestPost} from '../../helpers';
-import {validateEmail, validateNumberControl} from '../../helpers/Validation';
 
 export const EditMember = () => {
 
     const { club_id, id_member } = useParams();
+    
 
     const { dataForm, onInputChange, onResetForm } = useForm({});
 
@@ -26,9 +26,7 @@ export const EditMember = () => {
         `get_all_rol_members_clubs`,
         'all'
     );
-
-    const [emailError, setemailError] = useState();
-    const [numberControlError, setnumberControlError] = useState();
+    
    
    const handleSendPost = (e) => {
         e.preventDefault();
@@ -49,6 +47,8 @@ export const EditMember = () => {
             telefono:dataForm?.phone || getMember?.telefono,
         }
 
+        console.log(body);
+
         const formData = new FormData();
         formData.append('member_info', JSON.stringify(body));
         requestPost('update_member', formData)
@@ -64,7 +64,8 @@ export const EditMember = () => {
                 console.log(err);
             })
     }
-
+   
+     
     return (
         <div className={'container'}>
 
@@ -76,9 +77,8 @@ export const EditMember = () => {
                 
                 <div className='row d-flex justify-content-between mt-4 mb-4'>
                     <div className='col-12 col-md-2 form-floating ps-0 mb-3'>
-                        <input type="text" class="form-control" onChange={onInputChange} id="floatingNumberControl" name='no_control' defaultValue={getMember?.no_control} onBlur={() => setnumberControlError(validateNumberControl(dataForm.no_control))} />
+                        <input type="text" class="form-control" onChange={onInputChange} id="floatingNumberControl" name='no_control' defaultValue={getMember?.no_control} />
                         <label for="floatingNumberControl">Numero de Control</label>
-                        <div className="text-danger">{numberControlError}</div>
                     </div>
                     
                     <div className='col-12 col-md-3 form-floating mb-3 ps-0'>
@@ -119,7 +119,7 @@ export const EditMember = () => {
                     </div>
                     
                     <div className='col-12 col-md-2  form-floating mb-3 ps-0'>
-                        <input type="text" className="form-control " disabled id="floatingClub" onChange={onInputChange} name='club' defaultValue={getMember?.nombre_club}/>
+                        <input type="text" className="form-control " id="floatingClub" onChange={onInputChange} name='club' defaultValue={getMember?.nombre_club}/>
                         <label  for="floatingClub"> Club </label>
                     </div>
                     
@@ -156,9 +156,8 @@ export const EditMember = () => {
                     </div>
                     
                     <div className='col-12 col-md-4 form-floating mb-3 ps-0'>
-                        <input type={'email'} class="form-control" id="floatingEmail" name='email' onChange={onInputChange} defaultValue={getMember?.correo} onBlur={()=>setemailError(validateEmail(dataForm.email))}></input>
+                        <input type={'email'} class="form-control" id="floatingEmail" name='email' onChange={onInputChange} defaultValue={getMember?.correo} ></input>
                         <label for="floatingEmail"> Email </label>
-                        <div className="text-danger">{emailError}</div>
                     </div>
     
                     <div className='col-12 col-md-4 form-floating mb-3 ps-0'>
